@@ -1,0 +1,47 @@
+Defina o grafo $G$, onde os vértices são os estudantes e
+$$ i \sim j \iff i \text{ é amigo de } j.$$
+
+Sejam $C_1, C_2, \cdots, C_n$ o conjunto dos alunos em cada coluna.
+
+%Se o grupo de estudantes pode ser dividido em $n$ colunas, sem amigos numa mesma coluna, então podemos particionar os vértices de $G$ em $n$ conjuntos $C_1, C_2, \dots, C_n$, onde $C_i = \{\text{alunos na coluna } i\}$. Logo, se o grupo de estudantes pode ser dividido em $n$ colunas numa configuração \textit{bacana}, então o grafo $G$ é $n$-partido.
+
+%De maneira análoga, se o grafo $G$ é $n$-partido em conjuntos $C_1, C_2, \dots, C_n$, podemos colocar os estudantes de $C_i$ na $i$-ésima coluna e então, temos uma configuração \textit{bacana} de colunas. Logo, se o grafo é $n$-partido, então o grupo de estudantes pode ser dividido em $n$ colunas numa configuração \textit{bacana}.
+
+Vamos criar um grafo $G'$, onde os vértices são os estudantes e
+$$ i \to j \iff i \text{ é amigo de } j \text{ e } i \in C_k \text{ e } j \in C_{k+1} \text{ para algum valor de } k,$$
+isto é, as arestas ligam dois amigos de colunas consecutivas, e são orientadas da menor para a maior coluna.
+
+Seja $A$ o conjunto dos vértices $i$ tais que existe um caminho pelas arestas de $G'$ que começa em $i$ e termina em $j$, para algum $j \in C_n$.
+
+\begin{itemize}
+	\item Se $A \cap C_1 \neq \varnothing$:
+
+	Seja $M_1$ um elemento de $A \cap C_1$. Por definição, existe um caminho por $G'$ que conecta $M_1$ com algum vértice de $C_n$. Como as arestas são ordenadas e ligam apenas vértices de colunas consecutivas, esse caminho tem tamanho exatamente $n$ e o $i$-ésimo vértice desse caminho está em $C_i$. Logo, podemos chamar os vértices desse caminho de $M_1, M_2, \dots, M_n$ tais que $M_i \in C_i$ e $M_i$ é amigo de $M_{i+1}$.
+
+	\item Se $A \cap C_1 = \varnothing$:
+
+	Vamos construir uma partição $D = (D_1, D_2, \dots, D_{n-1})$, onde
+	$$D_i = (C_i \cap A^C) \cup (C_{i+1} \cap A).$$
+
+	Note que, como $A \cap C_1 = \varnothing$, então $C_1 \subset D_1$ e, como $C_n \in A$, então $C_n \subset D_{n-1}$. Além disso, os elementos de $C_i$, para $i \not\in \{1, n\}$ estão divididos nos conjuntos $D_{i-1}$ e $D_{i}$, dependendo se o elemento está ou não em $A$. Isso implica que $D$, da forma que foi construido é, de fato, uma partição dos vértices de $G$.
+
+	Vamos mostrar, por absurdo, que cada conjunto $D_i$ não possui elementos $u$ e $v$ tal que $u \sim v$. Suponha que tais $u, v$ existem. Como $D_i = (C_i \cap A^C) \cup (C_{i+1} \cap A)$ dos seguintes casos vale:
+
+	\begin{itemize}
+		\item $u \in C_i \cap A^C$   e $v \in C_i \cap A^C$:
+
+			Mas $u, v \in C_i$     e $u \sim v$. Absurdo.
+
+		\item $u \in C_{i+1} \cap A$ e $v \in C_{i+1} \cap A$:
+
+			Mas $u, v \in C_{i+1}$ e $u \sim v$. Absurdo.
+
+		\item $u \in C_i \cap A^C$   e $v \in C_{i+1} \cap A$:
+
+			Mas $u \in C_i$ e $v \in C{i+1}$. Como $u \sim v$ em $G$, então $u \to v$ em $G'$. Como $v \in A$, existe um caminho $v \to \cdots \to j$, com $j \in C_n$; portanto existe o caminho $u \to v \to \cdots \to j$, então $u \in A$. Mas $u \in A^C$. Absurdo.
+	\end{itemize}
+
+	Logo, não existem arestas dentro de $D_i$, e então se colocarmos os estudantes de $D_i$ na $i$-ésima coluna, conseguimos uma configuração \textit{bacana} com $n-1$ colunas. Absurdo.
+\end{itemize}
+
+Logo, sempre existe o caminho $M_1, M_2, \dots, M_n$ que estamos procurando.

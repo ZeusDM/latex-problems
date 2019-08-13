@@ -1,0 +1,90 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+
+\usepackage{../../commands/problems}
+\renewcommand{\mypath}{../../}
+\usepackage{../../commands/BraunChem}
+
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+
+\newcommand{\ano}{2009}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \ano}
+\chead{\bfseries Olimpíada Brasileira de Química}
+\lhead{\bfseries Modalidade A}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\textwidth}{-0.5cm}
+
+\newcommand{\obq}[1]{
+	\def\ano{#1}
+	\begin{center}
+	\textbf{Parte A - #1}
+	\end{center}
+
+	\begin{enumerate}[label = \textbf{Problema \arabic*.}, align = left, beginpenalty=10000]
+		\item \exercise*{chemistry/brazil/#1/1}
+		\item \exercise*{chemistry/brazil/#1/2}
+		\item \exercise*{chemistry/brazil/#1/3}
+		\item \exercise*{chemistry/brazil/#1/4}
+		\item \exercise*{chemistry/brazil/#1/5}
+		\item \exercise*{chemistry/brazil/#1/6}
+		\item \exercise*{chemistry/brazil/#1/7}
+		\item \exercise*{chemistry/brazil/#1/8}
+		\item \exercise*{chemistry/brazil/#1/9}
+		\item \exercise*{chemistry/brazil/#1/10}
+	\end{enumerate}
+	
+	\newpage
+
+	\begin{center}
+		\textbf{Parte B - #1}
+	\end{center}
+
+	\begin{enumerate}[resume*]
+		\item \exercise*{chemistry/brazil/#1/11}
+ 		\item \exercise*{chemistry/brazil/#1/12}
+		\item \exercise*{chemistry/brazil/#1/13}
+		\item \exercise*{chemistry/brazil/#1/14}
+		\item \exercise*{chemistry/brazil/#1/15}
+		\item \exercise*{chemistry/brazil/#1/16}
+	\end{enumerate}
+
+	\newpage
+}
+
+\begin{document}
+
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
+
+%-------OBQ's--------%
+
+\obq{2009} %ok
+\obq{2010} %ok
+\obq{2011} %ok
+\obq{2012} %ok
+\obq{2013} %ok
+\obq{2014} %ok
+\obq{2015} %ok
+\obq{2016} %ok
+\obq{2017} %ok
+\obq{2018}
+
+\end{document}

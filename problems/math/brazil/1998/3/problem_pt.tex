@@ -1,0 +1,8 @@
+Duas pessoas disputam um jogo da maneira descrita a seguir.
+Inicialmente escolhem dois números naturais: $n \ge 2$ (o número de rodadas) e $t \ge 1$(o incremento máximo).
+Na primeira rodada o jogador $A$ escolhe um natural $m1 > 0$ e, posteriormente, o jogador $B$ escolhe um natural positivo $n1 \neq m1$
+Para $2 \le k \le n$, na rodada $k$ o jogador $A$ escolhe um natural $m_k$ com $m_{k - 1} < m_k \le m{k - 1} + t$ e posteriormente o jogador $B$ escolhe um natural $n_k$ com $n_{k - 1} < n_k \le n_{k - 1} + t$.
+Após essas escolhas, nessa $k$-ésima rodada, o jogador $A$ ganha $\mathrm{mdc}(m_k, n_{k - 1})$ pontos e o jogador $B$ ganha $\mathrm{mdc}(m_k, n_k)$ pontos.
+Ganha o jogo o jogador com maior pontuação total ao fim das $n$ rodadas.
+Em caso de pontuações totais iguais o jogador A é considerado vencedor.
+Para cada escolha de $n$ e $t$, determine qual dos jogadores possui estratégia vencedora.

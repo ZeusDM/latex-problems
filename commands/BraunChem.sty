@@ -1,0 +1,353 @@
+\ProvidesPackage{BraunChem}[2019/01/10 Braun's Chemistry Package]
+
+%------------------------------------------------
+%   PACKAGES
+%------------------------------------------------
+
+\RequirePackage{xcolor, chemfig, twoopt, ifmtarg}
+
+\RequirePackage{chemmacros} % General chemistry package
+\chemsetup{modules=all} % Load all chemmacros modules
+\RequirePackage{upgreek}
+
+\newcommand{\ChemFont}{\small\sffamily}
+
+\chemsetup{formula={chemformula}}
+
+\chemsetup[chemformula]{format=\ChemFont}
+
+%------------------------------------------------
+%   STYLE DEFINITIONS
+%------------------------------------------------
+
+% Style
+
+\newlength{\FixedLenght}
+\newlength{\BoldWidth}
+\newlength{\LineWidth}
+\newlength{\MarginWidth}
+\newlength{\HashSpacing}
+\newlength{\BondSpacing}
+
+\setlength{\FixedLenght}{1.3\fsize}
+\setlength{\BoldWidth}{0.27\fsize}
+\setlength{\LineWidth}{0.054\fsize}
+\setlength{\MarginWidth}{0.145\fsize}
+\setlength{\HashSpacing}{0.18\fsize}
+\setlength{\BondSpacing}{0.236\fsize}
+
+%------------------------------------------------
+%   ENVIRONMENTS
+%------------------------------------------------
+
+\newlength{\RSpacing}
+\setlength{\RSpacing}{\baselineskip}%
+
+\newcommand{\MSpacing}{~}
+
+\newenvironment{Scheme}[1][2.5]{%
+    \setlength{\RSpacing}{#1\baselineskip}%
+    \renewcommand{\MSpacing}{}%
+    \addmargin{\parindent}%
+    \center%
+}{%
+    \endcenter%
+    \endaddmargin%
+    \setlength{\RSpacing}{\baselineskip}%
+}
+
+\newenvironment{Reaction}[1][1]{%
+    \setlength{\RSpacing}{#1\baselineskip}%
+    \renewcommand{\MSpacing}{~}%
+    \align%
+}{%
+    \endalign%
+}
+
+\newcommand{\Molecule}[2][0]{%
+    \raisebox{#1\baselineskip}[\RSpacing][\RSpacing]{%
+        \chemfig{#2}%
+    }%
+}
+
+
+
+\newcommand{\Incog}[2][]{%
+    \raisebox{0pt}[\RSpacing][\RSpacing]{%
+        \ensuremath{\small\begin{matrix}%
+            \ch{\textbf{#2}} \\ #1%
+        \end{matrix}}\MSpacing%
+    }%
+}
+
+\newcommand{\Element}[1]{%
+    \raisebox{0pt}[\RSpacing][\RSpacing]{#1}\MSpacing%
+}
+
+%------------------------------------------------
+%   CHEMFIG SETUP
+%------------------------------------------------
+
+\setchemfig{%
+    chemfig style = {line width = \LineWidth},
+    bond style = {cap = round},
+    atom sep = \FixedLenght,
+    double bond sep = \BondSpacing,
+    bond offset = \MarginWidth,
+    angle increment = 30,
+    %bond join = true,
+    cram width = \BoldWidth,
+    cram dash width = \LineWidth,
+    cram dash sep = \HashSpacing,
+}
+
+\renewcommand*\printatom[1]{\ChemFont #1}
+
+%------------------------------------------------
+%   MACROS
+%------------------------------------------------
+
+\usetikzlibrary{decorations}
+
+\tikzset{mcfbond/.style={line width = \LineWidth}}%
+
+% Drawing circles in aromatic rings. 
+
+\def\mcfcringle#1{% 
+\tikz\draw[mcfbond](0,0)circle(\FixedLenght*#1*0.5);}
+
+% Rendering double and triple bonds
+
+% Rendering parallel bond strokes
+
+\pgfdeclaredecoration{mcfsecondstroke}{initial}{
+  \state{initial}[width=\pgfdecoratedpathlength-1sp]{
+     \pgfmoveto{\pgfpointorigin}
+  }
+  \state{final}{
+     \pgflineto{\pgfpointorigin}
+  }
+}
+
+%------------------------------------------------
+%   COMPLETE SINES DEFINITION
+%------------------------------------------------
+
+\pgfdeclaredecoration{complete sines}{initial}
+{
+    \state{initial}[
+        width=+0pt,
+        next state=sine,
+        persistent precomputation={\pgfmathsetmacro\matchinglength{
+            \pgfdecoratedinputsegmentlength / int(\pgfdecoratedinputsegmentlength/\pgfdecorationsegmentlength)}
+            \setlength{\pgfdecorationsegmentlength}{\matchinglength pt}
+        }] {}
+    \state{sine}[width=\pgfdecorationsegmentlength]{
+        \pgfpathsine{\pgfpoint{0.25\pgfdecorationsegmentlength}{0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathcosine{\pgfpoint{0.25\pgfdecorationsegmentlength}{-0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathsine{\pgfpoint{0.25\pgfdecorationsegmentlength}{-0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathcosine{\pgfpoint{0.25\pgfdecorationsegmentlength}{0.5\pgfdecorationsegmentamplitude}}
+}
+    \state{final}{}
+}
+
+%------------------------------------------------
+%   COLOR DEFINITIONS
+%------------------------------------------------
+
+\colorlet{mcfbgcolor}{white} % Adjust when drawing on a non-white canvas 
+\colorlet{mcfpusharrowcolor}{black}
+\colorlet{mcfatomnocolor}{blue}
+
+%------------------------------------------------
+%   SET STYLES
+%------------------------------------------------ 
+
+\tikzset{ % Set styles
+    % Bond Styles
+    bold bond/.style = {line width = \BoldWidth},
+    dash bond/.style =
+    {
+        dash pattern = on \HashSpacing off \HashSpacing},
+    hash bond/.style =
+    {
+      dash pattern = on \LineWidth off \HashSpacing,
+      line width   = \BoldWidth
+    },
+    mcfwavy/.style =
+    {
+      decorate,
+      decoration =
+        {
+          complete sines,
+          post length = 0 pt,
+          pre length  = 0 pt,
+          % Use chemfig's atom spacing
+          segment length = \the\dimexpr\csname \FixedLenght\endcsname/6\relax,
+          amplitude = \the\dimexpr\csname \FixedLenght\endcsname/10\relax
+        }
+    },
+    % This style is used by the \mcfelmove macro
+    mcfpusharrow/.style = {
+        ->,
+        mcfpusharrowcolor,
+        >=stealth,
+        shorten <=3pt,
+        shorten >=2pt,
+        preaction={draw=mcfbgcolor, -,line width=1.5pt}
+    },
+    %
+    mcfbond/.style = {}, % The chemfig default bond style is empty as well. 
+    % One bond crossing before another - gets a white backdrop as wide as doublesep
+    mcfbgcolor/.style={white},
+    %
+    mcfx/.style 2 args={%
+        preaction={
+            draw,
+            mcfbgcolor,
+            line width=\BondSpacing,
+            shorten <= {#1*\BondSpacing/100},
+            shorten >= {#2*\BondSpacing/100}
+        },
+        mcfbond
+    },
+    %
+    mcfcrossbond/.style={% For backwards compatibility only
+        mcfx={100}{100}
+    },
+    %
+    secondbond/.style 2 args={
+        shorten <= {#1*\BondSpacing/100}, 
+        shorten >= {#2*\BondSpacing/100}, 
+        mcfbond
+    },
+    %
+    secondfgbond/.style 2 args={
+        preaction={draw,-,mcfbgcolor,line width=\BondSpacing},
+        secondbond={#1}{#2}    
+    },
+    %
+    secondleft/.style 2 args={
+        secondbond={#1}{#2},
+        decoration={mcfsecondstroke,raise=\BondSpacing},
+        decorate
+    },
+    %
+    secondright/.style 2 args={
+        secondbond={#1}{#2},
+        decoration={mcfsecondstroke,raise=-\BondSpacing},
+        decorate
+    },
+    %
+    secondfgleft/.style 2 args={
+        secondfgbond={#1}{#2},
+        decoration={mcfsecondstroke,raise=\BondSpacing},
+        decorate
+    },
+    %
+    secondfgright/.style 2 args={
+        secondfgbond={#1}{#2},
+        decoration={mcfsecondstroke,raise=-\BondSpacing},
+        decorate
+    },
+    %
+    dbl/.style 2 args={
+      preaction={draw,secondleft={#1}{#2}}
+    },
+    %
+    dbr/.style 2 args={
+      preaction={draw,secondright={#1}{#2}}
+    },
+    %
+    trpl/.style 2 args={
+      preaction={draw,secondleft={#1}{#2}},
+      preaction={draw,secondright={#1}{#2}}
+    },
+    %
+    dblx/.style n args={4}{
+      preaction={draw,secondfgleft={#1}{#2}},
+      mcfx={#3}{#4}
+    },
+    %
+    dbrx/.style n args={4}{
+      preaction={draw,secondfgright={#1}{#2}},
+      mcfx={#3}{#4}
+    },
+    %
+    trplx/.style n args={4}{
+      preaction={draw,secondfgleft={#1}{#2}},
+      preaction={draw,secondfgright={#1}{#2}},
+      mcfx={#3}{#4}
+    },
+    %
+    drh/.style={dbr={58}{58}},
+    dlh/.style={dbl={58}{58}},
+    drhs/.style={dbr={58}{0}},
+    dlhs/.style={dbl={58}{0}},
+    drhe/.style={dbr={0}{58}},
+    dlhe/.style={dbl={0}{58}},
+    drn/.style={dbr={0}{0}},
+    dln/.style={dbl={0}{0}}
+}
+
+%------------------------------------------------
+%   DRAWING PUSH ARROWS
+%------------------------------------------------ 
+
+\newcommand{\mcfelmove}[5][]{%
+\node at (0,0) {% 
+\chemmove{\draw[mcfpusharrow,#1](#2).. controls +(#3) and +(#5)..(#4);%
+}};}
+
+\newcommandtwoopt{\mcfpush}[6][][]{% 
+\@ifmtarg{#2}{
+    \@ifmtarg{#1}{\mcfelmove{#3}{#4}{#5}{#6}}
+                 {\mcfelmove[shorten <=#1]{#3}{#4}{#5}{#6}}
+}{% #2 
+    \@ifmtarg{#1}{\mcfelmove[shorten >=#2]{#3}{#4}{#5}{#6}}
+                 {\mcfelmove[shorten <=#1, shorten >=#2]{#3}{#4}{#5}{#6}}
+}}
+
+%------------------------------------------------
+%   STACKING ATOMS HORIZONTALY AND VERTICALY
+%------------------------------------------------ 
+
+\newlength{\mcfvspace}
+\setlength{\mcfvspace}{1.5pt}
+
+\newcommand{\mcfabove}[2]{\chemabove[\mcfvspace]{#1}{#2}}
+\newcommand{\mcfbelow}[2]{\chembelow[\mcfvspace]{#1}{#2}}
+
+\newlength{\mcf@boxwidth}
+\newlength{\mcf@boxheight}
+
+\newcommand{\mcf@box}[3][l]{
+\settowidth{\mcf@boxwidth}{\printatom{#2}}
+\settoheight{\mcf@boxheight}{\printatom{#2}}
+\makebox[\mcf@boxwidth][#1]{\raisebox{0pt}[\mcf@boxheight][0pt]{\printatom{#3}}}}
+
+\newcommand{\mcfleft}[2]{\mcf@box[r]{#2}{#1#2}}
+\newcommand{\mcfright}[2]{\mcf@box{#1}{#1#2}}
+
+\newcommand{\mcfaboveright}[3]{\mcfabove{#1}{\mcf@box{#2}{#2#3}}}
+\newcommand{\mcfbelowright}[3]{\mcfbelow{#1}{\mcf@box{#2}{#2#3}}}
+
+%------------------------------------------------
+%   CHARGES AND ATOM NUMBERS
+%------------------------------------------------ 
+
+% Charges 
+
+\newcommand{\mcfplus}{+}
+\newcommand{\mcfminus}{-}
+
+% atom numbers (used when option atom-numbers is selected)
+
+\newcommand{\mcfatomno}[1]%
+{\raisebox{2pt}{\color{mcfatomnocolor}{\ensuremath{\mathsf{_{#1}}}}}}
+
+%------------------------------------------------
+%   DIRECT PROCESSING OF MOL2CHEMFIG INPUTS
+%------------------------------------------------
+
+%\newcommand{\mcfinput}[1]{\@@input|"mol2chemfig #1"}

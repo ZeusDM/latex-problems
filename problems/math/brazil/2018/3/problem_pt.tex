@@ -1,0 +1,7 @@
+Sejam $k, n$ inteiros positivos fixados. Em uma mesa circular, são colocados $n$ pinos numerados sucessivamente com os números $1, \dots, n$, com $1$ e $n$ vizinhos. Sabe-se que o pino 1 é dourado e os demais são brancos. \playerA{Arnaldo} e \playerB{Bernaldo} jogam um jogo, em que uma argola é colocada inicialmente em um dos pinos e a cada passo ela muda de posição. O jogo começa com \playerB{Bernaldo} escolhendo com pino inicial para a argola, e o primeiro passo consiste no seguinte: \playerA{Arnaldo} escolhe um inteiro positivo $d$ qualquer e \playerB{Bernaldo} desloca a argola $d$ pinos no sentido horário ou no sentido anti-horário (as posições são consideradas módulo $n$, ou seja, os pinos $x, y$ são iguais se e somente se $n$ divide $x-y$). Após isso, a argola muda de pinos de acordo com uma das seguintes regras, a ser escolhida em cada passo por \playerA{Arnaldo}.
+
+\textbf{Regra 1:} \playerA{Arnaldo} escolhe um inteiro positivo $d$ qualquer e \playerB{Bernaldo} desloca a argola $d$ pinos no sentido horário ou no sentido anti-horário.
+
+\textbf{Regra 2:} \playerA{Arnaldo} escolhe um sentido (horário ou anti-horário), e \playerB{Bernaldo} desloca a argola nesse sentido em $d$ ou $kd$ pinos, onde $d$ é o tamanho do último deslocamento realizado.
+
+\playerA{Arnaldo} vence se, após um número finito de passos, a argola é deslocada para o pino dourado. Determine, em função de $k$, os valores de $n$ para os quais \playerA{Arnaldo} possui uma estratégia que garanta sua vitória, não importando como \playerB{Bernaldo} jogue.

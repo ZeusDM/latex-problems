@@ -1,0 +1,158 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+
+\usepackage{../../commands/problems}
+\renewcommand{\mypath}{../../}
+
+\title{Resolvendo a IMO 2019}
+\date{\today}
+\author{Guilherme Zeus Moura}
+
+\begin{document}
+	\maketitle
+	\section*{Problemas}
+	\begin{enumerate}
+		\item \exercise*{math/imo/2019/1}
+		\item \exercise*{math/imo/2019/2}
+		\item \exercise*{math/imo/2019/3}
+		\item \exercise*{math/imo/2019/4}
+		\item \exercise*{math/imo/2019/5}
+		\item \exercise*{math/imo/2019/6}
+	\end{enumerate}
+
+	\section*{Problema 1 - Equação Funcional}
+
+	A ideia é sempre explorar a equação funcional.
+
+	$$f(2a) + 2f(b) = f(f(a + b)).$$
+
+	Uma das ideias pra começar é ``chutar'' a resposta. Isso é bastante legal para guiar a solução, porém tem que tomar algum cuidado com isso, pois nem sempre todas as soluções são triviais de achar.
+
+	$f(x) \equiv 0$ e $f(x) \equiv 2x$ são funções que funcionam. Outra função um pouco menos fácil de ver que funciona é $f(x) \equiv 2x + c$, para qualquer constante inteira $c$.
+	Não achar essa terceira solução pode guiar a sua solução a achar $f(0) = 0$ (que não é verdade).
+
+	Enfim, vamos tentar jogar alguns valores para $a$ ou para $b$ e explorar a ``simetria'' do problema:
+
+	Jogando $a = 0$ e $b = n$:
+
+	$$f(0) + 2f(n) = f(f(n))$$
+
+	Jogando $a = n$ e $b = 0$:
+
+	$$f(2n) + 2f(0) = f(f(n))$$
+
+	Fazer isso é maneiro pois os lados esquerdos são iguais, logo:
+
+	$$2f(n) = f(2n) + f(0)$$
+
+	Uma coisa maneira de notar é que isso é uma propriedade das progressões aritméticas. Além disso, relaciona $f(n)$ com $f(2n)$, que são expressões que aparecem na equação original. Usando essa informação na original:
+
+	$$2f(a) + 2f(b) = f(0) + f(f(a+b))$$
+
+	Mas, fazendo $b=0$:
+
+	$$2f(a) + f(0) = f(f(a))$$
+
+	Aqui, dá pra ver que a solução está no caminho certo, pois as expressões ``base'' na equação original, $f(2n)$ e $f(f(n))$ estão agora em função de $f(n)$. Substituindo na original, $f(2a) + 2f(b) = f(f(a + b))$ vira:
+
+	$$2f(a) + 2f(b) = 2f(0) + 2f(a+b)$$
+
+	$$f(a) + f(b) = f(0) + f(a+b)$$
+
+	Como a ideia é mostrar que é P.A., jogar $b=1$ relaciona $f(a)$ e $f(a+1)$:
+
+	$$f(a+1) - f(a) = f(1) - f(0)$$
+
+	Que implica que é uma P.A. $\implies f(x) \equiv mx + q$. Jogando de volta na original:
+
+	$$(2ma + q) + 2(mb + q) = m(ma + mb + q) + q$$
+
+	$$2ma + 2mb + 3q = m^2a + m^2b + (m+1)q$$
+
+	Jogando $a = b = 0 \implies$ $m = 2$ ou $q = 0$.
+
+	\begin{itemize}
+		\item[$m = 2$:] A equação é válida para qualquer $q$ $\implies f(x) \equiv 2x + q$ funciona.
+		\item[$q = 0$:] Jogando $a = 1$, $b = 0$ $\implies$ $2m = m^2$. Então, $m=2$, que é o caso acima, ou $m=0$, que é o caso $f(x) \equiv 0$. 
+	\end{itemize}
+
+	\subsection*{Final Alternativo usando Cauchy}
+
+	O que é a Equação de Cauchy? Se vale: $f : \QQ \to \QQ$
+
+	$$f(a) + f(b) = f(a+b),$$
+
+	então, a solução é:
+	$$f(x) = mx.$$
+
+	Voltando ao problema, usando a função $g(x) = f(x) - f(0)$, achamos a relação $g(a) + g(b) = g(a+b)$, que implica $g(x) = mx$ e, portanto, $f(x) = mx + q$. (E a solução segue daí.)
+
+	Parece meio carteado para esse problema, mas a equação de Cauchy é um resultado bem importante em equações funcionais.
+
+	\section*{Problema 4 - Teoria dos Números}
+
+	Esse problema usa uma ideia bem maneira de teoria dos números: contar os fatores primos.
+
+	Usando $\nu_p(n)$ como o maior $k$ tal que $p^k$ divide $n$, podemos resolver esse problema usando o $\nu_2$ e o $\nu_3$. Em outras palavras, contando o número de fatores 2 e 3 em cada um dos lados.
+
+	$$k! = (2^n - 1)(2^n - 2)(2^n - 4)\cdots(2^n-2^{n-1})$$
+
+	Colocando os fatores 2 em evidência:
+
+	$$k! = 2^{1+2+3+\cdots+(n-1)}(2^n - 1)(2^{n-1} - 1)(2^{n-2} - 1)\cdots(2-1)$$	
+
+	\begin{itemize}
+		\item Calculando o $\nu_2$:
+
+		$$\nu_2(LE) = \floor{\frac{k}{2}} + \floor{\frac{k}{4}} + \cdots < \frac{k}{2} + \frac{k}{4} + \cdots = k$$
+
+		$$\nu_2(LD) = 0 + 1 + \cdots + (n-1) = \frac{n(n-1)}{2}$$
+
+		Logo: $n(n-1) < 2k$
+
+		\item Calculando o $\nu_3$:
+
+		$$\nu_3(LE) = \floor{\frac{k}{3}} + \floor{\frac{k}{9}} + \cdots \ge \floor{\frac{k}{3}} \ge \frac{k-2}{3}$$
+
+		Quanto é $\nu_3(2^n-1)$?
+
+		Se $n = 2t + 1 \implies 2^{2t+1} - 1 = 4^t \cdot 2 - 1 \equiv 2 - 1 = 1 \pmod{3}$. Logo, $\nu_3(2^{2t+1}-1) = 0$. 
+
+		Se $n = 2t \implies 2^{2t} - 1 = 4^t - 1 \equiv 2 - 1 = 0 \pmod{3}$. Podemos aplicar o Teorema do Levantamento de Expoente, que implica:
+
+		$$\nu_3(4^t-1) = \nu_3(t) + \nu_3(4-1) = \nu_3(t) + 1.$$
+
+		Agora, podemos calcular o $\nu_3$ do lado direito. Chamando $n = 2t$ ou $n = 2t+1$:
+
+		$$\nu_3(LD) = \nu_3(t) + \nu_3(t-1) + \cdots \nu_3(1) + t = t + \left ( \floor{\frac{t}{3}} + \floor{\frac{t}{9}} + \cdots \right )$$
+
+		$$\nu_3(LD) < \frac{t}{3} + \frac{t}{9} + \cdots = \frac{t}{2} \le \frac{n}{4} $$
+
+		Isso implica que:
+
+		$$ 2k < \frac{3n}{2} + 4 $$
+	\end{itemize}
+
+	Juntando as duas informações:
+
+	$$ 2n(n-1) < 3n + 8 \implies n < 4$$
+
+	Basta testar:
+
+	\begin{itemize}
+		\item $n = 1 \implies k! = 2 - 1 = 1 = 1! \implies (1,1)$ é solução. 
+		\item $n = 2 \implies k! = (4 - 1)(4 - 2) = 6 = 3! \implies (3,2)$ é solução. 
+		\item $n = 3 \implies k! = (8 - 1)(8 - 2)(8 - 4) = 7\cdot4!$ Absurdo. 
+	\end{itemize}
+
+	Logo, as soluções são $(1,1)$ e $(3,2)$.
+
+\end{document}

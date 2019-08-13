@@ -1,0 +1,5 @@
+ For a positive integer $n$, we define its square-free part $S(n)$ to be the smallest positive integer $a$ such that $n/a$ is a square of an integer.  In other words, $S(n)$ is the product of all primes having odd exponents in the prime expansion of $n$.  We also agree that S(0) = 0. Now we show that (i) on any move of \playerA{Amy}, \playerA{Amy} does not increase the square-free part of the positive integer on the board; and (ii) on any move of \playerB{Bob}, \playerB{Bob} always can replace a positive integer $n$ with a non-negative integer $k$ with $S(k) < S(n)$.  Thus, if the game starts by a positive integer $N$, Bob can win in at most $S(N)$ moves.
+
+Part (i): the definition of the square-part yields $S(n^k) = S(n)$ whenever $k$ is odd, and $S(n^k) = 1 \le S(n)$ whenever $k$ is even, for any positive integer $n$.
+
+Part (ii):  if, before \playerB{Bob}’s move, the board contains a number $n=S(n)\cdot b^2$, then \playerB{Bob} may replace it with $n′= n - b^2= (S(n) - 1)\cdot b^2$, whence $ S(n′) \le S(n)-1 < S(n).$

@@ -1,0 +1,9 @@
+Suponha que $n$ divide $a_k(a_1-1)$.
+
+Sabemos que: $a_i \equiv a_ia_{i+1} \pmod{n}$, tomando índices $\mod{k}$.
+Temos que: $a_1 \equiv a_1a_2 \equiv a_1a_2a_3 \equiv \cdots \equiv a_1a_2a_3\cdots a_k \pmod{n}$.
+Mas também: $a_2 \equiv a_2a_3 \equiv a_2a_3a_4 \equiv \cdots \equiv a_2a_3\cdots a_ka_1 \pmod{n}$.
+Logo: $a_1 \equiv a_2 \pmod{n}$. Como $a_1, a_2 \in \{1, 2, \cdots, n\}$, concluímos que $a_1 = a_2$.
+Absurdo, pois $a_1$ e $a_2$ são distintos.
+
+Portanto, como queríamos demonstrar, $n$ não divide $a_k(a_1-1)$.

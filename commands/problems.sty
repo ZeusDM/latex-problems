@@ -1,0 +1,60 @@
+\RequirePackage{suffix}
+\RequirePackage{enumitem}
+\RequirePackage{xcolor}
+\RequirePackage{import}
+
+% Definindo /exercise e /solution
+
+\newcommand{\mypath}{../../}
+\newcommand{\id}[1]{}
+
+\newcommand{\exercise}[1]{
+		\IfFileExists{\mypath problems/#1/source_pt.tex}{(\input{\mypath problems/#1/source_pt.tex}\unskip)}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{(\input{\mypath problems/#1/source_en.tex}\unskip)}{%
+		\IfFileExists{\mypath problems/#1/source.tex}{(\input{\mypath problems/#1/source.tex}\unskip)}{%
+		\IfFileExists{\mypath problems/#1/../source_pt.tex}{(\input{\mypath problems/#1/../source_pt.tex}\unskip)}{%
+		\IfFileExists{\mypath problems/#1/../source_en.tex}{(\input{\mypath problems/#1/../source_en.tex}\unskip)}{%
+		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
+		}}}}}}
+		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
+		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\id{#1}%
+}
+
+\WithSuffix\newcommand\exercise*[1]{%
+		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
+		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\id{#1}%
+}
+
+\newcommand{\solution}[1]{
+		\IfFileExists{\mypath problems/#1/solution_pt.tex}{\subimport{\mypath problems/#1/}{solution_pt.tex}}{%
+		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\id{#1}%
+}
+
+% Definindo nomes especiais para os jogadores em problemas de jogos
+
+\newcommand{\playerA}[1]{#1}
+
+\newcommand{\playerB}[1]{#1}
+
+\newcommand{\playerC}[1]{#1}
+
+\newcommand{\playerD}[1]{#1}
+
+% Definindo expressões matemáticas em português
+
+\newcommand{\sen}{\hspace{2pt}\mathrm{sen}}
+\newcommand{\tg}{\hspace{2pt}\mathrm{tg}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+
+\newcommand{\e}{\text{\ e\ }}
+
+\newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
+\newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
