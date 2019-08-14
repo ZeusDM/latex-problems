@@ -1,0 +1,167 @@
+\item[\textbf{C1.}]
+A house has an even number of lamps distributed among its rooms in such a way that there are at least three lamps in every room. Each lamp shares a switch with exactly one other lamp, not necessarily from the same room. Each change in the switch shared by two lamps changes their states simultaneously. Prove that for every initial state of the lamps there exists a sequence of changes in some of the switches at the end of which each room contains lamps which are on as well as lamps which are off.
+
+\item[\textbf{C2.}]
+This ISL 2005 problem has not been used in any TST I know. A pity, since it is a nice problem, but in its shortlist formulation, it is absolutely incomprehensible. Here is a mathematical restatement of the problem:
+
+
+Let 
+$k$
+ be a nonnegative integer.
+
+
+A forest consists of rooted (i. e. oriented) trees. Each vertex of the forest is either a leaf or has two successors. A vertex 
+$v$
+ is called an 
+extended successor
+ of a vertex 
+$u$
+ if there is a chain of vertices 
+$u_{0}=u$,
+$u_{1}$, 
+$u_{2}$, 
+$\dots$, 
+$u_{t-1}$, 
+$u_{t}=v$
+ with 
+$t>0$
+ such that the vertex 
+$u_{i+1}$
+ is a successor of the vertex 
+$u_{i}$
+ for every integer 
+$i$
+ with 
+$0\leq i\leq t-1$.
+ A vertex is called 
+dynastic
+ if it has two successors and each of these successors has at least 
+$k$
+ extended successors.
+
+
+Prove that if the forest has 
+$n$
+ vertices, then there are at most 
+$\frac{n}{k+2}$
+ dynastic vertices.
+
+\item[\textbf{C3.}]
+Consider a 
+$m\times n$
+ rectangular board consisting of 
+$mn$
+ unit squares. Two of its unit squares are called 
+adjacent
+ if they have a common edge, and a 
+path
+ is a sequence of unit squares in which any two consecutive squares are adjacent. Two parths are called 
+non-intersecting
+ if they don't share any common squares.
+
+
+Each unit square of the rectangular board can be colored black or white. We speak of a 
+coloring
+ of the board if all its 
+$mn$
+ unit squares are colored.
+
+
+Let 
+$N$
+ be the number of colorings of the board such that there exists at least one black path from the left edge of the board to its right edge. Let 
+$M$
+ be the number of colorings of the board for which there exist at least two non-intersecting black paths from the left edge of the board to its right edge.
+
+
+Prove that 
+$N^{2}\geq M\cdot 2^{mn}$.
+
+\item[\textbf{C4.}]
+Let 
+$n\geq 3$
+ be a fixed integer. Each side and each diagonal of a regular 
+$n$-gon is labelled with a number from the set 
+$\left\{1;\;2;\;...;\;r\right\}$
+ in a way such that the following two conditions are fulfilled:
+1.
+ Each number from the set 
+$\left\{1;\;2;\;...;\;r\right\}$
+ occurs at least once as a label.
+2.
+ In each triangle formed by three vertices of the 
+$n$-gon, two of the sides are labelled with the same number, and this number is greater than the label of the third side.
+(a)
+ Find the maximal 
+$r$
+ for which such a labelling is possible.
+(b)
+ 
+Harder version (IMO Shortlist 2005):
+ For this maximal value of 
+$r$, 
+ how many such labellings are there?
+Easier version (5th German TST 2006) - contains answer to the harder version
+Easier version (5th German TST 2006):
+ Show that, for this maximal value of 
+$r$, 
+ there are exactly 
+$\frac{n!\left(n-1\right)!}{2^{n-1}}$
+ possible labellings.
+
+\item[\textbf{C5.}]
+There are 
+$ n$
+ markers, each with one side white and the other side black. In the beginning, these 
+$ n$
+ markers are aligned in a row so that their white sides are all up. In each step, if possible, we choose a marker whose white side is up (but not one of the outermost markers), remove it, and reverse the closest marker to the left of it and also reverse the closest marker to the right of it. Prove that, by a finite sequence of such steps, one can achieve a state with only two markers remaining if and only if 
+$ n - 1$
+ is not divisible by 
+$ 3$.
+
+\item[\textbf{C6.}]
+In a mathematical competition, in which 
+$6$
+ problems were posed to the participants, every two of these problems were solved by more than 
+$\frac 25$
+ of the contestants. Moreover, no contestant solved all the 
+$6$
+ problems. Show that there are at least 
+$2$
+ contestants who solved exactly 
+$5$
+ problems each.
+Radu Gologan and Dan Schwartz
+
+\item[\textbf{C7.}]
+Suppose that 
+$ a_1$, 
+$ a_2$, 
+$ \ldots$, 
+$ a_n$
+ are integers such that 
+$ n\mid a_1 + a_2 + \ldots + a_n$.
+
+Prove that there exist two permutations 
+$ \left(b_1,b_2,\ldots,b_n\right)$
+ and 
+$ \left(c_1,c_2,\ldots,c_n\right)$
+ of 
+$ \left(1,2,\ldots,n\right)$
+ such that for each integer 
+$ i$
+ with 
+$ 1\leq i\leq n$, 
+ we have
+\[ n\mid a_i - b_i - c_i
+\]
+
+\item[\textbf{C8.}]
+Suppose we have a 
+$n$-gon. Some 
+$n-3$
+ diagonals are coloured black and some other 
+$n-3$
+ diagonals are coloured red (a side is not a diagonal), so that no two diagonals of the same colour can intersect strictly inside the polygon, although they can share a vertex. Find the maximum number of intersection points between diagonals coloured differently strictly inside the polygon, in terms of 
+$n$.
+
