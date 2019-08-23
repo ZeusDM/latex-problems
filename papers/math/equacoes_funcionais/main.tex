@@ -1,0 +1,89 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problema}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\newcommand{\problema}[1]{
+	\begin{problem}
+		\exercise{#1}
+	\end{problem}
+}
+
+\title{Equações Funcionais}
+\date{22 de agosto de 2019}
+\author{Guilherme Zeus Moura}
+
+\begin{document}	
+	{\noindent \, \large \sc Turma Olímpica}
+	\hfill
+	{\sc \today}
+	\vspace{3mm}
+	\hrule
+ 	\hrule
+ 	\vspace{0mm}
+	\begin{center}
+		{\Large Equações Funcionais}\\\vspace{1mm}
+		{\large Guilherme Zeus Moura}\\\vspace{0mm}
+		{zeusdanmou@gmail.com}
+	\end{center}
+	\vspace{0mm}
+	\hrule
+	\hrule
+ 	\vspace{2mm}
+
+	\section{Ideias úteis}
+	\begin{enumerate}[label = (\alph*)]
+		\item Procurar algumas soluções para saber o que tentar provar.
+		\item Injetividade, sobretetividade, paridade, $\dots$
+		\item Explorar quasi-simetrias.
+		\item Resolver para $\mathbb{Z}$, extender para $\mathbb{Q}$ e extender para $\mathbb{R}$.
+	\end{enumerate}
+	\section{Problemas}
+	\begin{problem}
+		Encontre todas as funções $f: \RR \to \RR$ tais que
+		$$ 2f(x) + f(1-x) = 1 + x$$
+		para todo $x$ real.
+	\end{problem}
+	\problema{math/brazil/rio/2006/4}
+	\begin{problem}
+		(Cauchy)
+		Encontre todas as funções $f: \mathbb{Q} \to \mathbb{Q}$ tais que
+		$$ f(x+y) = f(x) + f(y).$$
+	\end{problem}
+	\problema{math/imo/2019/1}
+	\begin{problem}
+		Encontre todas as funções $f: \RR \in \RR$ tais que $f(0) = 1$ e
+		$$ f(xy + 1) = f(x)f(y) - f(y) - x + 2$$
+		para todos os $x$ e $y$ reais.
+	\end{problem}
+	\begin{problem}
+		(2018 IMO Canada Training)
+		Encontre todas as funções $f: \mathbb{Z} \to \mathbb{Z}$ tais que
+		$$ f(x - f(y)) = f(f(x)) - f(y) - 1$$
+		para todos os $x$ e $y$ inteiros.
+	\end{problem}
+	\problema{math/imo/2010/1}
+	\problema{math/imo/2002/5}
+	\problema{math/brazil/mo/2010/1}
+	\problema{math/brazil/mo/1998/5}
+	\problema{math/imo/2004/2}
+	\problema{math/imo/2009/5}
+	\problema{math/imo/1999/6}
+	\problema{math/brazil/mo/2013/3}	
+	\problema{math/brazil/mo/2012/6}
+	\problema{math/brazil/mo/2006/3}
+
+\end{document}
