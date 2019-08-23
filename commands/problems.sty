@@ -33,6 +33,20 @@
 		\id{#1}%
 }
 
+\newcommand{\source}[1]{
+			\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{%
+		}}}}}}
+}
+
+% Definindo problema com amsthm
+
+
+
 % Definindo nomes especiais para os jogadores em problemas de jogos
 
 \newcommand{\playerA}[1]{#1}
