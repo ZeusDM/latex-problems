@@ -11,6 +11,13 @@
 \usepackage{siunitx}
 \usepackage{fancyhdr}
 \usepackage{chemfig}
+\usepackage{icomma}
+\usepackage{calc}
+\sisetup{output-decimal-marker = {,}}
+
+\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
+\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
+
 
 \usepackage{../../../commands/problems}
 \renewcommand{\mypath}{../../../}
