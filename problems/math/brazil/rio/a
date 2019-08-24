@@ -1,10 +1,28 @@
 for i in {1998..2017};
 do
-    mkdir $i
-    echo "OMERJ $i" >> $i/source_pt.tex
-    echo "Rio $i" >> $i/source_en.tex
-	for j in {1..6}
-	do
-		mkdir $i/$j
-	done
+	mkdir $i
+	mkdir $i/N3
+	mkdir $i/N4
+	mkdir $i/NU
+	rm $i/source_pt.tex
+	rm $i/source_en.tex
+	rm $i/N3/source_pt.tex
+	rm $i/N3/source_en.tex
+	rm $i/N4/source_pt.tex
+	rm $i/N4/source_en.tex
+	rm $i/NU/source_pt.tex
+	rm $i/NU/source_en.tex
+	echo "OMERJ $i - N3" >> $i/N3/source_pt.tex
+	echo "Rio $i - N3" >> $i/N3/source_en.tex
+	echo "OMERJ $i - N4" >> $i/N4/source_pt.tex
+	echo "Rio $i - N4" >> $i/N4/source_en.tex
+	echo "OMERJ $i - NU" >> $i/NU/source_pt.tex
+	echo "Rio $i - NU" >> $i/NU/source_en.tex
+		for j in {1..6}
+		do
+			rmdir $i/$j
+			mkdir $i/N3/$j
+			mkdir $i/N4/$j
+			mkdir $i/NU/$j
+		done
 done

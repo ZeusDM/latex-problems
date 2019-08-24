@@ -1,0 +1,13 @@
+for i in {2012..2019};
+do
+    mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    rm $i/source.tex
+    echo "EGMO $i" >> $i/source_pt.tex
+    echo "EGMO $i" >> $i/source_en.tex
+	for j in {1..6}
+	do
+		mkdir $i/$j
+	done
+done

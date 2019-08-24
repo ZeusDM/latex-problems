@@ -1,0 +1,8 @@
+Seja $f(n)$ o número de formas de pegar um consjunto $S$ de $n$ elementos e, se $S$ tiver mais que um elemento, particionar $S$ em dois subconjuntos disjuntos não vazios $S_1$ e $S_2$, e então pegar um dos conjuntos $S_1$ ou $S_2$ com mais que um elemento e particionar em dois subconjuntos disjuntos não  vazios $S_3$ e $S_4$, então pegar um dos conjuntos restantes com mais de um elemento não ainda particionado e particionar em dois subconjuntos disjuntos não vazios, etc., sempre pegando um conjunto com mais de um elemento até sobrar somente conjuntos unitários.
+
+Por examplo, podemos começar com $12345678$ (abreviação de $\{1, 2, 3, 4, 5, 6, 7, 8\}$), e então particioná-lo em $126$ e $34578$, depois particionar $34578$ em $4$ e $3578$; $126$ em $6$ e $12$; $3578$ em $37$ e $58$; $58$ em $5$ e $8$; $12$ em $1$ e $2$; e finalmente, $37$ em $3$ e $7$.
+
+(A ordem da partição dos conjuntos é importante; por exemplo, particionar $1234$ em $12$ e $34$; $12$ em $1$ e $2$; $34$ em $3$ e $4$, é diferente de particionar $1234$ em $12$ e $34$; $34$ em $3$ e $4$, e $12$ em $1$ e $2$.
+Porém, particionar $1234$ em $12$ e $34$ é o mesmo que particioná-lo em $34$ e $12$.)
+
+Ache o termo geral de $f(n)$. Por exemplo, $f(1) = 1$, $f(2) = 1$, $f(3) = 3$, e $f (4) = 18$.

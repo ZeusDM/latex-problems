@@ -1,0 +1,13 @@
+for i in {1985..2019};
+do
+	mkdir $i
+	rm $i/source_pt.tex
+	rm $i/source_en.tex
+	rm $i/source.tex
+	echo "Ibero $i" >> $i/source_pt.tex
+	echo "IberoAmerican $i" >> $i/source_en.tex	
+		for j in {1..6}
+		do
+			mkdir $i/$j
+		done
+done
