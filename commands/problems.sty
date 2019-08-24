@@ -1,12 +1,119 @@
+\ProvidesPackage{problems}
+
+%--------
+%
+% Options
+%
+%--------
+
+% global / persection
+%
+% Defines if the amsthm is numbered through the whole file or per section
+
+\newif\ifmypackage@amsthmglobal
+\DeclareOption{global}{\mypackage@amsthmglobaltrue}
+\DeclareOption{persection}{\mypackage@amsthmglobalfalse}
+
+% id / noid
+%
+% Defines if the path of each problem is shown or not
+
+\newif\ifmypackage@showid
+\DeclareOption{noid}{\mypackage@showidfalse}
+\DeclareOption{id}{\mypackage@showidtrue}
+
+\ExecuteOptions{noid, global}
+
+\ProcessOptions\relax
+
+%-----------------
+%
+% Require Packages
+%
+%-----------------
+
+\RequirePackage{babel}
 \RequirePackage{suffix}
 \RequirePackage{enumitem}
 \RequirePackage{xcolor}
 \RequirePackage{import}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{graphicx}
+\RequirePackage{enumitem}
+\RequirePackage{url}
+\RequirePackage{siunitx}
 
-% Definindo /exercise e /solution
+%----------
+%
+% zeustitle
+%
+%----------
 
-\newcommand{\mypath}{../../}
+% Defines a substitute for \maketitle
+
+\newcommand{\ZeusMail}{}
+\newcommand{\ZeusTitleL}{}
+\newcommand{\ZeusTitleR}{}
+\newcommand{\ZeusAuthor}{}
+\newcommand{\ZeusTitle}{}
+
+\renewcommand{\title}[1]{
+	\def\@title{#1}
+	\def\ZeusTitle{#1}
+}
+\renewcommand{\author}[1]{
+	\def\@author{#1}
+	\def\ZeusAuthor{#1}
+}
+\newcommand{\mail}[1]{
+	\def\ZeusMail{#1}
+}
+\newcommand{\titlel}[1]{
+	\def\ZeusTitleL{#1}
+}
+\newcommand{\titler}[1]{
+	\def\ZeusTitleR{#1}
+}
+
+\newcommand{\zeustitle}{
+	{\noindent \, \large \sc \ZeusTitleL}
+	\hfill
+	{\sc \ZeusTitleR}
+	\vspace{3mm}
+	\hrule
+ 	\hrule
+ 	\vspace{0mm}
+	\begin{center}
+		{\Large \@title}\\\vspace{1mm}
+		{\large \@author}\\\vspace{0mm}
+		{\ZeusMail}
+	\end{center}
+	\vspace{0mm}
+	\hrule
+	\hrule
+ 	\vspace{2mm}
+}
+
+%--------------------
+%
+% exercise e solution
+%
+%--------------------
+
+% Defines how to get exercises and solutions from the database
+
+\newcommand{\mypath}{}
 \newcommand{\id}[1]{}
+\ifmypackage@showid
+	\renewcommand{\id}[1]{
+		
+		{\noindent}  \hfill \textcolor{blue}{\texttt{Path: \path{#1}}}
+
+	}
+\fi
 
 \newcommand{\exercise}[1]{
 		\IfFileExists{\mypath problems/#1/source_pt.tex}{(\input{\mypath problems/#1/source_pt.tex}\unskip)}{%
@@ -17,7 +124,7 @@
 		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
 		}}}}}}
 		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem \path{#1} not found!}}}%
 		\id{#1}%
 }
 
@@ -43,11 +150,93 @@
 		}}}}}}
 }
 
-% Definindo problema com amsthm
+%-------------------------------------------
+%
+% Definindo theorem-like amsthm environments
+%
+%-------------------------------------------
+
+\newcommand{\theoremname}{}
+\newcommand{\lemmaname}{}
+\newcommand{\propositionname}{}
+\newcommand{\corollaryname}{}
+\newcommand{\definitionname}{}
+\newcommand{\conjecturename}{}
+\newcommand{\examplename}{}
+\newcommand{\problemname}{}
+\newcommand{\remarkname}{}
+\newcommand{\notename}{}
+
+\addto\captionsenglish{\renewcommand{\theoremname}{Theorem}}
+\addto\captionsenglish{\renewcommand{\lemmaname}{Lemma}}
+\addto\captionsenglish{\renewcommand{\propositionname}{Proposition}}
+\addto\captionsenglish{\renewcommand{\corollaryname}{Corollary}}
+\addto\captionsenglish{\renewcommand{\definitionname}{Definition}}
+\addto\captionsenglish{\renewcommand{\conjecturename}{Conjecture}}
+\addto\captionsenglish{\renewcommand{\examplename}{Exemple}}
+\addto\captionsenglish{\renewcommand{\problemname}{Problem}}
+\addto\captionsenglish{\renewcommand{\remarkname}{Remark}}
+\addto\captionsenglish{\renewcommand{\notename}{Note}}
+
+\addto\captionsbrazilian{\renewcommand{\theoremname}{Teorema}}
+\addto\captionsbrazilian{\renewcommand{\lemmaname}{Lema}}
+\addto\captionsbrazilian{\renewcommand{\propositionname}{Proposição}}
+\addto\captionsbrazilian{\renewcommand{\corollaryname}{Corolário}}
+\addto\captionsbrazilian{\renewcommand{\definitionname}{Definição}}
+\addto\captionsbrazilian{\renewcommand{\conjecturename}{Conjectura}}
+\addto\captionsbrazilian{\renewcommand{\examplename}{Exemplo}}
+\addto\captionsbrazilian{\renewcommand{\problemname}{Problema}}
+\addto\captionsbrazilian{\renewcommand{\remarkname}{Observação}}
+\addto\captionsbrazilian{\renewcommand{\notename}{Nota}}
 
 
 
+
+
+\theoremstyle{plain}
+\ifmypackage@amsthmglobal
+	\newtheorem{thm}{\theoremname}
+\else
+	\newtheorem{thm}{\theoremname}[section]
+\fi
+\newtheorem{lem}[thm]{\lemmaname}
+\newtheorem{prop}[thm]{\propositionname}
+\newtheorem*{cor}{\corollaryname}
+
+\theoremstyle{definition}
+\ifmypackage@amsthmglobal
+	\newtheorem{defn}{\definitionname}
+	\newtheorem{conj}{\conjecturename}
+	\newtheorem{exmp}{\examplename}
+	\newtheorem{prob}{\problemname}
+\else
+	\newtheorem{defn}{\definitionname}[section]
+	\newtheorem{conj}{\conjecturename}[section]
+	\newtheorem{exmp}{\examplename}[section]
+	\newtheorem{prob}{\problemname}[section]
+\fi
+
+\theoremstyle{remark}
+\newtheorem*{rem}{\remarkname}
+\newtheorem*{note}{\notename}
+
+\newcommand{\problem}[1]{
+	\begin{prob}
+		\exercise{#1}
+	\end{prob}
+}
+
+\WithSuffix\newcommand\problem*[1]{
+	\begin{prob}
+		\exercise*{#1}
+	\end{prob}
+}
+
+%------------------------------------------------------------------
+%
 % Definindo nomes especiais para os jogadores em problemas de jogos
+%
+%------------------------------------------------------------------
 
 \newcommand{\playerA}[1]{#1}
 
@@ -57,10 +246,14 @@
 
 \newcommand{\playerD}[1]{#1}
 
+%----------------------------------------------
+%
 % Definindo expressões matemáticas em português
+%
+%----------------------------------------------
 
-\newcommand{\sen}{\hspace{2pt}\mathrm{sen}}
-\newcommand{\tg}{\hspace{2pt}\mathrm{tg}}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
 
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -68,7 +261,25 @@
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
 
-\newcommand{\e}{\text{\ e\ }}
-
 \newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
+
+%--------------
+%
+% Setup SIUnitx
+%
+%--------------
+
+\sisetup{output-decimal-marker = {,}}
+
+
+%-------------------------
+%
+% scaleroman and scalealph
+%
+%-------------------------
+
+%\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
+%\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
+
+
