@@ -45,7 +45,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{url}
 \RequirePackage{siunitx}
-
+\RequirePackage{tikz}
 %----------
 %
 % zeustitle
@@ -134,7 +134,7 @@
 		\id{#1}%
 }
 
-\newcommand{\solution}[1]{
+\newcommand{\solutionfoe}[1]{
 		\IfFileExists{\mypath problems/#1/solution_pt.tex}{\subimport{\mypath problems/#1/}{solution_pt.tex}}{%
 		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Problem not found!}}}%
 		\id{#1}%
@@ -166,6 +166,7 @@
 \newcommand{\problemname}{}
 \newcommand{\remarkname}{}
 \newcommand{\notename}{}
+\newcommand{\solutionname}{}
 
 \addto\captionsenglish{\renewcommand{\theoremname}{Theorem}}
 \addto\captionsenglish{\renewcommand{\lemmaname}{Lemma}}
@@ -177,6 +178,7 @@
 \addto\captionsenglish{\renewcommand{\problemname}{Problem}}
 \addto\captionsenglish{\renewcommand{\remarkname}{Remark}}
 \addto\captionsenglish{\renewcommand{\notename}{Note}}
+\addto\captionsenglish{\renewcommand{\solutionname}{Solution}}
 
 \addto\captionsbrazilian{\renewcommand{\theoremname}{Teorema}}
 \addto\captionsbrazilian{\renewcommand{\lemmaname}{Lema}}
@@ -188,10 +190,7 @@
 \addto\captionsbrazilian{\renewcommand{\problemname}{Problema}}
 \addto\captionsbrazilian{\renewcommand{\remarkname}{Observação}}
 \addto\captionsbrazilian{\renewcommand{\notename}{Nota}}
-
-
-
-
+\addto\captionsbrazilian{\renewcommand{\solutionname}{Solução}}
 
 \theoremstyle{plain}
 \ifmypackage@amsthmglobal
@@ -219,6 +218,7 @@
 \theoremstyle{remark}
 \newtheorem*{rem}{\remarkname}
 \newtheorem*{note}{\notename}
+\newtheorem*{sol}{\solutionname}
 
 \newcommand{\problem}[1]{
 	\begin{prob}
@@ -230,6 +230,12 @@
 	\begin{prob}
 		\exercise*{#1}
 	\end{prob}
+}
+
+\newcommand{\solution}[1]{
+	\begin{sol}
+		\solutionfoe{#1}
+	\end{sol}
 }
 
 %------------------------------------------------------------------
