@@ -1,0 +1,5 @@
+There are $\binom{6}{3} = 20$ triangles in $K_6$. We prove there are at least $2$ 4monochromatic triangles by showing that there are at most $18$ bichromatic (2-colored) triangles.
+
+Let's use the term bichromatic angle to denote a pair of different-colored edges with a common endpoint. Note that every bichromatic triangle contains exactly 2 bichromatic angles, and every bichromatic angle is contained in a unique bichromatic triangle. Thus the number of bichromatic triangles is exactly half the number of bichromatic angles.
+
+Let $v_1, \cdots, v_6$ be the vertices. Let $r_i$ be the number of red edges and $b_i$ the number of blue edges incident with $v_i$. Since $r_i + b_i = 5$, the number of bichromatic angles meeting at $v_i$ is $r_ib_i \le 6$; the total number of bichromatic angles is $\sum_{i = 1}^{6} r_ib_i \le 36$, the number of bichromatic triangles is $\frac{1}{2} \sum_{i = 1}^{6} r_ib_i \le 18$, and the number of monochromatic triangles is at least $20−18=2$.
