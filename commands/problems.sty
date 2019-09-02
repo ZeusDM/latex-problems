@@ -124,19 +124,19 @@
 		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
 		}}}}}}
 		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem \path{#1} not found!}}}%
+		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
 		\id{#1}%
 }
 
 \WithSuffix\newcommand\exercise*[1]{%
 		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
 		\id{#1}%
 }
 
 \newcommand{\solutionfoe}[1]{
 		\IfFileExists{\mypath problems/#1/solution_pt.tex}{\subimport{\mypath problems/#1/}{solution_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Problem not found!}}}%
+		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Solução \path{#1} não encontrada!}}}%
 		\id{#1}%
 }
 
