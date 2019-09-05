@@ -1,0 +1,83 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\usepackage{../../../../../commands/problems}
+\renewcommand{\mypath}{../../../../../}
+
+\usepackage{fancyhdr}
+ 
+\newcommand{\ano}{2018}
+\newcommand{\niv}{3}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \ano}
+\chead{\bfseries Olimpíada de Matemática do Estado do Rio de Janeiro}
+\lhead{\bfseries Nível \niv}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\textwidth}{-0.5cm}
+
+\newcommand{\rio}[1]{
+	\def\ano{#1}
+	\def\niv{3}
+	\setcounter{prob}{0}
+	%\begin{center}
+	%OLIMPÍADA DE MATEMÁTICA DO ESTADO DO RIO DE JANEIRO - #1\\
+	%Nível 3 - 1$^\mathrm{a}$ e 2$^{a}$ séries
+	%\end{center}
+
+	\problem*{math/brazil/rio/#1/N3/1}
+	\problem*{math/brazil/rio/#1/N3/2}
+	\problem*{math/brazil/rio/#1/N3/3}
+	\problem*{math/brazil/rio/#1/N3/4}
+	\problem*{math/brazil/rio/#1/N3/5}
+	\problem*{math/brazil/rio/#1/N3/6}
+		
+	\newpage
+
+	\def\niv{4}
+	\setcounter{prob}{0}
+	%\begin{center}
+	%OLIMPÍADA DE MATEMÁTICA DO ESTADO DO RIO DE JANEIRO - #1\\
+	%Nível 4 - 3$^\mathrm{a}$ série
+	%\end{center}
+
+	\problem*{math/brazil/rio/#1/N4/1}
+	\problem*{math/brazil/rio/#1/N4/2}
+	\problem*{math/brazil/rio/#1/N4/3}
+	\problem*{math/brazil/rio/#1/N4/4}
+	\problem*{math/brazil/rio/#1/N4/5}
+	\problem*{math/brazil/rio/#1/N4/6}
+		
+	\newpage
+
+}
+
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+\begin{document}
+
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
+
+%------OMERJ's-------%
+
+\rio{2018}
+\rio{2017}
+\rio{2016}
+\rio{2015}
+\rio{2014}
+\rio{2013}
+\rio{2012}
+
+\end{document}
