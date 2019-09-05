@@ -1,0 +1,7 @@
+Vamos achar as soluções de
+$$ x = \{10x\}$$
+$$ x = 10x - \floor{10x} $$
+$$ 9x = \floor{10x} = n, \text{ que é inteiro, pois é um piso.}$$
+Logo, $x$ é da forma $\frac{n}{9}$. Mas $x = \{10x\}$, que implica $0 \ge x < 1$, isto é, $0 \ge n < 9$.
+Vamos testar essas soluções: a representação decimal de $\frac{n}{9}$ é $(0,nnnn\dots)$. De fato, $(0,nnnn\dots) = \{(n,nnnn\dots)\}$.
+Por fim, as soluções são $0, \frac{1}{9}, \frac{2}{9}, \dots, \frac{8}{9}$, cuja soma é $4$.

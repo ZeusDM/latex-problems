@@ -1,0 +1,27 @@
+Seja $n$ um número cuja representação na base decimal é $abc$. Vamos definir $f(n) = a! + b! + c!$. Para $f(n) = n$:
+
+\begin{itemize}
+	\item \textsl{7, 8 e 9 não podem ser dígitos de $n$}, pois, caso contrário, temos $n = f(n) \ge 7! \ge 1000$, que é um absurdo.
+	\item \textsl{6 não pode ser dígito de $n$}, pois, caso contrário, temos $n = f(n) \ge 6! = 720$, que implica que o dígito das centenas é 7, 8 ou 9, um absurdo.
+	\item \textsl{$n$ é, no máximo, 355}, pois $n = f(n) \le 5! + 5! + 5! = 360$. Como os dígitos só podem ser 0, 1, 2, 3, 4 e 5, o resultado é verdade.
+	\item \textsl{$n$ é, no máximo, 245}, pois $n = f(n) \le 3! + 5! + 5! = 246$. Note que $355$ é o valor que maximiza $f(n)$ com a restrição $n \le 355$.
+	\item \textsl{5 deve ser um dígito de $n$}, pois, caso contrário, temos $n = f(n) \le 4! + 4! + 4! = 72$, que é um absurdo.
+\end{itemize}
+
+Vamos dividir em casos:
+
+\begin{enumerate}[label = --]
+	\item \textsl{Se $n = 2bc$:}
+
+		Sabemos que $n = f(n) \le 2! + 4! + 5! = 146$. Absurdo.
+
+	\item \textsl{Se $n = 15c$:}
+
+		Sabemos que $150 + c = n = f(n) = 1! + 5! + c! = 121 + c!$. Logo, $29 + c = c!$, que não possui solução.
+	
+	\item \textsl{Se $n = 1b5$:}
+
+		Sabemos que $105 + 10b = n = f(n) = 1! + b! + 5! = 121 + b!$. Logo, $10b = 16 + b!$, que possui solução $b = 4$.
+\end{enumerate}
+
+Logo, 145 é o único factorion.
