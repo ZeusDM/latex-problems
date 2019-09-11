@@ -8,7 +8,7 @@
 
 % global / persection
 %
-% Defines if the amsthm is numbered through the whole file or per section
+% Defines if the amsthm is numbered through the whole file or per section.
 
 \newif\ifmypackage@amsthmglobal
 \DeclareOption{global}{\mypackage@amsthmglobaltrue}
@@ -16,13 +16,21 @@
 
 % id / noid
 %
-% Defines if the path of each problem is shown or not
+% Defines if the path of each problem is shown or not.
 
 \newif\ifmypackage@showid
 \DeclareOption{noid}{\mypackage@showidfalse}
 \DeclareOption{id}{\mypackage@showidtrue}
 
-\ExecuteOptions{noid, global}
+% usualnotation / zeusnotation
+%
+% Defines if it uses usual notation or my notation.
+
+\newif\ifmypackage@usualnotation
+\DeclareOption{zeusnotation}{\mypackage@usualnotationfalse}
+\DeclareOption{usualnotation}{\mypackage@usualnotationtrue}
+
+\ExecuteOptions{noid, global, zeusnotation}
 
 \ProcessOptions\relax
 
@@ -46,6 +54,10 @@
 \RequirePackage{url}
 \RequirePackage{siunitx}
 \RequirePackage{tikz}
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+\RequirePackage{dsfont}
+
 %----------
 %
 % zeustitle
@@ -156,6 +168,24 @@
 %
 %-------------------------------------------
 
+\definecolor{ocre}{RGB}{243,102,25}
+
+%Theorem style
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+  {0pt}% Space above
+  {0pt}% Space below
+  {\normalfont}% % Body font
+  {}% Indent amount
+  {\small\bfseries\sffamily\color{ocre}}% % Theorem head font
+  {\;}% Punctuation after theorem head
+  {0.25em}% Space after theorem head
+  {\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
+   \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+
+% Definindo nomes para diferentes linguagens em babel
+
 \newcommand{\theoremname}{}
 \newcommand{\lemmaname}{}
 \newcommand{\propositionname}{}
@@ -180,6 +210,18 @@
 \addto\captionsenglish{\renewcommand{\notename}{Note}}
 \addto\captionsenglish{\renewcommand{\solutionname}{Solution}}
 
+\addto\captionsenglish{\crefname{thm}{Theorem}{Theorems}}
+\addto\captionsenglish{\crefname{lem}{Lemma}{Lemmas}}
+\addto\captionsenglish{\crefname{prop}{Proposition}{Propositions}}
+\addto\captionsenglish{\crefname{cor}{Corollary}{Corollaries}}
+\addto\captionsenglish{\crefname{defn}{Definition}{Definitions}}
+\addto\captionsenglish{\crefname{conj}{Conjecture}{Conjectures}}
+\addto\captionsenglish{\crefname{exam}{Example}{Examples}}
+\addto\captionsenglish{\crefname{prob}{Problem}{Problems}}
+\addto\captionsenglish{\crefname{rem}{Remark}{Remarks}}
+\addto\captionsenglish{\crefname{note}{Note}{Notes}}
+\addto\captionsenglish{\crefname{sol}{Solution}{Solutions}}
+
 \addto\captionsbrazilian{\renewcommand{\theoremname}{Teorema}}
 \addto\captionsbrazilian{\renewcommand{\lemmaname}{Lema}}
 \addto\captionsbrazilian{\renewcommand{\propositionname}{Proposição}}
@@ -192,7 +234,43 @@
 \addto\captionsbrazilian{\renewcommand{\notename}{Nota}}
 \addto\captionsbrazilian{\renewcommand{\solutionname}{Solução}}
 
-\theoremstyle{plain}
+\addto\captionsbrazilian{\crefname{thm}{Teorema}{Teoremas}}
+\addto\captionsbrazilian{\crefname{lem}{Lema}{Lemas}}
+\addto\captionsbrazilian{\crefname{prop}{Proposição}{Proposições}}
+\addto\captionsbrazilian{\crefname{cor}{Corolário}{Corolários}}
+\addto\captionsbrazilian{\crefname{defn}{Definição}{Definições}}
+\addto\captionsbrazilian{\crefname{conj}{Conjectura}{Conjecturas}}
+\addto\captionsbrazilian{\crefname{exam}{Exemplo}{Exemplos}}
+\addto\captionsbrazilian{\crefname{prob}{Problema}{Problemas}}
+\addto\captionsbrazilian{\crefname{rem}{Observação}{Observações}}
+\addto\captionsbrazilian{\crefname{note}{Nota}{Notas}}
+\addto\captionsbrazilian{\crefname{sol}{Solução}{Soluções}}
+
+\addto\captionsbrazil{\renewcommand{\theoremname}{Teorema}}
+\addto\captionsbrazil{\renewcommand{\lemmaname}{Lema}}
+\addto\captionsbrazil{\renewcommand{\propositionname}{Proposição}}
+\addto\captionsbrazil{\renewcommand{\corollaryname}{Corolário}}
+\addto\captionsbrazil{\renewcommand{\definitionname}{Definição}}
+\addto\captionsbrazil{\renewcommand{\conjecturename}{Conjectura}}
+\addto\captionsbrazil{\renewcommand{\examplename}{Exemplo}}
+\addto\captionsbrazil{\renewcommand{\problemname}{Problema}}
+\addto\captionsbrazil{\renewcommand{\remarkname}{Observação}}
+\addto\captionsbrazil{\renewcommand{\notename}{Nota}}
+\addto\captionsbrazil{\renewcommand{\solutionname}{Solução}}
+
+\addto\captionsbrazil{\crefname{thm}{Teorema}{Teoremas}}
+\addto\captionsbrazil{\crefname{lem}{Lema}{Lemas}}
+\addto\captionsbrazil{\crefname{prop}{Proposição}{Proposições}}
+\addto\captionsbrazil{\crefname{cor}{Corolário}{Corolários}}
+\addto\captionsbrazil{\crefname{defn}{Definição}{Definições}}
+\addto\captionsbrazil{\crefname{conj}{Conjectura}{Conjecturas}}
+\addto\captionsbrazil{\crefname{exam}{Exemplo}{Exemplos}}
+\addto\captionsbrazil{\crefname{prob}{Problema}{Problemas}}
+\addto\captionsbrazil{\crefname{rem}{Observação}{Observações}}
+\addto\captionsbrazil{\crefname{note}{Nota}{Notas}}
+\addto\captionsbrazil{\crefname{sol}{Solução}{Soluções}}
+
+\theoremstyle{definition}
 \ifmypackage@amsthmglobal
 	\newtheorem{thm}{\theoremname}
 \else
@@ -266,6 +344,8 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\EE}{\mathds{E}}
+\newcommand{\PP}{\mathds{P}}
 
 \newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
@@ -287,5 +367,56 @@
 
 %\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
 %\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
+
+%-------------------------
+%
+% Declaring my own nomenclarures, which may change to usual nomenclatrue, if I want to. 
+%
+%-------------------------
+
+% Collinear and Concliclic
+
+\newcommand{\collinearproposition}{}
+\newcommand{\conciclicproposition}{}
+\newcommand{\andname}{}
+
+\addto\captionsenglish{\renewcommand\collinearproposition{are collinear}}
+\addto\captionsenglish{\renewcommand\conciclicproposition{are conciclic}}
+\addto\captionsenglish{\renewcommand\andname{and}}
+
+\addto\captionsbrazil{\renewcommand\collinearproposition{são colineares}}
+\addto\captionsbrazil{\renewcommand\conciclicproposition{são concíclicos}}
+\addto\captionbrazil{\renewcommand\andname{e}}
+
+\addto\captionsbrazilian{\renewcommand\collinearproposition{são colineares}}
+\addto\captionsbrazilian{\renewcommand\conciclicproposition{são concíclicos}}
+\addto\captionsbrazilian{\renewcommand\andname{e}}
+
+\newcommand{\col}[1]{%
+	\diagup(#1\colchecknextarg
+}
+\newcommand{\colchecknextarg}{\@ifnextchar\bgroup{\colgobblenextarg}{)}}
+\newcommand{\colgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\colgobblenextarg}{)}}
+
+\newcommand{\conc}[1]{%
+	{\circ\,}(#1\concchecknextarg
+}
+\newcommand{\concchecknextarg}{\@ifnextchar\bgroup{\concgobblenextarg}{)}}
+\newcommand{\concgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\concgobblenextarg}{)}}
+
+\ifmypackage@usualnotation
+	\renewcommand{\col}[1]{%
+		#1\colchecknextarg
+	}
+	\renewcommand{\colchecknextarg}{\@ifnextchar\bgroup{\colgobblenextarg}{\text{ \collinearproposition}}}
+	\renewcommand{\colgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\colgobblenextarg}{\text{ \collinearproposition}}}
+
+	\renewcommand{\conc}[1]{%
+		#1\concchecknextarg
+	}
+	\renewcommand{\concchecknextarg}{\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
+	\renewcommand{\concgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
+\fi
+
 
 
