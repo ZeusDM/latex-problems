@@ -1,0 +1,64 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\title{Probabilidade}
+\author{Andrey}
+\mail{}
+\titlel{Treinamento IMO}
+\titler{\today}
+
+\begin{document}	
+	\zeustitle
+	\section{Não-transitividade}
+	\exmp{Dados d6 não transitivos}
+	\exmp{Sequência de moedas}
+	\section{Martingales}
+	\thm{(Teorema Fundamental das Apostas) Seja $J$ um jogo justo. Qualquer estratégia de iterar $J$ que:
+		\begin{itemize}
+			\item termina em tempo limitado ou;
+			\item termina com dinheiro limitado
+		\end{itemize}
+		é justa.
+	}
+	\prob{Um sorteador de letras a cada minuto, sorteia uma letra \texttt{A-Z}. Qual o tempo médio até aparecer a palavra \texttt{ABRACADABRA}?}
+	\begin{sol}
+		Vamos inventar alguns jogos:
+
+		$J(X):$ aposta $N$ moedas para jogar. Ganha $26N$ moedas, se cair a letra $X$.
+		
+		$J^*:$ Aposta $1$ moeda para jogar. Aposta $1$ jogando em $J(\mathtt{A})$. Se ganhar, aposta tudo em $J(\mathtt{B})$. Se ganhar, aposta tudo em $J(\mathtt{R})$. E assim por diante. Se perder em algum momento, sai do jogo.
+
+		$J$ é justo, pois o valor esperado de dinheiro é 0. $J^*$ é um jogo justo, pois é uma iteração de $J$ e termina com dinheiro limitado.
+		
+		Vamos jogar diversos jogos $J^*$ simultâneamente, começando a jogar um novo jogo $J^*$ a cada minuto e vamos parar imediatamente de jogar todos os jogos quando ganharmos o prêmio final em algum dos jogos $J$
+
+		Como é justo, o dinheiro esperado é $0$. Quando finalmente ganharmos o jogo, três de nossos jogos estarão rodando são: \texttt{ABRACADABRA} \texttt{ABRA} e \texttt{A}.
+
+		Portanto, ganharemos $26^{11} + 26^4 + 26$ no fim do jogo. Porém, perdemos $T$ moedas, onde $T$ é o número de minutos que passaram. Como o dinheiro esperado é $0 = 26^{11} + 26^4 + 26 - T$, temos que $T = 26^{11} + 26^4 + 26$.
+
+			
+	\end{sol}
+	\section{Método Probabilístico}
+	\thm{$\EE(X + Y) = \EE(X) + \EE(Y)$.}
+
+	\prob{Remova $n-1$ arestar de um grafo bipartido $K_{n,n}$, existe emparelhamento perfeito.}
+	\begin{sol}
+		Os vértices $1, 2, \dots, n$ de um lado e $n+1, n+2, \dots, 2n$ do outro. Consirere $\pi: \{1, 2, \dots, n\} \to \{n+1, n+2, \dots, 2n\}$ bijetora escolhida de forma uniformemente aleatória.
+
+		$$ \EE(\mathds{1}(i \sim \pi(i))) = \PP(i \sim \pi(i)) = \frac{n^2 - n + 1}{n^2} = 1 - \frac{1}{n} + \frac{1}{n^2}$$
+	
+		$$ \EE(|{i : i \sim \pi i}|) = \EE\left(\textstyle\sum(\mathds{1}(i \sim \pi))\right) = n - 1 + \frac{1}{n} > n - 1.$$
+	
+		Logo, existe um $\pi$ tal que $|{i : i \sim \pi i}| = n$, isto é, $i \sim \pi(i)$, para todo $i$: um emparelhamento perfeito.  
+	\end{sol}
+
+	\thm{(Lema Local de Lovász) Sejam $A_1, A_2, \dots, A_k$ eventos tal que cada evento ocorre com probabilidade no máximo $p$ e tal que cada evento é independente de todos os outros, exceto por no máximo $d$. Se $epd \le 1$, então existe uma probabilidade não-nula de que nenhum desses eventos ocorra.}
+
+	\prob{Prove que existe grafo $G$ livre de triângulos tal que $\chi(G) \ge 2019$.}
+\end{document}
