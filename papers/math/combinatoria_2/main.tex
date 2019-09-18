@@ -1,0 +1,74 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=3cm]{geometry}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\title{Combinatória Geométrica}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{\today}
+
+\renewcommand\playerA[1]{Guilherme}
+\renewcommand\playerB[1]{Zeus}
+
+\begin{document}	
+	\zeustitle
+	\begin{prob}
+		Dados $2n$ pontos no plano, sem três colineares, sendo $n$ vermelhos e $n$ azuis. Prove que existe um pareamento entre os pontos vermelhos e os pontos azuis tal que os segmentos unindo cada par não se intersectam dois a dois.
+	\end{prob}
+	\begin{prob}[Cone Sul 2002]
+		Um polígono $S$ está contido no interior de um quadrado de lado $a$. Demosntre que há pelo menos dois pontos do polígono que estão separados por uma distância maior ou igual a $S/a$.
+	\end{prob}
+	\begin{prob}[Ibero 1997]
+		Seja $\mathcal{P} = \{P_1, P_2, \dots, P_{1997}\}$ um conjunto de 1997 pontos no interior de um círculo de raio $1$, com $P_1$ sendo o centro do círculo. Para $k = 1, 2, \dots, 1997$ seja $x_k$ a distância de $P_k$ ao ponto de $\mathcal{P}$ mais próximo de $P_k$. Mostre que $$ x_1^2 + x_2^2 + \cdots + x_{1997}^2 \le 9.$$
+	\end{prob}
+	\begin{prob}
+		São desenhadas $n \ge 3$ retas no plano tais que:
+		\begin{enumerate}[label = (\roman*)]
+			\item Quaisquer duas retas são concorrentes;
+			\item Por todo ponto de interseção de duas retas passa pelo menos mais uma reta.
+		\end{enumerate}
+		Prove que todas as retas passam por um mesmo ponto.
+	\end{prob}
+	\begin{prob}
+		Seja $C$ um círculo de raio $16$ e $A$ um anel com raio interior $2$ e raio exterior $3$. Agora, suponha que um conjunto $S$ de $650$ pontos são selecionados no interior de $C$. Prove que podemos colocar o anel $A$ no plano de modo que ele cubra pelo menos $10$ pontos de $S$.
+	\end{prob}
+	\begin{prob}[Banco IMO 1989]
+		Temos um conjunto finito de segmentos no plano, de medida total 1. Prove que existe uma reta $\ell$ tal que a soma das medidas das projeções destes segmentos a reta $\ell$ é menor que $2/\pi$.
+	\end{prob}
+	\begin{prob}
+		Prove que existe um conjunto $S$ de $3^{1000}$ pontos no plano tal que, para cada ponto $P$ de $S$, existem pelo menos $2000$ pontos em $S$ cuja distância para $P$ é exatamente uma unidade.
+	\end{prob}
+	\begin{prob}[Turquia]
+		Mostre que o plano não pode ser coberto por um número finito de parábolas.
+	\end{prob}
+	\begin{prob}[Ibero 2002]
+		Seja $S$ um conjunto de nove pontos, sem três pontos colineares. Se $P$ é um ponto de $S$, mostre que a quantidade de triângulos cujos vértices estão em $S - {P}$ e $P$ está em seu inteirior é par.
+	\end{prob}
+	\begin{prob}
+		No interior de um quadrado são escolhidos $1000$ pontos. Estes pontos, juntamente com os $4$ vértices do quadrado, formam um conjunto $P$ onde não há três pontos colineares. Alguns destes pontos são ligados por segmentos de modo a particionar o quadrado em vários triângulos. Não há polígonos com mais de três lados nessa partição e todo ponto é vértice de ao menos um triângulo. Ache a quantidade de triângulos da partição.
+	\end{prob}
+	\begin{prob}[IMO 1989]
+		Sejam $n$ e $k$ dois inteiros positivos e seja $S$ um conjunto de $n$ pontos num plano tais que
+		\begin{enumerate}[label = (\roman*)]
+			\item Não haja três pontos de $S$ que sejam colineares;
+			\item Para qualquer ponto $P$, há pelo menos $k$ pontos de $S$ que são equidistantes de $P$.
+		\end{enumerate}
+
+		Prove que $$k < \frac{1}{2} + \sqrt{2n}.$$
+	\end{prob}
+	\begin{prob}[Irã 2010]
+		Temos $n$ pontos no plano de modo que não existam três deles colineares. Prove que o número de triângulos com vértices nestes pontos e cuja área é exatamente $1$ não pode ser maior que $\frac{2}{3}(n^2 - n)$.
+	\end{prob}
+	\begin{prob}[China 2000, HongBin Yu]
+		Considere $n$ pontos colineares e todas as distâncias entre dois deles. Suponha que cada distância aparece no máximo duas vezes. Prove que existem pelo menos $\floor{n/2}$ destas distâncias que aparecem 1 vez cada.
+	\end{prob}
+	\begin{prob}[China 2011]
+		Seja $S$ um conjunto de $n$ pontos no plano tal que não há quatro pontos colineares. Sejam $d_1 < d_2 < \cdots < d_k$ as diferentes distâncias entre os pares de pontos distintos de $S$ e seja $m_i$ a quantidade de pares de pontos cuja distância é exatamente $d_i$. Prove que $$\sum_{i = 1}^{k} m_i^2 \le n^3 - n^2.$$
+	\end{prob}
+\end{document}

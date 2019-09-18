@@ -1,0 +1,216 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\usepackage{wrapfig}
+\usepackage{multicol}
+
+\title{Algoritmos}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{\today}
+
+\renewcommand\playerA[1]{Guilherme}
+\renewcommand\playerB[1]{Zeus}
+
+\begin{document}	
+	\zeustitle
+	\begin{defn}
+		Um \emph{algoritmo} é um conjunto de procedimentos sistemáticos que resolvem um problema.
+	\end{defn}
+	
+	Por definição, um algoritmo deve ter duas propriedades:
+	\begin{itemize}
+		\item Resolver o problema.
+		\item Terminar.
+	\end{itemize}
+
+	A segunda propriedade parece uma besteira, mas às vezes não é trivial mostrar que um algoritmo acaba.
+	\subsection*{Situações em que algoritmos podem ser úteis}
+	
+	\begin{itemize}
+		\item Uma operação é dada no problema, e queremos organizar uma sequência de operações para alcançar uma meta.
+		\item Você quer construir um exemplo.
+		\item Temos uma configuração complicada e queremos reduzi-la a algo mais simples.
+		\item Você quer representar um conjunto de alguma outra forma.
+		\item Você quer empacotar coisas ou separá-las em grupos.
+		\item Jogos com estratégias vencedoras.
+	\end{itemize}
+
+	\subsection*{Técnicas}
+
+	\begin{itemize}
+		\item Você pode usar uma indução para provar que um algoritmo funciona.
+		\item Uma maneira de demonstrar que um algoritmo acaba é encontrar um \emph{monovariante}, ou seja, algo que sempre diminui ou sempre aumenta.
+		\item Às vezes um invariante pode ajudar nas duas tarefas.
+		\item \emph{Ordenar} coisas facilita a indução e a organização do seu algoritmo.
+		\item Um algoritmo simples e efetivo em muitas situações é o \emph{algoritmo guloso}, em que sempre escolhemos a melhor opção localmente. Nem sempre o algoritmo guloso é o melhor, porém. Tome cuidado!
+		\item Teste seu algoritmo com \emph{casos pequenos}.
+	\end{itemize}
+
+	\subsection*{Exemplos}
+
+	\begin{exmp}
+		Considere o \emph{algoritmo de Euclides}: sejam $a$ e $b$ inteiros positivos com $a > b$. Para calcular $\mdc(a, b)$, fazemos os seguintes passos:
+		\begin{enumerate}
+			\item Dividimos $a$ por $b$, obtendo resto $r$. Se $r = 0$, o $\mdc(a, b)$ é $b$.
+			\item Se $r > 0$, trocamos $(a, b)$ por $(b, r)$ e voltamos ao passo anterior.
+		\end{enumerate}
+	\end{exmp}
+
+	\subsection*{Problemas}
+	\begin{prob}
+		Há pedras de massa total $9$ toneladas. Caminhões, cada um com capacidade de $3$ toneladas, estão disponíveis para carregar essas pedras. Sabe-se somente que nenhuma pedra pesa mais que $1$ tonelada. Qual é a menor quantidade de caminhões necessários para carregar todas as pedras? Cada caminhão só faz uma viagem.
+	\end{prob}
+
+	\begin{prob}
+		Sejam $A_1, A_2, \dots, A_n$ subconjuntos de $\{1, 2, \dots n\}$, todos com $3$ elementos. Prove que é possível pintar $\floor{\frac{n}{3}}$ números de $\{1, 2, \dots, n\}$ de modo que cada $A_i$ tenha pelo menos um número não pintado.
+	\end{prob}	
+
+	\begin{prob}
+		Uma quantidade finida de cartas é colocada em cada um dos pontos $A_1, A_2, \dots, A_n$, $O$, sendo $n \ge 3$. Em cada passo é permitido fazer uma das seguintes operações:
+		
+		\begin{enumerate}[label = (\roman*)]
+			\item Se há mais de duas cartas em $A_i$, tirar três cartas de $A_i$ e colocá-las em $A_{i-1}$, $A_{i+1}$ e $O$, uma carta em cada ponto; os indíces são cíclicos, isto é, $A_{n+1} = A_1$ e $A_0 = A_n$.
+			\item Se há pelo menos $n$ cartas em $O$, tirar $n$ cartas de $O$ e colocá-las em $A_1, A_2, \dots, A_n$, uma carta em cada ponto.
+		\end{enumerate}	
+
+		Sendo a quantidade de cartas pelo menos $n^2 + 3n + 1$, prove que é possível deixar, após uma quantidade finita de operações, pelo menos $n+1$ cartas em cada ponto.
+	\end{prob}
+
+	\begin{prob}
+		Temos um tabuleiro $m \times n$. Atribui-se inicialmente um número inteiro não negativo a cada uma das casas. No tabuleiro é permitido efetuar a seguinte operação: em qualquer par de casas com um lado em comum, pode-se modificar os dois números somando-lhes um mesmo número inteiro (que pode ser negativo), sempre que ambos resultados sejam não negativos.
+
+		Que condições devem ser satisfeitas inicialmente na atribuição dos números, para deixar, mediante aplicações reiteradas da operação, zero em todas as casas?
+	\end{prob}
+
+	\begin{prob}
+		Prove que o algoritmo de Euclides termina após no máximo $\ceil{\log_\phi\max(a, b)}$ passos, em que $\phi = \frac{1 + \sqrt{5}}{2}$ é a razão áurea.
+	\end{prob}
+
+	\begin{prob}(Frações Egípcias)
+		Prove que todo racional positivo menor que $1$ pode ser escirto como soma de frações de numerador $1$ e denominadores todos distintos.
+	\end{prob}
+
+	\begin{prob}
+		Em um grafo, cada vértice tem grau menor ou igual a $\Delta$. Prove que é possível pintar os vértices do grafo com $\Delta + 1$ cores, de modo que dois vértices conectados têm cores diferentes.
+	\end{prob}
+
+	\begin{prob}
+		Uma loja vende garrafas com as seguintes capacidades: $1$ litro, $2$ litros, $\dots$, $1966$ litros. Os preços das garrafas satisfazem duas condições:
+		\begin{itemize}
+			\item Duas garrafas têm o mesmo preço se e somente se suas capacidades $m$, $n$ ($m > n$) satisfazem $m - n = 1000$.
+			\item Cada garrafa de $m$ litros de capacidade ($1 \le m \le 1000$) custa $1996 - m$ dinheiros.
+		\end{itemize}
+		
+		Ache todos os pares de garrafas de $m$ e $n$ litros tais que:
+		\begin{enumerate}[label = (\alph*)]
+			\item $m + n = 1996$.
+			\item o custo total do par seja o menor possível;
+			\item com o par se possa medir $k$ litros, para todo $k$ inteiro desde $1$ até $1996$.
+				\begin{rem}
+					As operações permitidas para medir são:
+					\begin{itemize}
+						\item Encher ou esvaziar qualquer das duas garrafas.
+						\item Passar líquido de uma garrafa para a outra.
+					\end{itemize}
+					Ter-se-á conseguido medir $k$ litros quando a quantidade de litros de uma garrafa mais a quantidade de litros da outra é igual a $k$.
+				\end{rem}
+		\end{enumerate}
+	\end{prob}
+
+	\begin{prob}
+		Em cada casa de um tabuleiro quadriculado $2000 \times 2000$ deve-se escrever um dos três números: $-1$, $0$ ou $1$. Se, em seguida, somam-se os números escritos em cada linha e colina, obtém-se $4000$ resultados. Mostre é que possível preencher o tabuleiro de modo que os $4000$ ressultados sejam todos distintos. 
+	\end{prob}
+
+	\begin{prob}
+		Determine se existe uma sequência infinita $a_0, a_1, \dots$ de inteiros positivos que satisfaz as seguintes condições:
+		\begin{itemize}
+			\item Todos os números inteiros positivos aparecem na sequência uma única vez.
+			\item Todos os números inteiros positivos aparecem na sequência $|a_0 - a_1|, |a_1 - a_2|, \dots$ uma única vez.	
+		\end{itemize}
+	\end{prob}
+
+	\begin{prob}
+		Seja $A_1A_2B_1B_2$ um quadrilátero convexo. Nos vértices $A_1$ e $A_2$, adjacentes, há duas cidades argentinas. Nos vértices $B_1$ e $B_2$, há duas cidades brasileiras. No interior do quadrilátero, existem $a$ cidades argentinas e $b$ cidades brasileiras, sem haver três cidades colineares.
+		Determine se é possível, independentemente da posição das cidades, construir estradas retas, cada uma das quais conecta duas cidades argentinas ou duas cidades brasileiras, de modo que:
+		\begin{itemize}
+			\item Não existam duas estradas que se intersectem em um ponto que não seja uma cidade.
+			\item De qualquer cidade argentina, seja possível chegar a qualquer outra cidade argentina.
+			\item De qualquer cidade brasileira, seja possível chegar a qualquer outra cidade brasileira.
+		\end{itemize}
+
+		Se for sempre possível, monte um algoritmo que construa uma possível configuração.
+	\end{prob}
+
+	\begin{prob}
+		Prove que, dado $k$ inteiro positivo, $m$ e unicamente representado na forma
+		$$ m = \binom{a_k}{k} + \binom{a_{k-1}}{k-1} + \cdots + \binom{a_t}{t}$$
+		em que $a_k > a_{k-1} > \cdots > a_t \ge t \ge 1$.
+	\end{prob}
+
+	\begin{prob}
+		Um conjunto de inteiros não negativos $\{x, y, z\}$ com $x < y < z$ é \emph{histórico} se satisfaz $\{z-y, y-x\} = \{1776, 2001\}$.
+		Mostre que podemos expressar os inteiros não negativos como união disjunta de conjuntos históricos.
+	\end{prob}
+
+	\begin{prob}
+		Um conjunto $A$ de inteiros é \emph{soma-cheia} se $A \subseteq A + A$, ou seja, cada elemento de $A$ é a soma de dois elementos (não necessáriamente distintos) de $A$. Um conjunto $A$ de inteiros é \emph{livre de soma zero} se $0$ é o único inteiro que não pode ser expresso como soma dos elementos de um subconjunto finito não vazio de $A$.
+
+		Determine se existe um conjunto soma-cheia e livre de soma zero.
+	\end{prob}
+
+	\begin{prob}(Casamentos estáveis)
+		Considere $n$ garotos e $n$ garotas.
+		Cada garoto ordena as garotas e cada garota ordena os garotos.
+		Mostre que é possível formar $n$ casais, cada um com um garoto e uma garota, de modo que não existam dois casais $(a, b)$ e $(c, d)$ tais que $a$ apareça acima de $c$ na ordem de $d$ e $d$ apareça acima de $b$ na ordem de $a$.
+	\end{prob}
+
+	\begin{prob}
+		Há $n$ inteiros positivos escritos na lousa, $n \ge 2$.
+		Em cada passo, podemos escolher dois números escritos na lousa, apagá-los e substituí-los por sua soma (ou seja, trocamos $a$ e $b$ por $a + b$ e $a + b$).
+		Encontre todos os valores de $n$ para os quais é sempre possível deixar os $n$ números na lousa iguais após uma quantidade finita de passos.
+	\end{prob}
+
+	\begin{prob}
+		O senhor Patinhas tem três contas bancárias, cada uma com uma quantidade inteira de patacas.
+		Ele só transfere dinheiro de uma conta para outra se o saldo da segunda conta é dobrado.
+		Prove que o senhor Patinhas consegue deixar todo seu rico dinheirinho em duas contas.
+	\end{prob}
+
+	\begin{prob}
+		Dada um família $F$ de subconjuntos de $S = \{1, 2, . . . , n\}$ ($n \ge 2$), uma jogada permitida é escolher dois conjuntos disjuntos $A$ e $B$ de $F$ e agregar $A \cup B$ a $F$, mantendo $A$ e $B$ em $F$.
+		
+		Inicialmente, $F$ tem exatamente todos os subconjuntos unitários de $S$. O objetivo é obter, mediante jogadas permitidas, que F tenha todos os subconjuntos de $n - 1$ elementos de $S$.
+
+		Determine o menor número de jogadas necessárias para alcançar o objetivo.
+	\end{prob}
+
+	\begin{prob}
+		Determine se existe uma sequência infinita $a_0, a_1, a_2, a_3, \dots$ de inteiros não negativos que satisfaz as seguintes condições:
+		\begin{itemize}
+			\item Todos os inteiros não negativos aparecem na sequência uma única vez.
+			\item A sequência $$b_n = a_n + n, n \ge 0$$ é formada por todos os números primos, cada um aparecendo exatamente uma vez.
+		\end{itemize}
+	\end{prob}
+
+	%18 ~ 24, Shine
+
+	\problem{math/brazil/mo/2018/2}
+
+	\problem{math/imo/2019/5}
+
+	\problem{math/imo/2019/3}
+
+	\newpage
+	\section{Referências}
+	\begin{enumerate}[label = { [\arabic*] }]
+		\item \emph{Algoritmos,} Carlos Shine.
+	\end{enumerate}
+\end{document}
