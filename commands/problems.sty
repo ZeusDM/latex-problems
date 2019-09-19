@@ -61,6 +61,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{cleveref}
 \RequirePackage{dsfont}
+\RequirePackage{ifmtarg}
 
 %----------
 %
@@ -165,6 +166,14 @@
 		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{%
 		}}}}}}
 }
+
+\newcommand{\sourcefoe}[1]{%
+	\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
+			\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
+				\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
+					\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
+						\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{}}}}}}}
 
 %-------------------------------------------
 %
@@ -274,7 +283,17 @@
 \addto\captionsbrazil{\crefname{note}{Nota}{Notas}}
 \addto\captionsbrazil{\crefname{sol}{Solução}{Soluções}}
 
-\theoremstyle{definition}
+\newtheoremstyle{theoremnoteafter}% name of the style to be used
+  {3pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {3pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\textbf{\thmname{#1}\thmnumber{ #2}.}\thmnote{ (#3)}}
+
+\theoremstyle{theoremnoteafter}
 \ifmypackage@amsthmglobal
 	\newtheorem{thm}{\theoremname}
 \else
@@ -284,7 +303,6 @@
 \newtheorem{prop}[thm]{\propositionname}
 \newtheorem*{cor}{\corollaryname}
 
-\theoremstyle{definition}
 \ifmypackage@amsthmglobal
 	\newtheorem{defn}{\definitionname}
 	\newtheorem{conj}{\conjecturename}
@@ -297,7 +315,18 @@
 	\newtheorem{prob}{\problemname}[section]
 \fi
 
-\theoremstyle{remark}
+\newtheoremstyle{newremark}%
+	{3pt}%
+	{3pt}%
+	{}%
+	{0pt}%
+	{}%
+	{}%
+	{ }%
+	{\textit{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}.}}%
+
+
+\theoremstyle{newremark}
 \newtheorem*{rem}{\remarkname}
 \newtheorem*{note}{\notename}
 \newtheorem*{sol}{\solutionname}
@@ -350,8 +379,11 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
-\newcommand{\EE}{\mathds{E}}
-\newcommand{\PP}{\mathds{P}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\Exp}{\mathds{E}}
+\newcommand{\Prob}{\mathds{P}}
 
 \newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
