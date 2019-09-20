@@ -1,4 +1,4 @@
-\ProvidesPackage{problems}
+\ProvidesPackage{zeusmath}
 
 %--------
 %
@@ -45,135 +45,13 @@
 %-----------------
 
 \RequirePackage{babel}
-\RequirePackage{suffix}
-\RequirePackage{enumitem}
-\RequirePackage{xcolor}
-\RequirePackage{import}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{graphicx}
-\RequirePackage{enumitem}
-\RequirePackage{url}
-\RequirePackage{siunitx}
 \RequirePackage{tikz}
-\RequirePackage{hyperref}
-\RequirePackage{cleveref}
 \RequirePackage{dsfont}
-\RequirePackage{ifmtarg}
-
-%----------
-%
-% zeustitle
-%
-%----------
-
-% Defines a substitute for \maketitle
-
-\newcommand{\ZeusMail}{}
-\newcommand{\ZeusTitleL}{}
-\newcommand{\ZeusTitleR}{}
-\newcommand{\ZeusAuthor}{}
-\newcommand{\ZeusTitle}{}
-
-\renewcommand{\title}[1]{
-	\def\@title{#1}
-	\def\ZeusTitle{#1}
-}
-\renewcommand{\author}[1]{
-	\def\@author{#1}
-	\def\ZeusAuthor{#1}
-}
-\newcommand{\mail}[1]{
-	\def\ZeusMail{#1}
-}
-\newcommand{\titlel}[1]{
-	\def\ZeusTitleL{#1}
-}
-\newcommand{\titler}[1]{
-	\def\ZeusTitleR{#1}
-}
-
-\newcommand{\zeustitle}{
-	{\noindent \, \large \sc \ZeusTitleL}
-	\hfill
-	{\sc \ZeusTitleR}
-	\vspace{3mm}
-	\hrule
- 	\hrule
- 	\vspace{0mm}
-	\begin{center}
-		{\Large \@title}\\\vspace{1mm}
-		{\large \@author}\\\vspace{0mm}
-		{\ZeusMail}
-	\end{center}
-	\vspace{0mm}
-	\hrule
-	\hrule
- 	\vspace{2mm}
-}
-
-%--------------------
-%
-% exercise e solution
-%
-%--------------------
-
-% Defines how to get exercises and solutions from the database
-
-\newcommand{\mypath}{}
-\newcommand{\id}[1]{}
-\ifmypackage@showid
-	\renewcommand{\id}[1]{
-		
-		{\noindent}  \hfill \textcolor{blue}{\texttt{Path: \path{#1}}}
-
-	}
-\fi
-
-\newcommand{\exercise}[1]{
-		\IfFileExists{\mypath problems/#1/source_pt.tex}{(\input{\mypath problems/#1/source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{(\input{\mypath problems/#1/source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{(\input{\mypath problems/#1/source.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{(\input{\mypath problems/#1/../source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{(\input{\mypath problems/#1/../source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
-		}}}}}}
-		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
-}
-
-\WithSuffix\newcommand\exercise*[1]{%
-		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
-}
-
-\newcommand{\solutionfoe}[1]{
-		\IfFileExists{\mypath problems/#1/solution_pt.tex}{\subimport{\mypath problems/#1/}{solution_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Solução \path{#1} não encontrada!}}}%
-		\id{#1}%
-}
-
-\newcommand{\source}[1]{
-			\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{%
-		}}}}}}
-}
-
-\newcommand{\sourcefoe}[1]{%
-	\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-			\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-				\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-					\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-						\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{}}}}}}}
 
 %-------------------------------------------
 %
@@ -181,9 +59,11 @@
 %
 %-------------------------------------------
 
-\definecolor{ocre}{RGB}{243,102,25}
+% Theorem Styles
 
-%Theorem style
+% ocrenumbox
+
+\definecolor{ocre}{RGB}{243,102,25}
 \newtheoremstyle{ocrenumbox}% % Theorem style name
   {0pt}% Space above
   {0pt}% Space below
@@ -196,6 +76,29 @@
    \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
 \renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
 
+% theoremnoteafter
+
+\newtheoremstyle{theoremnoteafter}% name of the style to be used
+  {3pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {3pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\textbf{\thmname{#1}\thmnumber{ #2}.}\thmnote{ (#3)}}
+
+% 
+
+\newtheoremstyle{newremark}%
+	{3pt}%
+	{3pt}%
+	{}%
+	{0pt}%
+	{}%
+	{}%
+	{ }%
+	{\textit{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}.}}%
 
 % Definindo nomes para diferentes linguagens em babel
 
@@ -283,16 +186,6 @@
 \addto\captionsbrazil{\crefname{note}{Nota}{Notas}}
 \addto\captionsbrazil{\crefname{sol}{Solução}{Soluções}}
 
-\newtheoremstyle{theoremnoteafter}% name of the style to be used
-  {3pt}% measure of space to leave above the theorem. E.g.: 3pt
-  {3pt}% measure of space to leave below the theorem. E.g.: 3pt
-  {}% name of font to use in the body of the theorem
-  {0pt}% measure of space to indent
-  {}% name of head font
-  {}% punctuation between head and body
-  { }% space after theorem head; " " = normal interword space
-  {\textbf{\thmname{#1}\thmnumber{ #2}.}\thmnote{ (#3)}}
-
 \theoremstyle{theoremnoteafter}
 \ifmypackage@amsthmglobal
 	\newtheorem{thm}{\theoremname}
@@ -314,17 +207,6 @@
 	\newtheorem{exmp}{\examplename}[section]
 	\newtheorem{prob}{\problemname}[section]
 \fi
-
-\newtheoremstyle{newremark}%
-	{3pt}%
-	{3pt}%
-	{}%
-	{0pt}%
-	{}%
-	{}%
-	{ }%
-	{\textit{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}.}}%
-
 
 \theoremstyle{newremark}
 \newtheorem*{rem}{\remarkname}
@@ -348,20 +230,6 @@
 		\solutionfoe{#1}
 	\end{sol}
 }
-
-%------------------------------------------------------------------
-%
-% Definindo nomes especiais para os jogadores em problemas de jogos
-%
-%------------------------------------------------------------------
-
-\newcommand{\playerA}[1]{#1}
-
-\newcommand{\playerB}[1]{#1}
-
-\newcommand{\playerC}[1]{#1}
-
-\newcommand{\playerD}[1]{#1}
 
 %----------------------------------------------
 %
@@ -387,24 +255,6 @@
 
 \newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
-
-%--------------
-%
-% Setup SIUnitx
-%
-%--------------
-
-\sisetup{output-decimal-marker = {,}}
-
-
-%-------------------------
-%
-% scaleroman and scalealph
-%
-%-------------------------
-
-\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
-\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
 
 %-------------------------
 %
@@ -455,6 +305,3 @@
 	\renewcommand{\concchecknextarg}{\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
 	\renewcommand{\concgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
 \fi
-
-
-

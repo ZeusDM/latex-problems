@@ -1,0 +1,47 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+\PassOptionsToPackage{inline}{enumitem}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+\usepackage{../../../commands/BraunChem}
+
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{icomma}
+\usepackage{calc}
+
+\begin{document}
+
+\begin{prob}
+	O gás \ch{SO2} é formado na queima de combustíveis fósseis.
+Sua liberação na atmosfera é um grave problema ambiental, pois através de uma série de reações ele irá se transformar em \ch{H2SO4{(aq)}}, um ácido muito corrosivo, no fenômeno conhecido como chuva ácida.
+A sua formação pode ser simplificadamente representada por:
+
+\begin{Scheme}
+	\ch{ S{(s)} + O2{(g)} -> SO2{(g)} }
+\end{Scheme}
+
+Quantas toneladas de dióxido de enxofre serão formadas caso ocorra a queima
+de uma tonelada de enxofre? 
+
+\begin{enumerate}[label = (\scalealph{\alph*})]
+	\item 1 tonelada		
+	\item 2 toneladas
+	\item 3 toneladas	
+	\item 4 toneladas		
+	\item 5 toneladas
+\end{enumerate}
+
+Dados: \ch{S} = \SI{32}{\gram\per\mol} e \ch{O} = \SI{16}{\gram\per\mol}.
+\end{prob}
+
+\begin{center}
+	\chemfig{=[:270]-[:330]-[:270]-[:210](-[:270](-[:330])(<[:105.1,1.951]\ch{O}>[:65.5,1.227])-[:210])-[:150]-[:90](-[:30])}
+\end{center}
+
+\end{document}

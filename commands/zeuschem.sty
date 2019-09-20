@@ -1,4 +1,4 @@
-\ProvidesPackage{problems}
+\ProvidesPackage{zeuschem}
 
 %--------
 %
@@ -44,24 +44,23 @@
 %
 %-----------------
 
-\RequirePackage{babel}
-\RequirePackage{suffix}
-\RequirePackage{enumitem}
 \RequirePackage{xcolor}
-\RequirePackage{import}
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{amsthm}
-\RequirePackage{graphicx}
-\RequirePackage{enumitem}
-\RequirePackage{url}
-\RequirePackage{siunitx}
-\RequirePackage{tikz}
-\RequirePackage{hyperref}
-\RequirePackage{cleveref}
-\RequirePackage{dsfont}
+\RequirePackage{chemfig}
+\RequirePackage{twoopt}
 \RequirePackage{ifmtarg}
+
+\RequirePackage{chemmacros} % General chemistry package
+\chemsetup{modules=all} % Load all chemmacros modules
+\RequirePackage{upgreek}
+
+\newcommand{\ChemFont}{\small\sffamily}
+
+\chemsetup{formula={chemformula}}
+
+\chemsetup[chemformula]{format=\ChemFont}
+
+\RequirePackage{verbatim}
+
 
 %----------
 %
@@ -403,8 +402,8 @@
 %
 %-------------------------
 
-\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
-\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
+%\DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
+%\DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
 
 %-------------------------
 %

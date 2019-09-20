@@ -1,4 +1,4 @@
-%\ProvidesPackage{BraunChem}[2019/01/10 Braun's Chemistry Package]
+\ProvidesPackage{BraunChem}[2019/01/10 Braun's Chemistry Package]
 
 %------------------------------------------------
 %   PACKAGES
@@ -16,17 +16,9 @@
 
 \chemsetup[chemformula]{format=\ChemFont}
 
-\RequirePackage{verbatim}
-
 %------------------------------------------------
 %   STYLE DEFINITIONS
-%-------------------------------------------------
-\begin{comment}
-
-\makeatletter
-\newlength{\fsizeb}
-\setlength{\fsizeb}{\f@size pt}
-\makeatother
+%------------------------------------------------
 
 % Style
 
@@ -37,14 +29,16 @@
 \newlength{\HashSpacing}
 \newlength{\BondSpacing}
 
-\setlength{\FixedLenght}{1.3\fsizeb}
-\setlength{\BoldWidth}{0.27\fsizeb}
-\setlength{\LineWidth}{0.054\fsizeb}
-\setlength{\MarginWidth}{0.145\fsizeb}
-\setlength{\HashSpacing}{0.18\fsizeb}
-\setlength{\BondSpacing}{0.236\fsizeb}
+\newlength{\fsize}  %zeusedit
+\setlength{\fsize}{\f@size pt}  %zeusedit
 
-\end{comment}
+\setlength{\FixedLenght}{1.3\fsize}
+\setlength{\BoldWidth}{0.27\fsize}
+\setlength{\LineWidth}{0.054\fsize}
+\setlength{\MarginWidth}{0.145\fsize}
+\setlength{\HashSpacing}{0.18\fsize}
+\setlength{\BondSpacing}{0.236\fsize}
+
 %------------------------------------------------
 %   ENVIRONMENTS
 %------------------------------------------------
@@ -93,12 +87,9 @@
     \raisebox{0pt}[\RSpacing][\RSpacing]{#1}\MSpacing%
 }
 
-
 %------------------------------------------------
 %   CHEMFIG SETUP
 %------------------------------------------------
-
-\begin{comment}
 
 \setchemfig{%
     chemfig style = {line width = \LineWidth},
@@ -324,25 +315,25 @@
 %   STACKING ATOMS HORIZONTALY AND VERTICALY
 %------------------------------------------------ 
 
-%\newlength{\mcfvspace}
-%\setlength{\mcfvspace}{1.5pt}
-%
-%\newcommand{\mcfabove}[2]{\chemabove[\mcfvspace]{#1}{#2}}
-%\newcommand{\mcfbelow}[2]{\chembelow[\mcfvspace]{#1}{#2}}
-%
-%\newlength{\mcf@boxwidth}
-%\newlength{\mcf@boxheight}
-%
-%\newcommand{\mcf@box}[3][l]{
-%\settowidth{\mcf@boxwidth}{\printatom{#2}}
-%\settoheight{\mcf@boxheight}{\printatom{#2}}
-%\makebox[\mcf@boxwidth][#1]{\raisebox{0pt}[\mcf@boxheight][0pt]{\printatom{#3}}}}
-%
-%\newcommand{\mcfleft}[2]{\mcf@box[r]{#2}{#1#2}}
-%\newcommand{\mcfright}[2]{\mcf@box{#1}{#1#2}}
-%
-%\newcommand{\mcfaboveright}[3]{\mcfabove{#1}{\mcf@box{#2}{#2#3}}}
-%\newcommand{\mcfbelowright}[3]{\mcfbelow{#1}{\mcf@box{#2}{#2#3}}}
+\newlength{\mcfvspace}
+\setlength{\mcfvspace}{1.5pt}
+
+\newcommand{\mcfabove}[2]{\chemabove[\mcfvspace]{#1}{#2}}
+\newcommand{\mcfbelow}[2]{\chembelow[\mcfvspace]{#1}{#2}}
+
+\newlength{\mcf@boxwidth}
+\newlength{\mcf@boxheight}
+
+\newcommand{\mcf@box}[3][l]{
+\settowidth{\mcf@boxwidth}{\printatom{#2}}
+\settoheight{\mcf@boxheight}{\printatom{#2}}
+\makebox[\mcf@boxwidth][#1]{\raisebox{0pt}[\mcf@boxheight][0pt]{\printatom{#3}}}}
+
+\newcommand{\mcfleft}[2]{\mcf@box[r]{#2}{#1#2}}
+\newcommand{\mcfright}[2]{\mcf@box{#1}{#1#2}}
+
+\newcommand{\mcfaboveright}[3]{\mcfabove{#1}{\mcf@box{#2}{#2#3}}}
+\newcommand{\mcfbelowright}[3]{\mcfbelow{#1}{\mcf@box{#2}{#2#3}}}
 
 %------------------------------------------------
 %   CHARGES AND ATOM NUMBERS
@@ -363,5 +354,3 @@
 %------------------------------------------------
 
 %\newcommand{\mcfinput}[1]{\@@input|"mol2chemfig #1"}
-
-\end{comment}
