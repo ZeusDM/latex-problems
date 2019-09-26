@@ -61,7 +61,6 @@
 \RequirePackage{hyperref}
 \RequirePackage{cleveref}
 \RequirePackage{dsfont}
-\RequirePackage{ifmtarg}
 
 %----------
 %
@@ -113,67 +112,6 @@
 	\hrule
  	\vspace{2mm}
 }
-
-%--------------------
-%
-% exercise e solution
-%
-%--------------------
-
-% Defines how to get exercises and solutions from the database
-
-\newcommand{\mypath}{}
-\newcommand{\id}[1]{}
-\ifmypackage@showid
-	\renewcommand{\id}[1]{
-		
-		{\noindent}  \hfill \textcolor{blue}{\texttt{Path: \path{#1}}}
-
-	}
-\fi
-
-\newcommand{\exercise}[1]{
-		\IfFileExists{\mypath problems/#1/source_pt.tex}{(\input{\mypath problems/#1/source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{(\input{\mypath problems/#1/source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{(\input{\mypath problems/#1/source.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{(\input{\mypath problems/#1/../source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{(\input{\mypath problems/#1/../source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
-		}}}}}}
-		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
-}
-
-\WithSuffix\newcommand\exercise*[1]{%
-		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
-}
-
-\newcommand{\solutionfoe}[1]{
-		\IfFileExists{\mypath problems/#1/solution_pt.tex}{\subimport{\mypath problems/#1/}{solution_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/solution_en.tex}{\subimport{\mypath problems/#1/}{solution_en.tex}}{\textcolor{red}{Solução \path{#1} não encontrada!}}}%
-		\id{#1}%
-}
-
-\newcommand{\source}[1]{
-			\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{%
-		}}}}}}
-}
-
-\newcommand{\sourcefoe}[1]{%
-	\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-			\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-				\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-					\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-						\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{}}}}}}}
 
 %-------------------------------------------
 %
