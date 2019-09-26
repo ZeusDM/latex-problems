@@ -2,7 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel}
 \usepackage{lmodern}
-\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{}
 \usepackage{../../../commands/problems}
 \renewcommand{\mypath}{../../../}
 
@@ -13,20 +14,26 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{}
-\chead{\bfseries IMO Shorlist}
-\lhead{\bfseries \ano}
+\chead{\bfseries IMO Shortlist \ano}
+\lhead{}
 \rfoot{}
-\cfoot{}
+\cfoot{\thepage}
 \lfoot{}
  
 \renewcommand{\headrulewidth}{0.3pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.3pt}
 
-\addtolength{\textwidth}{-0.5cm}
+%\addtolength{\textwidth}{-0.5cm}
 
+\renewcommand{\playerA}[1]{Guilherme}
+\renewcommand{\playerB}[1]{Zeus}
 
-%\renewcommand{\playerA}[1]{Guilherme}
-%\renewcommand{\playerB}[1]{Zeus}
+\newcommand{\lt}[1]{
+\newpage
+\begin{center}
+	\bf \large #1
+\end{center}
+\setcounter{prob}{0}}
 
 \begin{document}
 
@@ -35,8 +42,17 @@
 
 %------IMOSL's-------%
 
-\def\ano{2007}
-\problem*{math/imosl/2007/G1}
-\solution{math/imosl/2007/G1}
+\input{2018.tex}
+\input{2017.tex}
+\input{2016.tex}
+\input{2015.tex}
+\input{2014.tex}
+\input{2013.tex}
+\input{2012.tex}
+\input{2011.tex}
+\input{2010.tex}
+\input{2009.tex}
+\input{2008.tex}
+\input{2007.tex}
 
 \end{document}

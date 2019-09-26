@@ -1,0 +1,13 @@
+\playerA{Players $A$} and \playerB{$B$} play a game with $N \geq 2012$ coins and $2012$ boxes arranged around a circle.
+Initially \playerA{$A$} distributes the coins among the boxes so that there is at least $1$ coin in each box.
+Then the two of them make moves in the order \playerB{$B$}, \playerA{$A$}, \playerB{$B$}, \playerA{$A$}, $\ldots$ by the following rules:
+
+\begin{enumerate}[label = (\alph*)]
+	\item On every of their moves, \playerB{$B$} passes $1$ coin from every box to an adjacent box.
+ 
+	\item On every of their moves, \playerA{$A$} chooses several coins that were not involved in \playerB{$B$}'s previous move and are in different boxes.
+		She passes every coin to and adjacent box.
+\end{enumerate}
+
+\playerA{Player $A$}'s goal is to ensure at least $1$ coin in each box after every move of them, regardless of how \playerB{$B$} plays and how many moves are made.
+Find the least $N$ that enables \playerA{$A$} to succeed.
