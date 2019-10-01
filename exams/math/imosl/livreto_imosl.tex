@@ -14,14 +14,14 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{}
-\chead{\bfseries IMO Shortlist \ano}
-\lhead{}
+\lhead{\bfseries IMO Shortlist \ano}
+\chead{}
 \rfoot{}
-\cfoot{\thepage}
+\cfoot{}
 \lfoot{}
  
 \renewcommand{\headrulewidth}{0.3pt}
-\renewcommand{\footrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
 
 %\addtolength{\textwidth}{-0.5cm}
 
@@ -30,15 +30,16 @@
 
 \newcommand{\lt}[1]{
 \newpage
-\begin{center}
-	\bf \large #1
-\end{center}
+%\begin{center}
+\hspace{0.5cm} {\bf \Large #1}
+\vspace{1em}
+%\end{center}
 \setcounter{prob}{0}}
 
 \begin{document}
 
-%\thispagestyle{empty}
-%\input{titlepage.tex}\newpage
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
 
 %------IMOSL's-------%
 
