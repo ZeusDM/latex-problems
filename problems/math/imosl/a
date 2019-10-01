@@ -1,0 +1,16 @@
+for i in {1980..2018};
+do
+    mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    rm $i/source.tex
+    echo "Banco IMO $i" >> $i/source_pt.tex
+    echo "IMO Shortlist $i" >> $i/source_en.tex
+	for j in {1..10}
+	do
+		rm $i/A$j/source.tex
+		rm $i/C$j/source.tex
+		rm $i/G$j/source.tex
+		rm $i/N$j/source.tex
+	done
+done
