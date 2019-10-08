@@ -1,0 +1,109 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\title{Os pontos Humpty-Dumpty}
+\author{Jorge Craveiro}
+\nomail
+\titlel{Turma Olímpica}
+\titler{\today}
+
+\begin{document}	
+	\zeustitle
+	\begin{center}
+		\begin{minipage}{0.8\textwidth}
+			\itshape Resumo: Vamos ver algumas propriedades interessantes de dois tipos de pontos em um triângulo.
+			Em vários exemplos, veremos como identificá-los, para assim matar problemas bem mais facilmente.
+			Esses pontos de que vamos falar não têm um nome específico, então o autor do artigo os chamou de Humpty e Dumpty.
+			Esses pontos dependem do vértice do triângulo, então os chamaremos de $X$-Humpty, e $X$-Dumpty, aos relativos ao vértice $X$.	
+		\end{minipage}
+	\end{center}
+	
+	\section{Humpty}
+	\begin{defn}
+		No triângulo $ABC$, o ponto $A$-Humpty, $P_A$, é definido como o ponto interno ao triângulo tal que $\angle P_ABC = \angle P_AAB$ e $\angle P_ACB = \angle P_AAC$.
+	\end{defn}
+	\begin{prop}
+		$P_A$ está sobre a mediana de $A$ no triângulo $ABC$.
+	\end{prop}
+	\begin{prop}
+		$P_A$ está sobre o círculo de Apolônio de $A$ no triângulo $ABC$, ou seja, $\frac{PAB}{PAC} = \frac{AB}{AC}$.
+	\end{prop}
+	\begin{prop}
+		$B$, $P_A$, $H$ e $C$ são concíclicos, sendo $H$ ortocentro de $ABC$.
+	\end{prop}
+	\begin{prop}
+		$P_AH$ e $P_AA$ são perpendiculares, ou seja, o $A$-Humpty é a projeção de $H$ na mediana de $A$.
+	\end{prop}
+
+	\section{Dumpty}
+	\begin{defn}
+		No triângulo $ABC$, o ponto $A$-Dumpty, $Q_A$, é definido como o ponto interno ao triângulo tal que $\angle Q_ABA = \angle Q_AAC$ e $\angle Q_AAB = \angle Q_ACA$.
+	\end{defn}
+	\begin{prop}
+		$Q_A$ está na simediana de $A$ no triângulo $ABC$.
+	\end{prop}
+	\begin{prop}
+		$Q_A$ é o centro de roto-homotetia dos triângulos $AQ_AC$ e $CQ_AB$, ou seja, a que transforma $AC$ em $BA$.
+	\end{prop}
+	\begin{prop}
+		$B$, $Q_A$, $O$ e $C$ são concíclicos, em que $O$ é circuncentro do triângulo $ABC$.
+	\end{prop}
+	\begin{prop}
+		$Q_AO$ e $Q_AA$ são perpendiculares, ou seja, o $A$-Dumpty é a projeção de $O$ na simediana de $A$.
+	\end{prop}
+	
+	\section{Humpty-Dumpty}
+	
+	Além disso note:
+	\begin{prop}
+		Os pontos $A$-Humpty e $A$-Dumpty são conjugados isogonais.
+	\end{prop}
+
+	\section{Problemas olímpicos}
+	\begin{prob}[ELMO 2014]
+		No triângulo $ABC$, $H$ e $O$ são ortocentro e circuncentro, respectivamente.
+		O círculo $(BOC)$ intersecta o círculo de diâmetro $AO$ no ponto $M$.
+		A reta $AM$ intersecta $(BOC)$ novamente em $X$.
+		Da mesma maneira, $(BHC)$ intersecta o círculo de diâmetro $AH$ em $N$, e $AN$ intersecta $(BHC)$ novamente em $Y$.
+		Mostre que $MN$ é paralelo a $XY$.
+	\end{prob}
+	\begin{prob}[USAMO 2008]
+		No triângulo $ABC$, $M$ e $N$ são os pontos médios de $AB$ e $AC$.
+		As mediatrizes de $AB$ e $AC$ cortam a mediana de $A$ nos pontos $D$ e $E$, respectivamente.
+		$BD$ e $CE$ se cortam em $F$.
+		Mostre que $AMFN$ é inscritível.
+	\end{prob}
+	\begin{prob}[USA TST 2015]
+		$ABC$ é um triângulo escaleno. $K_A$, $L_A$, $M_A$ são, respectivamente, as interseções de $BC$ com a bissetriz interna, bissetriz externa e mediana de $A$. O círculo $(AK_AL_A)$ intersecta $AM_A$ novamente em $X_A$. De maneira análoga, defina os pontos $X_B$ e $X_C$. Mostre que o circuncentro do triângulo $X_AX_BX_C$ está na reta de Euler do triângulo $ABC$.
+	\end{prob}
+	\begin{prob}[USA TST2005]
+		$P$ é um ponto interno ao triângulo $ABC$ tal que os ângulos $PAB$ e $PBC$ são iguais, bem como $PAC$ e $PCB$. A mediatriz de $AP$ corta $BC$ em $Q$. Se $O$ é circuncentro de $ABC$, prove que $\angle AQP$ é o dobro de $\angle OQB$.
+	\end{prob}
+
+	\section{Exercícios}
+	\begin{prob}
+		No triângulo $ABC$, a simediana de $A$ intersecta o circuncírculo em $K$. O simétrico de $K$ em relação a $BC$ é $K^*$. Prove que $AK^*$ é a mediana.
+	\end{prob}
+	\begin{prob}
+		Um ponto $P$ varia sobre $BC$, lado do triângulo $ABC$. Os pontos $M$ e $N$ estão sobre $AB$ e $AC$, respectivamente, de tal forma que $PM \parallel AC$, e $PN \parallel AB$.
+		Prove que, ao variar $P$, o círculo $(AMN)$ passa por um ponto fixo além de $A$.
+	\end{prob}
+	\begin{prob}
+		Os pontos $M$ e $N$ estão sobre uma semicircunferência de diâmetro $AB$ e centro $O$. A reta $MN$ intersecta a $AB$ em $X$. Os círculos $(MBO)$ e $(NAO)$ se cortam em $K$. Mostre que $XK$ é perpendicular a $KO4$.
+	\end{prob}
+	\begin{prob}
+		$Q_A$ é o $A$-Dumpty do triângulo $ABC$. Seja $AD$ altura de $A$. Prove que $DQ_A$ bissecta a base média relativa a $BC$ no triângulo $ABC$.
+	\end{prob}
+	\begin{prob}
+		$P$ é um ponto na simediana de $A$ no triângulo $ABC$. $O_1$ e $O_2$ são circuncentros dos triângulos $APB$ e $CAP$. Se $O$ é circuncentro do triângulo $ABC$, prove que $AO$ bissecta $O_1O_2$.
+	\end{prob}
+	\begin{prob}
+		$AD$ é altura de $A$ no triângulo $ABC$. Um círculo de centro sobre $AD$ é tangente externamente ao $(BOC)$ em $X$, em que $O$ é circuncentro de $ABC$. Mostre que $AX$ é simediana de $A$.
+	\end{prob}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{../../../commands/problems}
+\renewcommand{\mypath}{../../../}
+
+\title{Porismo de Poncelet e Quadriláteros Bicêntricos}
+\author{Jorge Craveiro}
+\nomail
+\titlel{Turma Olímpica}
+\titler{\today}
+
+\begin{document}	
+	\zeustitle
+	\begin{center}
+		\begin{minipage}{0.8\textwidth}
+			\itshape Resumo: Veremos um resultado de geometria dos mais encantadores, e difíceis, que há atualmente, o Porismo de Poncelet. Para chegar a isso, usaremos várias ferramentas de potência de ponto e círculos coaxiais. Logo depois, como consequência, veremos algumas caracterizações e propriedades dos Quadriláteros Bicêntricos, que admitem círculos inscrito e circunscrito ao mesmo tempo. Não só resultados métricos, como também alguns resultados de geometria projetiva e inversiva, serão muito úteis para deduzir propriedades bem interessantes desses quadriláteros.
+		\end{minipage}
+	\end{center}
+	\begin{prob}
+		Dados dois círculos $C_1$ e $C_2$, de centros $O$ e $O'$, a diferença das potências de um ponto $P$ em relação a eles é igual a $2 \cdot OO' \cdot PX$, em que $PX$ é distância de $P$ ao eixo radical dos círculos.
+	\end{prob}
+	\begin{prob}
+		Dados dois círculos, o lugar geométrico dos pontos cuja razão das potências a esses círculos é constante é um terceiro círculo, coaxial com os dois círculos dados.
+	\end{prob}
+	\begin{prob}
+		Uma reta corta duas circunferências dadas em quatro pontos distintos. As tangentes a esses dois círculos traçadas nesses pontos se intersectam em outros quatro pontos que estão sobre um círculo coaxial aos dois dados.
+	\end{prob}
+	\begin{prob}
+		Se os vértices de um quadrilátero (completo) estão num círculo, uma tranversal que corte lados opostos sob mesmos ângulos corta cada par de lados opostos em ângulos iguais.
+	\end{prob}
+	\begin{prob}
+		Se uma reta forma ângulos iguais com lados opostos de um quadrilátero (completo) inscritível, então podemos traçar círculos tangentes a cada par de lados opostos, tangenciando nas interseções dessa reta com lados opostos nos pontos de interseção da reta. Esses (três) círculos serão coaxiais com o círculo dado.
+	\end{prob}
+	\begin{prob}
+		Se os vértices de um quadrilátero inscrito num círculo se movem de tal maneira que dois lados opostos continuam tangentes a um segundo círculo fixado, então qualquer par de lados opostos (do quadrilátero completo) se move tangenciando algum círculo coaxial com os círculos fixados.
+	\end{prob}
+	\begin{prob}
+		Se os vértices de um triângulo se movem continuamente sobre um círculo, enquanto dois lados continuamente são tangentes a outros círculos fixos, coaxiais ao primeiro, então o terceiro lado tangencia um terceiro círculo fixo coaxial aos anteriores.
+	\end{prob}
+
+Como resultado disso, temos o Porismo de Poncelet:
+
+	\begin{prob}[Porismo de Poncelet]
+		Se dois círculos são tais que um polígono pode ser inscrito em um e circunscrito ao outro, então infinitos polígonos podem ser traçados dessa maneira, e cada diagonal do polígono variável é tangente a um círculo fixo (coaxial aos dois círculos dados).
+	\end{prob}
+
+Agora, vamos olhar para os quadriláteros bicêntricos. Antes disso, um lema útil para uma propriedade do quadrilátero bicêntrico:
+
+	\begin{lem}
+		Se uma corda $AB$ se move sobre um círculo $C$ sendo enxergada por um ponto fixo $P$, interno ao círculo, sob $90^\circ$, então o ponto médio da corda e a projeção de $P$ na corda se movem num mesmo círculo $C'$. Além disso, as tangentes ao círculo $C$ nos pontos $A$ e $B$ se intersectam em um ponto $X$ que se move num círculo, e esses dois círculos são coaxiais com o primeiro, com $P$ sendo um ponto limite desse sistema de círculos.
+	\end{lem}
+
+	Para o que segue, consideremos os seguintes: $ABCD$ é um quadrilátero. Quando for circunscritível, os pontos de tangência com seu incírculo serão $W$, $X$, $Y$ e $Z$, sobre $AB$, $BC$, $CD$ e $DA$, respectivamente. O quadrilátero completo $ABCD$ é tal que $AB$ e $CD$ se cortam em $J$, $AD$ e $BC$ em $K$, e $AC$ e $BD$ em $P$. Caso exista, o quadrilátero completo $WXYZ$ é tal que $WX$ e $YZ$ se cortam em $L$, $WZ$ e $XY$ em $M$. Caso existam, o incentro de $ABCD$ será $I$, e o circuncentro de $ABCD$ será $O$. Os raios dos círculos inscrito e circunscrito serão $r$, $R$, e a distância $IO$ será $d$.
+
+	\begin{prob}
+		Seja $ABCD$ um quadrilátero circunscritível. Ele será inscritível se, e somente se, os segmentos $WY$ e $XZ$ forem perpendiculares entre si.
+	\end{prob}
+	\begin{prob}[Fórmula de Fuss]
+		Se ABCD é bicêntrico, então $\frac{1}{(R-d)^2} + \frac{1}{(R+d)^2} = \frac{1}{r^2}$. Se dois círculos são como na descrição acima (raios $R$, $r$, e distância entre os centros igual a $d$), satisfazendo à fórmula, então é possível inscrever/circunscrever um quadrilátero a esses círculos (e, portanto, infinitos).
+	\end{prob}
+	\begin{prob}[Teorema de Newton]
+		Seja $ABCD$ um quadrilátero circunscritível. Então seu incentro $I$ pertence à mediana de Euler (reta de Gauss) do quadrilátero.
+	\end{prob}
+	\begin{prob}
+		Seja um quadrilátero $ABCD$ circunscritível. O quadrilátero será bicêntrico se, e somente se, $\frac{AW}{WB} = \frac{DY}{YC}$.
+	\end{prob}
+	\begin{prob}
+		Seja um quadrilátero $ABCD$ circunscritível. Os segmentos $WY$ e $XZ$ também se intersectam em $P$.
+	\end{prob}
+	\begin{prob}
+		Seja o quadrilátero $ABCD$ inscritível. Então O é ortocentro de JKP.
+	\end{prob}
+	\begin{prob}
+		Seja o quadrilátero $ABCD$ circunscritível. Então, $J$, $K$, $L$ e $M$ são colineares. Além disso, $IP$ é perpendicular a $JK$.
+	\end{prob}
+	\begin{prob}
+		Na situação anterior, o quadrilátero $ABCD$ é inscritível se, e somente se, $\angle JIK = 90^\circ$.
+	\end{prob}
+	\begin{prob}
+		Ainda na situação anterior, o quadrilátero $ABCD$ é inscritível se, e somente se, a sua reta de Gauss for perpendicular à reta de Gauss do quadrilátero $WXYZ$.
+	\end{prob}
+	\begin{prob}
+		Seja $ABCD$ um quadrilátero bicêntrico. Mostre que os pontos $O$, $I$ e $P$ são colineares. 
+	\end{prob}
+\end{document}
