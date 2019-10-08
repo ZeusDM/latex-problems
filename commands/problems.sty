@@ -94,6 +94,13 @@
 \newcommand{\titler}[1]{
 	\def\ZeusTitleR{#1}
 }
+\newcommand{\mailfoe}{
+	\\\vspace{0mm}
+	{\ZeusMail}
+}
+\newcommand{\nomail}{
+	\def\mailfoe{}
+}
 
 \newcommand{\zeustitle}{
 	{\noindent \, \large \sc \ZeusTitleL}
@@ -105,8 +112,8 @@
  	\vspace{0mm}
 	\begin{center}
 		{\Large \@title}\\\vspace{1mm}
-		{\large \@author}\\\vspace{0mm}
-		{\ZeusMail}
+		{\large \@author}
+		\mailfoe
 	\end{center}
 	\vspace{0mm}
 	\hrule
