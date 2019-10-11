@@ -139,17 +139,19 @@
 	}
 \fi
 
+\newcommand{\IfProblemHasSource}[3]{
+	\IfFileExists{\mypath problems/#1/source_pt.tex}{#2}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{#2}{%
+			\IfFileExists{\mypath problems/#1/source.tex}{#2}{%
+				\IfFileExists{\mypath problems/#1/../source_pt.tex}{#2}{%
+					\IfFileExists{\mypath problems/#1/../source_en.tex}{#2}{%
+						\IfFileExists{\mypath problems/#1/../source.tex}{#2}{#3}}}}}}}
+
 \newcommand{\exercise}[1]{
-		\IfFileExists{\mypath problems/#1/source_pt.tex}{(\input{\mypath problems/#1/source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{(\input{\mypath problems/#1/source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{(\input{\mypath problems/#1/source.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{(\input{\mypath problems/#1/../source_pt.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{(\input{\mypath problems/#1/../source_en.tex}\unskip)}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{(\input{\mypath problems/#1/../source.tex}\unskip)}{%
-		}}}}}}
-		\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
+	\IfProblemHasSource{#1}{(\unskip\source{#1}\unskip)}{}
+	\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
+	\IfFileExists{\mypath problems/#1/problem_en.tex}{\subimport{\mypath problems/#1/}{problem_en.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
+	\id{#1}%
 }
 
 \WithSuffix\newcommand\exercise*[1]{%
@@ -165,22 +167,14 @@
 }
 
 \newcommand{\source}[1]{
-			\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source_pt.tex}{\unskip\input{\mypath problems/#1/source_pt.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{\unskip\input{\mypath problems/#1/source_en.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/source.tex}{\unskip\input{\mypath problems/#1/source.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\unskip\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source_en.tex}{\unskip\input{\mypath problems/#1/../source_en.tex}\unskip}{%
+		\IfFileExists{\mypath problems/#1/../source.tex}{\unskip\input{\mypath problems/#1/../source.tex}\unskip}{%
 		}}}}}}
 }
-
-\newcommand{\sourcefoe}[1]{%
-	\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}\unskip}{%
-			\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}\unskip}{%
-				\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-					\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-						\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}\unskip}{}}}}}}}
 
 %-------------------------------------------
 %
@@ -188,22 +182,72 @@
 %
 %-------------------------------------------
 
-\definecolor{ocre}{RGB}{243,102,25}
+\definecolor{prim++}{HTML}{FFA4D0}
+\definecolor{prim+}{HTML}{FF70B6}
+\definecolor{prim}{HTML}{FF007D}
+\definecolor{prim-}{HTML}{B40058}
+\definecolor{prim--}{HTML}{8A0044}
+\definecolor{sec1++}{HTML}{45BBB2}
+\definecolor{sec1+}{HTML}{26BBB0}
+\definecolor{sec1}{HTML}{008D82}
+\definecolor{sec1-}{HTML}{16706A}
+\definecolor{sec1--}{HTML}{00655E}
+\definecolor{sec2++}{HTML}{FFD3A4}
+\definecolor{sec2+}{HTML}{FFBA70}
+\definecolor{sec2}{HTML}{FF8500}
+\definecolor{sec2-}{HTML}{D97100}
+\definecolor{sec2--}{HTML}{A75700}
+\definecolor{comp++}{HTML}{D2F29B}
+\definecolor{comp+}{HTML}{B6E36B}
+\definecolor{comp}{HTML}{93C342}
+\definecolor{comp-}{HTML}{77A724}
+\definecolor{comp--}{HTML}{58850C}
 
 %Theorem style
-\newtheoremstyle{ocrenumbox}% % Theorem style name
-  {0pt}% Space above
-  {0pt}% Space below
+\newtheoremstyle{simpleprim}% % Theorem style name
+  {5pt}% Space above
+  {5pt}% Space below
   {\normalfont}% % Body font
   {}% Indent amount
-  {\small\bfseries\sffamily\color{ocre}}% % Theorem head font
+  {\small\bfseries\color{prim}}% % Theorem head font
   {\;}% Punctuation after theorem head
   {0.25em}% Space after theorem head
-  {\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
-   \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
-\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+  {\small\color{prim}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
+  \thmnote{\nobreakspace\the\thm@notefont\bfseries\color{black} (#3)}} % Optional theorem note
 
+\newtheoremstyle{simplesec1}% % Theorem style name
+  {5pt}% Space above
+  {5pt}% Space below
+  {\normalfont}% % Body font
+  {}% Indent amount
+  {\small\bfseries\color{sec1}}% % Theorem head font
+  {\;}% Punctuation after theorem head
+  {0.25em}% Space after theorem head
+  {\small\color{sec1}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
+  \thmnote{\nobreakspace\the\thm@notefont\bfseries\color{black} (#3)}} % Optional theorem note
 
+\newtheoremstyle{simplesec2}% % Theorem style name
+  {5pt}% Space above
+  {5pt}% Space below
+  {\normalfont}% % Body font
+  {}% Indent amount
+  {\small\bfseries\color{sec2}}% % Theorem head font
+  {\;}% Punctuation after theorem head
+  {0.25em}% Space after theorem head
+  {\small\color{sec2}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
+  \thmnote{\nobreakspace\the\thm@notefont\bfseries\color{black} (#3)}} % Optional theorem note
+
+\newtheoremstyle{simplecomp}% % Theorem style name
+  {5pt}% Space above
+  {5pt}% Space below
+  {\normalfont}% % Body font
+  {}% Indent amount
+  {\small\bfseries\color{comp}}% % Theorem head font
+  {\;}% Punctuation after theorem head
+  {0.25em}% Space after theorem head
+  {\small\color{comp}\thmname{#1}\nobreakspace\thmnumber{#2} % Theorem text (e.g. Theorem 2.1)
+  \thmnote{\nobreakspace\the\thm@notefont\bfseries\color{black} (#3)}} % Optional theorem note
+     
 % Definindo nomes para diferentes linguagens em babel
 
 \newcommand{\theoremname}{}
@@ -290,17 +334,7 @@
 \addto\captionsbrazil{\crefname{note}{Nota}{Notas}}
 \addto\captionsbrazil{\crefname{sol}{Solução}{Soluções}}
 
-\newtheoremstyle{theoremnoteafter}% name of the style to be used
-  {3pt}% measure of space to leave above the theorem. E.g.: 3pt
-  {3pt}% measure of space to leave below the theorem. E.g.: 3pt
-  {}% name of font to use in the body of the theorem
-  {0pt}% measure of space to indent
-  {}% name of head font
-  {}% punctuation between head and body
-  { }% space after theorem head; " " = normal interword space
-  {\textbf{\thmname{#1}\thmnumber{ #2}.}\thmnote{ (#3)}}
-
-\theoremstyle{theoremnoteafter}
+\theoremstyle{simplesec1}
 \ifmypackage@amsthmglobal
 	\newtheorem{thm}{\theoremname}
 \else
@@ -313,11 +347,13 @@
 \ifmypackage@amsthmglobal
 	\newtheorem{defn}{\definitionname}
 	\newtheorem{conj}{\conjecturename}
+	\theoremstyle{simplesec2}
 	\newtheorem{exmp}{\examplename}
 	\newtheorem{prob}{\problemname}
 \else
 	\newtheorem{defn}{\definitionname}[section]
 	\newtheorem{conj}{\conjecturename}[section]
+	\theoremstyle{simplesec2}
 	\newtheorem{exmp}{\examplename}[section]
 	\newtheorem{prob}{\problemname}[section]
 \fi
@@ -339,9 +375,15 @@
 \newtheorem*{sol}{\solutionname}
 
 \newcommand{\problem}[1]{
-	\begin{prob}
-		\exercise{#1}
-	\end{prob}
+	\IfProblemHasSource{#1}{%
+		\begin{prob}[\source{#1}\unskip]
+			\exercise*{#1}
+		\end{prob}
+		}{%
+		\begin{prob}
+			\exercise*{#1}
+		\end{prob}
+		}
 }
 
 \WithSuffix\newcommand\problem*[1]{

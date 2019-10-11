@@ -2,18 +2,51 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel}
 \usepackage{lmodern}
-\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
 
 \usepackage{../../../commands/problems}
 \renewcommand{\mypath}{../../../}
 
-\title{Problemas de Geometria com Inversão}
+\title{Inversão}
 \author{Guilherme Zeus Moura}
 \mail{zeusdanmou@gmail.com}
-\titlel{Turma Olímpica}
-\titler{\today}
+\titlel{}
+\titler{}
 
 \begin{document}	
 	\zeustitle
-	\problem{math/brazil/mo/2011/5}
+	\begin{defn}[Inversão]
+		Seja $O$ um ponto e $r > 0$ um real. A inversão $I$ com centro $O$ e raio $r$ é uma transformação que leva o ponto $P \neq O$ em um ponto $P'$ tal que:
+		\begin{enumerate}[label = (\roman*)]
+			\item $P'$ está na semirreta $\overrightarrow{OP}$;
+			\item $OP \cdot OP' = r^2$.
+		\end{enumerate}
+	\end{defn}
+
+	\begin{prop}[Preservação de ângulos]
+		\[ \angle OAB = \angle OB'A'. \]
+	\end{prop}
+
+	\begin{prop}
+		Uma inversão leva uma reta que passa por $O$ em si mesma.
+	\end{prop}
+
+	\begin{prop}
+		Uma inversão leva uma reta que não passa por $O$ em um círculo que passa por $O$.
+	\end{prop}
+
+	\begin{prop}
+		Uma inversão leva um círculo que passa por $O$ em uma reta que não passa por $O$.
+	\end{prop}
+
+	\begin{prop}
+		Uma inversão leva um círculo que não passa por $O$ em um círculo que não passa por $O$.
+	\end{prop}
+
+	\section*{Problemas}
+	\begin{prob}[Teorema de Ptolomeu]
+		Em um quadrilátero inscritível, o produto das medidas das diagonais é igual à soma dos produtos das medidas dos lados opostos.
+	\end{prob}
+	\problem{math/ibero/1998/2}
+	\problem{math/brazil/mo/2011/5}	
 \end{document}
