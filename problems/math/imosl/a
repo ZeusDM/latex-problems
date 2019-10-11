@@ -9,8 +9,16 @@ do
 	for j in {1..10}
 	do
 		rm $i/A$j/source.tex
+		rm $i/A$j/number.tex
+		echo "A$j" >> $i/A$j/number.tex
 		rm $i/C$j/source.tex
+		rm $i/C$j/number.tex
+		echo "C$j" >> $i/C$j/number.tex		
 		rm $i/G$j/source.tex
+		rm $i/G$j/number.tex
+		echo "G$j" >> $i/G$j/number.tex	
 		rm $i/N$j/source.tex
+		rm $i/N$j/number.tex
+		echo "N$j" >> $i/N$j/number.tex
 	done
 done

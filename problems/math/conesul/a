@@ -9,5 +9,7 @@ do
 		for j in {1..6}
 		do
 			mkdir $i/$j
+			rm $i/$j/number.tex
+			echo "$j" >> $i/$j/number.tex
 		done
 done

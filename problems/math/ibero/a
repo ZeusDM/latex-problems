@@ -8,6 +8,8 @@ do
 	echo "IberoAmerican $i" >> $i/source_en.tex	
 		for j in {1..6}
 		do
+			rm $i/$j/number.tex
 			mkdir $i/$j
+			echo "$j" >> $i/$j/number.tex
 		done
 done

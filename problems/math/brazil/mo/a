@@ -1,0 +1,16 @@
+for i in {1998..2018};
+do
+    mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    rm $i/source.tex
+    echo "OBM $i" >> $i/source_pt.tex
+    echo "Brazil $i" >> $i/source_en.tex
+	for j in {1..6}
+	do
+		mkdir $i/$j
+		rm $i/$j/source_pt.tex
+		rm $i/$j/source_en.tex
+		echo "$j" >> $i/$j/number.tex
+	done
+done
