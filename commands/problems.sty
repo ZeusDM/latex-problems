@@ -62,6 +62,8 @@
 \RequirePackage{cleveref}
 \RequirePackage{dsfont}
 \RequirePackage{ifmtarg}
+\RequirePackage{titlesec}
+\RequirePackage{textcomp}
 
 %----------
 %
@@ -121,6 +123,15 @@
  	\vspace{2mm}
 }
 
+%-----------------
+%
+% Redefine section
+%
+%-----------------
+
+\titleformat{\section}[hang]{}{\textcolor{sec1}{\bfseries \raisebox{2pt}{\S} \unskip\Large\sffamily \thesection}}{1em}{\Large\bfseries\sffamily}[]
+\titleformat{\section}[hang]{}{\textcolor{sec1}{\bfseries\Large\S\sffamily\thesection}}{1em}{\Large\bfseries\sffamily}[]
+
 %--------------------
 %
 % exercise e solution
@@ -147,6 +158,10 @@
 					\IfFileExists{\mypath problems/#1/../source_en.tex}{#2}{%
 						\IfFileExists{\mypath problems/#1/../source.tex}{#2}{#3}}}}}}}
 
+\newcommand{\IfProblemHasNumber}[3]{
+	\ignorespaces\IfFileExists{\mypath problems/#1/number.tex}{\ignorespaces #2}{\ignorespaces #3}}
+
+
 \newcommand{\exercise}[1]{
 	\IfProblemHasSource{#1}{(\unskip\source{#1}\unskip)}{}
 	\IfFileExists{\mypath problems/#1/problem_pt.tex}{\subimport{\mypath problems/#1/}{problem_pt.tex}}{%
@@ -166,15 +181,24 @@
 		\id{#1}%
 }
 
-\newcommand{\source}[1]{
-		\IfFileExists{\mypath problems/#1/source_pt.tex}{\unskip\input{\mypath problems/#1/source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source_en.tex}{\unskip\input{\mypath problems/#1/source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/source.tex}{\unskip\input{\mypath problems/#1/source.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\unskip\input{\mypath problems/#1/../source_pt.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source_en.tex}{\unskip\input{\mypath problems/#1/../source_en.tex}\unskip}{%
-		\IfFileExists{\mypath problems/#1/../source.tex}{\unskip\input{\mypath problems/#1/../source.tex}\unskip}{%
+\newcommand{\sourcefoe}[1]{
+		\IfFileExists{\mypath problems/#1/source_pt.tex}{\input{\mypath problems/#1/source_pt.tex}}{%
+		\IfFileExists{\mypath problems/#1/source_en.tex}{\input{\mypath problems/#1/source_en.tex}}{%
+		\IfFileExists{\mypath problems/#1/source.tex}{\input{\mypath problems/#1/source.tex}}{%
+		\IfFileExists{\mypath problems/#1/../source_pt.tex}{\input{\mypath problems/#1/../source_pt.tex}}{%
+		\IfFileExists{\mypath problems/#1/../source_en.tex}{\input{\mypath problems/#1/../source_en.tex}}{%
+		\IfFileExists{\mypath problems/#1/../source.tex}{\input{\mypath problems/#1/../source.tex}}{%
 		}}}}}}
 }
+
+\newcommand{\numberfoe}[1]{
+		\IfFileExists{\mypath problems/#1/number.tex}{\input{\mypath problems/#1/number.tex}}{}
+}
+
+\newcommand{\source}[1]{
+	\sourcefoe{#1}\ignorespaces\IfProblemHasNumber{#1}{\unskip\unskip\unskip,\unskip\unskip\unskip{\ }\unskip\unskip\numberfoe{#1}}{}
+}
+
 
 %-------------------------------------------
 %
@@ -374,14 +398,14 @@
 \newtheorem*{note}{\notename}
 \newtheorem*{sol}{\solutionname}
 
-\newcommand{\problem}[1]{
-	\IfProblemHasSource{#1}{%
-		\begin{prob}[\source{#1}\unskip]
-			\exercise*{#1}
+\newcommand{\problem}[2][]{
+	\IfProblemHasSource{#2}{%
+		\begin{prob}[\ignorespaces\source{#2}\unskip\unskip\unskip\unskip]
+			\exercise*{#2#1}
 		\end{prob}
 		}{%
 		\begin{prob}
-			\exercise*{#1}
+			\exercise*{#2#1}
 		\end{prob}
 		}
 }
