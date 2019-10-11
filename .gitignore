@@ -228,6 +228,9 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 
+# Vim
+*.swp
+
 # auto folder when using emacs and auctex
 ./auto/*
 *.el
@@ -241,5 +244,5 @@ TSWLatexianTemp*
 # generated if using elsarticle.cls
 *.spl
 
-# miguel's folder
+## miguel's folder
 miguel/
