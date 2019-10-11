@@ -1,0 +1,34 @@
+for i in {2014..2019};
+do
+    mkdir $i
+    mkdir $i/e
+	mkdir $i/i
+	mkdir $i/a
+	rm $i/source_pt.tex
+    rm $i/source_en.tex
+    rm $i/source.tex
+	rm $i/e/source_pt.tex
+	rm $i/i/source_pt.tex
+	rm $i/a/source_pt.tex
+	rm $i/e/source_en.tex
+	rm $i/i/source_en.tex
+	rm $i/a/source_en.tex
+	echo "IGO $i, Elementar" >> $i/e/source_pt.tex
+    echo "IGO $i, Intermedário" >> $i/i/source_pt.tex
+    echo "IGO $i" >> $i/a/source_pt.tex   
+	echo "IGO $i, Elementary" >> $i/e/source_en.tex
+	echo "IGO $i, Intermediate" >> $i/i/source_en.tex
+	echo "IGO $i" >> $i/a/source_en.tex	
+	for j in {1..6}
+	do
+		mkdir $i/e/$j
+		mkdir $i/i/$j
+		mkdir $i/a/$j	
+		rm $i/e/$j/number.tex
+		rm $i/i/$j/number.tex
+		rm $i/a/$j/number.tex
+		echo "$j" >> $i/e/$j/number.tex
+		echo "$j" >> $i/i/$j/number.tex
+		echo "$j" >> $i/a/$j/number.tex		
+	done
+done
