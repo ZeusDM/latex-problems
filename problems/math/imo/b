@@ -1,0 +1,16 @@
+for i in {1887..2019};
+do
+    #mkdir $i
+    #rm $i/source_pt.tex
+    #rm $i/source_en.tex
+    #echo "USA TST $i" >> $i/source_pt.tex
+    #echo "USA TST $i" >> $i/source_en.tex
+	for j in {1..6}
+	do
+		#mkdir $i/$j
+		#rm $i/$j/number.tex
+		#echo "$j" >> $i/$j/number.tex
+		mv IMO-$i-$j.tex $i/$j/solution_en.tex
+		#mv $i/$j/solution_en.tex $i/$j/problem_en.tex
+	done
+done

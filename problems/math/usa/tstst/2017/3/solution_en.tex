@@ -1,0 +1,21 @@
+The answer is for $c\in\left(2\cos\frac{\pi}{n-1},2\cos\frac{\pi}{n}\right]$, the minimum degree of $f$ is $n$ ($n=3,4,5,\ldots$) and for $c\geq2$, $f,g$ do not exist.
+
+First, we prove that $c\geq2$ implies $f,g$ do not exist. Suppose that they did, then \[0\leq\frac{f\left(1\right)}{g\left(1\right)}=2-c\leq0,\] contradiction (we would need $f\left(1\right)=0$ but then $f$ is the zero polynomial).
+
+Now, suppose that $c>2\cos\frac{\pi}{n}$ with $n\geq3$. I claim that $\deg f=n$ does not work. Write $c=2\cos\theta$ with $\theta\in\left(0,\frac{\pi}{2}\right)$, then $\theta<\frac{\pi}{n}$. In particular, for $k=0,1,\ldots,n$, $0\leq k\theta\leq n\theta<\pi$, so $\sin\left(k\theta\right)\geq0$. Observe that the roots of $x^2-cx+1$ are $e^{i\theta},e^{-i\theta}$. Suppose that $f$ exists and let $f\left(x\right)=\displaystyle\sum_{k=0}^na_kx^k$. Then \[0=\text{Im }f\left(e^{i\theta}\right)=\text{Im }\displaystyle\sum_{k=0}^na_ke^{ik\theta}=\displaystyle\sum_{k=0}^na_k\sin\left(k\theta\right)\geq0,\] with equality if and only if all $a_k$ are $0$ except for $a_0$, contradiction. Thus, $f,g$ do not exist.
+
+Now, suppose that $c\leq2\cos\frac{\pi}{n}$ with $n\geq3$. I claim that $\deg f=n$ works. Choose $g\left(x\right)=\displaystyle\sum_{k=0}^{n-2}\sin\frac{\left(k+1\right)\pi}{n}x^k$. We compute the coefficients of $f\left(x\right)=\left(x^2-cx+1\right)g\left(x\right)$. The $x^n$ coefficient is $\sin\frac{\left(n-1\right)\pi}{n}>0$. The $x^{n-1}$ coefficient is $\sin\frac{\left(n-2\right)\pi}{n}-c\sin\frac{\left(n-1\right)\pi}{n}$. Observe that $\sin\frac{\left(n-2\right)\pi}{n}=\sin\frac{2\pi}{n}=2\cos\frac{\pi}{n}\sin\frac{\pi}{n}$ and $\sin\frac{\left(n-1\right)\pi}{n}=\sin\frac{\pi}{n}$, so
+\begin{align*}
+    \sin\frac{\left(n-2\right)\pi}{n}-c\sin\frac{\left(n-1\right)\pi}{n}&=2\cos\frac{\pi}{n}\sin\frac{\pi}{n}-c\sin\frac{\pi}{n}\\
+    &\geq2\cos\frac{\pi}{n}\sin\frac{\pi}{n}-2\cos\frac{\pi}{n}\sin\frac{\pi}{n}\\
+    &=0.
+\end{align*}
+The $x$ coefficient is $\sin\frac{2\pi}{n}-c\sin\frac{\pi}{n}$, which is the same as the $x^{n-1}$ coefficient, and the constant term is $\sin\frac{\pi}{n}>0$. Thus, the $x^0,x^1,x^{n-1},x^n$ coefficients of $f$ are nonnegative. Now, consider the coefficient of $x^k$ with $k=2,3,\ldots,n-2$. It is $\sin\frac{\left(k-1\right)\pi}{n}-c\sin\frac{k\pi}{n}+\sin\frac{\left(k+1\right)\pi}{n}$. But observe that $\sin\frac{\left(k-1\right)\pi}{n}+\sin\frac{\left(k+1\right)\pi}{n}=2\cos\frac{\pi}{n}\sin\frac{k\pi}{n}$ by sum-to-product, so
+\begin{align*}
+    \sin\frac{\left(k-1\right)\pi}{n}-c\sin\frac{k\pi}{n}+\sin\frac{\left(k+1\right)\pi}{n}&=2\cos\frac{\pi}{n}\sin\frac{k\pi}{n}-c\sin\frac{k\pi}{n}\\
+    &\geq2\cos\frac{\pi}{n}\sin\frac{k\pi}{n}-2\cos\frac{\pi}{n}\sin\frac{k\pi}{n}\\
+    &=0,
+\end{align*}
+so the coefficient of $x^k$ is nonnegative. Thus, $f$ has nonnegative coefficients and so does $g$, so this works.
+
+Thus, the answer provided is correct.

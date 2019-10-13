@@ -1,0 +1,24 @@
+In the diagram of rectangles below, with lengths as labeled, let $A$ be the area of the rectangle labeled $A$, and so on. Find $36A+6B+C+6D$.
+
+\begin{center}
+    \begin{asy}
+        size(3cm);
+        real[] A = {0,8,13};
+        real[] B = {0,7,12};
+        
+        for (int i = 0; i < 3; ++i) {
+            draw((A[i],0)--(A[i],-B[2]));
+            draw((0,-B[i])--(A[2],-B[i]));
+        }
+        
+        label("8", (4,0), N);
+        label("5", (10.5,0),N);
+        label("7", (0,-3.5),W);
+        label("5", (0,-9.5),W);
+        
+        label("$A$", (4,-3.5));
+        label("$B$", (10.5,-3.5));
+        label("$C$", (10.5,- 9.5));
+        label("$D$", (4, -9.5));
+    \end{asy} 
+\end{center}

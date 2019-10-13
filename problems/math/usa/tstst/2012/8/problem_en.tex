@@ -1,0 +1,9 @@
+Let $n$ be a positive integer. Consider a triangular array of nonnegative integers as follows:
+\[\begin{array}{rccccccccc}
+	\text{Row } 1:  &&&&& a_{0,1} &&&& \smallskip\\
+	\text{Row } 2:  &&&& a_{0,2} && a_{1,2} &&& \smallskip\\
+	&&& \vdots && \vdots && \vdots && \smallskip\\
+	\text{Row } n-1: && a_{0,n-1} && a_{1,n-1} && \cdots && a_{n-2,n-1} & \smallskip\\
+	\text{Row } n: & a_{0,n} && a_{1,n} && a_{2,n} && \cdots && a_{n-1,n}
+\end{array}\]
+Call such a triangular array \emph{stable} if for every $0 \le i < j < k \le n$ we have \[ a_{i,j} + a_{j,k} \le a_{i,k} \le a_{i,j} + a_{j,k} + 1. \] For $s_1, \ldots s_n$ any nondecreasing sequence of nonnegative integers, prove that there exists a unique stable triangular array such that the sum of all of the entries in row $k$ is equal to $s_k$.

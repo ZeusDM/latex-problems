@@ -1,0 +1,16 @@
+Let $P\left(x\right)=\displaystyle\sum_{i=0}^na_ix^i$ for some coefficients $a_i$. Fix a real number $t$ such that $P\left(t\right)$ is an integer. Then $P\left(kt\right)$ is an integer for all integers $k$. Consider the system of equations
+\begin{align*}
+	a_0&=P\left(0\right)\\
+	a_0+a_1t+a_2t^2+\ldots+a_nt^n&=P\left(t\right)\\
+	a_0+2a_1t+4a_2t^2+\ldots+2^na_nt^n&=P\left(2t\right)\\
+	a_0+3a_1t+9a_2t^2+\ldots+3^na_nt^n&=P\left(3t\right)\\
+	&\vdots\\
+	a_0+na_1t+n^2a_2t^2+\ldots+n^na_nt^n&=P\left(nt\right)
+\end{align*}
+in variables $a_0,a_1t,a_2t^2,\ldots,a_nt^n$. The coefficient matrix is the Vandermonde matrix on $0,1,2,\ldots,n$, which has non-zero determinant, so there is a unique solution. By Cramer's Rule, each of the $a_it^i$ are rational. Let $d$ be the greatest common factor of all $i$ for which $a_i$ is non-zero. Then $t^d$ is rational.
+
+Let $P\left(x\right)=Q\left(x^d\right)$ for some integer polynomial $Q$, so $Q\left(t\right)$ being an integer implies that $P\left(\sqrt[d]{t}\right)$ is an integer, so $t$ is rational. By the Rational Root Theorem, $Q\left(x\right)-Q\left(t\right)=0$ has a rational solution only if the denominator of the solution is a factor of $a_n$. So the denominator of all values of $t$ for which $Q\left(t\right)$ is an integer is a factor of $a_n$, so there cannot be $s,t$ with $\left|s-t\right|<\frac{1}{\left|a_n\right|}$ for which $Q\left(s\right)$ and $Q\left(t\right)$ are integers. But this is a contradiction if $\deg Q>1$ because the slope approaches infinity, so $\deg Q\leq1$.
+
+If $Q$ is a constant, then $P$ is a constant, and clearly this works. Otherwise assume $Q\left(x\right)=a_nx+a_0$, then $P\left(x\right)=a_nx^n+a_0$, with $P\left(x\right)$ being an integer if and only if $a_nx^n$ is one. For the assertion to be true, we would need $a_ns^n$ and $a_nt^n$ being integers to imply that $a_ns^nt^n$ to be an integer. If $\left|a_n\right|\neq1$, then pick $s=t=\sqrt[n]{\frac{1}{a_n}}$ for this to be false. So then $a_n=\pm1$, and the assertion is clearly true.
+
+So our solutions are constants and $\pm x^n+b$.

@@ -1,0 +1,28 @@
+Compute the area of one of the small arcs (eg. bound by the circle and one of the sides) to be $\frac{1}{8}-\frac{\sqrt{2}}{4\pi}$. Thus
+\begin{align*}
+\left[PA_1A_2\right]&=\frac{\sqrt{2}}{4\pi}+\frac{1}{56}\\
+\left[PA_3A_4\right]&=\frac{\sqrt{2}}{4\pi}-\frac{1}{72}
+\end{align*}
+If $s=\sqrt{\frac{2-\sqrt{2}}{\pi}}$ is the side length of the octagon, then
+\begin{align*}
+d\left(P,A_1A_2\right)&=\frac{2\left[PA_1A_2\right]}{s}=\frac{1}{s}\left(\frac{\sqrt{2}}{2\pi}+\frac{1}{28}\right)\\
+d\left(P,A_3A_4\right)&=\frac{2\left[PA_3A_4\right]}{s}=\frac{1}{s}\left(\frac{\sqrt{2}}{2\pi}-\frac{1}{36}\right)
+\end{align*}
+Now, plot the figure on a Cartesian plane such that the circle is centered at the origin, $A_1A_2$ is parallel to the $y$-axis, $A_3A_4$ is parallel to the $x$-axis, $A_1$ is in the fourth quadrant, $A_2$ and $A_3$ are in the first quadrant, and $A_4$ is in the third quadrant. Then the line $A_2A_3$ is an equation of the form $x+y=C$ for a constant $C$. Observe that $A_2A_5=\left(1+\sqrt{2}\right)s$ so the distance from the origin to any side is $\frac{1+\sqrt{2}}{2}s$. It follows that the coordinates of $A_2$ are $\left(\frac{1+\sqrt{2}}{2}s,\frac{s}{2}\right)$ and thus the line $A_2A_3$ is the equation $x+y=\frac{2+\sqrt{2}}{2}s$. Thus the distance from $P=\left(x,y\right)$ to $A_2A_3$ is
+\begin{align*}
+d\left(P,A_2A_3\right)&=\frac{\frac{2+\sqrt{2}}{2}s-x-y}{\sqrt{2}}\\
+&=\frac{\frac{2+\sqrt{2}}{2}s-\left(\frac{1+\sqrt{2}}{2}s-d\left(P,A_1A_2\right)\right)-\left(\frac{1+\sqrt{2}}{2}s-d\left(P,A_3A_4\right)\right)}{\sqrt{2}}\\
+&=\frac{1}{\sqrt{2}}\left(d\left(P,A_1A_2\right)+d\left(P,A_3A_4\right)\right)-\frac{s}{2}\\
+&=\frac{1}{s\sqrt{2}}\left(\frac{\sqrt{2}}{\pi}+\frac{1}{126}\right)-\frac{s}{2}\\
+&=\frac{1}{s}\left(\frac{1}{\pi}+\frac{1}{126\sqrt{2}}-\frac{s^2}{2}\right)\\
+&=\frac{1}{s}\left(\frac{\sqrt{2}}{2\pi}+\frac{\sqrt{2}}{252}\right)
+\end{align*}
+But now note that
+\begin{align*}
+d\left(P,A_6A_7\right)&=A_3A_6-d\left(P,A_2A_3\right)\\
+&=\left(1+\sqrt{2}\right)s-\frac{1}{s}\left(\frac{\sqrt{2}}{2\pi}+\frac{\sqrt{2}}{252}\right)\\
+&=\frac{1}{s}\left(\left(1+\sqrt{2}\right)s^2-\frac{\sqrt{2}}{2\pi}-\frac{\sqrt{2}}{252}\right)\\
+&=\frac{1}{s}\left(\frac{\sqrt{2}}{2\pi}-\frac{\sqrt{2}}{252}\right)
+\end{align*}
+so
+\[\left[PA_6A_7\right]=\frac{s\cdot d\left(P,A_6A_7\right)}{2}=\frac{\sqrt{2}}{4\pi}-\frac{\sqrt{2}}{504}\] and thus the desired area is \[\left[PA_6A_7\right]+\frac{1}{8}-\frac{\sqrt{2}}{4\pi}=\frac{1}{8}-\frac{\sqrt{2}}{504}\] giving the answer of $\boxed{504}$ as desired.

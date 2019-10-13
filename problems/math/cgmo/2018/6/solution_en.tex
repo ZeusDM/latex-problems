@@ -1,0 +1,12 @@
+Let $S$ be a nonempty set of integers that is closed under subtraction. If $x,y\in S$ then:
+\begin{itemize}
+	\item $0=x-x\in S$
+	\item $-x=0-x\in S$
+	\item $x+y=x-(-y)\in S$ so $S$ is closed under addition
+\end{itemize}
+
+Thus $S$ is closed under linear combinations, so by Bezout's Lemma $S$ is closed under $\gcd$ also.
+
+Now, let $n$ be the smallest positive integer in $S$. Then $S\supseteq n\mathbb{Z}$. If $m\in S$ with $n\mid m$, then $0<\gcd(m,n)<n$ and $\gcd(m,n)\in S$, contradiction. Thus $S$ is the set of all multiples of some integer.
+
+Thus we can replace the $I_i$ with their smallest positive integer $d_i$ to get a sequence $d_1\mid d_2\mid\cdots\mid d_k\mid 2^3\cdot3\cdot7$. By standard counting, this produces $\boxed{(k+1)^2\binom{k+3}{3}}$ possible $k$-chains.

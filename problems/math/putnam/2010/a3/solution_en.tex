@@ -1,0 +1,5 @@
+Let $(x_0,y_0)\in\mathbb{R}^2$ and define $u(t)=x_0+at$, $v(t)=y_0+bt$, and $g(t)=h(u,v)$ for all $t\in\mathbb{R}$. Then
+\[
+	\frac{dg}{dt}=\frac{\partial g}{\partial u}\frac{du}{dt}+\frac{\partial g}{\partial v}\frac{dv}{dt}=a\frac{\partial h}{\partial u}+b\frac{\partial h}{\partial v}=h(u,v)=g
+\]
+so $g=Ce^t$ for some constant $C\in\mathbb{R}$. If $C\neq0$, then $g$ is unbounded so $h$ is unbounded, contradiction. Thus $C=0$ so $g\equiv0$ and thus $h(x_0,y_0)=g(0)=0$ as desired.

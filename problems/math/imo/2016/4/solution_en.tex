@@ -1,0 +1,23 @@
+The answer is $6$.
+
+\textbf{Lemma:} \begin{align*}\gcd\left(P\left(n\right),P\left(n+1\right)\right)&=1\\\gcd\left(P\left(n\right),P\left(n+2\right)\right)&\mid7\\\gcd\left(P\left(n\right),P\left(n+3\right)\right)&\mid3\\\gcd\left(P\left(n\right),P\left(n+4\right)\right)&\mid19.\end{align*}
+
+Proof: Note that $2\mid P\left(n\right)$, so if $k\mid P\left(n\right)$ and $k\mid D$ for some integer $D$, then we can remove all of the powers of $2$ from $D$.
+
+For the first, note that if $k\mid P\left(n\right),P\left(n+1\right)$, then $k\mid\left(n+2\right)P\left(n\right)-nP\left(n+1\right)=2$. Then $k\mid1$.
+
+Next, note that if $k\mid P\left(n\right),P\left(n+2\right)$, then $k\mid\left(2n+7\right)P\left(n\right)-\left(2n-1\right)P\left(n+2\right)=14$. Then $k\mid7$.
+
+Next, note that if $k\mid P\left(n\right),P\left(n+3\right)$, then $k\mid\left(n+5\right)P\left(n\right)-\left(n-1\right)P\left(n+3\right)=18$. But if $\left|k\right|=9$, then $9\mid P\left(n+3\right)-P\left(n\right)=6n+12$, so $n\equiv1\pmod3$. But then $P\left(n\right)$ is not divisible by $9$, contradiction, so $k\mid3$.
+
+Next, note that if $k\mid P\left(n\right),P\left(n+4\right)$, then $k\mid\left(2n+13\right)P\left(n\right)-\left(2n-3\right)P\left(n+4\right)=76$. Then $k\mid19$. $\square$
+
+Let us find the minimal $b$. It is clear that $b\geq3$ (if $b=2$ then a prime divides $P\left(a+1\right),P\left(a+2\right)$, contradiction).
+
+If $b=3$, then some prime divides $P\left(a+2\right)$ and either $P\left(a+1\right)$ or $P\left(a+3\right)$, contradiction.
+
+If $b=4$, then $P\left(a+2\right)$ and $P\left(a+4\right)$ share a prime factor. By the Lemma, this is $7$. Similarly, $P\left(a+1\right)$ and $P\left(a+3\right)$ share a prime factor of $7$. Then $7$ divides $P\left(a+1\right),P\left(a+2\right)$, contradiction.
+
+If $b=5$, I claim that $P\left(a+2\right)$ shares a prime factor with $P\left(a+4\right)$. Assume not, then $P\left(a+2\right)$ shares a prime factor with $P\left(a+5\right)$. This factor is $3$. Similarly, $P\left(a+1\right)$ and $P\left(a+4\right)$ share $3$. Then $3$ divides $P\left(a+1\right),P\left(a+2\right)$, contradiction. Thus, $P\left(a+2\right)$ and $P\left(a+4\right)$ share $7$. But then $P\left(a+3\right)$ needs to share a prime factor of $7$ with either $P\left(a+1\right)$ or $P\left(a+5\right)$, meaning that $7$ divides $P\left(a+2\right),P\left(a+3\right)$, contradiction.
+
+Thus, $b\geq6$. For $b=6$, let $a=196$. Note that $a\equiv6\pmod{19}$, $0\pmod7$, $1\pmod3$. Then \begin{align*}P\left(a+1\right)&\equiv P\left(a+5\right)\equiv0\pmod{19}\\P\left(a+2\right)&\equiv P\left(a+4\right)\equiv0\pmod7\\P\left(a+3\right)&\equiv P\left(a+6\right)\equiv0\pmod3,\end{align*} so this works.

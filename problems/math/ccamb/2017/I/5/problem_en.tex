@@ -1,0 +1,23 @@
+In the [i]magic square[/i] below, every integer from $1$ to $25$ can be filled in such that the sum in every row, column, and long diagonal is the same. Given that the number in the center square is $18$, what is the sum of the entries in the shaded squares?
+
+\begin{center}
+\begin{asy}
+size(4cm);
+for (int i = 0; i <= 5; ++i) {
+draw((0,i)--(5,i));
+}
+
+for (int i = 0; i <= 5; ++i) {
+draw((i,0)--(i,5));
+}
+
+for (int i = 0; i <= 4; ++i) {
+for (int j = 0; j <= 4; ++j) {
+if ((i+j)%6 == 1 || (i-j)%6 == 3) {
+fill((i,j)--(i+1,j)--(i+1,j+1)--(i,j+1)--cycle, gray);
+}
+}
+}
+label("\Large{18}", (2.5,2.5));
+\end{asy}
+\end{center}

@@ -1,0 +1,18 @@
+By Power of a Point we have
+\begin{align*}
+	400&=PX\cdot PY=PA\cdot PB=b\cos A\cdot a\cos B\\
+	525&=QX\cdot QY=QA\cdot QC=c\cos A\cdot a\cos C
+\end{align*}
+while $PQ=a\cos A=25$ so
+\begin{align*}
+	a\cos A&=25\\
+	b\cos B&=16\\
+	c\cos C&=21.
+\end{align*}
+Let $R$ be the foot of the perpendicular from $A$ to $\overline{BC}$. Then $PR=16$ and $QR=21$. Note that the angles of $\triangle{RQP}$ are $\pi-2A,\pi-2B,\pi-2C$ so
+\begin{align*}
+	2\sin^2A&=\cos\left(\pi-2A\right)+1=\frac{\left(16+21-25\right)\left(25+16+21\right)}{2\cdot16\cdot21}=\frac{31}{28}\\
+	2\sin^2B&=\cos\left(\pi-2B\right)+1=\frac{\left(21+25-16\right)\left(25+16+21\right)}{2\cdot21\cdot25}=\frac{62}{35}\\
+	2\sin^2C&=\cos\left(\pi-2C\right)+1=\frac{\left(25+16-21\right)\left(25+16+21\right)}{2\cdot25\cdot16}=\frac{31}{20}\\
+\end{align*}
+and thus $\sin A=\sqrt{\frac{31}{56}},\sin B=\sqrt{\frac{31}{35}},\sin C=\sqrt{\frac{31}{40}}$. By the Law of Sines, this means that $a=\frac{\kappa}{\sqrt{56}},b=\frac{\kappa}{\sqrt{35}},c=\frac{\kappa}{\sqrt{40}}$ for some constant $\kappa$. Since $\cos A=\frac{5}{\sqrt{56}}$, we have that \[\kappa=\sqrt{56}\cdot a=\sqrt{56}\cdot\frac{25}{\cos A}=280\] and thus \[bc=\frac{\kappa^2}{\sqrt{35\cdot40}}=\frac{280^2\sqrt{14}}{140}=560\sqrt{14}\] and hence the answer is $\boxed{574}$ as desired.

@@ -1,0 +1,11 @@
+The New York Times Mini Crossword is a $5\times5$ grid with the top left and bottom right corners shaded. Each row and column has a clue given (so that there are $10$ clues total). Jeffrey has a $\frac{1}{2}$ chance of knowing the answer to each clue. What is the probability that he can fill in every unshaded square in the crossword?
+
+\begin{center}
+    \begin{asy}
+    size(4cm);
+    for (int i = 0; i < 6; ++i) {draw((i,0)--(i,5));
+    draw((0,i)--(5,i));}
+    fill((0,4)--(1,4)--(1,5)--(0,5)--cycle, black);
+    fill((5,0)--(5,1)--(4,1)--(4,0)--cycle, black);
+    \end{asy}
+\end{center}

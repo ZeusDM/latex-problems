@@ -1,0 +1,7 @@
+Observe that $n$ has exactly $20$ positive divisors if and only if $n$ is of the form $p^{19}$, $p^9q$, $p^4q^3$, or $p^4qr$ for distinct primes $p,q,r$. If additionally $20$ divides $n$, then $n$ must have at least two prime factors.
+\begin{itemize}
+	\item $n=p^9q$. Since $2^2\mid n$, $p=2$ and $q=5$. This gives $n=2560\geq2019$, so none here.
+	\item $n=p^4q^3$. We can have $\left(p,q\right)=\left(2,5\right)$ or $\left(5,2\right)$. These give $n=2000$ or $5000$, so only $n=2000$ here.
+	\item $n=p^4qr$. Since $2^2\mid n$, $p=2$. We can WLOG let $r=5$. Then $n=80q$ for a prime $q\neq2,5$. Since $n<2019$, $q\leq25$. So we have $n=80q$ where $q=3,7,11,13,17,19,23$ are the possibilities here.
+\end{enumerate}
+So the sum of $\frac{n}{20}$ over all $20$-pretty $n$ that are less than $2019$ is \[100+4\left(3+7+11+13+17+19+23\right)=\boxed{472}.\]

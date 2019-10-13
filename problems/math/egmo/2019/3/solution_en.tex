@@ -1,0 +1,61 @@
+Let $P$ be the intersection of $BC$ and the angle bisector of $\angle{DAB}$. Then
+\begin{align*}
+	\angle{PAC}&=\angle{PAD}+\angle{DAC}=\frac{1}{2}\angle{BAD}+\angle{DAC}=\frac{1}{2}\left(\angle{BAC}-\angle{DAC}\right)+\angle{DAC}\\
+	&=\frac{1}{2}\angle{BAC}+\frac{1}{2}\angle{DAC}=\frac{1}{2}\angle{BAC}+\frac{1}{2}\angle{CBA}
+\end{align*}
+so \[\angle{CPA}=\pi-\angle{PAC}-\angle{ACB}=\angle{BAC}+\angle{CBA}-\angle{PAC}=\angle{PAC}\] and thus $\triangle{CAP}$ is isosceles with apex $C$.
+
+Let $a=BC,b=CA,c=AB$. We apply barycentric coordinates with reference triangle $\triangle{ABC}$ so $A=(1,0,0),B=(0,1,0),C=(0,0,1)$. Then since $BP=a-b$ and $PC=b$, $P=(0:b:a-b)$. In addition, $I=(a:b:c)$. Let $M_A$ be the second intersection of $AI$ with $(ABC)$ so that $M_A$ is the midpoint of arc $BC$ opposite $A$. I claim that $M_A=\left(-\frac{a^2}{b+c}:b:c\right)$. Clearly these coordinates satisfy $A,I,M_A$ collinear since $y:z=b:c$. We just need $M_A\in(ABC)$, which is true with these coordinates because \[-a^2bc-b^2c\left(-\frac{a^2}{b+c}\right)-c^2\left(-\frac{a^2}{b+c}\right)b=-a^2bc+\frac{a^2b^2c+a^2bc^2}{b+c}=0.\] Thus $M_A=\left(-\frac{a^2}{b+c}:b:c\right)$.
+
+Now, I claim that the equation of $\omega$ is \[-a^2yz-b^2zx-c^2xy+(c(a-b)y+b^2z)(x+y+z)=0.\] Plugging in $(x,y,z)=(1,0,0)$, we get that everything on the LHS is $0$ so $A$ lies on the circle. Plugging in $(x:y:z)=(a:b:c)$, we get \[-a^2bc-b^2ca-c^2ab+(c(a-b)b+b^2c)(a+b+c)=-abc(a+b+c)+abc(a+b+c)=0\] so $I$ lies on this circle. We just need $AC$ to be tangent to this circle. This is equivalent to the only solution to
+\begin{align*}
+	-a^2yz-b^2zx-c^2xy+(c(a-b)y+b^2z)(x+y+z)&=0\\
+	y&=0\\
+	x+y+z&=1
+\end{align*}
+being $(x,y,z)=(1,0,0)$. Solving this system, we require \[-b^2zx+b^2z(x+z)=b^2z(1-x)=b^2z^2=0\] so $z=0$ and $x=1$. So this circle is tangent to $AC$. Thus $\omega$ has equation as claimed.
+
+Next, I claim that $X=\left(\frac{a^2(a-b)}{b+c-a}:b^2:-c(a-b)\right)$. To do this, we verify that the coordinates lie on $(ABC)$ and $\omega$. We require
+\begin{align*}
+	0&=-a^2b^2(-c(a-b))-b^2(-c(a-b))\left(\frac{a^2(a-b)}{b+c-a}\right)-c^2\left(\frac{a^2(a-b)}{b+c-a}\right)b^2\\
+	&=a^2b^2c(a-b)+\frac{a^2b^2c(a-b)^2}{b+c-a}-\frac{a^2b^2c^2(a-b)}{b+c-a}\\
+	&=a^2b^2c(a-b)\left(1+\frac{a-b}{b+c-a}-\frac{c}{b+c-a}\right)
+\end{align*}
+which is true so these coordinates lie on $(ABC)$. And \[c(a-b)b^2+b^2(-c(a-b))=0\] so by adding to the equation of $(ABC)$, we deduce that these coordinates lie on $\omega$. Thus these coordinates are either for $A$ or $X$, but the $y$ component is nonzero so these coordinates are for $X$. So $X=\left(\frac{a^2(a-b)}{b+c-a}:b^2:-c(a-b)\right)$.
+
+Finally, I claim that $P,X,M_A$ are collinear. To do this, we compute the determinant
+\begin{align*}
+	\begin{vmatrix}
+		0 & b & a-b \\
+		\frac{a^2(a-b)}{b+c-a} & b^2 & -c(a-b) \\
+		-\frac{a^2}{b+c} & b & c
+	\end{vmatrix}
+	&=
+	\begin{vmatrix}
+		0 & b & a-b \\
+		\frac{a^2(a-b)}{b+c-a} & b^2 & -c(a-b) \\
+		-\frac{a^2}{b+c} & 0 & b+c-a
+	\end{vmatrix}
+	\\
+	&=
+	\begin{vmatrix}
+		0 & b & a-b \\
+		\frac{a^2(a-b)}{b+c-a} & b(b+c) & 0 \\
+		-\frac{a^2}{b+c} & 0 & b+c-a
+	\end{vmatrix}
+	\\
+	&=-b
+	\begin{vmatrix}
+		\frac{a^2(a-b)}{b+c-a} & 0 \\
+		-\frac{a^2}{b+c} & b+c-a
+	\end{vmatrix}
+	+(a-b)
+	\begin{vmatrix}
+		\frac{a^2(a-b)}{b+c-a} & b(b+c) \\
+		-\frac{a^2}{b+c} & 0
+	\end{vmatrix}
+	\\
+	&=-b\cdot a^2(a-b)+(a-b)\cdot a^2b\\
+	&=0
+\end{align*}
+and thus $P,X,M_A$ are collinear. But $XM_A$ is the angle bisector of $\angle{CXB}$ so the angle bisectors of $\angle{DAB}$ and $\angle{CXB}$ intersect at a point on line $BC$.

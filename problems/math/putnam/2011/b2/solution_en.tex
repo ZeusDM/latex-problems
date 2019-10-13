@@ -1,0 +1,3 @@
+The answer is $2$ and $5$. This works since $(2,5,3)$, $(3,5,2)$, $(2,7,5)$, $(5,7,2)$, $(2,11,5)$, $(5,11,2)$, and $(2,5,2)$ are all in $S$.
+
+Now suppose $(p,q,r)\in S$. Then $px^2+qx+r$ is one of $(px+r)(x+1)$ or $(px+1)(x+r)$. So we need $p+r=q$ or $1+pr=q$. Either way, it is easy to show that one of $p,r$ must be $2$. Thus the possible triples are of the form $(2,T+2,T)$ and $(T,T+2,2)$ when $T,T+2$ are odd primes, $(2,2T+1,T)$ and $(T,2T+1,2)$ when $T,2T+1$ are odd primes, and $(2,5,2)$. It is easy to see that a prime $A$ showing up $\geq7$ times requires either $A=2,5$ or all of $A+2,A-2,2A+1,\frac{A-1}{2}$ to be prime. But $A-2,A,A+2$ cannot all be prime unless $A=5$ by a mod $3$ argument, so the answer must be $2,5$.

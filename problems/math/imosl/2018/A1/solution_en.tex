@@ -1,0 +1,12 @@
+The solution is $f\equiv1$. This clearly works.
+
+Let $P(x,y)$ denote the assertion that \[f(x^2f(y)^2)=f(x)^2f(y)\] for specific $x,y\in\mathbb{Q}_{>0}$.
+
+$P(\frac{1}{f(1)},1)$ implies that $f\left(\frac{1}{f(1)}\right)=1$. $P(1,\frac{1}{f(1)})$ implies that $f(1)=1$. Now, $P(f(x),1)$ and $P(1,x)$ imply that \[f(f(x))^2=f(f(x)^2)=f(x)\] for all $x\in\mathbb{Q}_{>0}$.
+
+Fix $x\in\mathbb{Q}_{>0}$ and assume that $f(x)\neq1$. Consider the set \[S_x=\{n\in\mathbb{N}\mid f(x)=f^{n+1}(x)^{2^n}\}.\] Observe that
+\begin{itemize}
+	\item $S_x$ is non-empty since $f(x)=f^2(x)^2$ so $1\in S_x$.
+	\item $S_x$ is finite, otherwise $f(x)$ is a $2^n$th power for arbitrarily large $n\in\mathbb{N}$ which is impossible unless $f(x)=1$.
+\end{itemize}
+Thus there is a maximum element $N$ of $S_x$. But then \[f^{N+2}(x)^{2^{N+1}}=f\left(f^{N+1}(x)\right)^{2^{N+1}}=f\left(f^{N+1}(x)^{2^N}\right)^2=f(f(x))^2=f(x)\] so $N+1\in S_x$, contradiction. Thus $f(x)=1$ as desired.

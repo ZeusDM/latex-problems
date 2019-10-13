@@ -1,0 +1,28 @@
+Clearly $\left(\deg f,\deg g\right)\in\left\{\left(1,p^2\right),\left(p^2,1\right),\left(p,p\right)\right\}$.
+
+\textbf{Case 1:} $\deg f=1$.
+
+Let $f\left(x\right)=ax+b$ with $a\neq0$. Then \[ag\left(x\right)+b=x^{p^2}-x.\] It is clear that all choices of $a$ and $b$ give distinct $g$ so there are $p\left(p-1\right)$ choices here.
+
+\textbf{Case 2:} $\deg g=1$.
+
+Let $g\left(x\right)=ax+b$ with $a\neq0$. Then \[f\left(ax+b\right)=x^{p^2}-x.\] Letting $y=ax+b$, we have \[f\left(y\right)=\left(\frac{y-b}{a}\right)^{p^2}-\frac{y-b}{a}=\frac{1}{a}\left(\left(y-b\right)^{p^2}-\left(y-b\right)\right).\] It is clear that all choices of $a$ and $b$ give distinct $g$ so there are $p\left(p-1\right)$ choices here.
+
+\textbf{Case 3:} $\deg f=\deg g=p$.
+
+We \emph{take the derivative} of $f\circ g$ with respect to $x$ to get \[f'\left(g\left(x\right)\right)g'\left(x\right)=-1.\] Since $\mathbb{F}_p$ is a UFD, we must have that $g'\left(x\right)=a$ for a non-zero constant $a$. Then $f'\left(g\left(x\right)\right)=-\frac{1}{a}$. Now, we appeal to the fact that a polynomial in $t$ has zero derivative in $\mathbb{F}_p$ if and only if its exponents are divisible by $p$. Then the exponents of $g\left(x\right)-ax$ are divisible by $p$. Since $\deg g=p$, we must have \[g\left(x\right)=bx^p+ax+c\] for some constants $b\neq0$ and $c$. Similarly, the exponents of $f\left(g\left(x\right)\right)+\frac{1}{a}x$ (as a polynomial in $g\left(x\right)$) are divisible by $p$. Since $\deg f=p$, we have \[f\left(g\left(x\right)\right)=dg\left(x\right)^p-\frac{1}{a}g\left(x\right)+e=dg\left(x^p\right)-\frac{1}{a}g\left(x\right)+e\] for some constants $d\neq0$ and $e$ (where we used the fact that the Frobenius Endomorphism commutes with polynomials). Thus we have
+\begin{align*}
+	x^{p^2}-x&=f\left(g\left(x\right)\right)\\
+	&=dg\left(x^p\right)-\frac{1}{a}g\left(x\right)+e\\
+	&=d\left(bx^{p^2}+ax^p+c\right)-\frac{1}{a}\left(bx^p+ax+c\right)+e\\
+	&=bdx^{p^2}+\left(ad-\frac{b}{a}\right)x^p-x+\left(cd-\frac{c}{a}+e\right)
+\end{align*}
+so
+\begin{align*}
+	bd&=1\\
+	ad&=\frac{b}{a}\\
+	e&=\frac{c}{a}-cd
+\end{align*}
+which tells us that if we choose $b\neq0$ and $c$ arbitrarily, then $a=\pm b$, $d=\frac{1}{b}$, and $e=\frac{c}{a}-cd$. So there are $2p\left(p-1\right)$ choices here.
+
+Combining these cases, we deduce that there are $\boxed{4p\left(p-1\right)}$ choices of $\left(f,g\right)$.

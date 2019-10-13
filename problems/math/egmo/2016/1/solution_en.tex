@@ -1,0 +1,8 @@
+Suppose that $x_i^2+x_{i+1}^2>2x_jx_{j+1}$ for all $i,j$. Then $x_k^2+x_{k+1}^2>2x_kx_{k+1}$ so $x_k\neq x_{k+1}$.
+
+The key claim is that $\Delta x_i$ and $\Delta x_{i+1}$ have opposite signs, where $\Delta x_k=x_{k+1}-x_k$.
+\begin{itemize}
+	\item Suppose $x_i<x_{i+1}$. Then \[2x_{i+1}x_{i+2}<x_i^2+x_{i+1}^2<2x_{i+1}^2\] so $x_{i+2}<x_{i+1}$.
+	\item Suppose $x_i>x_{i+1}$. Then \[x_{i+1}^2+x_{i+2}^2>2x_ix_{i+1}>2x_{i+1}^2\] so $x_{i+2}>x_{i+1}$.
+\end{itemize}
+But then $\Delta x_1$ and $\Delta x_{n+1}$ have opposite signs since $1$ and $n+1$ have opposite parity, contradiction.

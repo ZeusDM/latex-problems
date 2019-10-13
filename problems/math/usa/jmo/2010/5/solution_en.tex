@@ -1,0 +1,9 @@
+Consider the $1006$ permutations
+\[\begin{matrix}
+	1 & 2 & 3 & 4 & \ldots & 1005 & 1006 & 1007 & 1008 & \ldots & 2010 \\
+	2 & 3 & 4 & 5 & \ldots & 1006 & 1 & 1007 & 1008 & \ldots & 2010 \\
+	3 & 4 & 5 & 6 & \ldots & 1 & 2 & 1007 & 1008 & \ldots & 2010 \\
+	\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+	1006 & 1 & 2 & 3 & \ldots & 1004 & 1005 & 1007 & 1008 & \ldots & 2010
+\end{matrix}\]
+I claim that any permutation $\pi$ of $\left\{1,2,\ldots,2010\right\}$ intersects some permutation in this set. If not, then $\pi$ must map $1007,1008,\ldots,2010$ to $1,2,\ldots,1006$, contradiction. Thus, this set works.

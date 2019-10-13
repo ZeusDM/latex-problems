@@ -1,0 +1,51 @@
+\begin{solutionlemma}
+The determinant is invariant under any permutation of the subsets.
+\end{solutionlemma}
+
+\begin{lemmaproof}
+Consider two permutations $\left\{S_i\right\}$ and $\left\{T_i\right\}$. There exists a sequence of swaps which takes $\left\{S_i\right\}$ to $\left\{T_i\right\}$. Perform these swaps on the matrix for $S_i$ in both the rows and the columns; there are an even number of swaps. Then we get the matrix for $T_i$. Since each swap multiplies the determinant by $-1$ and there are an even number of swaps, the determinant is preserved at the end of the swapping and thus the claim is true.
+\end{lemmaproof}
+
+For $i=1,2,\ldots,2^n-1$, let $\left(a_na_{n-1}\ldots a_2a_1\right)_2=\displaystyle\sum_{k=1}^na_k2^{k-1}$ be the binary representation of $i$. Let $S_i$ be the set such that $k\in S_i$ if and only if $a_k=1$. This is clearly a permutation of the nonempty subsets of $\left\{1,2,\ldots,n\right\}$ because every binary string of length $n$ is covered among $\left\{1,2,\ldots,2^n-1\right\}$ except the string of all $0$'s (which corresponds to the empty subset).
+\begin{claim}
+If $i+j\geq2^n$ then $S_i\cap S_j\neq\varnothing$ and thus $m_{i,j}=1$.
+\end{claim}
+\begin{lemmaproof}
+Suppose that $i+j\geq2^n$ but $S_i\cap S_j=\varnothing$. Let $i=\displaystyle\sum_{k=1}^na_k2^{k-1}$ and $j=\displaystyle\sum_{k=1}^nb_k2^{k-1}$ be their binary representations. Then \[i+j=\displaystyle\sum_{k=1}^na_k2^{k-1}+\displaystyle\sum_{k=1}^nb_k2^{k-1}=\displaystyle\sum_{k=1}^n\left(a_k+b_k\right)2^{k-1}\leq\displaystyle\sum_{k=1}^n2^{k-1}=2^n-1,\] contradiction.
+\end{lemmaproof}
+
+\begin{claim}
+If $i+j=2^n-1$ then $S_i\cap S_j=\varnothing$ and thus $m_{i,j}=0$.
+\end{claim}
+
+\begin{lemmaproof}
+Suppose that $i+j=2^n-1$ but $S_i\cap S_j\neq\varnothing$. Let $i=\displaystyle\sum_{k=1}^na_k2^{k-1}$ and $j=\displaystyle\sum_{k=1}^nb_k2^{k-1}$ be their binary representations so that \[i+j=\displaystyle\sum_{k=1}^n\left(a_k+b_k\right)2^{k-1}.\] Let $e$ be the smallest element of $S_i\cap S_j$. Then $a_k+b_k=1$ for $k=1,2,\ldots,e-1$ (it cannot be $0$ otherwise there is a $0$ in the binary representation of $i+j$) and $a_e+b_e=2$. Then the $2^{e-1}$ place in the binary representation of $i+j$ is $0$, contradiction.
+\end{lemmaproof}
+
+For example, if $n=3$ then \[M=
+\begin{bmatrix}
+	1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+	0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+	1 & 1 & 1 & 0 & 1 & 1 & 1 \\
+	0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+	1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+	0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+	1 & 1 & 1 & 1 & 1 & 1 & 1
+\end{bmatrix}.
+\]
+Let $C_k$ for $k=1,2,\ldots,2^n-1$ be the matrix formed by the rightmost $k$ columns and topmost $k$ rows. For example, if $n=3$ then \[C_4=
+\begin{bmatrix}
+	0 & 1 & 0 & 1 \\
+	0 & 0 & 1 & 1 \\
+	0 & 1 & 1 & 1 \\
+	1 & 1 & 1 & 1 \\
+\end{bmatrix}.
+\]
+I claim that \[\det C_{k+1}=\left(-1\right)^k\det C_k\] for $k=1,2,\ldots,2^n-2$. First, perform a determinant-preserving row operation on $C_{k+1}$ by subtracting the $k$th row from the $\left(k+1\right)$th row. Observe that the $\left(k+1\right)$th row consists of the terms $m_{k+1,2^n-k-1}\to m_{k+1,2^n-1}$ and thus is all $1$'s. In addition, the $k$th row consists of the terms $k_{k,2^n-k-1}\to m_{k,2^n-1}$ and thus is a $0$ followed by all $1$'s. Thus after the row operation, the $\left(k+1\right)$th row is a $1$ followed by all $0$'s. Now, expand the determinant about the $\left(k+1\right)$th row. There is only one non-zero term, and that is $\left(-1\right)^{\left(k+1\right)+1}\det C_k=\left(-1\right)^kC_k$ as desired.
+
+Now, with $\det C_1=1$, we have that \[\det C_{2^n-1}=\left(-1\right)^{1+2+\ldots+\left(2^n-2\right)}=\left(-1\right)^{\left(2^n-1\right)\left(2^{n-1}-1\right)}.\] If $n=1$ then this is $1$; if $n\geq2$ then this is $-1$. But $C_{2^n-1}=M$, so \[\det M=
+\begin{cases}
+	1 & \text{if }n=1 \\
+	-1 & \text{otherwise.}
+\end{cases}
+\]

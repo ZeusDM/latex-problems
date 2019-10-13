@@ -1,0 +1,16 @@
+\begin{solutionlemma}
+Let $f\left(\theta\right)=4n\cos\left(\left(n+1\right)\theta\right)-\left(4n+2\right)\cos\left(n\theta\right)+2$. If $\theta\in\left(0,2\pi\right)$ is a root of $f$ then $e^{i\theta}$ is a root of $P$.
+\end{solutionlemma}
+
+\begin{lemmaproof}
+Suppose $\theta\in\left(0,2\pi\right)$ is a root of $f$ and let $z=e^{i\theta}$. Then \[2n\left(z^{n+1}+\frac{1}{z^{n+1}}\right)-\left(2n+1\right)\left(z^n+\frac{1}{z^n}\right)+2=0.\] Multiplying by $\frac{z^{n+1}}{\left(z-1\right)^2}$ which is non-zero and finite, we get that $P\left(z\right)=0$ as desired.
+\end{lemmaproof}
+
+I claim that $f$ has at least $2n-2$ distinct roots in $\left(0,2\pi\right)$. Observe that for $k=1,\ldots,n-1$,
+\begin{align*}
+	f\left(\frac{2\pi k}{n}\right)&=4n\cos\left(2\pi k+\frac{2\pi k}{n}\right)-\left(4n+2\right)\cos\left(2\pi k\right)+2=4n\cos\frac{2\pi k}{n}-4n<0\\
+	f\left(\frac{2\pi k+\pi}{n}\right)&=4n\cos\left(2\pi k+\pi+\frac{2\pi k+\pi}{n}\right)-\left(4n+2\right)\cos\left(2\pi k+\pi\right)+2\\&=-4n\cos\left(\frac{2\pi k+\pi}{n}\right)+4n+4>4
+\end{align*}
+so for $j=1,\ldots,2n-2$, we have that $f\left(\frac{j\pi}{n}\right)$ and $f\left(\frac{\left(j+1\right)\pi}{n}\right)$ have different signs. Thus there are at least $2n-2$ distinct roots in $\left(0,2\pi\right)$ by the Intermediate Value Theorem. This corresponds to at least $2n-2$ distinct roots of $P$ on the unit circle.
+
+Now suppose $r$ is a root of $P$ but $r$ is not on the unit circle. Note that $r\neq0$. Observe that \[P\left(\frac{1}{r}\right)=\frac{1}{r^{2n}}P\left(r\right)=0\] so $\frac{1}{r}$ is a root of $P$. Now since $P\in\mathbb{R}\left[x\right]$, the conjugates of $r$ and $\frac{1}{r}$ are also roots of $P$. But these four values are distinct and not on the unit circle, so we have identified $\left(2n-2\right)+4>2n$ roots of $P$, contradiction. So all complex roots of $P$ lie on the unit circle.

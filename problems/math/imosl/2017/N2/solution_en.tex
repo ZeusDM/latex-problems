@@ -1,0 +1,11 @@
+First, pick $a_0=0$. If $p=2$ or $5$, clearly we are done. Otherwise, assume that $\left(p,10\right)=1$. Look at the pairs $\left\{i,\frac{p-1}{2}+i\right\}$ for $i=1,2,\ldots,\frac{p-1}{2}$. Now, we split into two cases:
+
+\begin{itemize}
+	
+	\item $10$ is not a quadratic residue mod $p$: Then $10^{\frac{p-1}{2}}\equiv-1\pmod p$. If Fernando chooses index $i$ and coefficient $a_i$, the next turn Eduardo should set $a_j=a_i$, where $\left\{i,j\right\}$ is a pair. Then \[10^ia_i+10^ja_j\equiv a_i\left(10^i+10^{\frac{p-1}{2}+i}\right)\equiv0\pmod p,\] so the end result is $0\pmod p$.
+	
+	\item $10$ is a quadratic residue mod $p$: Then $10^{\frac{p-1}{2}}\equiv1\pmod p$. If Fernando chooses index $i$ and coefficient $a_i$, the next turn Eduardo should set $a_j=9-a_i$, where $\left\{i,j\right\}$ is a pair. Then \[10^ia_i+10^ja_j\equiv9\cdot10^i+10^ia_i-10^{\frac{p-1}{2}+i}a_i\equiv9\cdot10^i\pmod p,\] so the end result is $9\left(10+10^2+\ldots+10^{\frac{p-1}{2}}\right)=10^{\frac{p-1}{2}+1}-10\equiv0\pmod p$.
+	
+\end{itemize}
+
+Thus, in all cases, Eduardo has a winning strategy.

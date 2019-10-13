@@ -1,0 +1,11 @@
+In $\triangle{ABC}$, $AB=6$, $BC=7$, and $CA=8$. Point $D$ lies on $\overline{BC}$, and $\overline{AD}$ bisects $\angle{BAC}$. Point $E$ lies on $\overline{AC}$, and $\overline{BE}$ bisects $\angle{ABC}$. The bisectors intersect at $F$. What is the ratio $AF:FD$?
+
+\begin{center}
+	\begin{asy}
+		size(6cm);
+		import olympiad;
+		pair A = (0,0), B=(6,0), C=intersectionpoints(Circle(A,8),Circle(B,7))[0], F=incenter(A,B,C), D=extension(A,F,B,C),E=extension(B,F,A,C); draw(A--B--C--A--D^^B--E); label("$A$",A,SW); label("$B$",B,SE); label("$C$",C,N); label("$D$",D,NE); label("$E$",E,NW); label("$F$",F,1.5*N);
+	\end{asy}
+\end{center}
+
+$\textbf{(A) }3:2\qquad\textbf{(B) }5:3\qquad\textbf{(C) }2:1\qquad\textbf{(D) }7:3\qquad\textbf{(E) }5:2$

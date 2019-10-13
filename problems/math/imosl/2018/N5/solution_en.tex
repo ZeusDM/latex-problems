@@ -1,0 +1,38 @@
+No, in fact $xyzt$ cannot be a perfect square.
+
+Suppose that $x,y$ have different parity. Then $x+y=z+t$ is odd, so $z,t$ have different parity. Then $xy,zt$ are both even so $xy-zt$ is even, contradiction. So $x,y$ have the same parity and similarly $z,t$ have the same parity. Note that this implies $xy-zt=x+y=z+t$ is even, so $xy,zt$ have the same parity. Since $x,y$ and $z,t$ each have the same parity, this implies that all four of $x,y,z,t$ have the same parity.
+
+So let $a=\frac{x+y}{2}=\frac{z+t}{2}$, $b=\frac{x-y}{2}$, and $c=\frac{z-t}{2}$. Then
+\begin{align*}
+	x&=a+b\\
+	y&=a-b\\
+	z&=a+c\\
+	t&=a-c
+\end{align*}
+so \[xy-zt=a^2-b^2-a^2+c^2=c^2-b^2.\] Thus $c^2-b^2=2a$, so $c,b$ have the same parity. Let $d=\frac{c+b}{2}$ and $e=\frac{c-b}{2}$. Then
+\begin{align*}
+	a&=2de
+	b&=d-e
+	c&=d+e
+\end{align*}
+so
+\begin{align*}
+	x&=2de+d-e\\
+	y&=2de-d+e\\
+	z&=2de+d+e\\
+	t&=2de-d-e
+\end{align*}
+is a parametrization of $(x,y,z,t)$. First we deal with some edge cases.
+\begin{itemize}
+	\item If either $d$ or $e$ is $0$, then $x=-y$, contradiction.
+	\item If both $d$ and $e$ are in $\{1,-1\}$ then one of $x,y,z,t$ is $0$, contradiction.
+\end{itemize}
+So one of $|d|,|e|$ is at least $2$ while the other is at least $1$.
+
+Now we can compute
+\begin{align*}
+	xyzt&=(2de+d-e)(2de-d+e)(2de+d+e)(2de-d-e)\\
+	&=(4d^2e^2-d^2-e^2+2de)(4d^2e^2-d^2-e^2-2de)\\
+	&=(4d^2e^2-d^2-e^2)^2-4d^2e^2.
+\end{align*}
+I claim that \[(4d^2e^2-d^2-e^2)^2-4d^2e^2>(4d^2e^2-d^2-e^2-1)^2.\] This is equivalent to \[8d^2e^2-2d^2-2e^2-1>4d^2e^2,\] equivalently \[(2d^2-1)(2e^2-1)>2.\] But \[(2d^2-1)(2e^2-1)\geq(2\cdot2^2-1)(2\cdot1^2-1)=7\] which is more than enough. So \[(4d^2e^2-d^2-e^2-1)^2<xyzt<(4d^2e^2-d^2-e^2)^2\] and thus $xyzt$ cannot be a perfect square.

@@ -1,0 +1,25 @@
+for i in {2013..2019}
+do
+	mkdir $i
+	mkdir $i/fall
+	mkdir $i/spring
+	rm $i/fall/source_pt.tex
+	rm $i/fall/source_en.tex
+	rm $i/spring/source_pt.tex
+	rm $i/spring/source_en.tex
+	echo "OMO Fall $i" >> $i/fall/source_pt.tex
+	echo "OMO Fall $i" >> $i/fall/source_en.tex
+	echo "OMO Spring $i" >> $i/spring/source_pt.tex
+	echo "OMO Spring $i" >> $i/spring/source_pt.tex
+	for j in {1..30}
+	do
+		mkdir $i/fall/$j
+		mkdir $i/spring/$j
+		rm $i/fall/$j/number.tex
+		rm $i/spring/$j/number.tex
+		echo "$j" >> $i/fall/$j/number.tex
+		echo "$j" >> $i/spring/$j/number.tex
+		mv OMO-Fall_$i-$j.tex $i/fall/$j/problem_en.tex
+		mv OMO-Spring_$i-$j.tex $i/spring/$j/problem_en.tex
+	done
+done

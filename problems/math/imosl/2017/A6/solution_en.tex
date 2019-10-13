@@ -1,0 +1,33 @@
+Let $P\left(x,y\right)$ denote the assertion that \[f\left(f\left(x\right)f\left(y\right)\right)+f\left(x+y\right)=f\left(xy\right).\]
+
+\textbf{Part 1: Finding Zero}
+
+First, assume that $f\left(t\right)=0$ and $t\neq1$. Then $P\left(\frac{t}{t-1},t\right)$ implies that $f\left(0\right)=0$. But then $P\left(x,0\right)$ implies that $f\left(x\right)=0$ for any real $x$. This is a solution.
+
+Otherwise, $f\left(t\right)=0$ implies that $t=1$.
+
+Now, $P\left(0,0\right)$ implies that $f\left(f\left(0\right)^2\right)=0$. Thus, $f\left(0\right)^2=1$ and $f\left(1\right)=0$.
+
+Now, note that $f$ works if and only if $-f$ works, so WLOG let $f\left(0\right)=-1$ (and multiply the solution(s) that we find later by $-1$ to account for the other case).
+
+\textbf{Part 2: Useful Identities}
+
+We will prove that $f\left(x+n\right)=f\left(x\right)+n$ for all positive integers $n$. The base case of $n=1$ is true by $P\left(x,1\right)$. Assume that this is true for $n=k$, $k$ being some positive integer. Then \[f\left(x+k+1\right)=f\left(x+k\right)+1=f\left(x\right)+k+1,\] so this is true for $n=k+1$. Thus, by induction, \[f\left(x+n\right)=f\left(x\right)+n\] for all positive integers $n$.
+
+Now, $P\left(x,1\right)$ implies that \[f\left(x+1\right)=f\left(x\right)+1\] for all real numbers $x$.
+
+Now, $P\left(x,0\right)$ implies that \[f\left(-f\left(x\right)\right)+f\left(x\right)=-1.\] We also have by $P\left(-f\left(x\right),0\right)$ that \[f\left(-f\left(-f\left(x\right)\right)\right)+f\left(-f\left(x\right)\right)=-1.\] Thus, \[f\left(-f\left(-f\left(x\right)\right)\right)=-1-f\left(-f\left(x\right)\right)=f\left(x\right).\]
+
+\textbf{Part 3: Proving Injectivity}
+
+Now, assume that $f\left(a\right)=f\left(b\right)$ for some $a,b\in\mathbb{R}$. I claim that $a=b$. Assume FTSOC that $a\neq b$ and WLOG let $a<b$. Then \[\left(b+1\right)^2-4a>\left(b+1\right)^2-4b=\left(b-1\right)^2\geq0,\] so \[\left(b+1\right)^2>4a.\] 
+
+Thus, the polynomial \[X^2-\left(b+1\right)X+a\] has two distinct real roots $\alpha$ and $\beta$. Then $P\left(\alpha,\beta\right)$ implies that \[f\left(f\left(\alpha\right)f\left(\beta\right)\right)+f\left(b+1\right)=f\left(a\right).\] But then \begin{align*}f\left(f\left(\alpha\right)f\left(\beta\right)+1\right)&=f\left(f\left(\alpha\right)f\left(\beta\right)\right)+1\\&=f\left(a\right)-f\left(b+1\right)+1\\&=f\left(a\right)-f\left(b\right)-1+1\\&=0,\end{align*} so \[f\left(\alpha\right)f\left(\beta\right)+1=1,\] so \[f\left(\alpha\right)f\left(\beta\right)=0.\] Then at least one of $f\left(\alpha\right)$ and $f\left(\beta\right)$ is $0$. Then at least one of $\alpha$ and $\beta$ is $1$, so $1$ is a root of $X^2-\left(b+1\right)X+a$. But then the other root is \[\left(b+1\right)-1=\frac{a}{1}\] by Vieta's Formula, so $a=b$, contradiction. Thus, we must have that $a=b$.
+
+\textbf{Part 4: Putting it all together}
+
+Now, from \[f\left(-f\left(-f\left(x\right)\right)\right)=f\left(x\right),\] we get that \[-f\left(-f\left(x\right)\right)=x.\] Then \[x=-f\left(-f\left(x\right)\right)=f\left(x\right)+1,\] so $f\left(x\right)=x-1$ for all $x$. This is a solution, and the only solution in this scenario.
+
+Before, we WLOG'ed that $f\left(0\right)=-1$, so we must account for all of the negation that we could have done - since the only solution we extracted was $x-1$, the solution we would get from the other half of the WLOG would be $1-x$.
+
+Thus, the solutions are $f\left(x\right)=\boxed{0}$, $f\left(x\right)=\boxed{x-1}$, and $f\left(x\right)=\boxed{1-x}$.

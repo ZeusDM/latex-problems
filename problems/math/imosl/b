@@ -1,0 +1,19 @@
+for i in {1987..2019};
+do
+    #mkdir $i
+    #rm $i/source_pt.tex
+    #rm $i/source_en.tex
+    #echo "USA TST $i" >> $i/source_pt.tex
+    #echo "USA TST $i" >> $i/source_en.tex
+	for j in {1..9}
+	do
+		#mkdir $i/$j
+		#rm $i/$j/number.tex
+		#echo "$j" >> $i/$j/number.tex
+		mv ISL-$i-A$j.tex $i/A$j/solution_en.tex
+		mv ISL-$i-C$j.tex $i/C$j/solution_en.tex
+		mv ISL-$i-G$j.tex $i/G$j/solution_en.tex
+		mv ISL-$i-N$j.tex $i/N$j/solution_en.tex
+		#mv $i/$j/solution_en.tex $i/$j/problem_en.tex
+	done
+done

@@ -1,0 +1,9 @@
+The answer is $m,n$ odd with $m+n$ a power of $2$. These work because you can take rational weightings of $x$ and $y$ with denominators that are powers of $2$ (by using ``binary search'' with the arithmetic mean), so $\frac{n}{m+n}\cdot\frac{m}{n}+\frac{m}{m+n}\cdot\frac{n}{m}=1$ can be written on the board.
+
+Now assume $m+n$ is not a power of $2$, then there is an odd prime $p$ dividing $m+n$.
+
+\textbf{Claim:} If $p\nmid a,b,c,d$ but $p\mid a+b,c+d$ then $p\nmid (ad+bc),(2bd),(2ac)$ but $p\mid (ad+bc+2bd),(2ac+ad+bc)$.
+
+Proof: Routine modular arithmetic. $\square$
+
+But this means that if we operate on $\frac{a}{b}$ and $\frac{c}{d}$ to get $\frac{r}{s}=\frac{ad+bc}{2bd}$ or $\frac{2ac}{ad+bc}$, then if $p$ divides $a+b$ and $c+d$ then $p$ divides $r+s$, where all of these fractions are in simplest form. But to get $1$, we need $p\mid2$, contradiction.

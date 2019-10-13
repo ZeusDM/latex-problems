@@ -1,0 +1,5 @@
+The answer is $\left\lfloor\frac{n+1}{2}\right\rfloor$.
+
+If $n$ is even, a construction is $\{i,2m+1-i\}$ for $i=1,2,\ldots,\frac{n}{2}$. If $n$ is odd, a construction is $\{i,2m-1-i\}$ for $i=1,2,\dots,\frac{n-1}{2}$ as well as $\{2m-1\}$.
+
+Now, we prove that $k\leq\frac{n+1}{2}$, from which the answer follows. Suppose that we use $k>\frac{n+1}{2}$ boxes. Then the average box size is $\frac{n}{k}<2$, so there is a box with only one number. Ignoring that box, the average box size is $\frac{n-1}{k-1}<2$, so there is another box with only one number. These two boxes have different sums, contradiction. So $k\leq\frac{n+1}{2}$.

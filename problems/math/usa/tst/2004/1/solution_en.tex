@@ -1,0 +1,13 @@
+Let $\vecb{a}=\begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix}$ and $\vecb{b}=\begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}$. Then
+\begin{align*}
+	||\vecb{a}-\vecb{b}||^2||\vecb{a}||^2&=||\vecb{a}||^2||\vecb{b}||^2+||\vecb{a}-\vecb{b}||^2||\vecb{a}||^2-||\vecb{a}||^2||\vecb{b}||^2\\
+	&=||\vecb{a}||^2||\vecb{b}||^2+\left(||\vecb{a}-\vecb{b}||^2-||\vecb{b}||^2\right)||\vecb{a}||^2\\
+	&=||\vecb{a}||^2||\vecb{b}||^2+\innerproduct{\vecb{a}-2\vecb{b}}{\vecb{a}}\cdot\innerproduct{\vecb{a}}{\vecb{a}}\\
+	&=||\vecb{a}||^2||\vecb{b}||^2+\innerproduct{\vecb{a}-\vecb{b}}{\vecb{a}}^2-\innerproduct{\vecb{b}}{\vecb{a}}^2\\
+	&\geq||\vecb{a}||^2||\vecb{b}||^2-\innerproduct{\vecb{a}}{\vecb{b}}^2\\
+	&=\left(||\vecb{a}||-1\right)\left(||\vecb{b}||-1\right)-\innerproduct{\vecb{a}}{\vecb{b}}^2+||\vecb{a}||^2+||\vecb{b}||^2-1\\
+	&>\left(\innerproduct{\vecb{a}}{\vecb{b}}-1\right)^2-\innerproduct{\vecb{a}}{\vecb{b}}^2+||\vecb{a}||^2+||\vecb{b}||^2-1\\
+	&=||\vecb{a}||^2-2\innerproduct{\vecb{a}}{\vecb{b}}+||\vecb{b}||^2\\
+	&=||\vecb{a}-\vecb{b}||^2
+\end{align*}
+so $||\vecb{a}||>1$. Similarly $||\vecb{b}||>1$. Thus $a_1^2+\ldots+a_n^2>1$ and $b_1^2+\ldots+b_n^2>1$.

@@ -1,0 +1,13 @@
+for i in {1997..2019};
+do
+    rm $i/source_pt.tex
+	rm $i/source_en.tex
+	echo "Singapura TST $i" >> $i/source_pt.tex
+    echo "Singapore TST $i" >> $i/source_en.tex	
+	for j in {1..6}
+	do
+		rm $i/$j/number.tex
+		echo "$j" >> $i/$j/number.tex
+		mv SingaporeTST-$i-$j.tex $i/$j/problem_en.tex
+	done
+done

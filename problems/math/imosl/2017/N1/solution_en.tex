@@ -1,0 +1,51 @@
+The answer is $3\mid a_0$.
+
+Let $k$ be a positive integer. We will call the sequence $a_n$ with $a_0=k$ the \emph{Snorlax sequence} of $k$. Call $k$ \emph{tasty} if there exists a number $A_k$ such that the Snorlax sequence of $k$ contains $A_k$ infinitely many times.
+
+First, note that if $k$ is tasty and $k$ is in the Snorlax sequence of $j$, then $j$ is also tasty. This is because we can choose $A_j=A_k$.
+
+On a similar note, if $k$ is not tasty and $k$ is in the Snorlax sequence of $j$, then $j$ is also not tasty. Indeed, let $M$ be the largest number of times any number appears in the Snorlax sequence of $k$ ($M$ is finite because $k$ is not tasty) and let $a_i=k$ in the Snorlax sequence of $j$. Then every number appears at most $M+i$ times in the Snorlax sequence of $j$ (because $a_i,a_{i+1},a_{i+2},\ldots$ is the Snorlax sequence of $k$), so $j$ is not tasty.
+
+We will also note that $k$ is tasty if and only if the Snorlax sequence of $k$ repeats a term. This is true because if $k$ is tasty, then the Snorlax sequence of $k$ must repeat a term at some point (in fact, infinitely many times), and if the Snorlax sequence of $k$ repeats a term - say $a_d=a_e=c$ ($d<e$), then $a_{d+n\left(e-d\right)}=c$ for all nonnegative integers $n$, so then $k$ is tasty.
+
+We will show that $n$ is tasty if and only if $n$ is divisible by $3$ by casework modulo $3$.
+
+Case 1: $n\equiv0\pmod3$
+
+Let $n=3k$ with $k$ a positive integer. We will show that $n$ is tasty by strong induction on $k$. The base case of $k=1$ is true because the Snorlax sequence of $3$ goes \[3\rightarrow6\rightarrow9\rightarrow3\] and repeats a term, so $3\cdot1$ is tasty. Now, assume that $3k$ is tasty with $k=1,2,\ldots,j$ for some positive integer $j$. We will prove that $3\left(j+1\right)$ is tasty.
+
+Note that $9\left\lceil\frac{\sqrt{a_0}}{3}\right\rceil^2$ is the smallest perfect square which is a multiple of $3$ and is larger than $a_0$. Thus, the Snorlax sequence of $3\left(j+1\right)$ goes \[3\left(j+1\right)\rightarrow\ldots\rightarrow9\left\lceil\frac{\sqrt{3\left(j+1\right)}}{3}\right\rceil^2\rightarrow3\left\lceil\frac{\sqrt{3\left(j+1\right)}}{3}\right\rceil.\] But note that \[3\left\lceil\frac{\sqrt{3\left(j+1\right)}}{3}\right\rceil=3\left\lceil\sqrt{\frac{j+1}{3}}\right\rceil<3\left(\sqrt{\frac{j+1}{3}}+1\right)<3\left(j+1\right)\] because $j\geq1$, so $3\left\lceil\frac{\sqrt{3\left(j+1\right)}}{3}\right\rceil$ is tasty by the inductive hypothesis, so $3\left(j+1\right)$ is tasty.
+
+Thus, by induction, $n=3k$ is tasty.
+
+Case 2: $n\equiv2\pmod3$
+
+We will show that $n$ is not tasty by showing that the Snorlax sequence of $n$ is an arithmetic sequence. To do so, we will prove by induction on $i$ that $a_i\equiv2\pmod3$ and $a_{i+1}=a_i+3$ for $i\geq0$. The base case of $i=0$ is true because $a_0=n\equiv2\pmod3$ and since $\left(\frac{a_0}{3}\right)=\left(\frac{2}{3}\right)=-1$, $\sqrt{a_0}$ is not an integer, so $a_1=a_0+3$. Now, assume that $a_i\equiv2\pmod3$ and $a_{i+1}=a_i+3$ for some positive integer $j$. We will prove that $a_{j+1}\equiv2\pmod3$ and $a_{j+2}=a_{j+1}+3$.
+
+Note that $a_{j+1}=a_j+3\equiv2\pmod3$ by the inductive hypothesis, so $\left(\frac{a_{j+1}}{3}\right)=\left(\frac{2}{3}\right)=-1$, so $\sqrt{a_{j+1}}$ is not an integer, so $a_{j+2}=a_{j+1}+3$.
+
+Thus, by induction, $a_{i+1}=a_i+3$. But then the Snorlax sequence of $n$ is an arithmetic sequence, so $n$ is not tasty.
+
+Case 3: $n\equiv1\pmod3$
+
+We will prove by strong induction on $k$ that if $n\in\left(k^2,\left(k+1\right)^2\right]$, then $n$ is not tasty. The base case of $k=1$ is true, as then $n=4$, so $a_1=2$, and since $2$ is not tasty, we have that $4$ is not tasty. Now, assume that $n\in\left(k^2,\left(k+1\right)^2\right]$ implies that $n$ is not tasty for $k=1,2,\ldots,j$ for some positive integer $j$. We will prove that $n\in\left(\left(j+1\right)^2,\left(j+2\right)^2\right]$ implies that $n$ is not tasty.
+
+We will casework on $j$ modulo $3$.
+
+Subcase 3.1: $j\equiv1\pmod3$
+
+Then the Snorlax sequence of $n$ will go \[n\rightarrow\underset{\left(\text{skip over }\left(j+2\right)^2\right)}{\ldots}\rightarrow\left(j+3\right)^2\rightarrow j+3.\] Note that the perfect square that $n$ will go to is $\left(j+3\right)^2$ because $\left(j+2\right)^2\equiv0\pmod3$ while $\left(j+3\right)^2\equiv1\pmod3$, and the Snorlax sequence of $n$ will progress arithmetically until it hits a perfect square. But $j+3\equiv1\pmod3$ and $1<j+3\leq\left(j+1\right)^2$, so by the inductive hypothesis, $j+3$ is not tasty, so $n$ is not tasty.
+
+Subcase 3.2: $j\equiv0\pmod3$
+
+Note that $\left(j+2\right)^2\equiv1\pmod3$. Then the Snorlax sequence of $n$ will go \[n\rightarrow\ldots\rightarrow\left(j+2\right)^2\rightarrow j+2.\] But $j+2\equiv2\pmod3$, so $j+2$ is not tasty, so $n$ is not tasty.
+
+Subcase 3.3: $j\equiv2\pmod3$
+
+Note that $\left(j+2\right)^2\equiv1\pmod3$. Then the Snorlax sequence of $n$ will go \[n\rightarrow\ldots\rightarrow\left(j+2\right)^2\rightarrow j+2.\] But $j+2\equiv1\pmod3$ and $1<j+2\leq\left(j+1\right)^2$, so by the inductive hypothesis, $j+2$ is not tasty, so $n$ is not tasty.
+
+In all cases, $n$ is not tasty when $n\in\left(\left(j+1\right)^2,\left(j+2\right)^2\right]$.
+
+Thus, by induction, $n\equiv1\pmod3$ is not tasty.
+
+In conclusion, $n$ is tasty if and only if $n$ is a multiple of $3$. Thus, the answer is $\boxed{a_0\in\left\{3k\mid k\in\mathbb{N}\right\}}$.

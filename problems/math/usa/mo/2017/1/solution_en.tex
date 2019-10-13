@@ -1,0 +1,7 @@
+Let $a=2^k-1$ and $b=2^k+1$ for all integers $k\geq2$. Clearly $a,b$ are relatively prime. Then
+\begin{align*}
+	a^b+b^a&=(2^k-1)^{2^k+1}+(2^k+1)^{2^k-1}\\
+	&=-1+(2^k+1)2^k+\displaystyle\sum_{i=2}^{2^k+1}\binom{2^k+1}{i}2^{ik}(-1)^{2^k+1-i}+1+(2^k-1)2^k+\displaystyle\sum_{i=2}^{2^k-1}\binom{2^k-1}{i}2^{ik}\\
+	&\equiv0\pmod{2^{k+1}}
+\end{align*}
+as desired.

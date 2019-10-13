@@ -1,0 +1,10 @@
+Observe that the cardinality of $S$ is the $x^{3860}$ coefficient of $\left(x+x^2+x^3+x^4+x^5+x^6+x^{10}\right)^{2018}$. Since polynomials are analytic and holomorphic, Cauchy's differentiation formula and Laurent series formula tells us that this is \[\frac{1}{2\pi i}\displaystyle\oint_{\gamma}\frac{\left(z+z^2+z^3+z^4+z^5+z^6+z^{10}\right)^{2018}}{z^{3861}}dz\] for any counterclockwise contour $\gamma$ with winding number $1$ around the origin.
+
+Choose $\gamma$ to be the circle centered at the origin with radius $\frac{1}{2}$. Then
+\begin{align*}
+	\left|\frac{1}{2\pi i}\displaystyle\oint_{\gamma}\frac{\left(z+z^2+z^3+z^4+z^5+z^6+z^{10}\right)^{2018}}{z^{3861}}dz\right|&\leq\frac{1}{2\pi}\displaystyle\oint_{\gamma}\frac{\left|z+z^2+z^3+z^4+z^5+z^6+z^{10}\right|^{2018}}{\left|z\right|^{3861}}dz\\
+	&\leq\frac{1}{2\pi}\displaystyle\oint_{\gamma}\frac{\left(\left|z\right|+\left|z\right|^2+\left|z\right|^3+\left|z\right|^4+\left|z\right|^5+\left|z\right|^6+\left|z\right|^{10}\right)^{2018}}{\left|z\right|^{3861}}dz\\
+	&=2^{3860}\left(\frac{1}{2}+\frac{1}{2^2}+\frac{1}{2^3}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^6}+\frac{1}{2^{10}}\right)^{2018}\\
+	&=2^{3860}\cdot\left(\frac{2018}{2048}\right)^{2018},
+\end{align*}
+so the coefficient is definitely less than $2^{3860}\cdot\left(\frac{2018}{2048}\right)^{2018}$ as desired.

@@ -1,0 +1,37 @@
+for i in {2004..2019};
+do
+    #mkdir $i
+	#mkdir $i/A
+	#mkdir $i/G
+	#mkdir $i/C
+	#mkdir $i/T
+	#mkdir $i/guts
+    #echo "HMMT $i, Álgebra"      >> $i/A/source_pt.tex
+	#echo "HMMT $i, Geometria"    >> $i/G/source_pt.tex
+	#echo "HMMT $i, Combinatória" >> $i/C/source_pt.tex
+	#echo "HMMT $i, Time"         >> $i/T/source_pt.tex
+	#echo "HMMT $i, Guts"         >> $i/guts/source_pt.tex
+    #echo "HMMT $i, Algebra"      >> $i/A/source_en.tex
+	#echo "HMMT $i, Geometry"     >> $i/G/source_en.tex
+	#echo "HMMT $i, Combinatorics">> $i/C/source_en.tex
+	#echo "HMMT $i, Team"         >> $i/T/source_en.tex
+	#echo "HMMT $i, Guts"         >> $i/guts/source_en.tex
+	for j in {1..20}
+	do
+		#mkdir $i/A/$j
+		#mkdir $i/C/$j
+		#mkdir $i/G/$j
+		#mkdir $i/T/$j
+		#mkdir $i/guts/$j
+		#echo "$j" >> $i/A/$j/number.tex
+		#echo "$j" >> $i/C/$j/number.tex
+		#echo "$j" >> $i/G/$j/number.tex
+		#echo "$j" >> $i/T/$j/number.tex
+		#echo "$j" >> $i/guts/$j/number.tex
+		mv HMMT-$i-A$j.tex    $i/A/$j/solution_en.tex
+		mv HMMT-$i-C$j.tex    $i/C/$j/solution_en.tex
+		mv HMMT-$i-G$j.tex    $i/G/$j/solution_en.tex
+		mv HMMT-$i-T$j.tex    $i/T/$j/solution_en.tex
+		mv HMMT-$i-Guts$j.tex $i/guts/$j/solution_en.tex
+	done
+done

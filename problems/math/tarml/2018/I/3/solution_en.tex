@@ -1,0 +1,21 @@
+Refer to the diagram shown here:
+
+\begin{center}
+    \begin{asy}
+        size(8cm);
+        pair A=(-5,5), B=(2,6), D=(2,-2), E=(2,-6), I=(2,2), L=(8,-5), M=(-5,1),O=(-3,-3), R=(-3,-6), S=(5,3), T=(-6,-6), U=(5,5), X=(-6,-3), Y=(3,-5);
+        draw(A--M,blue+linewidth(2));
+        draw(B--I,blue+linewidth(2));
+        draw(D--E,blue+linewidth(2));
+        draw(X--T,blue+linewidth(2));
+        draw(R--O,grey+linewidth(2));
+        draw(U--S,purple+linewidth(2));
+        draw(L--Y,paleblue+linewidth(2));
+        draw((0,0)--(10,0), arrow=Arrow(TeXHead));
+        draw((0,0)--(-10,0), arrow=Arrow(TeXHead));
+        draw((0,0)--(0,10), arrow=Arrow(TeXHead));
+        draw((0,0)--(0,-10), arrow=Arrow(TeXHead));
+    \end{asy}
+\end{center}
+
+The line segments have lengths $4,4,4,3,3,2,5$, respectively, for a total sum of $\boxed{25}$.

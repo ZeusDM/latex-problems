@@ -1,0 +1,19 @@
+for i in {2009..2018}
+do
+	mkdir $i
+	rm $i/source_pt.tex
+	rm $i/source_en.tex
+	echo "Putnam $i" >> $i/source_pt.tex
+	echo "Putnam $i" >> $i/source_en.tex
+	for j in {1..6}
+	do
+		mkdir $i/a$j
+		rm $i/a$j/number.tex
+		echo "A$j" >> $i/a$j/number.tex
+		mv Putnam-$i-A$j.tex $i/a$j/solution_en.tex
+		mkdir $i/b$j
+		rm $i/b$j/number.tex
+		echo "B$j" >> $i/b$j/number.tex
+		mv Putnam-$i-B$j.tex $i/b$j/solution_en.tex
+	done
+done

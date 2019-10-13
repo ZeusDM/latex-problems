@@ -1,0 +1,23 @@
+Let lines $EA,ED$ hit $BC$ at $X,Y$. Then $\angle{XAB}=\angle{YCD}$, $\angle{XBA}=\angle{YDC}$, and $AB=CD$, so $\triangle{XAB}\cong\triangle{YCD}$. Let $XY=a$, $EX=EY=b$ (since $EXY$ is isosceles with apex $E$), $XB=YD=m$, and $XA=YC=n$. Then $AB=BC=CD=a-m-n$. Since $\cos\angle{YXE}=\frac{a}{2b}$, the Law of Cosines in $\triangle{XAB}$ implies that \[\left(a-m-n\right)^2=m^2+n^2-\frac{amn}{b},\] equivalently \[-abm=-amn-2bmn+abm+2abn-a^2b.\]
+
+Now, we use barycentric coordinates with reference triangle $\triangle{EXY}$. We have that $B=\left(0:a-m:m\right)$, $C=\left(0:n:a-n\right)$, $D=\left(m:0:b-m\right)$, and $A=\left(n:b-n:0\right)$. Observe that $A,C$ lie on line $\left(a-n\right)\left(b-n\right)x-n\left(a-n\right)y+n^2z=0$ and $B,D$ lie on line $\left(a-m\right)\left(b-m\right)x+m^2z-m\left(a-m\right)z=0$. Thus, $AC\cap BD$ is the solution to
+\begin{alignat*}{4}
+	x & {}+{} & y & {}+{} & z & {}={} & 1\\
+	\left(a-n\right)\left(b-n\right)x & {}-{} & n\left(a-n\right)y & {}+{} & n^2z & {}={} & 0\\
+	\left(a-m\right)\left(b-m\right)x & {}+{} & m^2y & {}-{} & m\left(a-m\right)z & {}={} & 0
+\end{alignat*}
+in $\left(x,y,z\right)$. By Cramer's Rule, \[y\propto
+\begin{vmatrix}
+	1 & 1 & 1 \\
+	\left(a-n\right)\left(b-n\right) & 0 & n^2 \\
+	\left(a-m\right)\left(b-m\right) & 0 & -m\left(a-m\right)
+\end{vmatrix}=
+n^2\left(a-m\right)\left(b-m\right)+m\left(a-m\right)\left(a-n\right)\left(b-n\right)\] while \[z\propto
+\begin{vmatrix}
+	1 & 1 & 1 \\
+	\left(a-n\right)\left(b-n\right) & -n\left(a-n\right) & 0 \\
+	\left(a-m\right)\left(b-m\right) & m^2 & 0
+\end{vmatrix}=
+m^2\left(a-n\right)\left(b-n\right)+n\left(a-n\right)\left(a-m\right)\left(b-m\right)\] with the same constant of proportionality.
+
+To prove that $AC\cap BD$ is on the perpendicular from $E$ to $BC$, it suffices to prove that $y=z$, or that \[n^2\left(a-m\right)\left(b-m\right)+m\left(a-m\right)\left(a-n\right)\left(b-n\right)=m^2\left(a-n\right)\left(b-n\right)+n\left(a-n\right)\left(a-m\right)\left(b-m\right),\] equivalently \[n\left(2n-a\right)\left(m-a\right)\left(m-b\right)\] is symmetrical in $m$ and $n$. Expand this to get \[n\left(2m^2n-am^2-2amn-2bmn+a^2m+abm+2abn-a^2b\right).\] Use the Law of Cosines identity from above to deduce that this is \[n\left(2m^2n-am^2-amn+a^2m-abm\right)=mn\left(2mn-am-an+a^2-ab\right),\] which is clearly symmetrical in $m$ and $n$. Thus, the perpendicular line from $E$ to $BC$ and the line segments $AC$ and $BD$ are concurrent.

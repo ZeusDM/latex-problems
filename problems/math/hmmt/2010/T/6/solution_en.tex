@@ -1,0 +1,107 @@
+Suppose that $a\neq0$. Then there exist three points $A,B,C\in S$ which form a non-degenerate triangle.
+
+Observe that lines $BC,CA,AB$ divide the plane into seven regions: $\triangle{ABC}$, opposite $A$, opposite $B$, opposite $C$, neighboring $A$, neighboring $B$, neighboring $C$.
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        pair BL=(2,0), BR=(11,0), L=(0,3), R=(12,3), TL=(3,10), TR=(6,10);
+        draw(L--R); draw(BR--TL); draw(TR--BL);
+        pair A=extension(BR,TL,TR,BL), B=extension(TR,BL,L,R), C=extension(L,R,BR,TL);
+        dot(A); dot(B); dot(C);
+        label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SW);
+        label("$\triangle{ABC}$",(A+B+C)/3);
+        label("opposite $A$",(6,1.5));
+        label("opposite $B$",(10,7));
+        label("opposite $C$",(2,7));
+        label("neighbor $A$",(4.5,10));
+        label("neighbor $B$",(1,1.5));
+        label("neighbor $C$",(12,1.5));
+    \end{asy}
+\end{center}
+
+Let $P$ be an arbitrary point in $S$.
+
+Suppose $P$ is opposite $A$. Then the convex hull of $A,B,C,P$ is convex quadrilateral $ABPC$. This must be contained within $S$, so $\left[ABPC\right]\leq a$. But \[\left[ABPC\right]=\left[ABC\right]+\left[PBC\right]=\left[ABC\right]+\frac{d\left(P,BC\right)\cdot BC}{2},\] so $d\left(P,BC\right)\leq\frac{2\left(a-\left[ABC\right]\right)}{BC}$. So then $P$ belongs to the following shaded region:
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        real a=18;
+        pair BL=(2,0), BR=(11,0), L=(0,3), R=(12,3), TL=(3,10), TR=(6,10);
+        pair A=extension(BR,TL,TR,BL), B=extension(TR,BL,L,R), C=extension(L,R,BR,TL);
+        real K=243/20, bc=27/5, ca=9*sqrt(41)/10, ab=9*sqrt(29)/10, da=2*(a-K)/bc, db=2*(a-K)/ca, dc=2*(a-K)/ab;
+        pair BA=extension(B-da*(0,1),C-da*(0,1),B,A), CA=extension(B-da*(0,1),C-da*(0,1),C,A), CB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),C,B), AB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),A,B), AC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),A,C), BC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),B,C);
+        
+        fill(B--C--CA--BA--cycle,palered); draw(BA--CA);
+        
+        draw(L--R); draw(BR--TL); draw(TR--BL);
+        dot(A); dot(B); dot(C);
+        label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SW);
+    \end{asy}
+\end{center}
+
+Now, suppose $P$ is neighbor to $A$. Then the convex hull of $A,B,C,P$ is $\triangle{PBC}$. This must be contained within $S$, so $\left[PBC\right]\leq a$. But $\left[PBC\right]=\frac{d\left(P,BC\right)\cdot BC}{2}$, so $d\left(P,BC\right)\leq\frac{2a}{BC}$. So then $P$ belongs to the following shaded region:
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        real a=18;
+        pair BL=(2,0), BR=(11,0), L=(0,3), R=(12,3), TL=(3,10), TR=(6,10);
+        pair A=extension(BR,TL,TR,BL), B=extension(TR,BL,L,R), C=extension(L,R,BR,TL);
+        real K=243/20, bc=27/5, ca=9*sqrt(41)/10, ab=9*sqrt(29)/10, da=2*(a-K)/bc, db=2*(a-K)/ca, dc=2*(a-K)/ab;
+        pair BA=extension(B-da*(0,1),C-da*(0,1),B,A), CA=extension(B-da*(0,1),C-da*(0,1),C,A), CB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),C,B), AB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),A,B), AC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),A,C), BC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),B,C);
+        
+        fill(A--AB--AC--cycle,palered); draw(AB--AC);
+        
+        draw(L--R); draw(BR--TL); draw(TR--BL);
+        dot(A); dot(B); dot(C);
+        label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SW);
+    \end{asy}
+\end{center}
+
+By symmetry, if $P$ is opposite or neighbor to $B,C$, then $P$ lies in one of the shaded regions:
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        real a=18;
+        pair BL=(2,0), BR=(11,0), L=(0,3), R=(12,3), TL=(3,10), TR=(6,10);
+        pair A=extension(BR,TL,TR,BL), B=extension(TR,BL,L,R), C=extension(L,R,BR,TL);
+        real K=243/20, bc=27/5, ca=9*sqrt(41)/10, ab=9*sqrt(29)/10, da=2*(a-K)/bc, db=2*(a-K)/ca, dc=2*(a-K)/ab;
+        pair BA=extension(B-da*(0,1),C-da*(0,1),B,A), CA=extension(B-da*(0,1),C-da*(0,1),C,A), CB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),C,B), AB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),A,B), AC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),A,C), BC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),B,C);
+        
+        fill(B--C--CA--BA--cycle,palered);
+        fill(A--AB--AC--cycle,palered);
+        fill(C--A--AB--CB--cycle,palegreen);
+        fill(B--BC--BA--cycle,palegreen);
+        fill(A--B--BC--AC--cycle,paleblue);
+        fill(C--CA--CB--cycle,paleblue);
+        draw(BA--CA--CB--AB--AC--BC--cycle);
+        
+        draw(L--R); draw(BR--TL); draw(TR--BL);
+        dot(A); dot(B); dot(C);
+        label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SW);
+    \end{asy}
+\end{center}
+
+Thus, adding in the case where $P$ could lie in $\triangle{ABC}$, we have that $P\in S$ must lie in the following shaded area:
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        real a=18;
+        pair BL=(2,0), BR=(11,0), L=(0,3), R=(12,3), TL=(3,10), TR=(6,10);
+        pair A=extension(BR,TL,TR,BL), B=extension(TR,BL,L,R), C=extension(L,R,BR,TL);
+        real K=243/20, bc=27/5, ca=9*sqrt(41)/10, ab=9*sqrt(29)/10, da=2*(a-K)/bc, db=2*(a-K)/ca, dc=2*(a-K)/ab;
+        pair BA=extension(B-da*(0,1),C-da*(0,1),B,A), CA=extension(B-da*(0,1),C-da*(0,1),C,A), CB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),C,B), AB=extension(C-db*(-5/sqrt(41),-4/sqrt(41)),A-db*(-5/sqrt(41),-4/sqrt(41)),A,B), AC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),A,C), BC=extension(A-dc*(5/sqrt(29),-2/sqrt(29)),B-dc*(5/sqrt(29),-2/sqrt(29)),B,C);
+        
+        filldraw(BA--CA--CB--AB--AC--BC--cycle,paleyellow);
+        
+        draw(L--R); draw(BR--TL); draw(TR--BL);
+        dot(A); dot(B); dot(C);
+        label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SW);
+    \end{asy}
+\end{center}
+
+Then $S$ is clearly bounded.

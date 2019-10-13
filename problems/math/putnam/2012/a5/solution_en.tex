@@ -1,0 +1,19 @@
+The answers are $(p,1)$ or $(2,2)$ for any prime $p$. The former works with $\left(\vecb{v},M\right)=\left(\begin{bmatrix} 1 \end{bmatrix},\begin{bmatrix} 1 \end{bmatrix}\right)$ while the latter works with $\left(\vecb{v},M\right)=\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix},\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\right)$.
+
+We work in $\mathbb{F}_p$. First, note by induction that $G^{(k)}(\vecb{0})=S_k\vecb{v}$, where we define $S_k=I+M+M^2+\ldots+M^{k-1}$ for $k=1,\ldots,p^n$. Now suppose $G^{(k)}(\vecb{0})$ are distinct.
+
+Define a function $\ell:\mathbb{F}_p^n\to\{1,\ldots,p^n\}$ such that $G^{(\ell(\vecb{u}))}(\vecb{0})=\vecb{u}$ for any $\vecb{u}\in\mathbb{F}_p^n$. Suppose that $\ell(\vecb{0})\neq p^n$. Then
+\[
+	G^{(\ell(\vecb{0})+1)}(\vecb{0})=G(\vecb{0})=G^{(1)}(\vecb{0})
+\]
+contradiction. Thus $\ell(\vecb{0})=p^n$.
+
+Now observe that for any $\vecb{u}\in\mathbb{F}_p^n$,
+\begin{align*}
+	S_{p^n}\vecb{u} &= S_{p^n}G^{(\ell(\vecb{u}))}(\vecb{0}) \\
+	&= S_{p^n}S_{\ell(\vecb{u})}\vecb{v} \\
+	&= S_{\ell(\vecb{u})}S_{p^n}\vecb{v} \\
+	&= S_{\ell(\vecb{u})}G^{(p^n)}(\vecb{0}) \\
+	&= \vecb{0}
+\end{align*}
+so $S_{p^n}=0$. Thus the minimal polynomial of $M$ divides $1+x+x^2+\ldots+x^{p^n-1}=(x-1)^{p^n-1}$. But note that $S_{p^{n-1}}\neq0$ so the minimal polynomial does not divide $1+x+x^2+\ldots+x^{p^{n-1}-1}=(x-1)^{p^{n-1}-1}$ so it is $(x-1)^d$ for some $p^{n-1}\leq d\leq p^n-1$. But also the minimal polynomial of $M$ divides its characteristic polynomial by Cayley-Hamilton, and the characteristic polynomial has degree $n$, so $d\leq n$. Thus $p^{n-1}\leq n$. This easily implies $n=1$ or $(p,n)=(2,2)$ as desired.

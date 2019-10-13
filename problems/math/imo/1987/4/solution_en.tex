@@ -1,0 +1,9 @@
+Let $a=1987$.
+
+If $f(m)=f(n)$, then \[m=f(f(m))-a=f(f(n))-a=n\] so $f$ is injective.
+
+Now make the observation that \[f(n+a)=f(f(f(n)))=f(n)+a\] so $f(n+ka)=f(n)+ka$ for all $k\in\mathbb{Z}$ by induction. This immediately implies that if $m\equiv n\pmod a$ then $f(m)\equiv f(n)\pmod a$.
+
+Now, define a function $g:\{0,\ldots,a-1\}\to\{0,\ldots,a-1\}$ which maps $n$ to the remainder when $f(n)$ is divided by $a$. Then for all $n\in\{0,\ldots,a-1\}$, $g(n)\equiv f(n)\pmod a$, so \[f(g(n))\equiv f(f(n))\equiv n+a\equiv n\pmod a\] and thus $g(g(n))=n$. So $g$ is an involution on $\{0,\ldots,a-1\}$. Since $a$ is odd, this involution has a fixed point $d$. Then $f(d)=d+ka$ for some $k\in\mathbb{Z}$, so \[d+a=f(f(d))=f(d+ka)=f(d)+ka=d+2ka\] and thus $k=\frac{1}{2}$, contradiction.
+
+So such a function does not exist.

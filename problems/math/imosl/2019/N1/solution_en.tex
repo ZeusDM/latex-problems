@@ -1,0 +1,16 @@
+The answers are $(k,n)=(1,1)$ and $(3,2)$. These work because
+\begin{align*}
+	1!&=(2^1-1)\\
+	3!&=(2^2-1)(2^2-2)
+\end{align*}
+as desired.
+
+Let \[P=(2^n-1)(2^n-2)(2^n-4)\cdots(2^n-2^{n-1})\] for brevity. We first examine the $\nu_2$ of both sides. By Legendre's formula, we have that $\nu_2(k!)=k-s_2(k)\leq k-1$, where $s_2(k)$ is the sum of the digits of $k$ in binary. We can also observe that \[\nu_2(P)=0+1+2+\ldots+(n-1)=\frac{n^2-n}{2}\] directly. So $k\geq\frac{n^2-n+2}{2}$. It follows that \[P=k!\geq\left(\frac{n^2-n+2}{2}\right)!\] and \[P=(2^n-1)(2^n-2)(2^n-4)\cdots(2^n-2^{n-1})<\underbrace{2^n\cdot2^n\cdot2^n\cdots2^n}_{n\text{ times}}=2^{n^2}\] so \[2^{n^2}\geq\left(\frac{n^2-n+2}{2}\right)!.\] Taking logs, \[n^2\log2\geq\sum_{i=1}^{\frac{n^2-n+2}{2}}\log i.\] But since $\log$ is concave, \[\sum_{i=2}^M\log i\geq\int_1^M\log xdx=M\log M-M+1\] so \[n^2\log2\geq\frac{n^2-n+2}{2}\log\left(\frac{n^2-n+2}{2}\right)-\frac{n^2-n+2}{2}+1.\] This rearranges to \[\log\left(\frac{n^2-n+2}{2}\right)\leq\frac{2n^2\log2+n^2-n}{n^2-n+2}.\] But note that \[(2-2\log2)n^2-2n+6>0\] because the discriminant $4-24(2-2\log2)$ is negative (since $\log2<1-\frac{1}{2}+\frac{1}{3}<\frac{11}{12}$), so \[3>\frac{2n^2\log2+n^2-n}{n^2-n+2}\geq\log\left(\frac{n^2-n+2}{2}\right).\] It follows that \[\frac{n^2-n+2}{2}<e^3<27,\] so $n\leq7$.
+\begin{itemize}
+	\item If $n=3,5,7$ then $2^n-1$ is prime and $(2^n-1)\mid k!$ so $2^n-1\leq k$. But $P<(2^n-1)!$, contradiction.
+	\item If $n=4$ then $\nu_2(P)=6$ so $k\geq8$ but then $\nu_2(P)\geq7$, contradiction.
+	\item If $n=6$ then $31\mid P$ while $29\nmid P$ so $k\geq31$ but $k<29$, contradiction.
+	\item If $n=1$ then $P=1$ and thus $k=1$.
+	\item If $n=2$ then $P=6$ and thus $k=3$.
+\end{itemize}
+So the only ones which work are $(1,1)$ and $(3,2)$.

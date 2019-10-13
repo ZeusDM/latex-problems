@@ -1,0 +1,40 @@
+Some notation:
+
+\begin{itemize}
+	
+	\item Addition with words will mean concatenation (so if $\omega_1$ and $\omega_2$ are words, then $\omega_1+\omega_2$ represents the word with $\omega_1$ followed by $\omega_2$)
+	
+	\item Scalar multiplication by a nonnegative integer will mean repeating the word (so if $\omega_1$ is a word, then $3\omega_1=\omega_1+\omega_1+\omega_1$)
+	
+	\item Magnitude of a word denotes length (so if $\omega_1$ is a word, then $\left|\omega_1\right|$ denotes the number of letters in $\omega_1$)
+	
+\end{itemize}
+
+Let $\mathcal{S}$ be the set of words $\omega$ such that for any letter $\ell$ in $\omega$, either one of the neighbors of $\ell$ is the same letter as $\ell$. For example, AABB is in $\mathcal{S}$, but not TSSAL, MOP, A, or TSTST.
+
+The answer is any word \underline{not} in $\mathcal{S}$.
+
+Let $\omega$ be a word not in $\mathcal{S}$. Then we can write \[\omega=\omega_1+\ell+\omega_2,\left|\ell\right|=1\] where neither neighbor of $\ell$ is the same letter as $\ell$. Let the letter in $\ell$ be $\mathcal{L}$. Then if Banana chooses $k=n$, then Ana can give \[\omega_1\underbrace{\mathcal{L}\mathcal{L}\ldots\mathcal{L}}_n\omega_2.\] In order to preserve $\omega$, no letters in $\omega_1$ and $\omega_2$ can be removed. Thus, we must remove $n-1$ letters from the $n$ $\mathcal{L}$'s. There are $\binom{n}{n-1}=n$ ways to do this. All of them bring back $\omega$, so this works.
+
+Now, let $\omega$ be a word in $\mathcal{S}$. We will prove that it is impossible that Ana can win $k=2$. Assume that Ana can supply a word $\omega'$ when Ana chooses $k=2$.
+
+Let $\mathcal{C}$ be the set of letters in $\omega$. Clearly, $\omega$ is a substring of $\omega'$, so we can say that we are expanding on $\omega$ (and adding letters to $\omega$) in order to form $\omega'$. Picking any letter which is not in $\mathcal{C}$ to add to $\omega$ does not help nor hurt, as it must be deleted in any formation of $\omega$. Thus, we may assume that $\omega'$ consists only of letters in $\mathcal{C}$.
+
+Let \[\omega=a_1\ell_1+a_2\ell_2+\ldots+a_k\ell_k\] for some letters $\ell_1,\ell_2,\ldots,\ell_k$ and positive integers $a_1,a_2,\ldots,a_k$. Let the "$\ell_i$ block" represent the block of $a_i$ $\ell_i$'s inside $\omega$.
+
+Assume that we add a letter $\mathcal{L}\in\mathcal{C}$ to $\omega$ in order to form $\omega'$. Let $\mathcal{L}=\ell_M$ for some index $M$. I claim that one of the following occurs:
+
+1) $\mathcal{L}$ is deleted in any formation of $\omega$ from $\omega'$, in which case $\mathcal{L}$ is useless and we can ignore it.
+2) $\mathcal{L}$ is a neighbor to the $\ell_M$ block.
+
+Assume that $\mathcal{L}$ is successful in forming a $\omega$ from $\omega'$, so it is not deleted. Furthermore assume that $\mathcal{L}$ is not a neighbor to the $\ell_M$ block. We can assume that $\mathcal{L}$ is to the left of the $\ell_M$ block, otherwise we can flip over the word. Let the letter immediately to the left of $\mathcal{L}$ be $\ell_K$, $K<M$. Then if $K+1<M$, there must exist the subsequence \[\phi=a_{K+1}\ell_{K+1}+a_{K+2}\ell_{K+2}+\ldots+a_{M-1}\ell_{M-1}\] to the left of $\mathcal{L}$ in $\omega'$ in order for $\mathcal{L}$ to be useful. We must also append the remainder of the $\ell_K$ block to the right of $\mathcal{L}$ before $\phi$ in order for $\mathcal{L}$ to be useful. Either way, we must[hide=*]We might add on more letters, but this can only increase the number of subsequences of $\omega'$ that are equal to $\omega$ as we can just delete them to get this word.[/hide] have something in the form \[\omega_1+\mathcal{L}+\omega_2+a_M\ell_M+\omega_3,\] where \[\omega_1+a_M\ell_M+\omega_3=\omega.\] Then we must delete all of $\omega_2$ and $1$ of the $\ell_M$'s. But there are \[a_M+1\geq3\] of them, so there are at least $3$ subsequences of $\omega'$ that are equal to $\omega$, contradiction. Thus, either 1 or 2 occurs.
+
+If 1 occurs, then $\mathcal{L}$ does not matter and we might as well have deleted it to begin with without affecting the number of subsequences of $\omega'$ that are equal to $\omega$.
+
+If 2 occurs, then there are at least \[a_M+1\geq3\] ways to remove a $\ell_M$, so there are at least $3$ subsequences of $\omega'$ that are equal to $\omega$, contradiction.
+
+Thus, we cannot place any letter into $\omega$ to build $\omega'$. Thus, $\omega'=\omega$. But there is only one subsequence of $\omega$ that is equal to $\omega$, so $k=2$ \underline{still} loses, contardiction.
+
+Thus, $\omega'$ does not exist and thus if $\omega$ is in $\mathcal{S}$, then Ana loses on $k=2$.
+
+Thus, Ana can pick any word \underline{not} in $\mathcal{S}$ to win no matter what value of $k$ Banana chooses, and picking any word in $\mathcal{S}$ fails.

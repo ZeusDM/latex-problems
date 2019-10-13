@@ -1,0 +1,75 @@
+The answer is $n$ a multiple of $9$.
+
+Assume that we can fill the grid to satisfy the problem constraints. It is obvious that $3\mid n$, so let $n=3k$.
+
+We now consider the following: label every square of the board with the number $0$. We associate an ordered pair $\left(i,j\right)$ with each square as a coordinate system for the $i$th row and $j$th column.
+
+Now, add $1$ to the label of a square for every one of the following events: \begin{align*}&\left(1\right)\qquad i\equiv2\pmod3\qquad\text{(this is a row)}\\&\left(2\right)\qquad j\equiv2\pmod3\qquad\text{(this is a column)}\\&\left(3\right)\qquad i+j\equiv1\pmod3\qquad\text{(this is a set of }2k-1\text{ diagonals with the condition)}\\&\left(4\right)\qquad i-j\equiv0\pmod3\qquad\text{(this is the other set of diagonals with the condition)}.\end{align*} Check that exactly one condition is satisfied for any $\left(i,j\right)$ that is not $\left(2,2\right)\pmod3$. In the case of $\left(2,2\right)\pmod3$, all four conditions are satisfied.
+
+But now notice that each of the conditions correspond to sets in which I, M, O must be evenly distributed and the entire board must have I, M, O be evenly distributed. If we now subtract $1$ from the label of each square, we have all of the $\left(2,2\right)\pmod3$ square remaining. But then I, M, O must be evenly distributed across these, of which there are $k^2$. Then $3$ divides $k$, so $9$ divides $n$.
+
+Now, if $9$ divides $n$, then we can just create $\frac{n^2}{81}$ copies of
+
+\begin{center}
+\begin{asy}
+size(6cm);
+for (int i=0; i<=9; ++i)
+{
+    draw((0,i)--(9,i));
+    draw((i,0)--(i,9));
+}
+for (int i=0; i<9; ++i)
+{
+    for (int j=0; j<9; ++j)
+    {
+        if (i<3)
+        {
+            if (j%3==0)
+            {
+                label("M",(i+0.5,j+0.5));
+            }
+            if (j%3==1)
+            {
+                label("O",(i+0.5,j+0.5));
+            }
+            if (j%3==2)
+            {
+                label("I",(i+0.5,j+0.5));
+            }
+        }
+        if (i>=3 && i<6)
+        {
+            if (j%3==0)
+            {
+                label("O",(i+0.5,j+0.5));
+            }
+            if (j%3==1)
+            {
+                label("I",(i+0.5,j+0.5));
+            }
+            if (j%3==2)
+            {
+                label("M",(i+0.5,j+0.5));
+            }
+        }
+        if (i>=6 && i<9)
+        {
+            if (j%3==0)
+            {
+                label("I",(i+0.5,j+0.5));
+            }
+            if (j%3==1)
+            {
+                label("M",(i+0.5,j+0.5));
+            }
+            if (j%3==2)
+            {
+                label("O",(i+0.5,j+0.5));
+            }
+        }
+    }
+}
+\end{asy}
+\end{center}
+
+and we are done.

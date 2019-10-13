@@ -1,0 +1,9 @@
+We can label the endpoints as $E_1,E_2,\ldots,E_{2n}$ in a counterclockwise fashion. Notice then that $E_i$ and $E_{i+n}$ are on the same line (taking indices modulo $2n$).
+\begin{enumerate}[label=(\alph*)]
+	\item Put the frogs on $E_k$, where $k$ is odd. Because $n$ is odd, $E_{k_1}E_{k_2}$ is never one of the segments.
+	
+	Now, notice that in between $E_{k_1}$ and $E_{k_2}$ ($k_1,k_2$ odd), there are an odd number of endpoints (if $k_1<k_2$, then they are $k_1+1,k_1+2,\ldots,k_2-1$ of which there are an odd number). Now, the lines emanating from these endpoints must escape the region between $E_{k_1}$ and $E_{k_2}$ through one of the sections $E_{k_1}I_{k_1,k_2}$ or $E_{k_2}I_{k_1,k_2}$, where $I_{k_1,k_2}=E_{k_1}E_{k_1+n}\cap E_{k_2}E_{k_2+n}$.
+	
+	If the frogs at $E_{k_1}$ and $E_{k_2}$ end up at $I_{k_1,k_2}$ at the same time, then the number of intersection points on $E_{k_1}I_{k_1,k_2}$ and $E_{k_2}I_{k_1,k_2}$ must be the same. But their sum is odd, contradiction. Thus, no two frogs hit an intersection at the same time.
+	\item Assume that we have frongs on $E_i$ and $E_{i+1}$. Let $I_{i,i+1}=E_iE_{i+n}\cap E_{i+1}E_{i+1+n}$. Consider any segment which intersects the line segment $E_iI_{i,i+1}$. If it hits line $E_{i+1}E_{i+1+n}$ between $E_{i+1+n}$ and $I_{i,i+1}$, then it has an endpoint between $E_i$ and $E_{i+1}$, contradiction. Thus, it intersects segment $E_{i+1}E_{i+1+n}$ between $E_{i+1}$ and $I_{i,i+1}$. Similarly, every segment which intersects line segment $E_{i+1}I_{i,i+1}$ also hits segment $E_iI_{i,i+1}$. Thus, $E_iI_{i,i+1}$ and $E_{i+1}I_{i,i+1}$ have the same number of intersections, so the frogs reach $I_{i,i+1}$ at the same time, contradiction. Thus, we must place frogs at alternating endpoints. But since $n$ is even, $E_1E_{n+1}$ has two frogs, contradiction.
+\end{enumerate}

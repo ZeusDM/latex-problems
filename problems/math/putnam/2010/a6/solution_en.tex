@@ -1,0 +1,15 @@
+First note that $f(x)>0$ for all $x\in[0,\infty)$. Indeed, assume $f(t)\leq0$ for some $t\in[0,\infty)$. Then for all $x>t+1$, $f(x)<f(t+1)<f(t)\leq0$. Thus \[\lim_{x\to\infty}f(x)\leq f(t+1)<0,\] contradiction. So $f(x)>0$ for all $x\in[0,\infty)$. This means we can freely divide and manipulate inequalities with $f(x)$. In addition, the integrand $\frac{f(x)-f(x+1)}{f(x)}$ is positive because $f(x)>f(x+1)$.
+
+Suppose that $\displaystyle\int_0^{\infty}\frac{f(x)-f(x+1)}{f(x)}dx$ converges. Let $\eps>0$. By the Cauchy criterion, there exists $R>0$ such that $b>a>R$ implies $\displaystyle\int_a^b\frac{f(x)-f(x+1)}{f(x)}dx<\frac{\eps}{2}$.
+
+Fix $a>R$. Since $\displaystyle\lim_{x\to\infty}f(x)=0$, there exists $T>0$ such that $b>T$ implies $f(b)<\frac{f(a)\eps}{2}$. Then if $b>\max\{a,T\}$,
+\begin{align*}
+	\frac{\eps}{2}&>\int_a^b\frac{f(x)-f(x+1)}{f(x)}dx\\
+	&\geq\frac{1}{f(a)}\int_a^bf(x)-f(x+1)dx\\
+	&=\frac{1}{f(a)}\int_a^{a+1}f(x)dx-\frac{1}{f(a)}\int_b^{b+1}f(x)dx\\
+	&\geq\frac{f(a+1)}{f(a)}-\frac{f(b)}{f(a)}\\
+	&>\frac{f(a+1)}{f(a)}-\frac{\eps}{2}
+\end{align*}
+so $1>\frac{f(a)-f(a+1)}{f(a)}>1-\eps$.
+
+Thus for all $\eps>0$, there exists an $R>0$ such that $a>R$ implies $\left|\frac{f(a)-f(a+1)}{f(a)}-1\right|<\eps$, so $\displaystyle\lim_{x\to\infty}\frac{f(x)-f(x+1)}{f(x)}=1$. But $\displaystyle\int_0^{\infty}\frac{f(x)-f(x+1)}{f(x)}dx$ converges, so $\displaystyle\lim_{x\to\infty}\frac{f(x)-f(x+1)}{f(x)}=0$, contradiction. Thus $\displaystyle\int_0^{\infty}\frac{f(x)-f(x+1)}{f(x)}dx$ does not converge. Since the integrand is positive, the integral diverges.

@@ -1,0 +1,13 @@
+Let $k=\nu_2(n)$; I claim that $10^{2^k}+1$ divides $10^{10^{10^n}}+10^{10^n}+10^n-1$.
+\begin{itemize}
+	\item First, we show that $\frac{10^n}{2^k}=2^{n-k}\cdot5^n$ is an even integer. It suffices to show that $n-k\geq1$. But $k=\log_2n-\log_2m\leq\log_2n\leq n-1$ (eg. through induction), so this is true.
+	\item Next, we show that $\frac{10^{10^n}}{2^k}$ is an even integer. It suffices to show that $\frac{10^{10^n}}{10^n}$ is an integer, equivalently $10^n\geq n$. But from the above, $10^n>2^n>2^{n-1}\geq n$ so this is true.
+	\item Finally, by definition $\frac{n}{2^k}$ is an odd integer.
+\end{itemize}
+Now it follows that
+\begin{align*}
+	10^{10^{10^n}}&=\left(10^{2^k}\right)^{\frac{10^{10^n}}{2^k}}\equiv(-1)^{\frac{10^{10^n}}{2^k}}\equiv1\pmod{10^{2^k}+1}\\
+	10^{10^n}&=\left(10^{2^k}\right)^{\frac{10^n}{2^k}}\equiv(-1)^{\frac{10^n}{2^k}}\equiv1\pmod{10^{2^k}+1}\\
+	10^n&=\left(10^{2^k}\right)^{\frac{n}{2^k}}\equiv(-1)^{\frac{n}{2^k}}\equiv-1\pmod{10^{2^k}+1}
+\end{align*}
+so \[10^{10^{10^n}}+10^{10^n}+10^n-1\equiv1+1-1-1\equiv0\pmod{10^{2^k}+1}\] as desired. Since easy inequalities give us that $10^{2^k}+1$ is a non-unitary proper divisor of $10^{10^{10^n}}+10^{10^n}+10^n-1$, we can conclude that $10^{10^{10^n}}+10^{10^n}+10^n-1$ is not prime.

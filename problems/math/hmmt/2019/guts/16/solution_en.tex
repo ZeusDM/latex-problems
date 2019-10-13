@@ -1,0 +1,9 @@
+Letting $x=y=0$ we get $2f\left(0\right)=f\left(0\right)^2$, so $f\left(0\right)=0$ or $2$. Letting $y=-x$ gives $f\left(x^2\right)=x^2+f\left(0\right)$. If $f\left(0\right)=2$ then $f\left(4\right)=6$ and thus \[12=2f\left(4\right)=f\left(4\right)^2-8=28,\] contradiction. So $f\left(0\right)=0$. Then $f\left(x^2\right)=x^2$ so $f\left(x\right)=x$ for $x\geq0$. Letting $y=-2x$ gives \[f\left(-x\right)^2=x^2\] so $f\left(-x\right)=\pm x$.
+
+Now observe that for all negative numbers $z$, the function \[f\left(t\right)=\begin{cases}
+	t & \text{if }t\neq z \\
+	-t & \text{if }t=z
+\end{cases}
+\] satisfies the functional equation. Indeed, \[f\left(x^2\right)+f\left(y^2\right)=x^2+y^2=\left(x+y\right)^2-2xy=f\left(x+y\right)^2-2xy\] because $\left|f\left(t\right)\right|=\left|t\right|$ for all $t\in\mathbb{R}$.
+
+So the possible values of $S$ are \[0+1+\ldots+2019\pm1\pm2\pm\ldots\pm2019.\] It is clear that this can take on any even integer from $0$ to $2\left(1+2+\ldots+2019\right)$ inclusive, of which there are $\boxed{\binom{2020}{2}+1}$ possible values of $S$.

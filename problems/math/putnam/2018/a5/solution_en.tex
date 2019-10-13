@@ -1,0 +1,17 @@
+Suppose that $n\in\mathbb{N}$ and $x\in\mathbb{R}$ do not exist. Then $f^{\left(n\right)}\left(x\right)\geq0$ for all $n\in\mathbb{N},x\in\mathbb{R}$. Then $f^{\left(n\right)}\left(x\right)$ is increasing for all $n\in\mathbb{N}_0$.
+
+First, observe that $f\left(x\right)=0$ for $x<0$ as $f\left(x\right)\geq0=f\left(0\right)$. Now, I claim that $f^{\left(k\right)}\left(x\right)=0$ for all $k\in\mathbb{N}_0$ and $x\leq0$. We prove this by induction on $k$. The base case of $k=0$ has already been proven. Now, suppose that $f^{\left(k\right)}\left(x\right)=0$ for a fixed $k\in\mathbb{N}_0$ and all $x\leq0$. Then for all $z\leq0$, \[f^{\left(k+1\right)}\left(z\right)=\displaystyle\lim_{x\to z}\frac{f^{\left(k\right)}\left(x\right)-f^{\left(k\right)}\left(z\right)}{x-z}=\displaystyle\lim_{x\to z^-}\frac{f^{\left(k\right)}\left(x\right)-f^{\left(k\right)}\left(z\right)}{x-z}=\displaystyle\lim_{x\to z^-}\frac{0-0}{x-z}=0\] so the inductive step is proven and hence $f^{\left(k\right)}\left(x\right)=0$ for all $k\in\mathbb{N}_0$ and $x\leq0$.
+
+Fix a positive integer $m$. By Taylor's theorem, there exists a $c_0\in\left(0,1\right)$ such that \[f\left(1\right)=\left(\displaystyle\sum_{k=0}^{m-1}\frac{f^{\left(k\right)}\left(0\right)}{k!}\left(1-0\right)^k\right)+\frac{f^{\left(m\right)}\left(c_0\right)}{m!}\left(1-0\right)^m.\] But $f^{\left(k\right)}\left(0\right)=0$ for $k=0,1,\ldots,m-1$, so \[1=f\left(1\right)=\frac{f^{\left(m\right)}\left(c_0\right)}{m!}.\] But since $f^{\left(m\right)}$ is increasing, \[1=\frac{f^{\left(m\right)}\left(c_0\right)}{m!}\leq\frac{f^{\left(m\right)}\left(1\right)}{m!}\] for all positive integers $m$.
+
+Now, fix a positive integer $n$. By Taylor's theorem, there exists a $c_1\in\left(1,2\right)$ such that \[f\left(2\right)=\left(\displaystyle\sum_{m=0}^{n-1}\frac{f^{\left(m\right)}\left(1\right)}{m!}\left(2-1\right)^m\right)+\frac{f^{\left(n\right)}\left(c_1\right)}{n!}\left(2-1\right)^n.\] Then
+\begin{align*}
+	f\left(2\right)&=\left(\displaystyle\sum_{m=0}^{n-1}\frac{f^{\left(m\right)}\left(1\right)}{m!}\left(2-1\right)^m\right)+\frac{f^{\left(n\right)}\left(c_1\right)}{n!}\left(2-1\right)^n\\
+	&\geq\left(\displaystyle\sum_{m=0}^{n-1}\frac{f^{\left(m\right)}\left(1\right)}{m!}\left(2-1\right)^m\right)+\frac{f^{\left(n\right)}\left(1\right)}{n!}\left(2-1\right)^n\\
+	&=\displaystyle\sum_{m=0}^n\frac{f^{\left(m\right)}\left(1\right)}{m!}\\
+	&\geq\displaystyle\sum_{m=0}^n1\\
+	&=n+1
+\end{align*}
+so $f\left(2\right)$ is not finite, contradiction.
+
+Thus there exist a positive integer $n$ and a real number $x$ such that $f^{\left(n\right)}\left(x\right)<0$.

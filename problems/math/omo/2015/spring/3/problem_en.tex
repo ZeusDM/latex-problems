@@ -1,0 +1,50 @@
+On a large wooden block there are four twelve-hour analog clocks of varying accuracy. At 7PM on April 3, 2015, they all correctly displayed the time. The first clock is accurate, the second clock is two times as fast as the first clock, the third clock is three times as fast as the first clock, and the last clock doesn't move at all. How many hours must elapse (from 7PM) before the times displayed on the clocks coincide again? (The clocks do not distinguish between AM and PM.)
+
+\begin{center}
+\begin{asy}
+import olympiad;
+import cse5;
+
+size(12cm);
+defaultpen(linewidth(0.9)+fontsize(11pt));
+
+picture clock(real hh, real mm, string nn) {
+	picture p;
+	draw(p, unitcircle);
+	for(int i=1;i<=12;i=i+1)
+	{
+	  // draw(p, 0.9*dir(90-30*i)--dir(90-30*i));
+	  label(p, "$"+(string) i+"$",0.84*dir(90-30*i), fontsize(9pt));
+	}
+	dot(p, origin);
+
+	pair hpoint = 0.5 * dir(90 - 30 * (hh + mm/60));
+	pair mpoint = 0.75 * dir(90 - 6 * mm);
+
+	draw(p, origin--hpoint, EndArrow(HookHead, 3));
+	draw(p, origin--mpoint, EndArrow(HookHead, 5));
+
+	
+	string tlabel;
+	if (mm > 10) { tlabel = (string) hh + ":" + (string) mm; }
+	else  { tlabel = (string) hh + ":0" + (string) mm; }
+
+	label(p, tlabel, dir(90)*1.2, dir(90));
+	label(p, tlabel, dir(90)*1.2, dir(90));
+
+	label(p, nn, dir(-90)*1.1, dir(-90));
+	return p;
+}
+
+// The block
+real h = 1;
+filldraw( (-1.2,-1)--(8.4,-1)--(8.4,-1-h)--(-1.2,-1-h)--cycle, 0.7*lightgrey, black);
+
+add(shift((0.0,0)) * clock(10,22, "I"));
+add(shift((2.4,0)) * clock( 1,44, "II"));
+add(shift((4.8,0)) * clock( 5,06, "III"));
+add(shift((7.2,0)) * clock( 7,00, "IV"));
+
+label("\emph{Omnes vulnerant, postuma necat}", (3.6, -1.8), origin);
+\end{asy}
+\end{center}

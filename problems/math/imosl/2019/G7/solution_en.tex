@@ -1,0 +1,19 @@
+We use barycentric coordinates with reference triangle $DEF$. Let $a=EF,b=FD,c=DE$ and $D=(1,0,0),E=(0,1,0),F=(0,0,1)$. Use your favorite method (EFFT, isogonal conjugate, etc.) to show that $A=(-a^2:b^2:c^2),B=(a^2:-b^2:c^2),C=(a^2:b^2:-c^2)$ as the concurrency point between two tangent cevians and a symmedian.
+
+Now, we take a break from bashing and use projective geometry. Let $J=DH\cap EF$, $K=EH\cap FD$, $L=FH\cap DE$, $P'=(DH)\cap(DEF)$, and $P''=DP'\cap EF$. By radical center on $(DEF)$, $(DKHL)$, and $(ELKF)$, we get that $KL,EF,DP'$ concur, so $P''\in KL$. Then \[(P',H;L,K)_{(DH)}\stackrel{D}{=}(P'',J;E,F)=-1\] by Ceva-Menelaus harmonic bundles. So $P'R$ passes through $A$ and thus $P=P'$. Also note that $\frac{EP''}{FP''}=-\frac{EJ}{FJ}=-\frac{S_B}{S_C}$ so the line $DP''$ is $\frac{y}{z}=-\frac{S_C}{S_B}$. Since $P\in DP''$, we have $P=(t:S_C:-S_B)$ for some $t\in\mathbb{R}$. Since $P\in(ABC)$, we get $a^2S_BS_C+b^2S_Bt-c^2S_Ct=0$ so \[P=\left(\frac{a^2S_BS_C}{c^2S_C-b^2S_B}:S_C:-S_B\right).\]
+
+Next, define $X=DI\cap A\infty_{EF}$, where $A\infty_{EF}$ is the line through $A$ perpendicular to $AI$. Since $I$ is the circumcenter of $(DEF)$ and $X\in DI$, we have $X=(t:b^2S_B:c^2S_C)$ for some $t\in\mathbb{R}$. I claim that the equation of line $A\infty_{EF}$ is $(b^2+c^2)x+a^2y+a^2z=0$. It is clear that $A$ is on this line. And the intersection of this line with $x=0$ (line $EF$) is $(0:1:-1)$, which is a point at infinity, so this line is parallel to $EF$, equivalently perpendicular to $AI$. So this is the correct equation. Thus $(b^2+c^2)t+a^2b^2S_B+a^2c^2S_C$ so \[X=\left(-\frac{a^2(b^2S_B+c^2S_C)}{b^2+c^2}:b^2S_B:c^2S_C\right).\]
+
+Finally, I claim that the equation of circle $(PCE)$ is \[-a^2yz-b^2zx-c^2xy+\left(\frac{c^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2c^2}{2S_B}z\right)(x+y+z)=0.\]
+\begin{itemize}
+	\item To check $P$, note that $P\in(ABC)$ so $-a^2yz-b^2zx-c^2xy=0$. And $\frac{c^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2c^2}{2S_B}z=0$ since the first term is $\frac{a^2c^2}{2}$ while the second is $-\frac{a^2c^2}{2}$. So $P$ lies on this circle.
+	\item To check $C$, note that $-a^2yz-b^2zx-c^2xy=a^2b^2c^2$ and $\frac{c^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2c^2}{2S_B}z=\frac{a^2c^2(c^2S_C-b^2S_B)}{2S_BS_C}-\frac{a^2c^4}{2S_B}=-\frac{a^2b^2c^2}{2S_C}$. Since $x+y+z=a^2+b^2-c^2=2S_C$, everything cancels out and $E$ lies on this circle.
+	\item And finally, since there is no $y$ term in the linear part, $E$ lies on this circle.
+\end{itemize}
+So this is indeed the equation of circle $(PCE)$. Similarly, the equation of circle $(PBF)$ is \[-a^2yz-b^2zx-c^2xy+\left(-\frac{b^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2b^2}{2S_C}y\right)(x+y+z)=0.\] It follows that the radical axis of $(PCE)$ and $(PBF)$ is \[\frac{c^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2c^2}{2S_B}z=-\frac{b^2(c^2S_C-b^2S_B)}{2S_BS_C}x+\frac{a^2b^2}{2S_C}y.\] This is the equation of line $PQ$. To check that $X\in PQ$, confirm that
+\begin{align*}
+	0&=\frac{a^2(b^4S_B^2-c^4S_C^2)-a^2b^4S_B^2+a^2c^4S_C^2}{2S_BS_C}\\
+	&=-\frac{a^2(b^2S_B+c^2S_C)(c^2S_C-b^2S_B)}{2S_BS_C}-\frac{a^2b^4S_B}{2S_C}+\frac{a^2c^4S_C}{2S_B}\\
+	&=\frac{(b^2+c^2)(c^2S_C-b^2S_B)}{2S_BS_C}x-\frac{a^2b^2}{2S_C}y+\frac{a^2c^2}{2S_B}z
+\end{align*}
+as desired. Thus lines $DI$ and $PQ$ meet on the line through $A$ perpendicular to $AI$.

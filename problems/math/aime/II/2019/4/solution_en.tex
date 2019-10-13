@@ -1,0 +1,9 @@
+We casework on the number of die that are equal.
+\begin{itemize}
+	\item All four die are equal. There are $6$ ways here.
+	\item Three die are equal but not equal to the last one. Then $a^3b$ is a perfect square for $a\neq b$, so we need $ab$ to be a perfect square. If either is $2,3,5,6$ this is impossible so we need $\left\{a,b\right\}=\left\{1,4\right\}$ for $2\cdot4=8$ ways here.
+	\item Two die are equal and the other two die are equal but not the same. Then $a^2b^2$ is a perfect square for $a\neq b$. There are $\binom{6}{2}$ ways to choose the $a,b$ and $\binom{4}{2}$ ways to rearrange for $90$ ways here.
+	\item Two die are equal and the other two die are different. Then $a^2bc$ is a perfect square for $a,b,c$ distinct, so we need $bc$ to be a perfect square. As before, this requires $\left\{b,c\right\}=\left\{1,4\right\}$ so there are $4$ possibilities for $\left(a,b,c\right)$ and $12$ ways to rearrange for $48$ ways here.
+	\item All four die are distinct. Then $abcd$ is a perfect square for $a,b,c,d$ distinct. Clearly we cannot use $5$. If we don't use $6$ then we use $1,2,3,4$ which has a product of $24$, contradiction. So we use $6$. This requires also using $2$ and $3$, so $\left\{a,b,c,d\right\}=\left\{1,2,3,6\right\}$ or $\left\{2,3,4,6\right\}$ are the possibilities. This gives $48$ ways here.
+\end{itemize}
+Combining all the cases there are $6+8+90+48+48=200$ good ways while there are $6^4=1296$ total ways so the probability is $\frac{200}{1296}=\frac{25}{162}$ giving the answer of $\boxed{187}$ as desired.

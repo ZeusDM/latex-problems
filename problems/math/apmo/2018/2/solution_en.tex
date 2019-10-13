@@ -1,0 +1,21 @@
+I claim the stronger $\left|f\left(x\right)-g\left(x\right)\right|>\frac{5}{2}$. Let $S\left(x\right)=f\left(x\right)-g\left(x\right)$.
+
+First, suppose that $x\in\left(0,1\right)$. Then
+\begin{align*}
+	S\left(x\right)&=\frac{1}{x}+\frac{1}{1-x}-\frac{1}{2-x}+\displaystyle\sum_{j=2}^{1009}\frac{1}{\left(2j-1\right)-x}-\frac{1}{2j-x}\\
+	&=\frac{1}{x\left(1-x\right)}-\frac{1}{2-x}+\displaystyle\sum_{j=2}^{1009}\frac{1}{\left(2j-1\right)-x}-\frac{1}{2j-x}\\
+	&>\frac{1}{x\left(1-x\right)}-\frac{1}{2-x}\geq4-1=3.
+\end{align*}
+These inequalities hold because $x<1$ so $\frac{1}{\left(2j-1\right)-x}>\frac{1}{2j-x}$ when $j>1$, $0<x<1$ so $0<x\left(1-x\right)<\frac{1}{4}$ by quadratic properties, and $x<1$ so $\frac{1}{2-x}<1$. Then in this case, clearly $\left|S\left(x\right)\right|>\frac{5}{2}$.
+
+Next, suppose that $x\in\left(2n,2n+1\right)$ for some integer $n\in\left[1,1008\right]$. Then
+\begin{align*}
+	S\left(x\right)&=\frac{1}{x}+\displaystyle\sum_{j=1}^{n-1}\left(-\frac{1}{x-\left(2j-1\right)}+\frac{1}{x-2j}\right)\\&-\frac{1}{x-\left(2n-1\right)}+\frac{1}{x-2n}+\frac{1}{\left(2n+1\right)-x}-\frac{1}{\left(2n+2\right)-x}+\displaystyle\sum_{j=n+2}^{1009}\left(\frac{1}{\left(2j-1\right)-x}-\frac{1}{2j-x}\right)\\
+	&=\frac{1}{\left(x-2n\right)\left(\left(2n+1\right)-x\right)}-\frac{3}{\left(x-\left(2n-1\right)\right)\left(\left(2n+2\right)-x\right)}+\frac{1}{x}\\&+\displaystyle\sum_{j=1}^{n-1}\left(-\frac{1}{x-\left(2j-1\right)}+\frac{1}{x-2j}\right)+\displaystyle\sum_{j=n+2}^{1009}\left(\frac{1}{\left(2j-1\right)-x}-\frac{1}{2j-x}\right)\\
+	&>\frac{1}{\left(x-2n\right)\left(\left(2n+1\right)-x\right)}-\frac{3}{\left(x-\left(2n-1\right)\right)\left(\left(2n+2\right)-x\right)}\geq4-\frac{3}{2}=\frac{5}{2}.
+\end{align*}
+These inequalities hold because $2n<x<2n+1$ so $\frac{1}{x-2j}>\frac{1}{x-\left(2j-1\right)}$ when $j<n$, $\frac{1}{\left(2j-1\right)-x}>\frac{1}{2j-x}$ when $j>n$, $\frac{1}{x}>0$, $0<\left(x-2n\right)\left(\left(2n+1\right)-x\right)$ by quadratic properties, and $2<\left(x-\left(2n-1\right)\right)\left(\left(2n+2\right)-x\right)$ by concavity. So $\left|S\left(x\right)\right|>\frac{5}{2}$.
+
+Finally, suppose that $x\in\left(2n-1,2n\right)$ for some integer $n\in\left[1,1009\right]$. Then $2018-x\in\left(2018-2n,2019-2n\right)$, so $\left|S\left(2018-x\right)\right|>\frac{5}{2}$. But \[S\left(x\right)=\displaystyle\sum_{k=0}^{2018}\frac{\left(-1\right)^k}{x-k}=\displaystyle\sum_{k=0}^{2018}\frac{\left(-1\right)^k}{x-2018+k}=-\displaystyle\sum_{k=0}^{2018}\frac{\left(-1\right)^k}{2018-x-k}=-S\left(2018-x\right),\] so \[\left|S\left(x\right)\right|=\left|-S\left(2018-x\right)\right|>\frac{5}{2}.\]
+
+Thus, in all cases, $\left|f\left(x\right)-g\left(x\right)\right|>\frac{5}{2}>2$.

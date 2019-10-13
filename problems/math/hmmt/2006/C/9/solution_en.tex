@@ -1,0 +1,49 @@
+Suppose that $A_1$ and $A_2$ shook hands. For $n\geq2$, inductively define $A_{n+1}$ to be the person that $A_n$ shook hands with besides $A_{n-1}$.
+
+Clearly there must exist some $i<k$ such that $A_i=A_k$ because there are only $8$ possibilities for the $A_n$. Let $k$ be the smallest positive integer for which there exists a positive integer $i<k$ with $A_i=A_k$. Note that $i\leq k-2$ because if $i=k-1$ then $A_i$ shook hands with themselves. If $i>1$ then $A_i$ is friends with $A_{i-1},A_{i+1},A_{k-1}$. The only way this works is if two of these are equal. Clearly $A_{i-1}\neq A_{i+1}$ and $A_{i-1}\neq A_{k-1}$ since $i-1<i+1<k$ and $i-1<k-1<k$, so $A_{i+1}=A_{k-1}$. Since $k-1<k$, we must have $i+1=k-1$ and thus the neighbors of $A_{k-1}$ in the sequence are $A_k$ and $A_k$, contradiction. So $i=1$.
+
+So $A_1,A_2,\ldots,A_k$ are in a cycle with neighbors in the cycle shaking hands. Note that $k\geq3$ otherwise $A_2$ has no second neighbor. Consider the smallest cycle size among the $8$ celebrities. Note that in a $k$-cycle, there are $\left(k-1\right)!$ ways to cyclically order the celebrities around the cycle --- but by considering clockwise and counterclockwise, half of these are identical to the other half, so there are $\frac{\left(k-1\right)!}{2}$ ways to order the $k$-cycle.
+\begin{itemize}
+	\item Smallest cycle has $3$ celebrities. Then the other $5$ celebrities are in a cycle. There are $\binom{8}{3}=56$ ways to choose the celebrities in the $3$-cycle, then $\frac{2!}{2}\cdot\frac{4!}{2}=12$ ways to order them. Thus there are $672$ possible lists.
+	\begin{center}
+		\begin{asy}
+			size(5cm);
+			pair O1=(0,0), O2=(2,0);
+			real r1=1/sqrt(3), r2=sqrt(0.5+0.5/sqrt(5));
+			real a1=17, a2=43;
+			pair A=O1+r1*dir(a1), B=O1+r1*dir(a1+120), C=O1+r1*dir(a1+240);
+			pair D=O2+r2*dir(a2), E=O2+r2*dir(a2+72), F=O2+r2*dir(a2+144), G=O2+r2*dir(a2+216), H=O2+r2*dir(a2+288);
+			dot(A); dot(B); dot(C); dot(D); dot(E); dot(F); dot(G); dot(H);
+			draw(A--B--C--cycle);
+			draw(D--E--F--G--H--cycle);
+		\end{asy}
+	\end{center}
+	\item Smallest cycle has $4$ celebrities. Then the other $4$ celebrities are in a cycle. There are $\frac{1}{2}\binom{8}{4}=35$ ways to choose the celebrities in the $4$-cycle, then $\frac{3!}{2}\cdot\frac{3!}{2}=9$ ways to order them. Thus there are $315$ possible lists.
+	\begin{center}
+		\begin{asy}
+			size(5cm);
+			pair O1=(0,0), O2=(1.7,-0.1);
+			real r1=1/sqrt(2), r2=1/sqrt(2);
+			real a1=17, a2=83;
+			pair A=O1+r1*dir(a1), B=O1+r1*dir(a1+90), C=O1+r1*dir(a1+180), D=O1+r1*dir(a1+270);
+			pair E=O2+r2*dir(a2), F=O2+r2*dir(a2+90), G=O2+r2*dir(a2+180), H=O2+r2*dir(a2+270);
+			dot(A); dot(B); dot(C); dot(D); dot(E); dot(F); dot(G); dot(H);
+			draw(A--B--C--D--cycle);
+			draw(E--F--G--H--cycle);
+		\end{asy}
+	\end{center}
+	\item Smallest cycle has $k$ celebrities for $k=5,6,7$. Then we need another cycle, but then there are at least $2k>8$ celebrities, contradiction. No possible lists here.
+	\item Smallest cycle has $8$ celebrities. There are $\frac{7!}{2}=2520$ ways to order them, so $2520$ possible lists.
+	\begin{center}
+		\begin{asy}
+			size(5cm);
+			pair O=(0,0);
+			real r=1/sqrt(2-sqrt(2));
+			real a=13;
+			pair A=O+r*dir(a), B=O+r*dir(a+45), C=O+r*dir(a+90), D=O+r*dir(a+135), E=O+r*dir(a+180), F=O+r*dir(a+225), G=O+r*dir(a+270), H=O+r*dir(a+315);
+			dot(A); dot(B); dot(C); dot(D); dot(E); dot(F); dot(G); dot(H);
+			draw(A--B--C--D--E--F--G--H--cycle);
+		\end{asy}
+	\end{center}
+\end{itemize}
+Combining these, there are $672+315+2520=\boxed{3507}$ possible lists.

@@ -1,0 +1,12 @@
+The answer is $\boxed{b\text{ such that }b+1\text{ is not a power of }2}$.
+
+Suppose $b+1$ is a power of $2$, say $b+1=2^k$ with $k\geq2$. If $n^2\mid b^n+1$, with $n$ not a power of $2$, then let $p$ be the smallest odd divisor of $n$. Then \[p\mid n^2\mid b^n+1\mid b^{2n}-1,\] so $\ord_pb\mid\left(2n,p-1\right)=2$. If $\ord_pb=1$, then $p\mid b-1$, so $p\mid2$, contradiction. So $\ord_pb=2$ and thus $p\mid b+1=2^k$, contradiction. So $n$ must be a power of $2$, say $n=2^j$ with $j\geq1$ ($n=1$ trivially works). Then $b\equiv-1\pmod4$, so $b^n\equiv1\pmod4$, but $b^n+1\equiv0\pmod4$, contradiction. Thus, $b+1$ is not a power of $2$.
+
+Now, assume that $b+1$ is not a power of $2$. We will inductively define a sequence of odd primes $p_0,p_1,p_2,\ldots$ such that
+\begin{align*}
+	\left(p_0p_1\cdots p_{i-1}\right)^2p_i&\mid b^{p_0p_1\cdots p_{i-1}}+1\\
+	\left(p_0p_1\cdots p_i\right)^2&\mid b^{p_0p_1\cdots p_i}+1
+\end{align*}
+for all $i=0,1,2,\ldots$.
+
+Let $p_0$ be any odd prime dividing $b+1$. Then by LTE, \[v_{p_0}\left(b^{p_0}+1\right)=v_{p_0}\left(b+1\right)+v_{p_0}\left(p_0\right)\geq2,\] so $p_0^2\mid b^{p_0}+1$. Now, assume that $p_0,p_1,\ldots,p_i$ have been defined and satisfy the conditions. Let $p_{i+1}$ be a prime dividing $b^{p_0p_1p_2\cdots p_i}+1$ but not $b^e+1$ for $e<p_0p_1p_2\cdots p_i$ (possible by Zsigmondy). Then $p_{i+1}\neq p_j$ for $j=0,1,2,\ldots, i$ because $p_0p_1\cdots p_i\mid b^{p_0p_1\cdots p_{i-1}}+1$, so \[\left(p_0p_1\cdots p_i\right)^2p_{i+1}\mid b^{p_0p_1\cdots p_i}+1.\] Furthermore, \[v_{p_{i+1}}\left(b^{p_0p_1\cdots p_ip_{i+1}}+1\right)=v_{p_{i+1}}\left(b^{p_0p_1\cdots p_i}+1\right)+v_{p_{i+1}}\left(p_{i+1}\right)\geq2\] by LTE, so \[\left(p_0p_1\cdots p_{i+1}\right)^2\mid b^{p_0p_1\cdots p_{i+1}}+1.\] Thus, we have constructed this sequence of primes. Then \[p_0,p_0p_1,p_0p_1p_2,p_0p_1p_2p_3,\ldots\] is an infinite sequence of positive integers $n$ such that $n^2$ divides $b^n+1$, so we are done.

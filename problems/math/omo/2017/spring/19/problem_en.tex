@@ -1,0 +1,6 @@
+For each integer $1\le j\le 2017$, let $S_j$ denote the set of integers $0\le i\le 2^{2017} - 1$ such that $\left\lfloor \frac{i}{2^{j-1}} \right\rfloor$ is an odd integer. Let $P$ be a polynomial such that
+
+\[P\left(x_0, x_1, \ldots, x_{2^{2017} - 1}\right) = \prod_{1\le j\le 2017} \left(1 - \prod_{i\in S_j} x_i\right).\]
+Compute the remainder when
+\[ \sum_{\left(x_0, \ldots, x_{2^{2017} - 1}\right)\in\{0, 1\}^{2^{2017}}} P\left(x_0, \ldots, x_{2^{2017} - 1}\right)\]
+is divided by $2017$.

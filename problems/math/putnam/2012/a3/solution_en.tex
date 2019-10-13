@@ -1,0 +1,25 @@
+The answer is $f(x)=\sqrt{1-x^2}$. This satisfies all conditions.
+
+Define $g:[0,1]\to\mathbb{R}$ as
+\[
+	g(x)=
+	\begin{cases}
+		\frac{f(x)}{\sqrt{1-x^2}} & \text{if }x\in[0,1) \\
+		\frac{1}{\sqrt{2}}\lim_{x\to1^-}\frac{f(x)}{\sqrt{1-x}} & \text{if }x=1.
+	\end{cases}
+\]
+Then $g$ is continuous because $\frac{1}{\sqrt{2}}=\lim_{x\to1^-}\frac{1}{\sqrt{1+x}}$. Now use algebra to see that $g(x)=g\left(\frac{x^2}{2-x^2}\right)$ for every $x\in[0,1]$.
+
+Let $x\in(0,1)$. Define a sequence as $a_0=x$ and $a_n=\frac{a_{n-1}^2}{2-a_{n-1}^2}$ for $n\geq1$. Then $g(a_n)=g(x)$ by induction. In addition,
+\[
+	a_n=\frac{a_{n-1}^2}{2-a_{n-1}^2}=\frac{a_{n-1}^2}{(2+a_{n-1})(1-a_{n-1})+a_{n-1}}<a_{n-1}
+\]
+so $\{a_n\}$ is a decreasing sequence bounded below by $0$, so it has a limit $a_\infty$. Then
+\[
+	a_\infty-\frac{a_\infty^2}{2-a_\infty^2}=\lim_{n\to\infty}a_n-\lim_{n\to\infty}\frac{a_{n-1}^2}{2-a_{n-1}^2}=0
+\]
+so $a_\infty=0$ (since $0\leq a_\infty<1$). Then
+\[
+	g(x)=\lim_{n\to\infty}g(a_n)=g(0)
+\]
+by continuity of $g$. But $g(0)=f(0)=1$ and by continuity $g(1)=1$ so $g(x)=1$ for all $x\in[0,1]$. It follow that $f(x)=\sqrt{1-x^2}$ is the unique solution.

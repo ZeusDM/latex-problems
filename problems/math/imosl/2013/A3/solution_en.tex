@@ -1,0 +1,13 @@
+Let $S$ be the set of fixed points of $f$. The key claim is that if $c\in S$ then for any $x,y$ such that $x+y=c$, $x,y\in S$.
+
+First, by induction we have $f\left(x\right)^n\geq f\left(x^n\right)$ and $f\left(nx\right)\geq nf\left(x\right)$ for any $x$ and $n\in\mathbb{N}$. In addition, $f\left(a\right)f\left(1\right)\geq f\left(a\right)$ so $f\left(1\right)\geq1$. Then $f\left(n\right)\geq n$.
+
+Let $m$ and $n$ be positive integers. Note that \[f\left(\left\{\frac{m}{n}\right\}\right)f\left(n\right)\geq f\left(n\left\{\frac{m}{n}\right\}\right)\geq n\left\{\frac{m}{n}\right\}\] since $n\left\{\frac{m}{n}\right\}$ is an integer. But $f\left(n\right)\geq n$ is positive, so $f\left(\left\{\frac{m}{n}\right\}\right)$ must be positive. Then \[f\left(\frac{m}{n}\right)=f\left(\left\lfloor\frac{m}{n}\right\rfloor+\left\{\frac{m}{n}\right\}\right)\geq f\left(\left\lfloor\frac{m}{n}\right\rfloor\right)+f\left(\left\{\frac{m}{n}\right\}\right)>f\left(\left\lfloor\frac{m}{n}\right\rfloor\right)\geq\left\lfloor\frac{m}{n}\right\rfloor.\] Thus $f\left(t\right)\geq\left\lfloor t\right\rfloor$ for all $t$.
+
+
+
+Then if $c\in S$ and $x+y=c$ then $c=f\left(x+y\right)\geq f\left(x\right)+f\left(y\right)$ but $c=x+y\leq f\left(x\right)+f\left(y\right)$ so equality holds and thus $x,y\in S$.
+
+Now, note that $a^n=f\left(a\right)^n\geq f\left(a^n\right)$ but $a^n\leq f\left(a^n\right)$ so $f\left(a^n\rght)=a^n$. Thus $a^n\in S$ for any $n\in\mathbb{N}$.
+
+Fix $x$ and pick $n\in\mathbb{N}$ such that $a^n>x$. Then since $a^n\in S$ and $x+\left(a^n-x\right)=a^n$, $x,a^n\in S$. Specifically, $f\left(x\right)=x$ as desired.

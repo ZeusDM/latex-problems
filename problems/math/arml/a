@@ -1,0 +1,20 @@
+for i in {2000..2019}
+do
+	rm $i/source_pt.tex
+	rm $i/source_en.tex
+	for t in I T TB
+	do
+		mkdir $i/$t
+		rm $i/$t/source_pt.tex
+		rm $i/$t/source_pt.tex
+		echo "ARML $i" >> $i/$t/source_pt.tex
+		echo "ARML $i" >> $i/$t/source_en.tex
+		for j in {1..15}
+		do
+			mkdir $i/$t/$j
+			rm $i/$t/$j/number.tex
+			echo "$j" >> $i/$t/$j/number.tex
+			mv $i/ARML-$i-$t$j.tex $i/$t/$j/problem_en.tex
+		done
+	done
+done

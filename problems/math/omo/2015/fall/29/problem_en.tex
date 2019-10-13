@@ -1,0 +1,13 @@
+Given vectors $v_1$, \dots, $v_n$ and the string $v_1v_2 \dots v_n$,
+we consider valid expressions formed by inserting $n-1$ sets of balanced parentheses and $n-1$ binary products,
+such that every product is surrounded by a parentheses and is one of the following forms:
+\begin{itemize}
+	\ii A ``normal product'' $ab$, which takes a pair of scalars and returns a scalar, or takes a scalar and vector (in any order) and returns a vector.
+	\ii A ``dot product'' $a \cdot b$, which takes in two vectors and returns a scalar.
+	\ii A ``cross product'' $a \times b$, which takes in two vectors and returns a vector.
+\end{itemize}
+An example of a \emph{valid} expression when $n=5$ is $(((v_1 \cdot v_2)v_3) \cdot (v_4 \times v_5))$, whose final output is a scalar. An example of an \emph{invalid} expression is $(((v_1 \times (v_2 \times v_3)) \times (v_4 \cdot v_5))$; even though every product is surrounded by parentheses, in the last step one tries to take the cross product of a vector and a scalar.
+
+Denote by $T_n$ the number of valid expressions (with $T_1 = 1$), and let $R_n$
+denote the remainder when $T_n$ is divided by $4$.
+Compute $R_1 + R_2 + R_3 + \ldots + R_{1,000,000}$.

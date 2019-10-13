@@ -1,0 +1,14 @@
+Let $a_n=\sin^nx+\cos^nx$ for non-negative integers $n$. Then $a_0=2$ and $a_2=1$. In addition,
+\begin{align*}
+	a_n&=\sin^nx+\cos^nx\\
+	&=\left(\sin^{n-2}x+\cos^{n-2}x\right)\left(\sin^2x+\cos^2x\right)-\sin^2x\cos^2x\left(\sin^{n-4}x+\cos^{n-4}x\right)\\
+	&=a_{n-2}-Xa_{n-4},
+\end{align*}
+where $X=\sin^2x\cos^2x$. So we can compute
+\begin{align*}
+	a_4&=1-2X\\
+	a_6&=1-3X\\
+	a_8&=1-4X+2X^2\\
+	a_{10}&=1-5X+5X^2=\frac{11}{36}
+\end{align*}
+so $X=\frac{1}{6},\frac{5}{6}$. But $\sin^2x\cos^2x=\frac{1}{4}\sin^22x\leq\frac{1}{4}$, so $X=\frac{1}{6}$. Then \[a_{12}=a_{10}-Xa_8=\frac{11}{36}-\frac{1}{6}\cdot\frac{7}{18}=\frac{13}{54}\] so the answer is $\boxed{067}$ as desired.

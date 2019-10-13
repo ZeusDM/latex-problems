@@ -1,0 +1,18 @@
+Invert about $X_1$. Then $\omega_1$ and $\omega_2$ become two lines whose interior angle bisector contains $X_1$ and whose exterior angle bisector contains the center of the image of $\omega$. So the problem can be reformulated to having two lines meeting at $X_2$, $X_1$ on the interior angle bisector of these lines, $\omega$ a circle (centered on the exterior angle bisector) tangent to the lines at $T_1$ and $T_2$, and we want to show that $X_1T_1$ and $\left(X_1X_2T_2\right)$ meet again on $\omega$.
+
+\begin{center}
+	\begin{asy}
+		import olympiad;
+		size(8cm);
+		pair X_2=(0,0), X_1=(0,6), T_1=(4,-1.5), T_2=(4,1.5), O=(4.5625,0), P_1=(868/289,213/578), P_2=(868/145,-213/290), X_3=extension(T_2,P_1,P_2,T_1);
+		real r=sqrt(2.56640625);
+		draw(circle(O,r)); draw(-1.25*T_1--1.25*T_1); draw(-1.25*T_2--1.25*T_2);
+		dot(X_1); dot(X_2); dot(X_3); dot(T_1); dot(T_2); dot(P_1); dot(P_2); dot(O);
+		label("$X_1$",X_1,dir(X_1)); label("$X_2$",X_2+(-0.6,0),dir(180)); label("$X_3$",X_3,dir(X_3)); label("$T_1$",T_1+(0.2,0),dir(O--T_1)); label("$T_2$",T_2+(0.05,0.35),dir(O--T_2)); label("$P_1$",P_1+(-0.13,0),dir(O--P_1)); label("$P_2$",P_2,dir(O--P_2)); label("$O$",O,SE); label("$\omega$",O+r*dir(40),dir(40));
+		draw(X_1--T_1); draw(X_1--P_2); draw(T_2--X_3); draw(P_2--X_3);
+		draw(X_1--X_3,dashed); draw(X_2--O,dashed);
+		draw(circumcircle(X_1,X_2,T_2));
+	\end{asy}
+\end{center}
+
+Let $P_1=X_1T_1\cap\omega$ and $P_2=X_1T_2\cap\omega$. Complete the quadrilateral with $X_3=T_1P_2\cap T_2P_1$. By Pascal's Theorem on $P_1T_1T_1P_2T_2T_2$, we have that $X_1,X_2,X_3$ are collinear. It is well-known that the Miquel point of a cyclic quadrilateral is the projection of its circumcenter onto the line between its opposite side intersections. Applying this fact to cyclic quadrilateral $T_1P_1T_2P_2$, we deduce that $X_2$ is the Miquel point of $T_1P_1T_2P_2$. But then $X_2\in\left(X_1P_1T_2\right)$ so $X_1T_1$ and $\left(X_1X_2T_2\right)$ meet again on $\omega$ as desired.

@@ -1,0 +1,19 @@
+In this solution, all angles are directed modulo $\pi$.
+
+I claim that $BCXDF$, $BMDEA$, and $XMFE$ are cyclic polygons.
+
+Note that $\triangle{BFA}\sim\triangle{CDA}$, so $\frac{AB}{AC}=\frac{AF}{AD}$. Then $\triangle{ABC}\sim\triangle{AFD}$, so \begin{align*}\measuredangle{CDF}&=\measuredangle{CFD}+\measuredangle{DCF}\\&=\measuredangle{AFD}+\measuredangle{DCA}\\&=\measuredangle{AFD}+\measuredangle{CAD}\\&=\measuredangle{AFD}+\measuredangle{FAD}\\&=\measuredangle{ABC}+\measuredangle{BAC}\\&=\measuredangle{ABC}+\measuredangle{BAF}\\&=\measuredangle{ABC}+\measuredangle{FBA}\\&=\measuredangle{FBC}\\&=\measuredangle{CBF},\end{align*} so $BCDF$ is cyclic.
+
+Next, note that \begin{align*}\measuredangle{AMB}&=\measuredangle{CMB}\\&=2\measuredangle{CFB}\\&=2\measuredangle{AFB}\\&=2\left(\measuredangle{ABF}+\measuredangle{FAB}\right)\\&=\measuredangle{ABF}+3\measuredangle{FAB}\\&=\measuredangle{ABF}+2\measuredangle{DAC}+\measuredangle{FAB}\\&=\measuredangle{ABF}+\measuredangle{FCD}+\measuredangle{DAF}+\measuredangle{FAB}\\&=\measuredangle{ABF}+\measuredangle{FBD}+\measuredangle{DAB}\\&=\measuredangle{ABD}+\measuredangle{DAB}\\&=\measuredangle{ADB},\end{align*} so $ADMB$ is cyclic.
+
+In addition, \begin{align*}\measuredangle{ABD}&=\measuredangle{ABF}+\measuredangle{FBD}\\&=\measuredangle{FAB}+\measuredangle{FCD}\\&=\measuredangle{FAB}+\measuredangle{DAF}\\&=2\measuredangle{DAF}\\&=2\measuredangle{EAD}\\&=\measuredangle{EAD}+\measuredangle{ADE}\\&=\measuredangle{AED},\end{align*} so $ABDE$ is cyclic.
+
+But then $EA=ED$ implies that $E$ is the arc midpoint of arc $AED$, so $BE$ is the angle bisector of $\angle{ABD}$. But so is $BF$, so $B,F,E$ collinear.
+
+Here, we quickly establish that $DA=DB$: \begin{align*}\measuredangle{ABD}&=\measuredangle{ABF}+\measuredangle{FBD}\\&=\measuredangle{FAB}+\measuredangle{FCD}\\&=\measuredangle{FAB}+\measuredangle{DAF}\\&=\measuredangle{DAB}.\end{align*}
+
+Now, note that since $\triangle{BFA}\sim\triangle{DEA}$, we have $\frac{AB}{AD}=\frac{AF}{AE}$, so $\triangle{ABD}\sim\triangle{AFE}$. But $DA=DB$, so $EA=EF$. Note that $MF$ is parallel to $XE$ and $XM=EA=EF$, so $MXEF$ is an isosceles trapezoid and is thus cyclic.
+
+Finally, we have \begin{align*}\measuredangle{FME}&=\measuredangle{AME}&=\measuredangle{ABE}&=\measuredangle{ABF}&=\measuredangle{FAB}&=\measuredangle{MAB}&=\measuredangle{MEB}&=\measuredangle{MEF},\end{align*} so $FE=FM$. But $MX=FE$, so $MX=MF$. Then $X$ and $F$ are on a circle with center $M$. This circle is the circumcircle of $\triangle{BCF}$, so $BCXF$ is cyclic.
+
+Putting these all together, we see that $BCXDF$, $BMDEA$, and $XMFE$ are all cyclic. Then Radical Center on these three circles gives that $BD$, $FX$, and $ME$ are concurrent.

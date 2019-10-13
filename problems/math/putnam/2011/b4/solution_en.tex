@@ -1,0 +1,13 @@
+Let $\vecb{g}_n$ be the win-loss vector for game $n$, where the $k$th component out of $2011$ is $1$ if player $k$ won and $-i$ if player $k$ lost. Then the entry at the $h$th row and $k$th column of $\vecb{g}_n\vecb{g}_n^H$ is $1$ if players $h$ and $k$ tied, $i$ if player $h$ won and player $k$ lost, and $-i$ if player $h$ lost and player $k$ won. Thus if $\{\vecb{e}_1,\ldots,\vecb{e}_{2011}\}$ is the standard basis over $\mathbb{C}^{2011}$, we have
+\begin{align*}
+	T+iW &= \sum_{n=1}^{2011} \vecb{g}_n\vecb{g}_n^H \\
+	&= \sum_{n=1}^{2011} \vecb{g}_n\vecb{e}_n^H\vecb{e}_n\vecb{g}_n^H \\
+	&= \sum_{m=1}^{2011} \sum_{n=1}^{2011} \vecb{g}_m\vecb{e}_m^H\vecb{e}_n\vecb{g}_m^H \\
+	&= \left( \sum_{m=1}^{2011} \vecb{g}_m\vecb{e}_m^H \right)\left( \sum_{n=1}^{2011} \vecb{e}_n\vecb{g}_m^H \right) \\
+	&= \left( \sum_{n=1}^{2011} \vecb{g}_n\vecb{e}_n^H \right)\left( \sum_{n=1}^{2011} \vecb{g}_n\vecb{e}_n^H \right)^H.
+\end{align*}
+Now let $M=\displaystyle\sum_{n=1}^{2011} \vecb{g}_n\vecb{e}_n^H$, a $2011\times2011$ matrix with all entries in $\{1,-i\}$. Add the first row to every other row so that the bottom $2010$ rows have all entries in $\{2,-2i,1-i\}$ each of which is divisible by $1-i$ in $\mathbb{Z}[i]$. Thus $\det(M)=(1-i)^{2010}z$ for some $z\in\mathbb{Z}[i]$. But then
+\[
+	\det(T+iW) = \det(MM^H) = |\det(M)|^2 = 2^{2010}|z|^2
+\]
+which is a non-negative integer divisible by $2^{2010}$.

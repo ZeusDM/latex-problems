@@ -1,0 +1,14 @@
+Let $T_p\left(x\right)=\displaystyle\sum_{k=0}^{\infty}f\left(p^k\right)x^k$. Then \[T_p\left(x\right)^2=\displaystyle\sum_{n=0}^{\infty}\left(\displaystyle\sum_{k=0}^nf\left(p^k\right)f\left(p^{n-k}\right)\right)x^n=\displaystyle\sum_{n=0}^{\infty}x^n=\frac{1}{1-x}\] so \[T_p\left(x\right)=\left(1-x\right)^{-\frac{1}{2}}=\displaystyle\sum_{k=0}^{\infty}\frac{1}{4^k}\binom{2k}{k}x^k\] since $f\left(1\right)>0$. So $f\left(p^k\right)=\frac{1}{4^k}\binom{2k}{k}$ for all primes $p$.
+
+Now I claim that $f\left(p^aq^b\right)=f\left(p^a\right)f\left(q^b\right)$ where $p,q$ are distinct primes and $a,b$ are non-negative integers. We proceed by strong induction on $a+b$. For the base case of $a+b=0$, this is true since $1=f\left(1\right)^2$ and $f\left(1\right)>0$ so $f\left(1\right)=1$. Now assume $f\left(p^aq^b\right)=f\left(p^a\right)f\left(q^b\right)$ for $a+b=0,1,\ldots,k-1$ for some positive integer $k$. We will prove this for $a+b=k$.
+
+Suppose that $c+d=k$. Let $0\leq i\leq c$ and $0\leq j\leq d$. Then \[f\left(p^iq^j\right)f\left(p^{c-i}q^{d-j}\right)=f\left(p^i\right)f\left(q^j\right)f\left(p^{c-i}\right)f\left(q^{d-i}\right)\] unless $i+j\geq k$ or $c-i+d-j\geq k$. Since $0\leq i+j\leq c+d=k$, the only time this happens is when $\left(i,j\right)=\left(0,0\right)$ or $\left(c,d\right)$. So
+\begin{align*}
+1&=\displaystyle\sum_{i=0}^c\displaystyle\sum_{j=0}^df\left(p^iq^j\right)f\left(p^{c-i}q^{d-i}\right)\\
+&=\displaystyle\sum_{i=0}^c\displaystyle\sum_{j=0}^df\left(p^i\right)f\left(q^j\right)f\left(p^{c-i}\right)f\left(q^{d-i}\right)+\left[f\left(p^iq^j\right)f\left(p^{c-i}q^{d-j}\right)-f\left(p^i\right)f\left(q^j\right)f\left(p^{c-i}\right)f\left(q^{d-i}\right)\right]\\
+&=\displaystyle\sum_{i=0}^cf\left(p^i\right)f\left(p^{c-i}\right)\displaystyle\sum_{j=0}^df\left(q^j\right)f\left(q^{d-j}\right)+2\left(f\left(p^cq^d\right)-f\left(p^c\right)f\left(q^d\right)\right)\\
+&=1\cdot 1+2\left(f\left(p^cq^d\right)-f\left(p^c\right)f\left(q^d\right)\right)
+\end{align*}
+so $f\left(p^cq^d\right)=f\left(p^c\right)f\left(q^d\right)$ as desired. So the inductive step is proven and hence the claim is true for all $a,b$.
+
+Thus \[f\left(2018^{2019}\right)=f\left(2^{2019}\right)f\left(1009^{2019}\right)=\boxed{\frac{1}{16^{2019}}\binom{4038}{2019}^2}\] as desired.

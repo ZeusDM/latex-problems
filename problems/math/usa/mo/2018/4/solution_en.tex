@@ -1,0 +1,13 @@
+Consider the $p\times p$ matrix in $\ff{p}$ such that the entry at row $i$ and column $j$ is $a_j+ij$.
+
+\begin{claim}
+Two columns have the same value in exactly one position.
+\end{claim}
+
+\begin{lemmaproof}
+Say they are the $j$th and $k$th columns. They agree when $a_j+ij=a_k+ik$. This happens when $i=-\frac{a_j-a_k}{j-k}$.
+\end{lemmaproof}
+
+So there are a total of $\binom{p}{2}$ pairs of entries in the matrix that are the same and in the same row. So some row has at most $\frac{p-1}{2}$ pairs which are the same.
+
+Let residue $r$ appear $N_r$ times in this row, for a total of $M$ residues. Then $\displaystyle\sum N_r=p$ while $\displaystyle\sum\binom{N_r}{2}\leq\frac{p-1}{2}$, so $\displaystyle\sum N_r^2\leq2p-1$. But $\displaystyle\sum N_r^2\geq\frac{p^2}{M}$, so $M\geq\frac{p^2}{2p-1}>\frac{1}{2}p$, done.

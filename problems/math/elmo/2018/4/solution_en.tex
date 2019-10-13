@@ -1,0 +1,11 @@
+We work in the complex plane, setting $A,B,C$ on the unit circle so that $O$ is the origin and $h=a+b+c$, so $p=a+\frac{b+c}{2}$. Also $\frac{t-a}{a}+a\overline{t}-1=0$ from $AT\perp AO$ while $t+bc\overline{t}=b+c$ from $T\in BC$, so $t=\frac{ab+ac-2bc}{a-\frac{bc}{a}}$. Then
+\begin{align*}
+	x&=\frac{\overline{p}t-p\overline{t}}{2\left(\overline{p}-\overline{t}\right)}\\
+	&=\frac{\left(\frac{1}{a}+\frac{1}{2b}+\frac{1}{2c}\right)\left(\frac{ab+ac-2bc}{a-\frac{bc}{a}}\right)-\left(a+\frac{b}{2}+\frac{c}{2}\right)\left(\frac{\frac{1}{ab}+\frac{1}{ac}-\frac{2}{bc}}{\frac{1}{a}-\frac{a}{bc}}\right)}{2\left(\frac{1}{a}+\frac{1}{2b}+\frac{1}{2c}\right)-2\left(\frac{\frac{1}{ab}+\frac{1}{ac}-\frac{2}{bc}}{\frac{1}{a}-\frac{a}{bc}}\right)}\\
+	&=\frac{\frac{1}{2bc\left(a^2-bc\right)}\left(ab+ac+2bc\right)\left(ab+ac-2bc\right)-\frac{1}{2\left(bc-a^2\right)}\left(b+c+2a\right)\left(b+c-2a\right)}{\frac{1}{abc}\left(ab+ac+2bc\right)-\frac{2}{bc-a^2}\left(b+c-2a\right)}\\
+	&=\frac{a\left(ab+ac+2bc\right)\left(ab+ac-2bc\right)+abc\left(b+c+2a\right)\left(b+c-2a\right)}{2\left(a^2-bc\right)\left(ab+ac+2bc\right)+4abc\left(b+c-2a\right)}\\
+	&=\frac{a\left(a^2\left(b+c\right)^2-4b^2c^2+bc\left(b+c\right)^2-4a^2bc\right)}{2\left(a^3b+a^3c-2a^2bc+ab^2c+abc^2-2b^2c^2\right)}\\
+	&=\frac{a\left(b-c\right)^2\left(a^2+bc\right)}{2\left(ab+ac-2bc\right)\left(a^2+bc\right)}\\
+	&=\frac{a\left(b-c\right)^2}{2\left(ab+ac-2bc\right)}.
+\end{align*}
+Now, compute \[p+x-h=\frac{a\left(b-c\right)^2}{2\left(ab+ac-2bc\right)}-\frac{b+c}{2}=\frac{b^2c+bc^2-2abc}{ab+ac-2bc},\] which has conjugate \[\frac{\frac{1}{b^2c}+\frac{1}{bc^2}-\frac{2}{abc}}{\frac{1}{ab}+\frac{1}{ac}-\frac{2}{bc}}=\frac{ab+ac-2bc}{b^2c+bc^2-2abc},\] so $p+x-h$ lies on the unit circle and hence the midpoint of $PX$ lies on the nine-point circle.

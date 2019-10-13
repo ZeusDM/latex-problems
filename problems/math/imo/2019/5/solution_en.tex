@@ -1,0 +1,20 @@
+The answer is $\frac{n(n+1)}{4}$.
+
+Consider the directed graph $G_n$ on the $2^n$ vertices that are length-$n$ strings of $H$ and $T$. Draw an edge from each string to the string that follows after operating on it.
+
+The key claim is the following:
+\begin{itemize}
+	\item Take a copy of $G_{n-1}$ and append a $T$ to each string in it.
+	\item Take another copy of $G_{n-1}$, flip each char ($H$ to $T$ and vice versa) and reverse the string, and append a $H$ to each string in it. As an example, $HTHHT$ goes to $THTTH$ then $HTTHT$ and finally $HTTHTH$.
+	\item Draw an edge from $HHH\cdots HH$ to $HHH\cdots HT$.
+	\item The resulting graph is $G_n$.
+\end{itemize}
+We prove this claim by showing that each edge is correct (observe that the resulting graph has each of the $2^{n+1}$ length-$(n+1)$ strings by construction).
+\begin{itemize}
+	\item Operating on a string in the first copy does the same thing as it does in $G_{n-1}$ because an extra $T$ at the end does not affect the $H$ count or the positions.
+	\item Suppose that the string $a_1a_2\cdots a_{n-2}a_{n-1}$ has $k$ heads. Then there is an edge $a_1\cdots a_{n-1}\to a_1\cdots a_{k-1}\overline{a}_ka_{k+1}\cdots a_{n-1}$ in $G_{n-1}$ (here $\overline{H}=T$ and $\overline{T}=H$), so the corresponding edge in the second copy is \[\overline{a}_{n-1}\cdots\overline{a}_11\to\overline{a}_{n-1}\cdots\overline{a}_{k+1}a_k\overline{a}_{k-1}\cdots\overline{a}_11.\] Since $\overline{a}_{n-1}\cdots\overline{a}_1H$ has $n-k$ heads, operating on this flips the $(n-k)$th coin; equivalently the $(k+1)$th coin from the right. This gives $\overline{a}_{n-1}\cdots\overline{a}_{k+1}a_k\overline{a}_{k-1}\cdots\overline{a}_1H$, so the edges in the second copy are correct.
+	\item Operating on $HHH\cdots HH$ gives $HHH\cdots HT$.
+\end{itemize}
+So all edges are correct and thus the claim is true. In particular this proves (a).
+
+Now we solve (b). Let $E_n$ be the average value of $L(C)$ over all $2^n$ possible strings of length $n$. Over the first copy of $G_{n-1}$, the set of $L(C)$ is the same as those in $G_{n-1}$. Over the second copy, each $L(C)$ is that of the corresponding string in $G_{n-1}$ plus $n$ (it takes $n$ operations to go from $HHH\cdots H$ to $TTT\cdots T$). So \[E_n=\frac{1}{2}\cdot E_{n-1}+\frac{1}{2}\cdot(E_{n-1}+n)=E_{n-1}+\frac{n}{2}.\] Since $E_1=\frac{1}{2}$ ($T$ takes $0$ operations while $H$ takes $1$ operation), we can induct to show that $E_n=\frac{n(n+1)}{4}$ as desired.

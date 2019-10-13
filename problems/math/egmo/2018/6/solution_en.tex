@@ -1,0 +1,12 @@
+\begin{enumerate}[label=(\alph*)]
+	\item I claim the stronger: For every real number $t\in\left(0,\frac{1}{2}\right)$, for all $n\geq1+\frac{\log t}{\log\left(1-t\right)}$ and every set $S$ of $n$ positive integers, there exist two different elements $x$ and $y$ of $S$ and an $m\in\left\{0,1\right\}$ such that \[\left|x-my\right|\leq ty.\] Let $s_1<s_2<\ldots<s_n$ be the elements of $S$. If this fails, then $x>ty$ and either $\left(1-t\right)y>x$ or $x>\left(1+t\right)y$ for all $x,y$ distinct elements of $S$. Let $x=s_i,y=s_j$ with $i<j$. Then $s_i>ts_j$. If $s_i>\left(1+t\right)s_j$, then \[\left(1+t\right)s_j<s_i<s_j,\] contradiction, so $\left(1-t\right)s_j>s_i$. Then $\frac{s_i}{s_j}\in\left(t,1-t\right)$. Then \[t\geq\left(1-t\right)^{n-1}>\frac{s_1}{s_2}\cdot\frac{s_2}{s_3}\cdots\cdot\frac{s_{n-1}}{s_n}=\frac{s_1}{s_n}>t,\] contradiction. Thus, the stronger claim is true.
+	\item Observe that the condition is equivalent to $\left\{\frac{x}{y}\right\}\in\left(t,1-t\right)$ unless $\left\lfloor\frac{x}{y}\right\rfloor$ when $\left\{\frac{x}{y}\right\}\in\left(0,1-t\right)$.
+	
+	For $n\geq1$, we construct $S_n$ of size $n$ with pairwise relatively prime elements each larger than $\frac{1}{1-2t}$ such that the condition is satisfied for any distinct $x,y$ in $S_n$.
+	
+	Let $S_1$ be a set with a single element who is odd and $>\frac{1}{1-2t}$.
+	
+	Now, we will inductively define $S_n$. Suppose that we have created $S_n$. Pick an integer $A$ to be odd, $>\frac{s_n}{1-t}$, and satisfying \[A\equiv\frac{B-1}{2}\pmod B\] for $B\in S_n$ (doable by CRT). Observe that $A$ is relatively prime to $B$ because $\frac{B-1}{2}$ is. Note that $\left\lfloor\frac{B}{A}\right\rfloor<\left\lfloor1-t\right\rfloor=0$ and $\left\{\frac{B}{A}\right\}<1-t$, so the condition is satisfied when $\left(x,y\right)=\left(B,A\right)$. Furthermore, $\left\{\frac{A}{B}\right\}=\frac{1}{2}-\frac{1}{2B}>t$, so the condition is satisfied when $\left(x,y\right)=\left(A,B\right)$. And from definition of $S_n$, the condition is satisfied when none of $x,y$ are $A$, so we can define $S_{n+1}$ to be $S_n$ with $A$ thrown in there.
+	
+	Then take the union of all $S_n$, and this works by construction.
+\end{enumerate}

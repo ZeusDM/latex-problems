@@ -1,0 +1,22 @@
+Let $M$ be the antipode of $L$ with respect to $\left(LBC\right)$. I claim that $M$ is the desired point.
+
+Let $I',D$ be the projection of $I$ onto $AK,BC$. By Simson Line with triangle $KVU$ and point $I$, we have that $T$, $I'$, and $D$ are collinear. Note that $DII'K$ is a rectangle, so $I'D$ passes through the midpoint of $IK$. Thus, it suffices to prove that $I'D$ passes through $M$.
+
+We proceed by barycentric coordinates with reference triangle $\triangle{ABC}$. Note that \[I=\left(\frac{a}{a+b+c},\frac{b}{a+b+c},\frac{c}{a+b+c}\right)\] and \[I_A=\left(\frac{-a}{-a+b+c},\frac{b}{-a+b+c},\frac{c}{-a+b+c}\right),\] where $I_A$ is the $A$-excenter of $\triangle{ABC}$. By the Incenter-Excenter Lemma, $M$ is the midpoint of $II_A$, so \[M=\left(-a^2:b\left(b+c\right):c\left(b+c\right)\right).\] Since $D$ is the point where the incircle of $\triangle{ABC}$ touches $BC$, we know that $D=\left(0:s-c:s-b\right)$.
+
+Now, let $I''=\left(\frac{a^3}{b+c},S_C:S_B\right)$, where we adapt Conway's Notation of $S_A=\frac{b^2+c^2-a^2}{2}$ and cyclic variations. I claim that $I'=I''$. To prove this, we use Strong EFFT. It is clear that $I''$ is on $AK$. Thus, we just need to check that $AK\perp II''$. For vector $II''$, we choose \[\left[\frac{a\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-\frac{a^3}{b+c},\frac{b\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-S_C,\frac{c\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-S_B\right],\] which has component sum $0$ since $S_B+S_C=a^2$. For vector $AK$, we choose $\left[0,1,1\right]$, derived from the fact that $H$, the orthocenter of $\triangle{ABC}$, is on $AK$ and we can choose $\overrightarrow{H}=\overrightarrow{A}+\overrightarrow{B}+\overrightarrow{C}$ if we set $\overrightarrow{O}=0$. Let
+\begin{align*}
+	Q&=a^2\left(\frac{b\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-S_C+\frac{c\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-S_B\right)\\
+	&+b^2\left(\frac{a\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-\frac{a^3}{b+c}\right)\\
+	&+c^2\left(\frac{a\left(\frac{a^3}{b+c}+a^2\right)}{a+b+c}-\frac{a^3}{b+c}\right).
+\end{align*}
+We note that
+\begin{align*}
+	\left(a+b+c\right)Q&=a^2\left(\left(b+c\right)\left(\frac{a^3}{b+c}+a^2\right)-a^2\left(a+b+c\right)\right)\\
+	&+\left(b^2+c^2\right)\left(a\left(\frac{a^3}{b+c}+a^2\right)-\frac{a^3}{b+c}\left(a+b+c\right)\right)\\
+	&=a^2\left(a^3+a^2\left(b+c\right)-a^2\left(a+b+c\right)\right)+\left(b^2+c^2\right)\left(\frac{a^4}{b+c}+a^3-\frac{a^4}{b+c}-a^3\right)\\
+	&=0,
+\end{align*}
+so $Q=0$. Then Strong EFFT implies that $AK\perp II''$, so $I'=I''$.
+
+Now, it suffices to check that $I'$, $D$, and $M$ are collinear. Note that \[\det{\begin{vmatrix}\frac{a^3}{b+c}&S_C&S_B\\0&s-c&s-b\\-a^2&b\left(b+c\right)&c\left(b+c\right)\end{vmatrix}}=\left(s-c\right)\left(-a^2S_B-a^3c\right)-\left(s-b\right)\left(-a^2S_C-a^3b\right).\] Let $f\left(a,b,c\right)=\left(s-b\right)\left(-a^2S_C-a^3b\right)$. Then \begin{align*}f\left(a,b,c\right)&=-\frac{1}{4}\left(a+c-b\right)\left(a^4+a^2b^2-a^2c^2+2a^3b\right)\\&=-\frac{1}{4}\left(-a^2\left(b^3+c^3\right)-a^3\left(b^2+c^2\right)+\left(a^4+a^2bc\right)\left(b+c\right)+2a^3bc\right),\end{align*} which is symmetrical in $b$ and $c$, so $f\left(a,b,c\right)=f\left(a,c,b\right)$. But then the determinant above is $f\left(a,c,b\right)-f\left(a,b,c\right)=0$, so $I'$, $D$, and $M$ are collinear. Thus, as we have shown, the line through $T$ and the midpoint of $\overline{IK}$ passes through a fixed point as $A$ varies.

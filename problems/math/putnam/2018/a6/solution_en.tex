@@ -1,0 +1,13 @@
+Let $C',D'$ be the projections of $C,D$ onto $AB$.
+
+Observe that \[\frac{AC'-BC'}{AB}=\frac{AC'^2-BC'^2}{AB^2}=\frac{AC^2-BC^2}{AB^2}\in\mathbb{Q}\] so \[\frac{AC'}{AB}=\frac{1}{2}\left(\frac{AC'-BC'}{AB}+\frac{AC'+BC'}{AB}\right)=\frac{1}{2}\left(\frac{AC'-BC'}{AB}+1\right)\in\mathbb{Q}.\] Then \[\frac{BC'}{AB}=\frac{AC'}{AB}-\frac{AC'-BC'}{AB}\in\mathbb{Q}.\] Similarly, $\frac{AD'}{AB},\frac{BD'}{AB}\in\mathbb{Q}$.
+
+Now, \[CC'^2=AC^2-AC'^2=AC^2-AB^2\left(\frac{AC'}{AB}\right)^2\in\mathbb{Q}.\] Similarly, $DD'^2\in\mathbb{Q}$.
+
+Next, note that \[CD^2=\left(CC'+DD'\right)^2+C'D'^2\] so
+\begin{align*}
+	CC'\cdot DD'&=\frac{1}{2}\left(CD^2-CC'^2-DD'^2-C'D'^2\right)\\
+	&=\frac{1}{2}\left(CD^2-CC'^2-DD'^2-\left(AC'-AD'\right)^2\right)\\
+	&=\frac{1}{2}\left(CD^2-CC'^2-DD'^2-AB^2\left(\frac{AC'}{AB}-\frac{AD'}{AB}\right)^2\right)\in\mathbb{Q}
+\end{align*}
+and thus \[\frac{CC'}{DD'}=\frac{CC'^2}{CC'\cdot DD'}\in\mathbb{Q}.\] But \[\frac{\mathrm{area}\left(\triangle{ABC}\right)}{\mathrm{area}\left(\triangle{ABD}\right)}=\frac{AB\cdot CC'/2}{AB\cdot DD'/2}=\frac{CC'}{DD'},\] so it is a rational number.

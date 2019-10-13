@@ -1,0 +1,10 @@
+Let $y=fgh$ and $z=\tan^{-1}y$. Then
+\begin{align*}
+	z'&=\frac{y'}{1+y^2}\\
+	&=\frac{1}{1+y^2}(f'gh+fg'h+fgh')\\
+	&=\frac{1}{1+y^2}\left((2f^2g^2h^2+1)+(f^2g^2h^2+4)+(3f^2g^2h^2+1)\right)\\
+	&=6
+\end{align*}
+so $y=\tan\left(6x+\frac{\pi}{4}\right)$ (constant comes from $y(0)=1$).
+
+Now if $\ell=\ln f$, then \[\ell'=\frac{f'}{f}=2y+\frac{1}{y}=2\tan\left(6x+\frac{\pi}{4}\right)+\cot\left(6x+\frac{\pi}{4}\right).\] Integrating gives that \[\ln f=-\frac{1}{3}\ln\cos\left(6x+\frac{\pi}{4}\right)+\frac{1}{6}\ln\sin\left(6x+\frac{\pi}{4}\right)+\frac{1}{6}\ln\frac{1}{\sqrt{2}}\] (constant comes from $f(0)=1$). Thus \[f(x)=\sqrt[6]{\frac{\sin\left(6x+\frac{\pi}{4}\right)}{\sqrt{2}\cos^2\left(6x+\frac{\pi}{4}\right)}}.\]

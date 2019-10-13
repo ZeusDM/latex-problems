@@ -1,0 +1,19 @@
+Let $S_k=x_1+\ldots+x_k$ for $k=0,\ldots,n$ (in particular $S_0=S_n=0$).
+
+First, observe that
+\begin{align*}
+	1&=|x_1|+\ldots+|x_n|\\
+	&\geq|x_1+\ldots+x_k|+|x_{k+1}+\ldots+x_n|\\
+	&=|S_k|+|-S_k|\\
+	&=2|S_k|
+\end{align*}
+so $|S_k|\leq\frac{1}{2}$ for $k=1,\ldots,n$.
+
+Now, write \[\sum_{k=1}^n\frac{x_k}{k}=\sum_{k=1}^n\frac{S_k-S_{k-1}}{k}=\sum_{k=1}^n\frac{S_k}{k}-\sum_{k=0}^{n-1}\frac{S_k}{k+1}=\sum_{k=1}^{n-1}\frac{S_k}{k(k+1)}\] so that
+\begin{align*}
+	\left|\frac{x_1}{1}+\frac{x_2}{2}+\cdots+\frac{x_n}{n}\right|&=\left|\sum_{k=1}^{n-1}\frac{S_k}{k(k+1)}\right|\\
+	&\leq\sum_{k=1}^{n-1}\left|\frac{S_k}{k(k+1)}\right|\\
+	&\leq\sum_{k=1}^{n-1}\frac{1}{2k(k+1)}\\
+	&=\frac{1}{2}\left(1-\frac{1}{n}\right)
+\end{align*}
+as desired.

@@ -1,0 +1,7 @@
+The answer is $(2n)!\cdot2^{n^2}$. First, arbitrarily choose $S_{0,0}\subset S_{0,1}\subset\cdots\subset S_{0,n}\subset S_{1,n}\subset\cdots\subset S_{n,n}$ in $(2n)!$ ways by adding one element at a time, corresponding to a permutation of $\{1,2,\ldots,2n\}$. For the remaining factor, it suffices to show the following claim:
+
+\textbf{Claim:} Given $S_{i-1,j}$ and $S_{i,j+1}$, there are exactly $2$ ways to choose $S_{i,j}$.
+
+Proof: Suppose $S_{i,j+1}=S_{i-1,j}\sqcup\{a,b\}$; then we can choose $S_{i,j}$ as either $S_{i-1,j}\sqcup\{a\}$ or $S_{i-1,j}\sqcup\{b\}$. $\square$
+
+We can then recursively choose the $S_{i,j}$ according to this claim.

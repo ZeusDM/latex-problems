@@ -1,0 +1,13 @@
+Clearly the two points must be on different semicircles. Let the points be $P$ and $Q$, and let the centers of the semicircles that they are on by $O_P$ and $O_Q$, respectively. Then \[PQ\leq PO_P+O_PO_Q+O_QP=1+1+1=\boxed{3}\] with equality when $P,O_P,O_Q,Q$ collinear.
+
+\begin{center}
+	\begin{asy}
+		size(5cm);
+		pair A=(0,sqrt(3)), B=(-1,0), C=(1,0), D=(B+C)/2, E=(C+A)/2, F=(A+B)/2;
+		draw(A--B--C--cycle);
+		draw(arc(D,1,180,360)); draw(arc(E,1,-60,120)); draw(arc(F,1,60,240));
+		pair P=F+dir(120), Q=D+dir(-60), M=F+dir(190), N=D+dir(-77);
+		draw(P--Q,blue); draw(M--N,red); draw(M--F,dashed); draw(N--D,dashed);
+		dot(P,blue); dot(Q,blue); dot(M,red); dot(N,red); dot(D); dot(F);
+	\end{asy}
+\end{center}

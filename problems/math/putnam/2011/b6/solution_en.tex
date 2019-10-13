@@ -1,0 +1,17 @@
+Work in $\mathbb{F}_p$. Let $P(x)=\displaystyle\sum_{k=0}^{p-1}k!x^k$ and $Q(x)=x^{p-1}P\left(-\frac{1}{x}\right)+x-x^p$ be polynomials. I claim that any non-zero root of $Q$ is a root of $Q'$. Compute
+\begin{align*}
+	P'(x) &= \sum_{k=1}^{p-1} k!\cdot kx^{k-1} \\
+	&= \sum_{k=2}^p k!x^{k-2} - \sum_{k=1}^{p-1} k!x^{k-1} \\
+	&= \frac{P(x)-x-1}{x^2} - \frac{P(x)-1}{x} \\
+	&= \frac{(1-x)P(x)-1}{x^2}
+\end{align*}
+and
+\begin{align*}
+	Q'(x) &= -x^{p-2}P\left(-\frac{1}{x}\right)+x^{p-3}P'\left(-\frac{1}{x}\right)+1 \\
+	&= -x^{p-2}P\left(-\frac{1}{x}\right)+x^{p-1}\left(\left(1+\frac{1}{x}\right)P\left(-\frac{1}{x}\right)-1\right)+1 \\
+	&= x^{p-1}P\left(-\frac{1}{x}\right)-x^{p-1}+1 \\
+	&= Q(x)+x^p-x-x^{p-1}+1
+\end{align*}
+from which the claim follows.
+
+Now suppose $P(n)\neq0$ for $\leq\frac{p-1}{2}$ values of $n$. Then $P$ has at least $\frac{p+1}{2}$ roots, none of which are $0$ since $P(0)=1$. For each root $r$ of $P$, we have that $-\frac{1}{r}$ is a root of $Q$. Since $x\to-\frac{1}{x}$ is a bijection, we find $\frac{p+1}{2}$ distinct roots of $Q$. Each of these is a double root, so $\deg Q\geq p+1$, contradiction. Thus $P(n)\neq0$ for $\geq\frac{p+1}{2}$ values of $n$ as desired.

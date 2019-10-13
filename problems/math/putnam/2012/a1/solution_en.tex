@@ -1,0 +1,9 @@
+Suppose that the three indices do not exist. WLOG $d_1\leq d_2\leq\cdots\leq d_{12}$. I claim that $d_k>\sqrt{F_k}$ (Fibonacci) for $k=1,2,\ldots,12$. We prove this by strong induction on $k$. For $k=1$ and $2$, this is true as $d_k>1=\sqrt{F_k}$. Now assume $d_k>\sqrt{F_k}$ for $k=1,\ldots,m$ for some integer $2\leq m\leq11$. Note that $d_{m+1}^2\geq d_m^2+d_{m-1}^2$. Indeed, if the reverse inequality were true then the largest angle of the triangle formed by $d_{m+1},d_m,d_{m-1}$ would be acute, contradiction. So
+\[
+	d_{m+1}\geq\sqrt{d_m^2+d_{m-1}^2}>\sqrt{F_m+F_{m-1}}=\sqrt{F_{m+1}}
+\]
+so by induction the claim is true. But then
+\[
+	12>d_{12}>\sqrt{F_{12}}=12,
+\]
+contradiction.

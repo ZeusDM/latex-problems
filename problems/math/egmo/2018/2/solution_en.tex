@@ -1,0 +1,11 @@
+\begin{enumerate}[label=(\alph*)]
+	
+	\item \[x=2\cdot\frac{3}{2}\cdot\frac{4}{3}\cdots\frac{x}{x-1}.\]
+	
+	\item Let $n\equiv2\pmod4$ with $n\geq6$ and pick $x=5,y=\frac{2^n+1}{5}$. For any integer $m\geq2$, let $S_m$ be a multiset of positive integers such that \[m=\displaystyle\prod_{k\in S_m}\left(1+\frac{1}{k}\right)\] and $\left|S_m\right|=f\left(m\right)$. Then \[m=\displaystyle\prod_{k\in S_m}\left(1+\frac{1}{k}\right)\leq\displaystyle\prod_{k\in S_m}2=2^{f\left(m\right)},\] so $f\left(m\right)\geq\log_2m$. So for any nonnegative integer $j$, $f\left(2^j+1\right)\geq j+1$. But \[2^j+1=\frac{2^j+1}{2^j}\cdot\underbrace{2\cdot2\cdots2}_{j},\] so $f\left(2^j+1\right)\leq j+1$ and thus $f\left(2^j+1\right)=j+1$. Then $f\left(2^n+1\right)=n+1$ and $f\left(5\right)=3$ since $5=2^2+1$.
+	
+	Now, observe that \[f\left(\frac{2^n+1}{5}\right)\geq\log_2\frac{2^n+1}{5}>\log_22^{n-3}=n-3,\] so $f\left(\frac{2^n+1}{5}\right)\geq n-2$. Suppose $f\left(\frac{2^n+1}{5}\right)=n-2$; let $b$ elements of $S_{\frac{2^n+1}{5}}$ be larger than $1$, so it has $n-2-b$ elements that are $1$. Then \[\frac{2^n+1}{5}=2^{n-2-b}\displaystyle\prod_{\substack{k\in S_m \\ k>1}}\left(1+\frac{1}{k}\right)\leq2^{n-2-b}\left(\frac{3}{2}\right)^b=2^{n-2}\left(\frac{3}{4}\right)^b,\] so \[\left(\frac{3}{4}\right)^b\geq\frac{2^n+1}{5\cdot2^{n-2}}>\frac{4}{5}.\] When $b\geq1$, this inequality is false, so $b=0$. Then $\frac{2^n+1}{5}=2^{n-2}$, but the LHS is odd while the RHS is even, contradiction. So $f\left(\frac{2^n+1}{5}\right)>n-2$.
+	
+	Thus, \[f\left(xy\right)=f\left(2^n+1\right)=n+1=3+\left(n-2\right)<f\left(5\right)+f\left(\frac{2^n+1}{5}\right)=f\left(x\right)+f\left(y\right).\] Choosing any $n$ as specified will work, so there are infinitely many pairs $\left(x,y\right)$ that work.
+	
+\end{enumerate}

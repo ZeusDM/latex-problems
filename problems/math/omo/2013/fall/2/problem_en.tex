@@ -1,0 +1,15 @@
+The figure below consists of several unit squares, $M$ of which are white and $N$ of which are green.  Compute $100M+N$.
+\begin{center}
+\begin{asy}
+size(4cm);
+int N = 4;
+path square;
+for (int x=-N; x<=N; ++x) {
+	for (int y=-N+abs(x); y<=N-abs(x); ++y) {
+	  square = rotate(9)*((x+0.5,y+0.5)--(x+0.5,y-0.5)--(x-0.5,y-0.5)--(x-0.5,y+0.5)--cycle);
+	  if ((x+y) % 2 == 0) { filldraw(square, green, black); }
+	  else { filldraw(square, white, black); }
+	}
+}
+\end{asy}
+\end{center}

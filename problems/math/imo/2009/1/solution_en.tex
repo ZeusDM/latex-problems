@@ -1,0 +1,10 @@
+Suppose the opposite. Take any prime $p$ dividing $n$. Then \[\nu_p\left(n\right)\leq\nu_p\left(a_i\left(a_{i+1}-1\right)\right)=\nu_p\left(a_i\right)+\nu_p\left(a_{i+1}-1\right)\] for $i=1,2,\ldots,k$. Summing this up, we get that \[k\nu_p\left(n\right)\leq\displaystyle\sum_{i=1}^k\nu_p\left(a_i\right)+\nu_p\left(a_{i+1}-1\right)=\displaystyle\sum_{i=1}^k\nu_p\left(a_i\right)+\nu_p\left(a_i-1\right),\] so there is some $j$ such that $\nu_p\left(n\right)\leq\nu_p\left(a_j\right)+\nu_p\left(a_j-1\right)$. Observe that $\min\left(\nu_p\left(a_j\right),\nu_p\left(a_j-1\right)\right)=0$, so $\max\left(\nu_p\left(a_j\right),\nu_p\left(a_j-1\right)\right)\geq\nu_p\left(n\right)$.
+
+\begin{itemize}
+	\item Suppose $\nu_p\left(a_j\right)\geq\nu_p\left(n\right)$. I claim that $\nu_p\left(a_i\right)\geq\nu_p\left(n\right)$ for all $i$. We start at $i=j$; this is true. If the inequality is true for $i$, then $\nu_p\left(a_i-1\right)=0$, so \[\nu_p\left(a_{i-1}\right)=\nu_p\left(a_{i-1}\right)+\nu_p\left(a_i-1\right)\geq\nu_p\left(n\right),\] so the inequality is true for $i-1$. So by induction, the inequality is true. Then $a_i\equiv0\pmod p^{\nu_p\left(n\right)}$ for all $i$.
+	\item Otherwise, $\nu_p\left(a_j-1\right)\geq\nu_p\left(n\right)$. I claim that $\nu_p\left(a_i-1\right)\geq\nu_p\left(n\right)$ for all $i$. We start at $i=j$; this is true. If the inequality is true for $i$, then $\nu_p\left(a_i\right)=0$, so \[\nu_p\left(a_{i+1}-1\right)=\nu_p\left(a_i\right)+\nu_p\left(a_{i+1}-1\right)\geq\nu_p\left(n\right),\] so the inequality is true for $i+1$. So by induction, the inequality is true. Then $a_i\equiv1\pmod p^{\nu_p\left(n\right)}$ for all $i$.
+\end{itemize}
+
+In all cases, the $a_i$ are all the same mod $p^{\nu_p\left(n\right)}$. By CRT, the $a_i$ are all the same mod $n$, contradiction.
+
+So $n$ does not divide $a_k\left(a_1-1\right)$.

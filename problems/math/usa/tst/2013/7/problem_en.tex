@@ -1,0 +1,5 @@
+In a table with $n$ rows and $2n$ columns where $n$ is a fixed positive integer, we write either zero or one into each cell so that each row has $n$ zeros and $n$ ones. For $1 \le k \le n$ and $1 \le i \le n$, we define $a_{k,i}$ so that the $i^{\text{th}}$ zero in the $k^{\text{th}}$ row is the $a_{k,i}^{\text{th}}$ column. Let $\mathcal F$ be the set of such tables with $a_{1,i} \ge a_{2,i} \ge \dots \ge a_{n,i}$ for every $i$ with $1 \le i \le n$. We associate another $n \times 2n$ table $f(C)$ from $C \in \mathcal F$ as follows: for the $k^{\text{th}}$ row of $f(C)$, we write $n$ ones in the columns $a_{n,k}-k+1, a_{n-1,k}-k+2, \dots, a_{1,k}-k+n$ (and we write zeros in the other cells in the row).
+\begin{enumerate}[label=(\alph*)]
+	\item Show that $f(C) \in \mathcal F$.
+	\item Show that $f(f(f(f(f(f(C)))))) = C$ for any $C \in \mathcal F$.
+\end{enumerate}

@@ -1,0 +1,15 @@
+The solution set is $f(t)=at+b$, where $a$ is a power of $10$ and $b\in K\cup\{0\}$ with $b<a$. It is obvious why any of these work.
+
+\textbf{Lemma 1:} If $\displaystyle\sum_{i=0}^Nb_in^i\in K$ for all $n\in K$, then $b_in^i\in K\cup\{0\}$ for $i=0,\ldots,N$ and all $n\in K$.
+
+Proof: If $n\in K$ then $n\cdot10^m\in K$ for any non-negative integer $m$. Choose $m$ such that $b_in^i<10^m$ for $i=0,\ldots,N$. Then no two of $b_in^i10^{im}$ have a non-zero digit in the same place, so $\displaystyle\sum_{i=0}^Nb_i(n\cdot10^m)^i\in K$ is the concatenation of $b_in^i10^{im}$ and some $0$'s, so $b_in^i\in K\cup\{0\}$. $\square$
+
+\textbf{Lemma 2:} If $cn\in K$ for all $n\in K$, then $c$ is a power of $10$.
+
+Proof: Suppose not. Induct to show that $c^k\in K$ for all $k\in\mathbb{N}$. But if $c$ is not a power of $10$, then $\log_{10}c$ is irrational so the fractional part of $\log_{10}c^k$ is dense in $[0,1)$. In particular, there exists a $k\in\mathbb{N}$ such that the fractional part of $\log_{10}c^k$ is in $[\log_{10}7,\log_{10}8)$. For this $k$, the leading digit of $c^k$ is $7$, contradiction. $\square$
+
+\textbf{Lemma 3:} If $cn^d\in K$ for all $n\in K$, then $d\leq1$.
+
+Proof: Suppose $d>1$. If $n\in K$ then $10n+9\in K$, so $c(10n+9)^d\in K$. Then $\displaystyle\sum_{i=0}^dc\binom{d}{i}10^i9^{d-i}n^i\in K$, so $10cd9^{d-1}n\in K$ for all $n\in K$ by Lemma 1. By Lemma 2, $10cd9^{d-1}$ is a power of $10$, so $d=1$, contradiction. $\square$
+
+It follows from Lemma 1 and 3 that $\deg f\leq1$, so let $f(t)=at+b$. By Lemma 1 and 2, $a$ is a power of $10$ and $b\in K\cup\{0\}$. Let $b=ac+r$ where $r$ is the remainder when $b$ is divided by $a$. Then $a(n+c)+r\in K$ for all $n\in K$. Since $r<a$, $n+c\in K$ for all $n\in K$. Suppose $c\neq0$ and let $c=10^de$ where $10\nmid e$. We construct an $n\in K$ such that $n+10^de$ is not in $K$, based on $e\pmod{10}$. For the valid $e\pmod{10}$ (not $0$ or $7$), we can pick $n=(17-e)10^d$ such that $n\in K$ but $n+10^de\equiv7\cdot10^d\pmod{10^{d+1}}$, which is bad. So $c=0$ and thus the answer form is as claimed.

@@ -1,0 +1,22 @@
+\begin{center}
+	\begin{asy}
+		size(10cm);
+		pair A=(0,80*sqrt(182)/11), B=(-760/11,0), C=(1660/11,0), A_1=(3*B+C)/4, A_2=(B+7*C)/8, B_1=(7*C+A)/8, B_2=(C+3*A)/4, C_1=(3*A+B)/4, C_2=(A+3*B)/4, X=extension(C_2,A_1,A_2,B_1), Y=extension(A_2,B_1,B_2,C_1), Z=extension(B_2,C_1,C_2,A_1);
+		draw(A--B--C--cycle); draw(X--Y--Z--cycle,red+linewidth(1.1));
+		dot(A); dot(B); dot(C); dot(A_1); dot(A_2); dot(B_1); dot(B_2); dot(C_1); dot(C_2); dot(X); dot(Y); dot(Z);
+		label("$A$",A,dir(100)); label("$B$",B,dir(200)); label("$C$",C,dir(-30)); label("$X$",X,dir(280)); label("$Y$",Y,dir(20)); label("$Z$",Z,dir(150)); label("$A_1$",C_1,dir(120)); label("$A_2$",B_2,dir(80)); label("$B_1$",A_1,dir(260)); label("$B_2$",C_2+(-3,0),dir(190)); label("$C_1$",B_1,dir(10)); label("$C_2$",A_2,dir(-60));
+	\end{asy}
+\end{center}
+
+Let $\ell_A$ meet $AB,AC$ at $A_1,A_2$, $\ell_B$ meet $BC,BA$ at $B_1,B_2$, $\ell_C$ meet $CA,CB$ at $C_1,C_2$. Also let $X=\ell_B\cap\ell_C,Y=\ell_C\cap\ell_A,Z=\ell_A\cap\ell_B$.
+
+Note that \[\triangle{ABC}\sim\triangle{XYZ}\sim\triangle{AA_1A_2}\sim\triangle{B_2BB_1}\sim\triangle{C_1C_2C}\sim\triangle{XC_2B_1}\sim\triangle{C_1YA_2}\sim\triangle{B_2A_1Z}\] by parallel line angles so
+\begin{align*}
+	\frac{AA_1}{AB}=\frac{AA_2}{AC}=\frac{A_1A_2}{BC}=\frac{55}{220}&=\frac{1}{4}\\
+	\frac{BB_1}{BC}=\frac{BB_2}{BA}=\frac{B_1B_2}{CA}=\frac{45}{180}&=\frac{1}{4}\\
+	\frac{CC_1}{CA}=\frac{CC_2}{CB}=\frac{C_1C_2}{AB}=\frac{15}{120}&=\frac{1}{8}\\
+	\frac{XC_2}{AB}=\frac{XB_1}{AC}=\frac{C_2B_1}{BC}=1-\frac{BB_1}{BC}-\frac{CC_2}{CB}&=\frac{5}{8}\\
+	\frac{YA_2}{BC}=\frac{YC_1}{BA}=\frac{A_2C_1}{CA}=1-\frac{CC_1}{CA}-\frac{AA_2}{AC}&=\frac{5}{8}\\
+	\frac{ZB_2}{CA}=\frac{ZA_1}{CB}=\frac{B_2A_1}{AB}=1-\frac{AA_1}{AB}-\frac{BB_2}{BA}&=\frac{1}{2}
+\end{align*}
+It follows that \[\frac{YZ}{BC}=\frac{YA_2}{BC}+\frac{A_2A_1}{BC}+\frac{A_1Z}{BC}=\frac{5}{8}+\frac{1}{4}+\frac{1}{2}=\frac{11}{8}\] so the perimeter of $\triangle{XYZ}$ is $\frac{11}{8}\left(220+180+120\right)=\boxed{715}$ as desired.

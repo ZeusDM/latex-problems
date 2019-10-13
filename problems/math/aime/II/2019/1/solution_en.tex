@@ -1,0 +1,13 @@
+\begin{center}
+	\begin{asy}
+		size(10cm);
+		pair A=(0,0), B=(9,0), C=(15,8), D=(-6,8), C_1=(15,0), P=(9/2,12/5);
+		draw(B--C--D--A); draw(C--P--D); draw(B--C_1--C,dashed); draw((A+B)/2--(C+D)/2,dashed);
+		label("$A$",A,SW); label("$B$",B,S); label("$C'$",C_1,SE); label("$C$",C,NE); label("$D$",D,NW); label("$P$",P+(0.5,0),E);
+		draw(A--B--P--cycle,red+linewidth(1.1));
+		dot(A); dot(B); dot(C); dot(D); dot(P); dot(C_1);
+		label("$9$",(A+B)/2,dir(A--B)*dir(-90)); label("$10$",(B+C)/2,dir(B-C)*dir(90)); label("$6$",(B+C_1)/2,dir(B-C_1)*dir(90)); label("$8$",(C+C_1)/2,dir(C_1-C)*dir(90)); label("$21$",(C+D)/2,dir(C--D)*dir(-90)); label("$\frac{12}{5}$",(2*P+A+B)/4+(-0.1,-0.3),E);
+	\end{asy}
+\end{center}
+
+Note that $17^2-15^2=8^2=10^2-6^2$ and $15-6=9$ so if $C'$ is the projection of $C$ onto $AB$ then $AC'=15,BC'=6,CC'=8$. It follows that $CD=21$. Let the diagonals $AC$ and $BD$ intersect at $P$, then $\triangle{PAB}\sim\triangle{PCD}$ with similarity factor $\frac{9}{21}$. Thus the height of $\triangle{PAB}$ is $\frac{9}{9+21}\cdot8=\frac{12}{5}$ so $\left[PAB\right]=\frac{1}{2}\cdot9\cdot\frac{12}{5}=\frac{54}{5}$ and hence the answer is $\boxed{059}$ as desired.

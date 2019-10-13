@@ -1,0 +1,91 @@
+This is equivalent to \[A\left(10M+L\right)+R=AL^2+RL+M.\] This rearranges to \[M\left(10A-1\right)=\left(AL+R\right)\left(L-1\right).\] Note that $A,R,M<L$, so $L\leq 9$ and $A,R,M\leq8$.
+
+First, assume that $M=L-1$. Then $10A-1=AL+R$. This implies that \[\left(10-L\right)A=R+1\leq9.\] We now casework on all possible values of $A$ and $L$:
+
+\begin{center}
+\begin{tabular}{c|c|c|c} 
+$A$ & $R$ & $M$ & $L$ \\ \hline
+$8$ & & $8$ & $9$ \\
+$7$ & & $8$ & $9$ \\
+$6$ & & $8$ & $9$ \\
+$5$ & & $8$ & $9$ \\
+$4$ & & $8$ & $9$ \\
+$4$ & & $7$ & $8$ \\
+$3$ & & $8$ & $9$ \\
+$3$ & & $7$ & $8$ \\
+$3$ & & $6$ & $7$ \\
+$2$ & & $8$ & $9$ \\
+$2$ & & $7$ & $8$ \\
+$2$ & & $6$ & $7$ \\
+$2$ & & $5$ & $6$ \\
+$1$ & & $k-1$ & $k$ \\
+\end{tabular}
+\end{center}
+
+($k$ is at least $3$). $M$ is also determined by $L$. We can now eliminate the first row because it has $A=M$. We can then compute the value of $R$, as $R=\left(10-L\right)A-1$:
+
+\begin{center}
+\begin{tabular}{c|c|c|c} 
+$A$ & $R$ & $M$ & $L$ \\ \hline
+$7$ & $6$ & $8$ & $9$ \\
+$6$ & $5$ & $8$ & $9$ \\
+$5$ & $4$ & $8$ & $9$ \\
+$4$ & $3$ & $8$ & $9$ \\
+$4$ & $7$ & $7$ & $8$ \\
+$3$ & $2$ & $8$ & $9$ \\
+$3$ & $5$ & $7$ & $8$ \\
+$3$ & $8$ & $6$ & $7$ \\
+$2$ & $1$ & $8$ & $9$ \\
+$2$ & $3$ & $7$ & $8$ \\
+$2$ & $5$ & $6$ & $7$ \\
+$2$ & $7$ & $5$ & $6$ \\
+$1$ & $9-k$ & $k-1$ & $k$ \\
+\end{tabular}
+\end{center}
+
+We can eliminate any rows that have $R\geq L$ (including those for $A=1$ when $k=3$ or $4$), or any of $A$, $R$, $M$, and $L$ equaling another (including those for $A=1$ when $k=5$ or $8$), or any term being $0$ (only $A=1$ and $k=9$):
+
+\begin{center}
+\begin{tabular}{c|c|c|c} 
+$A$ & $R$ & $M$ & $L$ \\ \hline
+$7$ & $6$ & $8$ & $9$ \\
+$6$ & $5$ & $8$ & $9$ \\
+$5$ & $4$ & $8$ & $9$ \\
+$4$ & $3$ & $8$ & $9$ \\
+$3$ & $2$ & $8$ & $9$ \\
+$3$ & $5$ & $7$ & $8$ \\
+$2$ & $1$ & $8$ & $9$ \\
+$2$ & $3$ & $7$ & $8$ \\
+$2$ & $5$ & $6$ & $7$ \\
+$1$ & $2$ & $6$ & $7$ \\
+$1$ & $3$ & $5$ & $6$ \\
+\end{tabular}
+\end{center}
+
+This gives $11$ solutions when $M=L-1$: $7689$, $6589$, $5489$, $4389$, $3289$, $3578$, $2189$, $2378$, $2567$, $1267$, and $1356$.
+
+Now, assume that $M<L-1$. Note that $10A-1>AL+R$ (otherwise $M\left(10A-1\right)<\left(AL+R\right)\left(L-1\right)$, contradiction).
+
+Assume that $10A-1$ is prime ($A=2,3,6,8$). Then $10A-1$ divides either $AL+R$ or $L-1$. But $10A-1\geq19>L-1>0$, so $10A-1$ must divide $AL+R$. But then $10A-1\leq AL+R$ (because $AL+R>0$), contradiction. Thus, $10A-1$ is not prime and thus $A=1$, $4$, $5$, or $7$. We casework on $A$.
+
+Case 1: $A=1$.
+
+Then $9M=\left(L+R\right)\left(L-1\right)$. Note that $9$ cannot divide $L-1$. If $3$ divides $L-1$, then $3$ must also divide $L+R$ and $9>L+R$, so $L+R=3$ or $6$. But note that $L\equiv1\pmod3$, so since $L<6$, $L=4$. Then $L+R=3$ is not possible, so $L+R=6$ and $R=2$. Then $M=2$, contradiction.
+
+Otherwise, $9$ divides $L+R$, so $L+R\geq9$, contradiction. No solutions.
+
+Case 2: $A=4$.
+
+Then $39M=\left(4L+R\right)\left(L-1\right)$. Note that $13$ cannot divide $L-1$. Thus, $13$ divides $4L+R$, which is less than $39$. Thus, $4L+R=13$ or $26$. Then since $3$ does not divide $4L+R$, $3$ divides $L-1$. In particular, $L=4$ or $7$. If $4L+R=13$, then $L\leq3$, contradiction. Thus, $4L+R=26$. But then $5\leq L\leq6$, contradiction. No solutions.
+
+Case 3: $A=5$.
+
+Then $49M=\left(5L+R\right)\left(L-1\right)$. Note that $49$ cannot divide $L-1$. If $7$ divides $L-1$, then $L=8$. Then $7M=R+40$, so either $M=6$ and $R=2$ or $M=7$ and $R=9$. In the latter case, $R>L$, contradiction. The former case works though, so an additional solution of $5268$ is gained.
+
+Otherwise, $49$ divides $5L+R$, so $5L+R\geq49$, contradiction. One solution of $5268$.
+
+Case 4: $A=7$.
+
+Then $69M=\left(7L+R\right)\left(L-1\right)$. Note that $23$ cannot divide $L-1$. Thus, $23$ divides $7L+R$, which is less than $69$. Thus, $7L+R=23$ or $46$. Then since $3$ does not divide $7L+R$, $3$ divides $L-1$. In particular, $L=4$ or $7$. If $7L+R=23$, then $L\leq3$, contradiction. If $7L+R=46$, then $L\leq 6$, so $L=4$, but then $R=18>9$, contradiction. No solutions.
+
+In conclusion, we get that the solutions are $1356$, $1267$, $2567$, $2378$, $3578$, $5268$, and $\underline{d\left(d-1\right)89}$ with $d=2,3,4,5,6,7$. The sum of all the $R$'s is then \[3+2+5+3+5+2+\displaystyle\sum_{i=1}^6i=20+21=\boxed{41}.\]

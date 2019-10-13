@@ -1,0 +1,16 @@
+\begin{enumerate}[label=(\alph*)]
+	
+	\item I claim that $n\in S$ if and only if $n=a\left(a+1\right)b\left(b+1\right)$ for some $a,b\in\mathbb{N}$.
+	
+	If $n=a\left(a+1\right)b\left(b+1\right)$, then observe that \[x^2+\left(2ab+a+b\right)x+n\] has integer roots $-a\left(b+1\right)$ and $-b\left(a+1\right)$, and \[x^2+\left(2ab+a+b+1\right)x+n\] has integer roots $-ab$ and $-\left(a+1\right)\left(b+1\right)$, so $n\in S$.
+	
+	Now, assume $n\in S$ and that $x^2+mx+n$ and $x^2+\left(m+1\right)x+n$ have integer roots. Let the roots of $x^2+mx+n$ be $-c,-\frac{n}{c}$ with $c\leq\sqrt{n}$ and the roots of $x^2+\left(m+1\right)x+n$ be $-\left(c-a\right),-\frac{n}{c-a}$ for $a\in\mathbb{N}$ (the negative of the smaller root of $x^2+\left(m+1\right)x+n$ must be smaller than that of $x^2+mx+n$ because $t+\frac{n}{t}$ is decreasing when $t<\sqrt{n}$). Then \[c+\frac{n}{c}+1=m+1=c-a+\frac{n}{c-a},\] so \[n=\left(1+\frac{1}{a}\right)c\left(c-a\right).\] Then $a\mid c$, so let $c=a\left(b+1\right)$ for $b\in\mathbb{N}$. Then \[n=a\left(a+1\right)b\left(b+1\right)\] with $a,b\in\mathbb{N}$. So then $S$ is infinite (for example $a^2\left(a+1\right)^2\in S$ for every $a\in\mathbb{N}$), but
+	\begin{align*}
+		\displaystyle\sum_{n\in S}\frac{1}{n}&\leq\displaystyle\sum_{a=1}^{\infty}\displaystyle\sum_{b=1}^{\infty}\frac{1}{a\left(a+1\right)b\left(b+1\right)}\\
+		&=\displaystyle\sum_{a=1}^{\infty}\frac{1}{a\left(a+1\right)}\displaystyle\sum_{b=1}^{\infty}\frac{1}{b\left(b+1\right)}\\
+		&=1.
+	\end{align*}
+	
+	\item I claim that \[n=d\left(d+1\right)^2\left(d+2\right)\left(2d+1\right)\left(2d+3\right)\] works for any $d\in\mathbb{N}$. Observe that \[x^2+\left(4d^3+12d^2+10d+1\right)x+n\] has integer roots $-\left(d+1\right)^2\left(2d+1\right)=-\left(2d^3+5d^2+4d+1\right)$ and $-d\left(d+2\right)\left(2d+3\right)=-\left(2d^3+7d^2+6d\right)$, \[x^2+\left(4d^3+12d^2+10d+2\right)x+n\] has integer roots $-d\left(d+1\right)\left(2d+3\right)=-\left(2d^3+5d^2+3d\right)$ and $-\left(d+1\right)\left(d+2\right)\left(2d+1\right)=-\left(2d^3+7d^2+7d+2\right)$, and \[x^2+\left(4d^3+12d^2+10d+3\right)x+n\] has integer roots $-d\left(d+2\right)\left(2d+1\right)=-\left(2d^3+5d^2+2d\right)$ and $-\left(d+1\right)^2\left(2d+3\right)=-\left(2d^3+7d^2+8d+3\right)$, so there are infinitely many positive integers $n$ such that $\mathcal{F}\left(n\right)$ contains three consecutive integers.
+	
+\end{enumerate}

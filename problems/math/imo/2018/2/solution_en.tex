@@ -1,0 +1,9 @@
+The answer is $\boxed{3\mid n}$. When $3\mid n$, take the sequence defined as \[a_i=\begin{cases}2&\text{ if }3\mid i\\-1&\text{ if }3\nmid i.\end{cases}\] This works as $\left(-1\right)\left(-1\right)+1=2$ and $\left(-1\right)\cdot2+1=-1$.
+
+Now, suppose that $3\nmid n$. Observe that
+\begin{align*}
+	a_{i+2}^2&=a_ia_{i+1}a_{i+2}+a_{i+2}\\
+	&=a_i\left(a_{i+3}-1\right)+a_{i+2}\\
+	&=a_ia_{i+3}-a_i+a_{i+2},
+\end{align*}
+with indices taken mod $n$, so \[\displaystyle\sum_{i=1}^na_i^2=\displaystyle\sum_{i=1}^na_ia_{i+3}-a_i+a_{i+2}=\displaystyle\sum_{i=1}^na_ia_{i+3}.\] Then \[\displaystyle\sum_{i=1}^n\left(a_i-a_{i+3}\right)^2=\displaystyle\sum_{i=1}^na_i^2+a_{i+3}^2-2a_ia_{i+3}=0,\] so $a_i=a_{i+3}$ for $i=1,2,\ldots,n$. Then $a_1=a_2=\ldots=a_n$, but then $a_1^2+1=a_1$, contradiction as the only solution would be $a_1=\frac{1}{2}\pm i\frac{\sqrt{3}}{2}$ which is not real. Thus, $3\nmid n$ does not work.

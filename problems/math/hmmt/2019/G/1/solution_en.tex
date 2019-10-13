@@ -1,0 +1,12 @@
+I claim that $d=\boxed{120}$ is optimal. First, observe that for any angle measure $\theta<120^\circ$, a quadrilateral with angles $\theta,\theta,\theta,360^\circ-\theta$ exists so $d\geq120$. Now if a non-degenerate quadrilateral had three interior angles with measure at least $120$ degrees, then the measure of the fourth interior angle must be at most $0$ degrees, contradiction. So $d\leq120$ and thus $d=120$ as desired.
+
+\begin{center}
+	\begin{asy}
+		size(6cm);
+		real e = 5;
+		pair A=(0,0), B=3*dir(120-e), C=B+2*dir(60-2e), D=extension(C,C+dir(-3e),A,A+dir(0));
+		dot(A); dot(B); dot(C); dot(D);
+		draw(A--B--C--D--cycle);
+		label("$\theta$",A,dir(60-0.5e)); label("$\theta$",B,dir(-1.5e)); label("$\theta$",C,dir(-60-2.5e));
+	\end{asy}
+\end{center}

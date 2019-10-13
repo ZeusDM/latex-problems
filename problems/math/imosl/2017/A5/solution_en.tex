@@ -1,0 +1,19 @@
+The answer is $\boxed{-\frac{n-1}{2}}$. Consider the Shiny $n$-tuple $\left(-\frac{n-3}{2}b-\frac{1}{2b},b,b,\ldots,b\right)$ for any positive $b$. This is shiny because $\displaystyle\sum_{i=1}^{n-1}y_iy_{i+1}$ is either $-\frac{n-3}{2}b^2-\frac{1}{2}+\left(n-2\right)b^2>-1$ or $-\left(n-3\right)b^2-1+\left(n-3\right)b^2=-1$. Then \[\displaystyle\sum_{1\leq i<j\leq n}x_ix_j=\left(n-1\right)\left(-\frac{n-3}{2}b-\frac{1}{2b}\right)b+\binom{n-1}{2}b^2=\frac{n-1}{2}b^2-\frac{n-1}{2}.\] If $K>-\frac{n-1}{2}$, then $b=\frac{1}{2}\sqrt{1+\frac{2K}{n-1}}$ gives that the sum is $\frac{K}{4}-\frac{3\left(n-1\right)}{8}$, contradiction, so $K\leq-\frac{n-1}{2}$. Now, we show that $-\frac{n-1}{2}$ works.
+
+Since the $x_i$ are symmetric, WLOG let $x_1\leq x_2\leq\ldots\leq x_m\leq0\leq x_{m+1}\leq x_{m+2}\leq\ldots\leq x_n$. Define the sums
+\begin{align*}
+	S_-&=\displaystyle\sum_{1\leq i<j\leq m}x_ix_j\\
+	S_+&=\displaystyle\sum_{m+1\leq i<j\leq n}x_ix_j\\
+	S_M&=\displaystyle\sum_{i=1}^m\displaystyle\sum_{j=m+1}^nx_ix_j.
+\end{align*}
+We wish to minimize $S_-+S_++S_M$. Observe that $S_-$ and $S_+$ are nonnegative because they are a sum of nonnegative terms.
+
+Because all of the inequalities involve expressions that are homogenous of degree $2$, we can replace $\left(x_1,x_2,\ldots,x_n\right)$ with $\left(-x_1,-x_2,\ldots,-x_n\right)$ if necessary so we can assume that $m\leq\frac{n}{2}$. We can also assume $m\geq1$ otherwise all terms are non-negative, so then clearly the sum we want is greater than $-\frac{n-1}{2}$.
+
+Let $P$ be the set of permutations $\sigma$ of $\left\{1,2,\ldots,n\right\}$ such that $\sigma\left(\left\{2,4,6,\ldots,2m\right\}\right)=\left\{1,2,\ldots,m\right\}$. There are $m!\left(n-m\right)!$ such permutations --- $m!$ to map $\left\{2,4,6,\ldots,2m\right\}$, $\left(n-m\right)!$ to map the rest. We compute the sum \[T=\displaystyle\sum_{\sigma\in P}\displaystyle\sum_{i=1}^{n-1}x_{\sigma\left(i\right)}x_{\sigma\left(i+1\right)},\] which is lower-bounded by $-m!\left(n-m\right)!$, and use this inequality to bound our sum.
+
+First, suppose that $m=\frac{n}{2}$. Then $\displaystyle\sum_{i=1}^{n-1}x_{\sigma\left(i\right)}x_{\sigma\left(i+1\right)}$ consists of $n-1$ terms from $S_M$. By symmetry, each term from $S_M$ appears equally often, so \[T=\frac{\left(n-1\right)m!\left(n-m\right)!}{m\left(n-m\right)}S_M.\] Then \[S_-+S_++S_M\geq S_M\geq-\frac{m\left(n-m\right)}{n-1}\geq-\frac{n^2}{4\left(n-1\right)}\geq-\frac{n-1}{2}\] by AM-GM and since $n\geq4$.
+
+Now, assume that $m<\frac{n}{2}$. Then $\displaystyle\sum_{i=1}^{n-1}x_{\sigma\left(i\right)}x_{\sigma\left(i+1\right)}$ consists of $2m$ terms from $S_M$ and $n-2m-1$ terms from $S_+$. By symmetry, each term from $S_M$ appears equally often and same with each term from $S_+$, so \[T=\frac{2m\cdot m!\left(n-m\right)!}{m\left(n-m\right)}S_M+\frac{2\left(n-2m-1\right)m!\left(n-m\right)!}{\left(n-m\right)\left(n-m-1\right)}S_+.\] Then \[S_M\geq-\frac{n-2m-1}{n-m-1}S_+-\frac{n-m}{2},\] so \[S_-+S_++S_M\geq\frac{m}{n-m-1}S_+-\frac{n-m}{2}\geq-\frac{n-1}{2}\] since $m\geq1$.
+
+Thus, in all cases, we have that $\displaystyle\sum_{1\leq i<j\leq n}x_ix_j\geq-\frac{n-1}{2}$.

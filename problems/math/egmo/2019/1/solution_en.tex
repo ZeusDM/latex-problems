@@ -1,0 +1,16 @@
+The answers are $(0,1,1)$, $(0,-1,-1)$, $(1,0,1)$, $(-1,0,-1)$, $(1,1,0)$, $(-1,-1,0)$, $(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$, $(-\frac{1}{\sqrt{3}},-\frac{1}{\sqrt{3}},-\frac{1}{\sqrt{3}})$. These can be confirmed as follows:
+\begin{itemize}
+	\item First observe that $(a,b,c)$ works if and only if $(-a,-b,-c)$ works.
+	\item Next observe that $(a,b,c)$ works if and only if $(c,a,b)$ and $(b,c,a)$ work.
+	\item It suffices to check $(0,1,1)$ and $(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$. For the former, we easily have $ab+bc+ca=1$ and \[a^2b+c=b^2c+a=c^2a+b=1.\] For the latter, we have $ab+bc+ca=3a^2=1$ and each of the $a^2b+c$ quantities equal to $a^3+a$.
+\end{itemize}
+
+Now, we show that these are the only solutions.
+
+First assume $abc=0$. Since cyclic shifts preserve solutions, WLOG let $a=0$. Then $bc=1$ and $a^2b+c=c^2a+b$ so $b=c$. Thus we get the possible solutions $(0,1,1)$ and $(0,-1,-1)$. Cyclic shifts account for the other four solutions where a variable is $0$.
+
+Now assume $abc\neq0$ and $a,b,c$ not distinct. Once again by cyclic shifts, WLOG let $b=c$. Then $a^2b+c=c^2a+b$ so $a^2b=ab^2$ and thus $a=b$. Then $3a^2=1$ so we get the possible solutions $(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$ and $(-\frac{1}{\sqrt{3}},-\frac{1}{\sqrt{3}},-\frac{1}{\sqrt{3}})$.
+
+Finally assume $abc\neq0$ and $a,b,c$ distinct. Observe that \[(a^2b+c)+(a^2c+b)=a(ab+ac)+b+c=a(1-bc)+b+c=a+b+c-abc\] and similarly with the other variables so \[a^2c+b=b^2a+c=c^2b+a\] is also true. Then \[(a^2b+c)-(a^2c+b)=(b^2c+a)-(b^2a+c)\] so \[(2-a^2-b^2)c=(1-ab)(a+b)=c(a+b)^2.\] Since $c\neq0$, we can divide out to get $2-a^2-b^2=(a+b)^2$, equivalently $a^2+ab+b^2=1$. Similarly, we deduce $a^2+ac+c^2=1$. Then $a^2+ab+b^2=a^2+ac+c^2$ so \[(b-c)(a+b+c)=ab-ac+b^2-c^2=0\] and thus $a+b+c=0$. Then $a,b,c$ are distinct roots of a polynomial $P(x)=x^3+x+k$ for some constant $k$ by Vieta. But $P$ is increasing over $\mathbb{R}$ and thus cannot have multiple distinct roots, contradiction.
+
+Thus the only possible solutions are those in the solution set given above, so the answer is correct.

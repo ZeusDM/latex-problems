@@ -1,0 +1,42 @@
+%Define two vectors $\mathbf{u}$ and $\mathbf{v}$ to be \emph{parallel} (denoted by $\mathbf{u}\parallel\mathbf{v}$) if $\mathbf{u}\times\mathbf{v}=\mathbf{0}$ and \emph{perpendicular} (denoted by $\mathbf{u}\perp\mathbf{v}$) if $\innerproduct{\mathbf{u}}{\mathbf{v}}=0$ where $\innerproduct{\cdot}{\cdot}$ is the standard inner product over $\mathbb{R}^3$. We say that a set of vectors are in the same \emph{direction} if they are parallel. Some important facts:
+%\begin{itemize}
+%	\item $\mathbf{u}\times\mathbf{v}\perp\mathbf{u},\mathbf{v}$. This is by definition of cross product.
+%	\item $\mathbf{u}\parallel\mathbf{v}$ if and only if either is $\mathbf{0}$ or there exists a scalar $k\in\mathbb{R}$ such that $\mathbf{u}=k\mathbf{v}$. This comes from the fact that $||\mathbf{u}\times\mathbf{v}||=||\mathbf{u}||||\mathbf{v}||\sin\theta$ where $\theta\in[0,\pi]$ is the angle between $\mathbf{u}$ and $\mathbf{v}$.
+%	\item $\mathbf{u}\parallel\mathbf{v}$ and $\mathbf{u}\perp\mathbf{v}$ if and only if either is $\mathbf{0}$. This follows from the previous fact and $\innerproduct{\mathbf{v}}{\mathbf{v}}=||\vecb{v}||^2$.
+%\end{itemize}
+
+The goal is to show that there is at most one direction in $G$.
+
+Let $\mathbf{e}$ be the identity of $G$. Then for all $\mathbf{a}\in G$, either $\mathbf{a}\times\mathbf{e}=\mathbf{a}*\mathbf{e}=\mathbf{a}$ or $\mathbf{a}\times\mathbf{e}=0$. The former case implies $\mathbf{a}\perp\mathbf{a}$, so $\mathbf{a}=\mathbf{0}$. So for all non-zero elements $\mathbf{a}$ of $G$, $\mathbf{e}\parallel\mathbf{a}$. If $\mathbf{e}\neq\mathbf{0}$, this implies all non-zero $\mathbf{a}$ are in the same direction. So assume $\mathbf{e}=\mathbf{0}$.
+
+\textbf{Lemma (Triple Product is Zero):} For any $\mathbf{a},\mathbf{b},\mathbf{c}\in G$ either two of them are parallel or one is perpendicular to the other two.
+
+\emph{Proof:} Suppose $\mathbf{b}\times(\mathbf{c}\times\mathbf{a})$ and $\mathbf{c}\times(\mathbf{a}\times\mathbf{b})$ are non-zero. Then $\mathbf{c}\times\mathbf{a}$ and $\mathbf{a}\times\mathbf{b}$ are also non-zero, so
+\[
+	(\mathbf{c}\times\mathbf{a})\times\mathbf{b}=(\mathbf{c}*\mathbf{a})*\mathbf{b}=\mathbf{c}*(\mathbf{a}*\mathbf{b})=\mathbf{c}\times(\mathbf{a}\times\mathbf{b}).
+\]
+But by the vector triple product,
+\begin{align*}
+	\mathbf{0} &= \mathbf{a}\times(\mathbf{b}\times\mathbf{c})+\mathbf{b}\times(\mathbf{c}\times\mathbf{a})+\mathbf{c}\times(\mathbf{a}\times\mathbf{b}) \\
+	&= \mathbf{a}\times(\mathbf{b}\times\mathbf{c})-(\mathbf{c}\times\mathbf{a})\times\mathbf{b}+\mathbf{c}\times(\mathbf{a}\times\mathbf{b}) \\
+	&= \mathbf{a}\times(\mathbf{b}\times\mathbf{c})
+\end{align*}
+so one of $\mathbf{a}\times(\mathbf{b}\times\mathbf{c})$, $\mathbf{b}\times(\mathbf{c}\times\mathbf{a})$, and $\mathbf{c}\times(\mathbf{a}\times\mathbf{b})$ is $\mathbf{0}$. WLOG $\mathbf{a}\times(\mathbf{b}\times\mathbf{c})=\mathbf{0}$. By the vector triple product again, $\left\langle\mathbf{a},\mathbf{c}\right\rangle\mathbf{b}=\left\langle\mathbf{a},\mathbf{b}\right\rangle\mathbf{c}$ so either $\mathbf{b}\parallel\mathbf{c}$ or $\mathbf{a}\perp\mathbf{b},\mathbf{c}$. \hfill$\square$
+
+An immediate corollary is that there are no three coplanar directions in $G$. Indeed, perpendicularity to distinct directions requires three dimensions.
+
+Suppose there are at least four directions in $G$, take $\mathbf{a},\mathbf{b},\mathbf{c},\mathbf{d}$ pointing in four directions. Among $\mathbf{a},\mathbf{b},\mathbf{c}$, one is perpendicular to the other two, so WLOG $\mathbf{a}\perp\mathbf{b},\mathbf{c}$. Among $\mathbf{b},\mathbf{c},\mathbf{d}$, one is perpendicular to the other two. If it is $\mathbf{b}$, then $\mathbf{a},\mathbf{c},\mathbf{d}$ are in the plane perpendicular to $\mathbf{b}$, contradiction. A similar contradiction arises if it is $\mathbf{c}$. If it is $\mathbf{d}$, then $\mathbf{a}$ and $\mathbf{d}$ are in the direction perpendicular to $\mathbf{b},\mathbf{c}$, contradiction. Thus there are at most three directions in $G$.
+
+Suppose there are three directions in $G$, take $\mathbf{a},\mathbf{b},\mathbf{c}$ pointing in these three directions. Among $\mathbf{a},\mathbf{b},\mathbf{c}$, one is perpendicular to the other two, so WLOG $\mathbf{a}\perp\mathbf{b},\mathbf{c}$. Then $\mathbf{a}\times\mathbf{b}=\mathbf{a}*\mathbf{b}\in G$, so $\mathbf{a}\times\mathbf{b}\parallel\mathbf{c}$ and thus $\mathbf{c}\perp\mathbf{a},\mathbf{b}$. So $\mathbf{a},\mathbf{b},\mathbf{c}$ form an orthogonal system.
+
+Now let $\mathbf{a}*\mathbf{b}=\mathbf{a}\times\mathbf{b}=j\mathbf{c}$ and $\mathbf{a}*\mathbf{c}=\mathbf{a}\times\mathbf{c}=k\mathbf{b}$ for $j,k\neq0$. Note that by the right-hand rule, $j$ and $k$ have opposite signs. Then
+\[
+	(\mathbf{a}*\mathbf{a})*\mathbf{b}=\mathbf{a}*(\mathbf{a}*\mathbf{b})=\mathbf{a}*j\mathbf{c}=\mathbf{a}\times j\mathbf{c}=jk\mathbf{b}.
+\]
+If $(\mathbf{a}*\mathbf{a})\times\mathbf{b}\neq\mathbf{0}$, then $(\mathbf{a}*\mathbf{a})\times\mathbf{b}=jk\mathbf{b}$ but then $\mathbf{b}\perp jk\mathbf{b}$, contradiction. So $(\mathbf{a}*\mathbf{a})\times\mathbf{b}=\mathbf{0}$ and thus $\mathbf{a}*\mathbf{a}\parallel\mathbf{b}$. But by symmetry, $\mathbf{a}*\mathbf{a}\parallel\mathbf{c}$ so $\mathbf{a}*\mathbf{a}=\mathbf{0}$. Then
+\[
+	jk\mathbf{b}=(\mathbf{a}*\mathbf{a})*\mathbf{b}=\mathbf{0}*\mathbf{b}=\mathbf{b}
+\]
+so $jk=1$, contradiction. Thus there are at most two directions in $G$.
+
+Suppose there are two directions in $G$. Then cross product them to form a third direction, contradiction. Thus there is at most one direction in $G$, as desired.

@@ -1,0 +1,32 @@
+Let $A\left(n\right)$ be the set of positive integers less than $n$ that are relatively prime to $n$ so that $\left|A\left(n\right)\right|=\varphi\left(n\right)$. Also define $d_k\left(n\right)$ such that $\displaystyle\sum_{a\in A\left(n\right)}a^k=d_k\left(n\right)\varphi\left(n\right)$. Then the problem statement is equivalent to proving that $d_k\left(n\right)$ is an integer for every non-negative integer $k$ if every prime that divides $\varphi\left(n\right)$ also divides $n$ (we can tack on $k=0$ because clearly $d_0\left(n\right)=1$).
+
+Suppose that there is an integer $n\geq2$ such that $\varphi\left(n\right)$ is only divisible by primes that also divide $n$ but $d_k\left(n\right)$ is not an integer for some non-negative integer $k$, and pick $n$ to be the smallest such integer. Clearly, $n\neq2$ because $d_k\left(2\right)=1$ as $A\left(2\right)=\left\{1\right\}$. Now, take the smallest non-negative integer $k$ such that $d_k\left(n\right)$ is not an integer. We casework on whether or not $n$ is squarefree.
+
+Suppose $n$ is squarefree. Take the largest prime $p$ dividing $n$. Then $\frac{n}{p}\neq1$, otherwise either $n=2$ or $\varphi\left(n\right)=p-1$ which is divisible by $2$ but $n$ is not even. Consider the numbers $a+i\cdot\frac{n}{p}$, where $a\in A\left(\frac{n}{p}\right)$ and $i\in\left\{0,1,\ldots,p-1\right\}$. By definition, these are the positive integers less than $n$ that are relatively prime to $\frac{n}{p}$, so $A\left(n\right)$ is a subset of these numbers. Now, observe that the numbers $pa$, where $a\in A\left(\frac{n}{p}\right)$, are relatively prime to $\frac{n}{p}$ and less than $n$ but are not relatively prime to $n$. Thus, $A\left(n\right)$ is a subset of the first type we considered excluding the second type. But there are $p\varphi\left(\frac{n}{p}\right)-\varphi\left(\frac{n}{p}\right)=\varphi\left(n\right)$ such numbers, so $A\left(n\right)$ is precisely this set. That is, \[A\left(n\right)=\left\{a+i\cdot\frac{n}{p}\mid a\in A\left(\frac{n}{p}\right),i\in\left\{0,1,\ldots,p-1\right\}\right\}\backslash\left\{pa\mid a\in A\left(\frac{n}{p}\right)\right\}.\] Then
+\begin{align*}
+	\displaystyle\sum_{a\in A\left(n\right)}a^k&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}\left(a+i\cdot\frac{n}{p}\right)^k-\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}\left(pa\right)^k\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}\displaystyle\sum_{j=0}^k\binom{k}{j}a^j\left(i\cdot\frac{n}{p}\right)^{k-j}-p^k\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}a^k\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}a^j-p^k\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}a^k\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)\varphi\left(\frac{n}{p}\right)-p^kd_k\left(\frac{n}{p}\right)\varphi\left(\frac{n}{p}\right)\\
+	&=\frac{\varphi\left(n\right)}{p-1}\left[\displaystyle\sum_{j=0}^k\binom{k}{j}\left(\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)\displaystyle\sum_{i=0}^{p-1}i^{k-j}-p^kd_k\left(\frac{n}{p}\right)\right]
+\end{align*}
+where we use the fact that $\varphi\left(n\right)=\left(p-1\right)\varphi\left(\frac{n}{p}\right)$. Now, it is clear that \[\left(p-1\right)d_k\left(n\right)=\displaystyle\sum_{j=0}^k\binom{k}{j}\left(\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)\displaystyle\sum_{i=0}^{p-1}i^{k-j}-p^kd_k\left(\frac{n}{p}\right)\] is an integer as each of the terms is an integer. Take a prime $q$ dividing $p-1$. Observe that $q\mid n$ because $q\mid\varphi\left(n\right)$. By Faulhaber's formula, $\displaystyle\sum_{i=0}^{p-1}i^{k-j}$ is $\frac{p-1}{\left(k-j+1\right)!}$ times an integer when $j<k$. Then
+\begin{align*}
+	\nu_q\left(n^{k-j}\displaystyle\sum_{i=0}^{p-1}i^{k-j}\right)&\geq\left(k-j\right)\nu_q\left(n\right)+\nu_q\left(p-1\right)-\nu_q\left(\left(k-j+1\right)!\right)\\
+	&=\left(k-j\right)\nu_q\left(p-1\right)+\nu_q\left(p-1\right)-\frac{k-j+1-s_q\left(k-j+1\right)}{q-1}\\
+	&\leq\left(k-j\right)+\nu_q\left(p-1\right)-\left(k-j\right)\\
+	&=\nu_q\left(P-1\right)
+\end{align*}
+for all primes $q$ which divide $p-1$, so $p-1$ divides $n^{k-j}\displaystyle\sum_{i=0}^{p-1}i^{k-j}$. Then \[\left(p-1\right)d_k\left(n\right)\equiv pd_k\left(\frac{n}{p}\right)-p^kd_k\left(\frac{n}{p}\right)\equiv0\pmod{p-1},\] contradiction.
+
+Suppose $n$ is not squarefree. Take a prime $p$ dividing $n$ such that $p^2\mid n$. Consider the numbers $a+i\cdot\frac{n}{p}$, where $a\in A\left(\frac{n}{p}\right)$ and $i\in\left\{0,1,\ldots,p-1\right\}$. By definition, these are the positive integers less than $n$ that are relatively prime to $\frac{n}{p}$, so $A\left(n\right)$ is a subset of these numbers. But there are $p\varphi\left(\frac{n}{p}\right)=\varphi\left(n\right)$ such numbers, so $A\left(n\right)$ is precisely this set. That is, \[A\left(n\right)=\left\{a+i\cdot\frac{n}{p}\mid a\in A\left(\frac{n}{p}\right),i\in\left\{0,1,\ldots,p-1\right\}\right\}.\] Then
+\begin{align*}
+	\displaystyle\sum_{a\in A\left(n\right)}a^k&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}\left(a+i\cdot\frac{n}{p}\right)^k\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}\displaystyle\sum_{j=0}^k\binom{k}{j}a^j\left(i\cdot\frac{n}{p}\right)^{k-j}\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}\displaystyle\sum_{a\in A\left(\frac{n}{p}\right)}a^j\\
+	&=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)\varphi\left(\frac{n}{p}\right)\\
+	&=\frac{\varphi\left(n\right)}{p}\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)
+\end{align*}
+where we use the fact that $\varphi\left(n\right)=p\varphi\left(\frac{n}{p}\right)$. But $n^{k-j}$ is divisible by $p$ when $j<k$, so \[pd_k\left(n\right)=\displaystyle\sum_{i=0}^{p-1}\displaystyle\sum_{j=0}^k\binom{k}{j}\left(i\cdot\frac{n}{p}\right)^{k-j}d_j\left(\frac{n}{p}\right)\equiv0\pmod p\] and hence $d_k\left(n\right)$ is an integer, contradiction.
+
+Thus, there is always a contradiction so our assumption is wrong and hence the problem statement must be true.

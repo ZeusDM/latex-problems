@@ -1,0 +1,12 @@
+The answer is any even integer. To show that these work, let $m$ be an even integer and consider the function $f$ that fixes all integers besides $1000$ and $m$ and swaps $1000$ and $m$. Then both sides of the equation are equal to $n$ for all $n$ --- if $n=1000$ or $m$ then $f(n)$ is even so the LHS is a convolution of $f^2$ which is identity; if $n\neq1000$ or $m$ then everything is a convolution of the identity. Now we show that odd integers do not work.
+
+First note that $f$ is injective. Indeed, if $f(a)=f(b)$ then \[a^2=f^{f(a)-1}(f(a))f(f(a))=f^{f(b)-1}(f(b))f(f(b))=b^2\] so $a=b$.
+
+Now we prove that all odd $n$ are fixed points of $f$. For $n=1$, we have \[1=f^{f(1)}(1)f^2(1)\] so $f^{f(1)}(1)=f^2(1)=1$. Additionally, \[f(1)^2=f^{f(f(1))}(f(1))f^2(f(1))=1\cdot f(1)\] so $f(1)=1$. Now assume $1,3,\ldots,n-2$ are fixed points for some odd $n$. We have
+\begin{align*}
+	n^2&=f^{f(n)}(n)f^2(n)\\
+	f(n)^2&=f^{f^2(n)+1}(n)f^3(n)
+\end{align*}
+by the functional equation. Then $f^2(n)$ is odd. If $f^2(n)<n$ then it is a fixed point. Then $f^3(n)=f^2(n)$ so by injectivity, $f(n)=n$ so $f^2(n)=n$, contradiction. Similarly $f^{f(n)}(n)$ is odd. If $f^{f(n)}(n)<n$ then it is a fixed point, so $f^{f(n)+1}(n)=f^{f(n)}(n)$ and by injectivity, $f(n)=n$ so $f^{f(n)}(n)=n$, contradiction. Thus $f^2(n)$ and $f^{f(n)}(n)$ are both at least $n$. But their product is $n^2$, so both are exactly $n$. But then \[f(n)^2=f^{n+1}(n)f(n)\] and $n+1$ is even so $f^{n+1}(n)=n$ and it follows that $f(n)=n$. So by induction, all odd $n$ are fixed points.
+
+Suppose $f(1000)=m$ with $m$ odd. Then $f^{f(n)}(n)=m$ and $f^2(n)=m$ so $n^2=m^2$, contradiction. Thus $f(1000)$ must be even.

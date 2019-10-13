@@ -1,0 +1,12 @@
+In triangle $ABC$, $BC=2$. Point $D$ is on $\overline{AC}$ such that $AD=1$ and $CD=2$. If $\text{m}\angle{BDC}=2\text{m}\angle{A}$, compute $\sin A$.
+
+\begin{center}
+	\begin{asy}
+		size(8cm);
+		import olympiad;
+		pair A=(3,0), B=(7/4,sqrt(15)/4), C=(0,0), D=(2,0);
+		draw(A--B--C--cycle); draw(B--D);
+		draw(anglemark(B,D,C)); markscalefactor=0.02; draw(anglemark(B,D,C));  markscalefactor=0.03; draw(anglemark(B,A,C));
+		label("$A$",A,SE); label("$B$",B,N); label("$C$",C,SW); label("$D$",D,S);
+	\end{asy}
+\end{center}

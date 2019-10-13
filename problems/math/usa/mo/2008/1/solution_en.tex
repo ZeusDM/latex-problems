@@ -1,0 +1,5 @@
+We prove the stronger statement that there exists a sequence $\{k_n\}_{n\geq0}$ of pairwise relatively prime integers greater than $1$ and sequence $\{m_n\}_{n\geq1}$ such that $k_0k_1\cdots k_n=m_n^2+m_n+1$ for each positive integer $n$.
+
+Specifically, we take $k_0=7$ and $k_i=2^{2^i}-2^{2^{i-1}}+1$ for each positive integer $i$. Then \[\displaystyle\prod_{i=0}^nk_i=(2^2+2+1)\displaystyle\prod_{i=1}^n2^{2^i}-2^{2^{i-1}}+1=2^{2^{n+1}}+2^{2^n}+1\] using the identity $(x^2+x+1)(x^2-x+1)=x^4+x^2+1$. Thus we can choose $m_n=2^{2^n}$.
+
+It suffices to prove that $\gcd(k_m,k_n)=1$ for $m<n$. Let $p$ be a prime and suppose $p\mid k_m,k_n$. Then $p\mid 2^{3\cdot2^{m-1}}+1,2^{3\cdot2^{n-1}}+1$. Thus \[2^{3\cdot2^{m-1}}\equiv-1\pmod p\qquad\Longrightarrow\qquad2^{3\cdot2^{m-1}\cdot2^{n-m}}\equiv1\pmod p\] so $p=2$, contradiction. Thus $\gcd(k_m,k_n)=1$.

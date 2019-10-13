@@ -1,0 +1,3 @@
+If $n=0$, take $\left(0,0\right)$, $\left(1,1\right)$, $\left(2,4\right)$ which has area $1$.
+
+Otherwise, let $a=0$, $b=2^{4n-2}+2^{2n}+1$, $c=2^{2n+1}$. I claim that the triangle $A=\left(a,a^2\right)$, $B=\left(b,b^2\right)$, $C=\left(c,c^2\right)$ works with $m=2^{4n-2}-1$. Note that by Shoelace Formula, the area of $\triangle{ABC}$ is \begin{align*}\frac{1}{2}\left|ab^2+bc^2+ca^2-a^2b-b^2c-c^2a\right|&=\frac{1}{2}\left|\left(b-c\right)\left(c-a\right)\left(a-b\right)\right|\\&=\frac{1}{2}\left(2^{4n-2}-2^{2n}+1\right)\cdot2^{2n+1}\cdot\left(2^{4n-2}+2^{2n}+1\right)\\&=\left(2^n\left(2^{4n-2}-1\right)\right)^2,\end{align*} so we are done. $\blacksquare$.

@@ -1,0 +1,30 @@
+If $a\geq b$ and $x\in[a,a+1]$, I claim that
+\[
+	1\leq(1+(x-a)^2)(1+(x-b)^2)<6+6(a-b)^2.
+\]
+To prove this, observe from Lagrange's identity that
+\begin{align*}
+	(1+(x-a)^2)(1+(x-b)^2) &= ((x-a)(x-b)+1)^2+(a-b)^2 \\
+	&\leq (a-b+2)^2 + (a-b)^2 \\
+	&= 2(a-b)^2+4(a-b)+4 \\
+	&= 6+6(a-b)^2-(2a-2b-1)^2-1 \\
+	&< 6+6(a-b)^2
+\end{align*}
+and the first inequality is clearly true. Then
+\begin{align*}
+	An &\geq \int_{-\infty}^{\infty}\sum_{i,j=1}^n \frac{dx}{(1+(x-a_i)^2)(1+(x-a_j)^2)} \\
+	&= \sum_{i,j=1}^n\int_{-\infty}^{\infty} \frac{dx}{(1+(x-a_i)^2)(1+(x-a_j)^2)} \\
+	&\geq \sum_{i,j=1}^n\int_{\max\{a_i,a_j\}}^{\max\{a_i,a_j\}+1} \frac{dx}{(1+(x-a_i)^2)(1+(x-a_j)^2)} \\
+	&\geq \sum_{i,j=1}^n\int_{\max\{a_i,a_j\}}^{\max\{a_i,a_j\}+1} \frac{dx}{6+6(a_i-a_j)^2} \\
+	&= \frac{1}{6} \sum_{i,j=1}^n \frac{1}{1+(a_i-a_j)^2} \\
+	&\geq \frac{1}{6}\cdot\frac{n^4}{\sum_{i,j=1}^n (1+(a_i-a_j)^2)}
+\end{align*}
+by AM-HM on $\frac{1}{1+(a_i-a_j)^2}$ so
+\[
+	\sum_{i,j=1}^n (1+(a_i-a_j)^2) \geq \frac{1}{6A}n^3.
+\]
+Since $\frac{1}{1+(x-a_1)^2}>0$ for all $x\in\mathbb{R}$,
+\[
+	A \geq \int_{-\infty}^{\infty} \left(\frac{1}{1+(x-a_1)^2}\right)^2 dx>0
+\]
+so we can choose $B=\frac{1}{6A}$.

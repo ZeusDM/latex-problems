@@ -1,0 +1,8 @@
+Casework on the number of substitutions made.
+\begin{itemize}
+	\item $0$ substitutions. Clearly only $1$ way for this to happen.
+	\item $1$ substitution. There are $11$ ways to choose the player to sub out, then $11$ ways to choose the player to sub in for $121$ ways.
+	\item $2$ substitutions. There are $121$ ways for the first substitution, then $11\cdot10$ ways for the second substitution as before. This gives $310\pmod{1000}$ ways.
+	\item $3$ substitutions. There are $310\pmod{1000}$ ways for the first two substitutions, then $11\cdot9$ ways for the third substitution. This gives $690\pmod{1000}$ ways.
+\end{itemize}
+Adding up, we get $1+121+310+690\equiv\boxed{122}\pmod{1000}$ ways in total.

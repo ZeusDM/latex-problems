@@ -1,0 +1,38 @@
+Let $A=a,B=b,C=c,D=d,E=e,F=f$ on the complex plane. Then $\left|b-a\right|=\left|e-d\right|$, $\left|c-b\right|=\left|f-e\right|$, $\left|d-c\right|=\left|a-f\right|$ by the length condition and \[\frac{b-a}{f-a}\div\frac{e-d}{c-d}=\frac{d-c}{b-c}\div\frac{a-f}{e-f}=\frac{f-e}{d-e}\div\frac{c-b}{a-b}\] by the angle condition (these are equalities instead of proportionalities because each of these expressions have modulus $1$). Rearrange this big equality to \[\frac{b-a}{e-d}\cdot\frac{d-c}{a-f}=\frac{d-c}{a-f}\cdot\frac{f-e}{c-b}=\frac{f-e}{c-b}\cdot\frac{b-a}{e-b},\] whence \[\frac{b-a}{e-d}=\frac{f-e}{c-b}=\frac{d-c}{a-f}.\] Call this common number $\frac{1}{w}$, with $\left|w\right|=1$. Observe that
+\begin{align*}
+	0&=\left(b-a\right)+\left(c-b\right)+\left(d-c\right)+\left(e-d\right)+\left(f-e\right)+\left(a-f\right)\\
+	&=\left(b-a\right)+w\left(f-e\right)+\left(d-c\right)+w\left(b-a\right)+\left(f-e\right)+w\left(d-c\right)\\
+	&=\left(b-a+d-c+f-e\right)\left(1+w\right).
+\end{align*}
+If $w=-1$, then $ABCDEF$ is centrally symmetric and hence the long diagonals concur at the center of the hexagon. Otherwise, we have that $a+c+e=b+d+f$.
+
+First, we show that \[\overline{a}d+\overline{c}f+\overline{e}b=a\overline{d}+c\overline{f}+e\overline{b},\] equivalently that $\overline{a}d+\overline{c}f+\overline{e}b\in\mathbb{R}$. Write
+\begin{align*}
+	a&=a\\
+	b&=a+\left(b-a\right)\\
+	c&=b+\left(c-b\right)=b+w\left(f-e\right)=a+\left(b-a\right)+w\left(f-e\right)\\
+	d&=c+\left(d-c\right)=a+\left(b-a\right)+w\left(f-e\right)+\left(d-c\right)=a-\left(f-e\right)+w\left(f-e\right)\\
+	e&=d+\left(e-d\right)=d+w\left(b-a\right)=a-\left(f-e\right)+w\left(f-e\right)+w\left(b-a\right)=a-\left(f-e\right)-w\left(d-c\right)\\
+	f&=e+\left(f-e\right)=a-w\left(d-c\right).
+\end{align*}
+Then we have
+\begin{align*}
+	\overline{a}d+\overline{c}f+\overline{e}b&=\overline{a}\left(a+\left(w-1\right)\left(f-e\right)\right)\\&+\left(\overline{a}+\left(\overline{b}-\overline{a}\right)+\frac{1}{w}\left(\overline{f}-\overline{e}\right)\right)\left(a-w\left(d-c\right)\right)\\&+\left(\overline{a}-\left(\overline{f}-\overline{e}\right)-\frac{1}{w}\left(\overline{d}-\overline{c}\right)\right)\left(a+\left(b-a\right)\right)\\
+	&=a\overline{a}+w\overline{a}\left(f-e\right)-\overline{a}\left(f-e\right)\\&+a\overline{a}-w\overline{a}\left(d-c\right)+a\left(\overline{b}-\overline{a}\right)-w\left(\overline{b}-\overline{a}\right)\left(d-c\right)+\frac{1}{w}a\left(\overline{f}-\overline{e}\right)-\left(\overline{f}-\overline{e}\right)\left(d-c\right)\\&+a\overline{a}+\overline{a}\left(b-a\right)-a\left(\overline{f}-\overline{e}\right)-\left(\overline{f}-\overline{e}\right)\left(b-a\right)-\frac{1}{w}a\left(\overline{d}-\overline{c}\right)-\frac{1}{w}\left(\overline{d}-\overline{c}\right)\left(b-a\right)\\
+	&=3a\overline{a}+w\overline{a}\left(f-e-d+c\right)+\frac{1}{w}a\overline{\left(f-e-d+c\right)}\\&-w\overline{\left(b-a\right)}\left(d-c\right)-\frac{1}{w}\left(b-a\right)\overline{\left(d-c\right)}\\&+a\overline{\left(b-a-f+e\right)}+\overline{a}\left(b-a-f+e\right)-\overline{\left(f-e\right)}\left(d-c+b-a\right)\\
+	&=3a\overline{a}+w\overline{a}\left(f-e-d+c\right)+\frac{1}{w}a\overline{\left(f-e-d+c\right)}\\&-w\overline{\left(b-a\right)}\left(d-c\right)-\frac{1}{w}\left(b-a\right)\overline{\left(d-c\right)}\\&+a\overline{\left(b-a-f+e\right)}+\overline{a}\left(b-a-f+e\right)+\overline{\left(f-e\right)}\left(f-e\right),
+\end{align*}
+which is the sum of real numbers $3a\overline{a}$, $w\overline{a}\left(f-e-d+c\right)+\frac{1}{w}a\overline{\left(f-e-d+c\right)}$, $-w\overline{\left(b-a\right)}\left(d-c\right)-\frac{1}{w}\left(b-a\right)\overline{\left(d-c\right)}$, $a\overline{\left(b-a-f+e\right)}+\overline{a}\left(b-a-f+e\right)$, and $\overline{\left(f-e\right)}\left(f-e\right)$. So \[\overline{a}d+\overline{c}f+\overline{e}b=a\overline{d}+c\overline{f}+e\overline{b},\] and thus \[\left(\overline{a}d-a\overline{d}\right)-\left(\overline{b}e-b\overline{e}\right)=-\left(\overline{c}f-c\overline{f}\right).\]
+
+Now, let $X_1=AD\cap BE,X_2=AD\cap CF$. Compute by intersection formula that \[x_1=\frac{\left(\overline{a}d-a\overline{d}\right)\left(b-e\right)-\left(\overline{b}e-b\overline{e}\right)\left(a-d\right)}{\left(\overline{a}-\overline{d}\right)\left(b-e\right)-\left(\overline{b}-\overline{e}\right)\left(a-d\right)}\] and \[x_2=\frac{\left(\overline{a}d-a\overline{d}\right)\left(c-f\right)-\left(\overline{c}f-c\overline{f}\right)\left(a-d\right)}{\left(\overline{a}-\overline{d}\right)\left(c-f\right)-\left(\overline{c}-\overline{f}\right)\left(a-d\right)}.\] Now, observe that
+\begin{align*}
+	\left(\overline{a}d-a\overline{d}\right)\left(b-e\right)-\left(\overline{b}e-b\overline{e}\right)\left(a-d\right)&=\left(\overline{a}d-a\overline{d}\right)\left(a-d+c-f\right)-\left(\overline{b}e-b\overline{e}\right)\left(a-d\right)\\
+	&=\left(\overline{a}d-a\overline{d}\right)\left(c-f\right)+\left(\overline{a}d-a\overline{d}\right)\left(a-d\right)-\left(\overline{b}e-b\overline{e}\right)\left(a-d\right)\\
+	&=\left(\overline{a}d-a\overline{d}\right)\left(c-f\right)-\left(\overline{c}f-c\overline{f}\right)\left(a-d\right)
+\end{align*}
+and
+\begin{align*}
+	\left(\overline{a}-\overline{d}\right)\left(b-e\right)-\left(\overline{b}-\overline{e}\right)\left(a-d\right)&=\left(\overline{a}-\overline{d}\right)\left(a-d+c-f\right)-\left(\overline{a}-\overline{d}+\overline{c}-\overline{f}\right)\left(a-d\right)\\
+	&=\left(\overline{a}-\overline{d}\right)\left(c-f\right)-\left(\overline{c}-\overline{f}\right)\left(a-d\right),
+\end{align*}
+so $X_1=X_2$ and hence $AD,BE,CF$ concur.

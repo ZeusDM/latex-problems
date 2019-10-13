@@ -1,0 +1,15 @@
+for i in {2011..2019};
+do
+    #mkdir $i
+    #rm $i/source_pt.tex
+    #rm $i/source_en.tex
+    #echo "USA TST $i" >> $i/source_pt.tex
+    #echo "USA TST $i" >> $i/source_en.tex
+	for j in {1..9}
+	do
+		#mkdir $i/$j
+		#rm $i/$j/number.tex
+		#echo "$j" >> $i/$j/number.tex
+		mv TSTST-$i-$j.tex $i/$j/solution_en.tex
+	done
+done

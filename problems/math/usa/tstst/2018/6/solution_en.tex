@@ -1,0 +1,14 @@
+The answer is $\boxed{n\text{ even}}$.
+
+For a polynomial $P\left(x\right)$, let $C_{100}\left(P\left(x\right)\right)$ denote the sum of the coefficients of $P$ for monomials of degree divisible by $100$. Then by roots of unity filter, \[C_{100}\left(P\left(x\right)\right)=\frac{1}{100}\displaystyle\sum_{j=0}^{99}P\left(\omega^j\right),\] where $\omega=e^{i\frac{2\pi}{100}}$. It is clear that $C_{100}$ is a linear map.
+
+Partition $S=S_R\sqcup S_B$ with $S_R$ the reds and $S_B$ the blues. Define
+\begin{align*}
+	R\left(x\right)&=\displaystyle\sum_{k\in S_R}x^k\\
+	B\left(x\right)&=\displaystyle\sum_{k\in S_B}x^k,
+\end{align*}
+so $R\left(1\right)=\left|S_R\right|=75$ and $B\left(1\right)=\left|S_B\right|=25$. Also observe that \[R\left(x\right)+B\left(x\right)=\displaystyle\sum_{k=1}^{100}x^k=x\cdot\frac{x^{100}-1}{x-1}.\] Observe that $C_{100}\left(\binom{n}{i}R\left(x\right)^iB\left(x\right)^{n-i}\right)$ is the number of $n$-tuples in $T_n$ with $i$ red elements, so $n$ satisfying the problem condition is equivalent to \[\displaystyle\sum_{i\text{ even}}C_{100}\left(\binom{n}{i}R\left(x\right)^iB\left(x\right)^{n-i}\right)\geq\displaystyle\sum_{i\text{ odd}}C_{100}\left(\binom{n}{i}R\left(x\right)^iB\left(x\right)^{n-i}\right),\] equivalently \[C_{100}\left(\displaystyle\sum_{i=0}^n\left(-1\right)^i\binom{n}{i}R\left(x\right)^iB\left(x\right)^{n-i}\right)\geq0.\] By the BInomial Theorem, this is equivalent to \[C_{100}\left(\left(-R\left(x\right)+B\left(x\right)\right)^n\right)\geq0,\] or \[\frac{1}{100}\displaystyle\sum_{j=0}^{99}\left(-R\left(\omega^j\right)+B\left(\omega^j\right)\right)^n\geq0.\] The LHS is \[\frac{1}{100}\left(\left(-50\right)^n+\displaystyle\sum_{j=1}^{99}\left(-R\left(\omega^j\right)+B\left(\omega^j\right)\right)^n\right).\] For $j=1,2,\ldots,99$, observe that \[-R\left(\omega^j\right)+B\left(\omega^j\right)=2B\left(\omega^j\right)-\omega^j\cdot\frac{\omega^{100j}-1}{\omega^j-1}=2B\left(\omega^j\right),\] so the LHS is \[\frac{1}{100}\left(\left(-50\right)^n-50^n+2^n\displaystyle\sum_{j=0}^{99}B\left(\omega^j\right)^n\right)=\frac{\left(-50\right)^n-50^n}{100}+2^nC_{100}\left(B\left(x\right)^n\right).\]
+
+When $n$ is even, this just becomes $2^nC_{100}\left(B\left(x\right)^n\right)\geq0$ since the coefficients of $B\left(x\right)$ are non-negative. If $n$ is odd, this becomes \[-50^{n-1}+2^nC_{100}\left(B\left(x\right)^n\right).\] But if $S_B=\left\{4a+1\mid a=0,1,\ldots,24\right\}$, then any $n$ ($n$ is odd) elements of $S_B$ cannot add up to a multiple of $100$, so $C_{100}\left(B\left(x\right)^n\right)=0$ and hence this is $-50^{n-1}$, so $n$ fails.
+
+Thus, this works if and only if $n$ is even.

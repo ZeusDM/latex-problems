@@ -1,0 +1,11 @@
+Two equilateral triangles of side length $1$ and six isosceles triangles with legs of length $x$ and base of length $1$ are joined as shown below; the net is folded to make a solid. If the volume of the solid is $6$, compute $x$.
+
+\begin{center}
+	\begin{asy}
+		size(6cm);
+		real x=2.55, h=sqrt(x^2-0.25);
+		pair A=(-0.5,h), B=A+dir(0), C=B+dir(0), D=C+dir(0), E=(0,0), F=E+dir(0), G=F+dir(0), H=G+dir(0), P=(0,h+sqrt(3)/2), Q=(5/2,-sqrt(3)/2);
+		draw(A--B--C--D); draw(E--F--G--H); draw(A--E--B--F--C--G--D--H); draw(A--P--B); draw(G--Q--H);
+		label("$1$",(A+P)/2,dir(A--P)*dir(90)); label("$x$",(A+E)/2,dir(E--A)*dir(90));
+	\end{asy}
+\end{center}

@@ -1,0 +1,22 @@
+The maximum is $\boxed{\frac{480}{49}}$. If $x_1=x_2=x_3=0$ and $x_4=x_5=\ldots=x_{10}=\arccos\left(-\frac{3}{7}\right)$ then $\cos\left(3x_i\right)=\cos\left(0\right)=1$ for $i=1,2,3$ and $\cos\left(3x_i\right)=4\cos^3\left(x_i\right)-3\cos\left(x_i\right)=\frac{333}{343}$ for $i=4,5,\ldots,10$ and thus $\displaystyle\sum_{i=1}^{10}\cos\left(3x_i\right)=3\cdot1+7\cdot\frac{333}{343}=\frac{480}{49}$ so this maximum is obtainable.
+
+Define the multisets \[A=\left\{\cos\left(x_i\right)\mid\cos\left(x_i\right)\geq0\right\}\] and \[B=\left\{-\cos\left(x_i\right)\mid\cos\left(x_i\right)<0\right\}\] such that $A,B$ consist of real numbers in $\left[0,1\right]$. Note that $\left|A\right|+\left|B\right|=10$. If $\left|A\right|=0$, then every $\cos\left(x_i\right)$ is negative but they sum to $0$, contradiction. Thus $\left|A\right|\geq1$. If $\left|A\right|=10$, then no $\cos\left(x_i\right)$ is negative but they sum to $0$, so they must all be $0$ and hence the sum of $\cos\left(3x_i\right)$ is $0$. So we can assume $\left|A\right|\leq9$.
+
+Then $\displaystyle\sum_{a\in A}a-\displaystyle\sum_{b\in B}b=0$. Let $S=\displaystyle\sum_{a\in A}a=\displaystyle\sum_{b\in B}b$. Then \[\displaystyle\sum_{a\in A}a^3\leq\displaystyle\sum_{a\in A}a=S\] since $a^3\leq a$ for $a\in\left[0,1\right]$ and \[\sqrt[3]{\frac{1}{\left|B\right|}\displaystyle\sum_{b\in B}b^3}\geq\frac{1}{\left|B\right|}\displaystyle\sum_{b\in B}b\] by Power Mean Inequality so \[\displaystyle\sum_{b\in B}b^3\geq\frac{S^3}{\left|B\right|^2}.\] Thus \[\displaystyle\sum_{a\in A}a^3-\displaystyle\sum_{b\in B}b^3\leq S-\frac{S^3}{\left|B\right|^2}.\] Note that $S=\displaystyle\sum_{a\in A}a\leq\displaystyle\sum_{a\in A}1=\left|A\right|$ and similarly $S\leq\left|B\right|$.
+
+Fix $\left|B\right|$ and let $f\left(x\right)=x-\frac{x^3}{\left|B\right|^2}$. Then the maximum of $f$ in the interval $\left[0,\min\left\{\left|A\right|,\left|B\right|\right\}\right]$ comes at one of the endpoints or at a local maxima. Note that $f'\left(x\right)=1-\frac{3x^2}{\left|B\right|^2}$ and $f''\left(x\right)=-\frac{6x}{\left|B\right|^2}$, so the local maxima occurs when $f'\left(x\right)=0$ and $x>0$ so $x=\frac{\left|B\right|}{\sqrt{3}}$.
+
+If $\left|A\right|>5$, then clearly $\frac{\left|B\right|}{\sqrt{3}}<\left|B\right|=\min\left\{\left|A\right|,\left|B\right|\right\}$, so $\frac{\left|B\right|}{\sqrt{3}}$ is in the interval. If $4\leq\left|A\right|\leq5$, then $\frac{\left|B\right|}{\sqrt{3}}<\left|A\right|$ since this is equivalent to $\left|A\right|>\frac{10}{\sqrt{3}+1}$ so $\frac{\left|B\right|}{\sqrt{3}}$ is in the interval. Similarly, $\frac{\left|B\right|}{\sqrt{3}}$ is not in the interval for $\left|A\right|\leq3$.
+
+Thus if $\left|A\right|\geq4$ (equivalently $\left|B\right|\leq6$), \[S-\frac{S^3}{\left|B\right|^2}\leq\frac{\left|B\right|}{\sqrt{3}}-\frac{\frac{\left|B\right|^3}{3\sqrt{3}}}{\left|B\right|^2}=\frac{2\left|B\right|}{3\sqrt{3}}\leq\frac{4}{\sqrt{3}}.\] And if $\left|A\right|\leq3$, \[S-\frac{S^3}{\left|B\right|^2}\leq\left|A\right|-\frac{\left|A\right|^3}{\left|B\right|^2}=\left|A\right|-\frac{\left|A\right|^3}{\left(10-\left|A\right|\right)^2}\] which evaluates to $\frac{80}{81}$ at $\left|A\right|=1$, $\frac{15}{8}$ at $\left|A\right|=2$, and $\frac{120}{49}$ at $\left|A\right|=3$. Thus \[S-\frac{S^3}{\left|B\right|^2}\leq\frac{120}{49}.\] Since $\frac{4}{\sqrt{3}}<\frac{120}{49}$, we deduce that $S-\frac{S^3}{\left|B\right|^2}\leq\frac{120}{49}$ no matter what $\left|B\right|$ is.
+
+Now, note that $\cos\left(3x\right)=4\cos^3\left(x\right)-3\cos\left(x\right)$, so
+\begin{align*}
+	\displaystyle\sum_{i=1}^{10}\cos\left(3x_i\right)&=\displaystyle\sum_{i=1}^{10}4\cos^3\left(x_i\right)-3\cos\left(x_i\right)\\
+	&=4\displaystyle\sum_{i=1}^{10}\cos^3\left(x_i\right)-3\displaystyle\sum_{i=1}^{10}\cos\left(x_i\right)\\
+	&=4\displaystyle\sum_{i=1}^{10}\cos^3\left(x_i\right)\\
+	&=4\left(\displaystyle\sum_{a\in A}a^3-\displaystyle\sum_{b\in B}b^3\right)\\
+	&\leq4\left(S-\frac{S^3}{\left|B\right|^2}\right)\\
+	&\leq\frac{480}{49}
+\end{align*}
+as desired.

@@ -1,0 +1,17 @@
+Let $Q$ be the projection of $T$ onto plane $WASH$. By the British Flag Theorem, \[WQ^2+SQ^2=AQ^2+HQ^2.\] Letting $d$ be the distance from $T$ to the plane, we thus have that \[WQ^2+d^2+SQ^2+d^2=AQ^2+d^2+HQ^2+d^2,\] so \[WT^2+ST^2=AT^2+HT^2.\] By the Law of Cosines in $\triangle{ATH}$, \[AT^2+HT^2=AH^2+2\cdot AT\cdot HT\cdot\cos\angle{ATH}.\] So \[2\cdot AT\cdot HT-ST^2\geq2\cdot AT\cdot HT\cdot\cos\angle{ATH}-ST^2=WT^2-AH^2=WT^2-WS^2=\boxed{-76}.\] We can check that equality holds when $T$ is the point on line $AH$ such that $WT=18$ and $T$ is outside the rectangle.
+
+\begin{center}
+    \begin{asy}
+        size(8cm);
+        pair W=(0,12), A=(0,0), S=(16,0), H=(16,12), T=-(sqrt(231.84)-36/5)*(0.8,0.6);
+        draw(W--A--S--H--cycle);
+        draw(W--S);
+        draw(A--H);
+        draw(W--T--A,dashed);
+        label("$W$",W,NW);
+        label("$A$",A,SE);
+        label("$S$",S,SE);
+        label("$H$",H,NE);
+        label("$T$",T,SW);
+    \end{asy}
+\end{center}

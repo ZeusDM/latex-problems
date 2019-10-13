@@ -1,0 +1,20 @@
+Yes. Let $P$ be an arbitrary point. Let $ABCD$ be a square centered at $P$, and let $E,F,G,H$ be the midpoints of $AB,BC,CD,DA$, respectively.
+\begin{center}
+	\begin{asy}
+		size(7cm);
+		pair P=(0,0), A=(-1,1), B=(1,1), C=(1,-1), D=(-1,-1), E=(0,1), F=(1,0), G=(0,-1), H=(-1,0);
+		draw(A--B--C--D--cycle,red+linewidth(1.3));
+		draw(E--F--G--H--cycle,blue+linewidth(1.3));
+		draw(E--G); draw(F--H);
+		dot(P); dot(A); dot(B); dot(C); dot(D); dot(E); dot(F); dot(G); dot(H);
+		label("$P$",P,dir(45)); label("$A$",A,dir(135)); label("$B$",B,dir(45)); label("$C$",C,dir(315)); label("$D$",D,dir(225)); label("$E$",E,dir(90)); label("$F$",F,dir(0)); label("$G$",G,dir(270)); label("$H$",H,dir(180));
+	\end{asy}
+\end{center}
+Then
+\begin{align*}
+	f(P)&=f(P)+\frac{1}{4}[f(A)+f(B)+f(C)+f(D)]+\frac{1}{2}[f(E)+f(F)+f(G)+f(H)]\\
+	&=\frac{1}{4}[f(A)+f(E)+f(P)+f(H)]+\frac{1}{4}[f(E)+f(B)+f(F)+f(P)]\\
+	&+\frac{1}{4}[f(P)+f(F)+f(C)+f(G)]+\frac{1}{4}[f(H)+f(P)+f(G)+f(D)]\\
+	&=0
+\end{align*}
+as desired.

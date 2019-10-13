@@ -1,0 +1,20 @@
+The diagram below shows the circular face of a clock with radius $20$ cm and a circular disk with radius $10$ cm externally tangent to the clock face at $12$ o'clock. The disk has an arrow painted on it, initially pointing in the upward vertical direction. Let the disk roll clockwise around the clock face. At what point on the clock face will the disk be tangent when the arrow is next pointing in the upward vertical direction?
+
+\begin{center}
+	\begin{asy}
+		size(6cm);
+		import olympiad;
+		defaultpen(linewidth(0.9)+fontsize(13pt));
+		draw(unitcircle^^circle((0,1.5),0.5));
+		path arrow = origin--(-0.13,-0.35)--(-0.06,-0.35)--(-0.06,-0.7)--(0.06,-0.7)--(0.06,-0.35)--(0.13,-0.35)--cycle;
+		for(int i=1;i<=12;i=i+1) {
+			draw(0.9*dir(90-30*i)--dir(90-30*i));
+			label("$"+(string) i+"$",0.78*dir(90-30*i));
+		}
+		dot(origin);
+		draw(shift((0,1.87))*arrow);
+		draw(arc(origin,1.5,68,30),EndArrow(size=12));
+	\end{asy}
+\end{center}
+
+$\textbf{(A) }\text{2 o'clock}\qquad\textbf{(B) }\text{3 o'clock}\qquad\textbf{(C) }\text{4 o'clock}\qquad\textbf{(D) }\text{6 o'clock}\qquad\textbf{(E) }\text{8 o'clock}$

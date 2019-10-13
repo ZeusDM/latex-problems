@@ -1,0 +1,8 @@
+First, we prove that there is a solution. Consider the graph $G$ with vertex set $V=V_{\text{in}}\sqcup V_{\text{out}}$, where $\left|V_{\text{in}}\right|=\left|V_{\text{out}}\right|$ is the number of cities and each vertex in $V_{\text{in}}$ and $V_{\text{out}}$ correspond to a city. We draw an edge between $a\in V_{\text{in}}$ and $b\in V_{\text{out}}$ when there is a road from $b$ to $a$. Then $G$ is bipartite and regular of degree $2$. Suppose that for some $k$ vertices in $V_{\text{in}}$, there are $j<k$ vertices in $V_{\text{out}}$ that are neighbors with these vertices. Then by the Pigeonhole Principle, one of these vertices in $V_{\text{out}}$ has at least $\frac{2k}{j}>2$ neighbors, contradiction. So Hall's condition is satisfied and hence there is a perfect matching. But this perfect matching presents a choice of roads in which each city has exactly one road leaving and one road entering, so there is a solution.
+
+Now, create indicator variables $x_e$ for each edge in Onewaynia (so $x_e=1$ if the road is kept open, $x_e=0$ if the road is closed). Work in $\mathbb{F}_2$. We get a system of equations as follows: suppose that vertex $v$ has edges $e_1,e_2$ leaving it and edges $f_1,f_2$ entering it. Then we have equation in the form
+\begin{align*}
+	x_{e_1}+x_{e_2}&=1\\
+	x_{f_1}+x_{f_2}&=1.
+\end{align*}
+Then since everything in $\mathbb{F}_2$ is either $1$ or $0$, any solution is a valid solution. Let this system have nullity $N$. If $N=0$, then there are no solutions, contradiction. So $N\geq1$, then we can arbitrarily choose $N$ of the $x_e$ for $2^N$ ways, as desired.

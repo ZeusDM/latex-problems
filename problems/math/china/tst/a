@@ -1,0 +1,19 @@
+for i in {2008..2018}
+do
+	rm $i/source_pt.tex
+	rm $i/source_en.tex
+	echo "China TST $i" >> $i/source_pt.tex
+	echo "China TST $i" >> $i/source_en.tex
+	for j in {1..6}
+	do
+		rm $i/$j/number.tex
+		echo "$j" >> $i/$j/number.tex
+		mv ChinaTST-$i-$j.tex $i/$j/solution_en.tex
+		for k in {1..6}
+		do
+			rm $i/$j.$k/number.tex
+			echo "$j.$k" >> $i/$j.$k/number.tex
+			mv ChinaTST-$i-$j.$k.tex $i/$j.$k/solution_en.tex
+		done
+	done
+done

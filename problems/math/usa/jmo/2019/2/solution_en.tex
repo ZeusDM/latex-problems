@@ -1,0 +1,7 @@
+The answer is $\boxed{(n,n),(n,-n)}$ for any $n\in\mathbb{Z}$. To construct this, consider $f(x)=x+n$ and $g(x)=x$ for $(n,n)$, and $f(x)=-x+n$ and $g(x)=-x$ for $(n,-n)$.
+
+Now, observe that \[f(x+b)=f(g(f(x)))=f(x)+a\] and \[g(x+a)=g(f(g(x)))=g(x)+b\] for all $x\in\mathbb{Z}$. If $a=0$ then $g(x)=g(x)+b$, so $b=0$ and vice versa. So assume $a,b\neq0$.
+
+Suppose $|a|>|b|$. Then by the Pigeonhole Principle, there exist distinct $p,q\in\{1,\ldots,|a|\}$ such that $g(p)\equiv g(q)\pmod{|b|}$. Let $g(p)=g(q)+kb$. Then \[g(q+ka)=g(q)+kb=g(p).\] Then \[p+a=f(g(p))=f(g(q+ka))=q+ka+a\] so $p=q+ka$. Thus $p-q$ is divisible by $|a|$, contradiction. So $|a|\leq |b|$.
+
+Similarly $|b|\leq |a|$, so $|a|=|b|$ as desired.

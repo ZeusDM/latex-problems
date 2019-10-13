@@ -1,0 +1,13 @@
+The $n$ contestant of EGMO are named $C_1,\ldots,C_n$. After the competition they queue in front of the restaurant according to the following rules.
+\begin{itemize}
+	\item The Jury chooses the initial order of the contestants in the queue.
+	\item Every minute, the Jury chooses an integer $i$ with $1\leq i\leq n$.
+	\begin{itemize}
+		\item If contestant $C_i$ has at least $i$ other contestants in front of her, she pays one euro to the Jury and moves forward in the queue by exactly $i$ positions.
+		\item If contestant $C_i$ has fewer than $i$ other contestants in front of her, the restaurant opens and the process ends.
+	\end{itemize}
+\end{itemize}
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that the process cannot continue indefinitely, regardless of the Jury?s choices.
+	\item Determine for every $n$ the maximum number of euros that the Jury can collect by cunningly choosing the initial order and the sequence of moves.
+\end{enumerate}

@@ -1,0 +1,620 @@
+First, we will give the players names - player $A$ is Alice and player $B$ is Bilbo.
+
+I claim that the smallest value of $k$ for which Alice cannot win is $k=6$. We will assume that Bilbo plays optimally (that is, with the intent to not allow Alice to win).
+
+First, we will prove that Alice cannot win for $k\geq6$.
+
+Color the grid with this pattern:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+	    if (i == 0 || i == 3)
+	    {
+		    filldraw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle,red);
+		    filldraw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle,green);
+		}
+		if (i == 1 || i == 4)
+		{
+		    filldraw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle,blue);
+		    filldraw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle,red);
+		}
+		if (i == 2 || i == 5)
+		{
+		    filldraw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle,green);
+		    filldraw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle,blue);
+		}
+	}
+}
+\end{asy}
+\end{center}
+\end{figure}
+
+Bilbo should remove any counter placed on a red cell (and if none is placed on a red cell then arbitrarily remove any counter).
+
+It is clear that any $k\geq6$ consecutive cells that are in a line must contain at least two red cells. However, if Bilbo follows the given strategy, then there is at most $1$ red cell which has a counter at any time, contradiction. Thus, Bilbo can thwart Alice when $k\geq6$.
+
+Now, we will prove that Alice can win when $k\leq5$. It is clear that it is sufficient to prove this for $k=5$, as creating $5$ consecutive cells also creates $k\leq5$ consecutive cells.
+
+First, Alice can place arbitrarily on the grid. Then Bilbo's two options are equivalent. We are left with a single counter on the board.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+\end{asy}
+\end{center}
+\end{figure}
+
+Next, Alice makes this move:
+
+\pagebreak
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C+b-c);
+dot((9,2*sqrt(3))+C);
+\end{asy}
+\end{center}
+\end{figure}
+
+Bilbo's move is once again irrelevant, as all three options are equivalent.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C);
+\end{asy}
+\end{center}
+\end{figure}
+
+Next, Alice makes this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+a+b-c);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Bilbo's move options are all equivalent (they are the same up to rotation or reflection), so it does not matter what Bilbo does.
+
+\pagebreak
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+a+b-c);
+\end{asy}
+\end{center}
+\end{figure}
+
+Then Alice makes this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+a+b-c);
+dot((9,2*sqrt(3))+C+b-c);
+dot((9,2*sqrt(3))+C+a-c);
+\end{asy}
+\end{center}
+\end{figure}
+
+Here, Alice has formed a $3$-in-a-row. For any $k$-in-a-row ($k=3,4$) on the grid, I claim that Bilbo must remove a counter from it. Indeed, if Bilbo does not remove a counter from the $k$-in-a-row, then Alice can append to the $k$-in-a-row on the next turn to form a $k+2$-in-a-row, where $k+2\geq5$. Then Alice wins.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<3; ++i)
+{
+	for (int j=0; j<3; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((3,sqrt(3))+C-b);
+dot((3,sqrt(3))+C);
+dot((3,sqrt(3))+C+b);
+
+pair T=(15,0);
+
+for (int i=0; i<3; ++i)
+{
+	for (int j=0; j<3; ++j)
+	{
+		draw((3*j,i*sqrt(3))+T--(3*j+1,i*sqrt(3))+T--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+T--(3*j+1,i*sqrt(3)+sqrt(3))+T--(3*j+0,i*sqrt(3)+sqrt(3))+T--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+T--cycle);
+		draw((3*j,i*sqrt(3))+T+b--(3*j+1,i*sqrt(3))+T+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+T+b--(3*j+1,i*sqrt(3)+sqrt(3))+T+b--(3*j+0,i*sqrt(3)+sqrt(3))+T+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+T+b--cycle);
+	}
+}
+
+dot((3,sqrt(3))+T+C-b);
+dot((3,sqrt(3))+T+C);
+dot((3,sqrt(3))+T+C+b);
+dot((3,sqrt(3))+T+C+2*b);
+dot((3,sqrt(3))+T+C+3*b);
+\end{asy}
+\end{center}
+\end{figure}
+
+A consequence of this is that if there are multiple $k$-in-a-row lines ($k=3,4$) on the grid, then Alice is guaranteed a win if they are not all concurrent. This is because no matter what Bilbo removes, there will still be a $k$-in-a-row ($k=3,4$) on the grid which Alice can append to on the next turn.
+
+Thus, Bilbo must remove from the $3$-in-a-row. We casework on which counter is removed.
+
+Case 1: Bilbo removes one of the ends
+
+Note that these cases are identical by reflection. Thus, we can assume that Bilbo removed the top counter. Then Alice can make this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C+a-c);
+dot((9,2*sqrt(3))+C+2*a-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+a);
+dot((9,2*sqrt(3))+C+2*a);
+\end{asy}
+\end{center}
+\end{figure}
+
+Here, we have two $3$-in-a-row lines which do not concur, so Alice wins.
+
+Thus, in Case 1, Alice wins.
+
+Case 2: Bilbo removes the center counter
+
+Alice can make this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C+a-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Bilbo's move options are all equivalent by rotation, so we can assume that he removes the top counter. Then Alice can replace this counter as well as the counter in the middle of the hexagonal ring which has been formed.
+
+\pagebreak
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C+a-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+a);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Now, we have $6$ $3$-in-a-row lines which all concur at the center of the hexagonal ring, so Bilbo must remove the center of the ring.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-c);
+dot((9,2*sqrt(3))+C+a-c);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Then Alice makes this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C-b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+There is a vertical $3$-in-a-row and a diagonal $4$-in-a-row, so Bilbo must remove from both of them:
+
+\pagebreak
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Then Alice makes this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-3*b);
+dot((9,2*sqrt(3))+C+a-3*b);
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+There are two $2$-in-a-row lines on the same line which threaten to form a $5$-in-a-row. If Bilbo does not remove from these four hexagons (shaded yellow), then Alice can complete the $5$-in-a-row and win.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+for (int i=0; i<5; ++i)
+{
+    if (i != 2)
+    {
+        filldraw((3+3/2,sqrt(3)/2)+i*b--(4+3/2,sqrt(3)/2)+i*b--(6,sqrt(3))+i*b--(4+3/2,3*sqrt(3)/2)+i*b--(3+3/2,3*sqrt(3)/2)+i*b--(4,sqrt(3))+i*b--cycle,yellow);
+    }
+}
+
+dot((9,2*sqrt(3))+C-3*b);
+dot((9,2*sqrt(3))+C+a-3*b);
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Furthermore, if Bilbo removes from one of the two inner hexagons on this line, then Alice can fill in the hole on the next turn and win. Thus, Bilbo must remove one of the outer two hexagons on this line.
+
+Assume that Bilbo removes one of the grey counters (so exactly one of the grey counters remains):
+
+\pagebreak
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-3*b,grey);
+dot((9,2*sqrt(3))+C+a-3*b);
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b,grey);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Then Alice makes this move:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+dot((9,2*sqrt(3))+C-3*b,grey);
+dot((9,2*sqrt(3))+C+a-3*b);
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-2*b);
+dot((9,2*sqrt(3))+C-b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b,grey);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+Note how there is a vertical $3$-in-a-row, a diagonal $3$-in-a-row, and a diagonal $4$-in-a-row on the grid (all shaded yellow):
+
+\begin{figure}[h!]
+\begin{center}
+\begin{asy}
+size(8cm);
+
+pair C=(1/2,sqrt(3)/2), a=(0,sqrt(3)), b=(3/2,sqrt(3)/2), c=(3/2,-sqrt(3)/2);
+
+for (int i=0; i<6; ++i)
+{
+	for (int j=0; j<6; ++j)
+	{
+		draw((3*j,i*sqrt(3))--(3*j+1,i*sqrt(3))--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)--(3*j+1,i*sqrt(3)+sqrt(3))--(3*j+0,i*sqrt(3)+sqrt(3))--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)--cycle);
+		draw((3*j,i*sqrt(3))+b--(3*j+1,i*sqrt(3))+b--(3*j+3/2,i*sqrt(3)+sqrt(3)/2)+b--(3*j+1,i*sqrt(3)+sqrt(3))+b--(3*j+0,i*sqrt(3)+sqrt(3))+b--(3*j-1/2,i*sqrt(3)+sqrt(3)/2)+b--cycle);
+	}
+}
+
+for (int i=0; i<5; ++i)
+{
+    filldraw((3+3/2,sqrt(3)/2)+i*b--(4+3/2,sqrt(3)/2)+i*b--(6,sqrt(3))+i*b--(4+3/2,3*sqrt(3)/2)+i*b--(3+3/2,3*sqrt(3)/2)+i*b--(4,sqrt(3))+i*b--cycle,yellow);
+}
+
+for (int i=0; i<3; ++i)
+{
+    filldraw((3+3/2,sqrt(3)+sqrt(3)/2)+i*b--(4+3/2,sqrt(3)+sqrt(3)/2)+i*b--(6,sqrt(3)+sqrt(3))+i*b--(4+3/2,sqrt(3)+3*sqrt(3)/2)+i*b--(3+3/2,sqrt(3)+3*sqrt(3)/2)+i*b--(4,sqrt(3)+sqrt(3))+i*b--cycle,yellow);
+}
+
+filldraw((15/2,7*sqrt(3)/2)--(17/2,7*sqrt(3)/2)--(9,4*sqrt(3))--(17/2,9*sqrt(3)/2)--(15/2,9*sqrt(3)/2)--(7,4*sqrt(3))--cycle,yellow);
+
+dot((9,2*sqrt(3))+C-3*b,grey);
+dot((9,2*sqrt(3))+C+a-3*b);
+dot((9,2*sqrt(3))+C-2*b);
+dot((9,2*sqrt(3))+C+a-2*b);
+dot((9,2*sqrt(3))+C-b);
+dot((9,2*sqrt(3))+C+a-b);
+dot((9,2*sqrt(3))+C+2*a-b);
+dot((9,2*sqrt(3))+C);
+dot((9,2*sqrt(3))+C+2*a);
+dot((9,2*sqrt(3))+C+b,grey);
+dot((9,2*sqrt(3))+C+a+b);
+\end{asy}
+\end{center}
+\end{figure}
+
+These three lines do not concur, so Alice wins.
+
+Thus, in Case 2, Alice wins.
+
+We have covered all of the cases, so when $k\leq5$, then Alice wins.
+
+Thus, the smallest value of $k$ for which Alice cannot win is $k=6$.

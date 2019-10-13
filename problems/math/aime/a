@@ -1,0 +1,17 @@
+for t in I II
+do
+	for i in {2000..2019}
+	do
+		rm $t/$i/source_pt.tex
+		rm $t/$i/source_en.tex
+		echo "AIME $t $i" >> $t/$i/source_pt.tex
+		echo "AIME $t $i" >> $t/$i/source_en.tex
+		for j in {1..15}
+		do
+			mkdir $t/$i/$j
+			rm $t/$i/$j/number.tex
+			echo "$j" >> $t/$i/$j/number.tex
+			mv AIME$t-$i-$j.tex $t/$i/$j/solution_en.tex
+		done
+	done
+done
