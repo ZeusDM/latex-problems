@@ -1,0 +1,29 @@
+An L-shape is one of the following four pieces, each consisting of three unit squares:[asy]
+
+size(300);
+
+defaultpen(linewidth(0.8));
+
+path P=(1,2)--(0,2)--origin--(1,0)--(1,2)--(2,2)--(2,1)--(0,1);
+
+draw(P);
+
+draw(shift((2.7,0))*rotate(90,(1,1))*P);
+
+draw(shift((5.4,0))*rotate(180,(1,1))*P);
+
+draw(shift((8.1,0))*rotate(270,(1,1))*P);
+
+[/asy]
+
+A $5\times 5$ board, consisting of $25$ unit squares, a positive integer $k\leq 25$
+
+ and an unlimited supply of L-shapes are given. Two players A and B, 
+
+play the following game: starting with A they play alternatively mark a 
+
+previously unmarked unit square until they marked a total of $k$ unit squares.
+
+We say that a placement of L-shapes on unmarked unit squares is called $\textit{good}$ if the L-shapes do not overlap and each of them covers exactly three unmarked unit squares of the board.
+
+B wins if every $\textit{good}$ placement of L-shapes leaves uncovered at least three unmarked unit squares.  Determine the minimum value of $k$ for which B has a winning strategy.
