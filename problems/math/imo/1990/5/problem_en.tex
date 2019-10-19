@@ -1,0 +1,15 @@
+Given an initial integer $ n_0 > 1$,  two players, \playerA{$A$} and \playerB{$B$},  choose integers $ n_1$,  $ n_2$,  $ n_3$,  $ \ldots$ alternately according to the following rules:
+
+\begin{enumerate}[label = (\roman*)]
+	\item Knowing $ n_{2k}$,  \playerA{$A$} chooses any integer $ n_{2k + 1}$ such that\[ n_{2k} \leq n_{2k + 1} \leq n_{2k}^2.\]
+
+	\item Knowing $ n_{2k + 1}$,  \playerB{$B$} chooses any integer $ n_{2k + 2}$ such that \[ \frac {n_{2k + 1}}{n_{2k + 2}}\] is a prime raised to a positive integer power.
+\end{enumerate}
+
+\playerA{Player $A$} wins the game by choosing the number 1990; \playerB{player $B$} wins by choosing the number 1.  For which $ n_0$ does:
+
+\begin{enumerate}[label = (\alph*)]
+	\item \playerA{$A$} have a winning strategy?
+	\item \playerB{$B$} have a winning strategy?
+	\item Neither player have a winning strategy?
+\end{enumerate}

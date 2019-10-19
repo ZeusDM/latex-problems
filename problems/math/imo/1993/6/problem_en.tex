@@ -1,0 +1,13 @@
+Let $n > 1$ be an integer.
+In a circular arrangement of $n$ lamps $L_0, \ldots, L_{n-1},$  each of of which can either \texttt{ON} or \texttt{OFF}, we start with the situation where all lamps are \texttt{ON}, and then carry out a sequence of steps, $\mathrm{Step}_0, \mathrm{Step}_1, \ldots$.
+
+If $L_{j-1}$ \footnote{$j$ is taken mod $n$} is \texttt{ON} then $\mathrm{Step}_j$ changes the state of $L_j$ (it goes from \texttt{ON} to \texttt{OFF} or from \texttt{OFF} to \texttt{ON}) but does not change the state of any of the other lamps.
+If $L_{j-1}$ is \texttt{OFF} then $\mathrm{Step}_j$ does not change anything at all.
+
+Show that:
+
+\begin{enumerate}[label = (\alph*)]
+	\item There is a positive integer $M(n)$ such that after $M(n)$ steps all lamps are ON again,
+	\item If $n$ has the form $2^k$ then all the lamps are ON after $n^2-1$ steps,
+	\item If $n$ has the form $2^k + 1$ then all lamps are ON after $n^2 - n + 1$ steps.
+\end{enumerate}

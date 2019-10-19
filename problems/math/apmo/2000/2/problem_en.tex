@@ -1,28 +1,4 @@
-Given the following triangular arrangement of circles:
-\begin{center}
-	\begin{asy}
-		size(5cm);
-		pair A=dir(90), B=dir(210), C=dir(330), A_1=(2*B+C)/3, A_2=(B+2*C)/3, B_1=(2*C+A)/3, B_2=(C+2*A)/3, C_1=(2*A+B)/3, C_2=(A+2*B)/3;
-		real r=sqrt(3)/9, s=sqrt(3)/3-2*r, d;
-		pair[] centers = {A,C_1,C_2,B,A_1,A_2,C,B_1,B_2,A};
-		for (int i = 0; i < 9; ++i) {
-			draw(circle(centers[i],r));
-			if (i < 3) {
-				d = 240;
-			}
-			else if (i < 6) {
-				d = 0;
-			}
-			else if (i < 9) {
-				d = 120;
-			}
-			draw(centers[i]+r*dir(d)--centers[i]+(r+s)*dir(d));
-		}
-	\end{asy}
-\end{center}
-Each of the numbers $1,2,\ldots,9$ is to be written into one of these circles, so that each circle contains exactly one of these numbers and
-\begin{enumerate}[label=(\roman*)]
-	\item the sums of the four numbers on each side of the triangle are equal;
-	\item the sums of the squares of the four numbers on each side of the triangle are equal.
-\end{enumerate}
-Find all ways in which this can be done.
+Find all permutations $a_1, a_2, \ldots, a_9$ of $1, 2, \ldots, 9$ such that
+\[ a_1+a_2+a_3+a_4=a_4+a_5+a_6+a_7= a_7+a_8+a_9+a_1 \]
+and
+\[ a_1^2+a_2^2+a_3^2+a_4^2=a_4^2+a_5^2+a_6^2+a_7^2= a_7^2+a_8^2+a_9^2+a_1^2.\]
