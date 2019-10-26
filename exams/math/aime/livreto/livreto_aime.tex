@@ -1,0 +1,67 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\usepackage{../../../../commands/problems}
+\renewcommand{\mypath}{../../../../}
+
+\usepackage{fancyhdr}
+ 
+\newcommand{\ano}{2018}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \textcolor{black}{\ano}}
+\chead{\bfseries \textcolor{black}{AIME}}
+\lhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\textwidth}{-0.5cm}
+
+\newcommand{\contest}[1]{
+	\def\ano{#1}
+	\setcounter{prob}{0}
+
+	\begin{center}
+		\bfseries Nível I
+	\end{center}
+
+	\foreach \n in {1,...,15}{\problem*{math/aime/#1/i/\n}}
+
+	\setcounter{prob}{0}
+
+	\begin{center}
+		\bfseries Nível II
+	\end{center}
+
+	\foreach \n in {1,...,15}{\problem*{math/aime/#1/ii/\n}}
+	
+
+	\newpage
+}
+
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+\begin{document}
+
+%\thispagestyle{empty}
+%\input{titlepage.tex}\newpage
+
+%------OBM's-------%
+
+\contest{2019}
+\contest{2018}
+\contest{2017}
+\contest{2016}
+\contest{2015}
+\contest{2014}
+
+\end{document}

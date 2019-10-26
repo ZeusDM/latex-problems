@@ -1,0 +1,27 @@
+A regular icosahedron is a $20$-faced
+
+ solid where each face is an equilateral triangle and five triangles 
+
+meet at every vertex. The regular icosahedron shown below has one vertex
+
+ at the top, one vertex at the bottom, an upper pentagon of five 
+
+vertices all adjacent to the top vertex and all in the same horizontal 
+
+plane, and a lower pentagon of five vertices all adjacent to the bottom 
+
+vertex and all in another horizontal plane. Find the number of paths 
+
+from the top vertex to the bottom vertex such that each part of a path 
+
+goes downward or horizontally along an edge of the icosahedron, and no 
+
+vertex is repeated.
+
+\begin{asy}
+	size(3cm);
+	pair A=(0.05,0),B=(-.9,-0.6),C=(0,-0.45),D=(.9,-0.6),E=(.55,-0.85),F=(-0.55,-0.85),G=B-(0,1.1),H=F-(0,0.6),I=E-(0,0.6),J=D-(0,1.1),K=C-(0,1.4),L=C+K-A;
+	draw(A--B--F--E--D--A--E--A--F--A^^B--G--F--K--G--L--J--K--E--J--D--J--L--K);
+	draw(B--C--D--C--A--C--H--I--C--H--G--H--L--I--J--I--D^^H--B,dashed);
+	dot(A^^B^^C^^D^^E^^F^^G^^H^^I^^J^^K^^L);
+\end{asy}

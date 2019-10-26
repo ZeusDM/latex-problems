@@ -1,0 +1,37 @@
+Vamos resolver usando complexos.
+
+Para isso, vamos usar que $N$ é o centro do círculo de nove pontos, e portanto $N$ é ponto médio de $OH$.
+
+\begin{align*}
+	o & = 0\\
+	|a| = |b| = |c| & = 1\\
+	h & = a + b + c\\
+	n & = \frac{a+b+c}{2}\\
+	d & = \frac{2bc}{b+c}
+\end{align*}
+
+Desse modo,
+
+\begin{align*}
+	A, N, D \text{\ são colineares} & \iff \frac{a-n}{\overline{a} - \overline{n}} = \frac{a-d}{\overline{a} - \overline{d}}\\
+								    & \iff \frac{a-\frac{a+b+c}{2}}{\frac{1}{a} - \frac{ab + bc + ca}{2abc}} = \frac{a - \frac{2bc}{b+c}}{\frac{1}{a} - \frac{2}{b+c}}\\
+									& \iff \frac{a - (b + c)}{2} \cdot \frac{2abc}{bc - a(b+c)} = \frac{a(b+c) - 2bc}{b+c} \cdot \frac{a(b + c)}{b + c - 2a}\\
+									& \iff \frac{abc(a - (b+c))}{bc - a(b+c)} = \frac{a ( a (b+c) - 2bc) }{ (b+c) - 2a }\\
+									& \iff \frac{bc(a - (b+c))}{bc - a(b+c)} = \frac{a (b+c) - 2bc}{ (b+c) - 2a }\\
+									& \iff bc (a - (b+c)) ((b+c) - 2a) = (bc - a(b+c)) (a(b+c) - 2bc)\\
+									& \iff bc (a - (b+c)) ((b+c) - 2a) = (bc - a(b+c)) (a(b+c) - 2bc)\\
+									& \iff abc(b+c) - bc(b+c)^2 - 2a^2bc + 2abc(b+c) = abc(b+c) - 2bc^2 - a^2(b+c)^2 + 2abc(b+c)\\
+									& \iff bc(b+c)^2 + 2a^2bc = 2bc^2 + a^2(b+c)^2\\
+									& \iff (b+c)^2(a^2 - bc) + 2bc(a^2 - bc) = 0\\
+									& \iff ((b+c)^2 + 2bc) (a^2 - bc) = 0\\
+									& \iff b^2 + c^2 = 0 \text{\ ou\ } a^2 = bc
+\end{align*}
+
+Mas $a^2 = bc$ implica que $A$ é o ponto médio do arco $BC$, que implica que $AC$ é isósceles (um absurdo!). Logo
+
+\begin{align*}
+	A, N, D \text{\ são colineares} & \iff b^2 + c^2 = 0 \\
+									& \iff b = \pm i c \\
+									& \iff \angle BOC = 90^\circ\\
+									& \iff \angle BAC = 45^\circ
+\end{align*}
