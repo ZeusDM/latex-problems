@@ -10,31 +10,20 @@
 %
 % Defines if the amsthm is numbered through the whole file or per section.
 
-\newif\ifmypackage@amsthmglobal
-\DeclareOption{global}{\mypackage@amsthmglobaltrue}
-\DeclareOption{persection}{\mypackage@amsthmglobalfalse}
+\newif\ifzeusproblems@amsthmglobal
+\DeclareOption{global}{\zeusproblems@amsthmglobaltrue}
+\DeclareOption{persection}{\zeusproblems@amsthmglobalfalse}
 
-% id / noid
+
+% draft / final
 %
-% Defines if the path of each problem is shown or not.
+% Defines if it's going to print errors or not
 
-\newif\ifmypackage@showid
-\DeclareOption{noid}{\mypackage@showidfalse}
-\DeclareOption{id}{\mypackage@showidtrue}
+\newif\ifzeusproblems@draft
+\DeclareOption{draft}{\zeusproblems@drafttrue}
+\DeclareOption{final}{\zeusproblems@draftfalse}
 
-% usualnotation / zeusnotation
-%
-% Defines if it uses usual notation or my notation.
-
-\newif\ifmypackage@usualnotation
-\DeclareOption{zeusnotation}{\mypackage@usualnotationfalse}
-\DeclareOption{usualnotation}{\mypackage@usualnotationtrue}
-
-% chemistry / nochemistry
-%
-% Defines if it will import  
-
-\ExecuteOptions{noid, global, zeusnotation}
+\ExecuteOptions{global, draft}
 
 \ProcessOptions\relax
 
@@ -67,64 +56,6 @@
 \RequirePackage[inline]{asymptote}
 \RequirePackage{zeusproblems-folder}
 
-%----------
-%
-% zeustitle
-%
-%----------
-
-% Defines a substitute for \maketitle
-
-\newcommand{\ZeusMail}{}
-\newcommand{\ZeusTitleL}{}
-\newcommand{\ZeusTitleR}{}
-\newcommand{\ZeusAuthor}{}
-\newcommand{\ZeusTitle}{}
-
-\renewcommand{\title}[1]{
-	\def\@title{#1}
-	\def\ZeusTitle{#1}
-}
-\renewcommand{\author}[1]{
-	\def\@author{#1}
-	\def\ZeusAuthor{#1}
-}
-\newcommand{\mail}[1]{
-	\def\ZeusMail{#1}
-}
-\newcommand{\titlel}[1]{
-	\def\ZeusTitleL{#1}
-}
-\newcommand{\titler}[1]{
-	\def\ZeusTitleR{#1}
-}
-\newcommand{\mailfoe}{
-	\\\vspace{0mm}
-	{\ZeusMail}
-}
-\newcommand{\nomail}{
-	\def\mailfoe{}
-}
-
-\newcommand{\zeustitle}{
-	{\noindent \, \large \sc \ZeusTitleL}
-	\hfill
-	{\sc \ZeusTitleR}
-	\vspace{3mm}
-	\hrule
- 	\hrule
- 	\vspace{0mm}
-	\begin{center}
-		{\Large \@title}\\\vspace{1mm}
-		{\large \@author}
-		\mailfoe
-	\end{center}
-	\vspace{0mm}
-	\hrule
-	\hrule
- 	\vspace{2mm}
-}
-
 %-----------------
 %
 % Redefine section
@@ -145,15 +76,6 @@
 
 % Defines how to get exercises and solutions from the database
 
-\newcommand{\id}[1]{}
-\ifmypackage@showid
-	\renewcommand{\id}[1]{
-		
-		{\noindent}  \hfill \textcolor{blue}{\texttt{Path: \path{#1}}}
-
-	}
-\fi
-
 \newcommand{\IfProblemHasSource}[3]{
 	\IfFileExists{\mypath problems/#1/source_\primaryLanguage.tex}{#2}{%
 		\IfFileExists{\mypath problems/#1/source_\secondaryLanguage.tex}{#2}{%
@@ -165,24 +87,27 @@
 \newcommand{\IfProblemHasNumber}[3]{
 	\ignorespaces\IfFileExists{\mypath problems/#1/number.tex}{\ignorespaces #2}{\ignorespaces #3}}
 
-
-\newcommand{\exercise}[1]{
-	\IfProblemHasSource{#1}{(\unskip\source{#1}\unskip)}{}
-	\IfFileExists{\mypath problems/#1/problem_\primaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\primaryLanguage.tex}}{%
-	\IfFileExists{\mypath problems/#1/problem_\secondaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\secondaryLanguage.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-	\id{#1}%
+\newcommand{\IfProblemExists}[3]{
+	\IfFileExists{\mypath problems/#1/problem_\primaryLanguage.tex}{#2}{%
+		\IfFileExists{\mypath problems/#1/problem_\secondaryLanguage.tex}{#2}{#3}%
+	}
 }
 
-\WithSuffix\newcommand\exercise*[1]{%
-		\IfFileExists{\mypath problems/#1/problem_\primaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\primaryLanguage.tex}}{%
-		\IfFileExists{\mypath problems/#1/problem_\secondaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\secondaryLanguage.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
-		\id{#1}%
+\newcommand{\IfSolutionExists}[3]{
+	\IfFileExists{\mypath problems/#1/solution_\primaryLanguage.tex}{#2}{%
+		\IfFileExists{\mypath problems/#1/solution_\secondaryLanguage.tex}{#2}{#3}
+	}
+}
+
+\newcommand{\exercise}[1]{
+	\IfFileExists{\mypath problems/#1/problem_\primaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\primaryLanguage.tex}}{%
+	\IfFileExists{\mypath problems/#1/problem_\secondaryLanguage.tex}{\subimport{\mypath problems/#1/}{problem_\secondaryLanguage.tex}}{\textcolor{red}{Problema \path{#1} não encontrado!}}}%
 }
 
 \newcommand{\solutionfoe}[1]{
 		\IfFileExists{\mypath problems/#1/solution_\primaryLanguage.tex}{\subimport{\mypath problems/#1/}{solution_\primaryLanguage.tex}}{%
 		\IfFileExists{\mypath problems/#1/solution_\secondaryLanguage.tex}{\subimport{\mypath problems/#1/}{solution_\secondaryLanguage.tex}}{\textcolor{red}{Solução \path{#1} não encontrada!}}}%
-		\id{#1}%
+		%
 }
 
 \newcommand{\sourcefoe}[1]{
@@ -363,7 +288,7 @@
 \addto\captionsbrazil{\crefname{sol}{Solução}{Soluções}}
 
 \theoremstyle{simplesec1}
-\ifmypackage@amsthmglobal
+\ifzeusproblems@amsthmglobal
 	\newtheorem{thm}{\theoremname}
 \else
 	\newtheorem{thm}{\theoremname}[section]
@@ -372,7 +297,7 @@
 \newtheorem{prop}[thm]{\propositionname}
 \newtheorem*{cor}{\corollaryname}
 
-\ifmypackage@amsthmglobal
+\ifzeusproblems@amsthmglobal
 	\newtheorem{defn}{\definitionname}
 	\newtheorem{conj}{\conjecturename}
 	\theoremstyle{simplesec2}
@@ -402,29 +327,64 @@
 \newtheorem*{note}{\notename}
 \newtheorem*{sol}{\solutionname}
 
-\newcommand{\problem}[2][]{
-	\IfProblemHasSource{#2}{%
-		\begin{prob}[\ignorespaces\source{#2}\unskip\unskip\unskip\unskip]
-			\exercise*{#2#1}
-		\end{prob}
-		}{%
+%-------
+
+\ifzeusproblems@draft
+	\newcommand{\problem}[2][]{
+		\IfProblemHasSource{#2}{%
+			\begin{prob}[\ignorespaces\source{#2}\unskip\unskip\unskip\unskip]
+					\exercise{#2#1}
+			\end{prob}
+			}{%
+			\begin{prob}
+				\exercise{#2#1}
+			\end{prob}
+			}
+	}
+	
+	\WithSuffix\newcommand\problem*[1]{
 		\begin{prob}
-			\exercise*{#2#1}
+			\exercise{#1}
 		\end{prob}
-		}
-}
+	}
+	
+	\newcommand{\solution}[2][]{
+		\begin{sol}
+			\solutionfoe{#2#1}
+		\end{sol}
+	}
+\else
+	\newcommand{\problem}[2][]{
+		\IfProblemExists{#2#1}{
+			\IfProblemHasSource{#2}{%
+				\begin{prob}[\ignorespaces\source{#2}\unskip\unskip\unskip\unskip]
+						\exercise{#2#1}
+				\end{prob}
+				}{%
+				\begin{prob}
+					\exercise{#2#1}
+				\end{prob}
+				}
+			}{}
+	}
+	
+	\WithSuffix\newcommand\problem*[2][]{
+		\IfProblemExists{#2#1}{
+			\begin{prob}
+				\exercise{#2#1}
+			\end{prob}
+		}{}
+	}
+	
+	\newcommand{\solution}[2][]{
+		\IfSolutionExists{#2#1}{
+			\begin{sol}
+				\solutionfoe{#2#1}
+			\end{sol}
+		}{}
+	}
+\fi
 
-\WithSuffix\newcommand\problem*[1]{
-	\begin{prob}
-		\exercise*{#1}
-	\end{prob}
-}
-
-\newcommand{\solution}[1]{
-	\begin{sol}
-		\solutionfoe{#1}
-	\end{sol}
-}
 
 %------------------------------------------------------------------
 %
@@ -484,56 +444,3 @@
 
 \DeclareRobustCommand{\scaleroman}[1]{\makebox[\widthof{iii}]{#1}}
 \DeclareRobustCommand{\scalealph}[1]{\makebox[\widthof{b}]{#1}}
-
-%-------------------------
-%
-% Declaring my own nomenclarures, which may change to usual nomenclatrue, if I want to. 
-%
-%-------------------------
-
-% Collinear and Concliclic
-
-\newcommand{\collinearproposition}{}
-\newcommand{\conciclicproposition}{}
-\newcommand{\andname}{}
-
-\addto\captionsenglish{\renewcommand\collinearproposition{are collinear}}
-\addto\captionsenglish{\renewcommand\conciclicproposition{are conciclic}}
-\addto\captionsenglish{\renewcommand\andname{and}}
-
-\addto\captionsbrazil{\renewcommand\collinearproposition{são colineares}}
-\addto\captionsbrazil{\renewcommand\conciclicproposition{são concíclicos}}
-\addto\captionbrazil{\renewcommand\andname{e}}
-
-\addto\captionsbrazilian{\renewcommand\collinearproposition{são colineares}}
-\addto\captionsbrazilian{\renewcommand\conciclicproposition{são concíclicos}}
-\addto\captionsbrazilian{\renewcommand\andname{e}}
-
-\newcommand{\col}[1]{%
-	\diagup(#1\colchecknextarg
-}
-\newcommand{\colchecknextarg}{\@ifnextchar\bgroup{\colgobblenextarg}{)}}
-\newcommand{\colgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\colgobblenextarg}{)}}
-
-\newcommand{\conc}[1]{%
-	{\circ\,}(#1\concchecknextarg
-}
-\newcommand{\concchecknextarg}{\@ifnextchar\bgroup{\concgobblenextarg}{)}}
-\newcommand{\concgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\concgobblenextarg}{)}}
-
-\ifmypackage@usualnotation
-	\renewcommand{\col}[1]{%
-		#1\colchecknextarg
-	}
-	\renewcommand{\colchecknextarg}{\@ifnextchar\bgroup{\colgobblenextarg}{\text{ \collinearproposition}}}
-	\renewcommand{\colgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\colgobblenextarg}{\text{ \collinearproposition}}}
-
-	\renewcommand{\conc}[1]{%
-		#1\concchecknextarg
-	}
-	\renewcommand{\concchecknextarg}{\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
-	\renewcommand{\concgobblenextarg}[1]{, #1\@ifnextchar\bgroup{\concgobblenextarg}{\text{ \conciclicproposition}}}
-\fi
-
-
-
