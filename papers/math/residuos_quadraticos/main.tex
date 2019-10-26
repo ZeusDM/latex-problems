@@ -20,7 +20,7 @@
 
 \begin{document}	
 	\zeustitle
-	\section*{Chuva de Informações}
+	\section{Teoria}
 	\begin{defn}
 		Dizemos que $a$ é \textit{resíduo quadrático} $\tmod{n}$ se, e somente se, $x^2 \equiv a$ possui solução $\tmod{n}$.
 	\end{defn}
@@ -35,7 +35,7 @@
 		\begin{align*}
 			x^2 \equiv y^2 \pmod{p} & \iff p \mid x^2 - y^2\\
 			                        & \iff p \mid (x - y)(x + y)\\
-				           	 	    & \iff p \mid (x-y) \text{ou} p \mid (x+y)\\
+				           	 	    & \iff p \mid (x-y) \text{ ou } p \mid (x+y)\\
 						            & \iff y \equiv \pm x \pmod{p},
 		\end{align*}
 		que é impossível para $x, y \in \left\{ 0, 1, 2, \dots, \frac{p-1}{2} \right\}$.
@@ -58,7 +58,7 @@
 		$$\leg{ab}{p} = \leg{a}{p}\leg{b}{p}.$$
 	\end{cor}
 	\begin{cor}
-		$-1$ é resíduo quadrático $\tmod{p}$ se, e somente se, $p \equiv 1 \pmod{p}$.
+		$-1$ é resíduo quadrático $\tmod{p}$ se, e somente se, $p \equiv 1 \pmod{4}$.
 	\end{cor}
 	\begin{thm}(Lei da Reciprocidade Quadrática)
 		Sejam $p$ e $q$ primos ímpares distintos. Temos:
@@ -79,11 +79,11 @@
 
 
 	\newpage
-	\section*{Problemas}
+	\section{Problemas}
 	\begin{prob}
 		Existe algum polinômio irredutível em $\ZZ[x]$, mas redutível $\tmod{p}$ para todo $p$ primo?
 	\end{prob}
-	\begin{prob}(Vietnam TST)
+	\begin{prob}[Vietnam TST]
 		Seja $n \in \NN$. Prove que $2^n + 1$ não tem fator primo da forma $8k - 1$.
 	\end{prob}
 	\begin{prob}
@@ -92,10 +92,10 @@
 	\begin{prob}
 		Seja $p$ um primo. Mostre que existem inteiros $x, y$ tais que $x^2 + y^2 + 1$ é divisível por $p$.
 	\end{prob}
-	\begin{prob}(OBM)
+	\begin{prob}[OBM]
 		Prove que se $10^{2n} + 8 \cdot 10^n + 1$ tem fator primo da forma $60k + 7$, então $n$ e $k$ são pares.
 	\end{prob}
-	\begin{prob}(OBM)
+	\begin{prob}[OBM]
 		Demonstre que, dado um inteiro positivo $n$ qualquer, existem inteiros positivos $a$ e $b$ primos entre si tais que $a^2 + 2017b^2$ possui ao menos $n$ fatores primos distintos.
 	\end{prob}
 	\begin{prob}
@@ -118,10 +118,10 @@
 			\item Se $p$ é da forma $4k-1$, então $p \mid k^k + (-1)^{k+1}2k$.
 		\end{enumerate}
 	\end{prob}
-	\begin{prob}(IMO)
+	\begin{prob}[IMO]
 		Os inteiros positivos $a$ e $b$ são tais que $15a + 16b$ e $16a - 15b$ são ambos quadrados perfeitos positivos. Encontre o menor valor que pode tomar o menor desses quadrados.
 	\end{prob}
-	\begin{prob}(IMO)
+	\begin{prob}[IMO]
 		Prove que existe um número infinito de inteiros positivos $n$ tais que $n^2 + 1$ tem um fator primo maior que $2n + \sqrt{2n}$.
 	\end{prob}
 	\begin{prob}
@@ -133,7 +133,7 @@
 	\begin{prob}
 		Encontre todos os inteiros positivos $n$ tais que $2^n - 1 \mid 3^n - 1$.
 	\end{prob}
-	\begin{prob}(IMO Shortlist)
+	\begin{prob}[Banco IMO]
 		Suponha que, para um certo primo $p$, os valores que o polinômio de coeficientes inteiros $ax^2 + bx + x$ toma $2p-1$ inteiros consecutivos são quadrados perfeitos. Prove que $p \mid b^2 - 4ac$.
 	\end{prob}
 	\begin{prob}
