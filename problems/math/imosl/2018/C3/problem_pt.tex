@@ -1,0 +1,8 @@
+Seja $n$ um inteiro positivo.
+\playerA{Sisyphus} executa uma sequência de movimentos numa fita que consiste em $n + 1$ quadrados enfileirados, numerados de $0$ a $n$, da esquerda pra direita.
+Inicialmente, $n$ perdras são colocadas no quadrado $0$, e os outros quadrados ficam vazios. Em cada turno, \playerA{Sisyphus} escolhe qualquer quadrado não vazio (com $k$ pedras), tira uma dessas pedras e move ela para a direita no máximo $k$ quadrados (a pedra deve continuar na fita). 
+O objetivo de \playerA{Sisyphus} é mover todas as $n$ pedras para o quadrado $n$.
+
+Prove que \playerA{Sisyphus} não alcança seu objetivo com menos que 
+\[ \left \lceil \frac{n}{1} \right \rceil + \left \lceil \frac{n}{2} \right \rceil + \left \lceil \frac{n}{3} \right \rceil + \dots + \left \lceil \frac{n}{n} \right \rceil \]
+movimentos.
