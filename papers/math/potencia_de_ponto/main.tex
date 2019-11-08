@@ -1,0 +1,108 @@
+\documentclass[final, 10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+
+\usepackage[mm]{zeuscolor}
+\usepackage{zeusall}
+
+\title{Potência de Ponto e Eixo Radical}
+\author{}
+\nomail
+\titlel{}
+\titler{}
+
+\newcommand\Pot{\mathrm{Pot}}
+
+\begin{document}	
+	\zeustitle
+
+	\begin{defn}
+	Um quadrilátero convexo $ABCD$ é dito cíclico ou inscritível quando existe uma circunferência que passa por seus quatro vértices.
+	\end{defn}
+
+	\begin{thm} As três propriedades abaixo são equivalentes:
+		\begin{enumerate}[label = {\arabic*.}]
+			\item $ABCD$ é cíclico;
+			\item $\angle ABC + \angle ADC = 180^\circ$;
+			\item $\angle ABD = \angle ACD$ (ou qualquer outro par de ângulos análogos).
+		\end{enumerate}
+	\end{thm}
+
+	\begin{defn}
+		Dados um ponto $P$ e um círculo $\Gamma$ de centro $O$ e raio $r$, define-se como a potência do ponto $P$ em relação a $\Gamma$ como \[ \Pot_\Gamma(P) = PO^2 - r^2.\]
+	\end{defn}
+	
+	\begin{thm}
+		Dado um quadrilátero $ABCD$ convexo, se $P = AB \cap CD$, então $ABCD$ é inscritível se, e somente se, $PA \cdot PB = PC \cdot PD$.
+	\end{thm}
+
+	\begin{thm}
+		O lugar geométrico dos pontos $P$ tais que a potência do ponto de $P$ à duas circunferências $C_1$ e $C_2$ é a mesma é uma reta. A essa reta dá-se o nome de eixo radical das circunferências $C_1$ e $C_2$.
+	\end{thm}
+	
+	\begin{thm}
+		Dadas três circunferências $C_1$, $C_2$ e $C_3$, traçando os eixos radicais existentes entre elas, eles concorrem em um ponto. A esse ponto dá-se o nome de centro radical.
+	\end{thm}
+
+	\section{Problemas}
+
+	\begin{prob}
+		Seja $C$ um ponto sobre um semicírculo de diâmetro $AB$ e seja $D$ o ponto médio do arco $AC$. Seja $E$ a projeção de $D$ sobre a reta $BC$ e $F$ a interseção da reta $AE$ com o semicírculo. 	Prove que BF bissecta o segmento DE.
+	\end{prob}
+
+	\begin{prob}
+	Sejam $A$, $B$ e $C$ três pontos sobre a circunferência $\Gamma$ com $AB = AC$. As tangentes por $A$ e por $B$ se encontram em $D$. A reta $DC$ corta $\Gamma$ novamente no ponto $E$. Prove que a reta $AE$ bissecta o segmento $BD$.
+	\end{prob}
+
+	\begin{prob}
+		As diagonais de um quadrilátero inscritível $ABCD$ se intersectam no ponto $K$. Os pontos médios das diagonais $AC$ e $BD$ são $M$ e $N$, respectivamente. Os círculos circunscritos aos triângulos $ADM$ e $BCM$ se intersectam nos pontos $M$ e $L$. Prove que $K$, $L$, $M$ e $N$ estão em uma mesma circunferência (todos os pontos podem ser supostos distintos).
+	\end{prob}
+
+	\begin{prob}
+		Seja $ABC$ um triângulo actuângulo. A reta por $B$ perpendicular a $AC$ corta o círculo com diâmetro $AC$ nos pontos $P$ e $Q$ e a reta por $C$ perpendcular a $AB$ encontra o círculo com diâmetro $AB$ nos pontos $R$ e $S$. Prove que $PQRS$ é cíclico.
+	\end{prob}
+
+	\begin{prob}[Argentina TST 2013]
+		Seja $ABCD$ um quadrilátero inscrito em uma circunferência e suponha que suas diagonais $AC$ e $BD$ se intersectam em $S$. Seja $\omega$ uma cricunferência que passa por $S$ e por $D$ e que corta os lados $AD$ e $CD$ nos pontos $M$ e $N$, respectivamente. Seja $P$ a interseção das retas $SM$ e $AB$ e $R$ a interseção das retas $SN$ e $BC$, de modo que os pontos $P$ e $R$ estão no mesmo semiplano separado por $BD$ que o ponto $A$. Demonstre que a reta por $D$ paralela a $AC$ e a reta por $S$ paralela a $PR$ se cortam sobre a circunferência $\omega$.
+	\end{prob}
+	\begin{prob}[Ibero TST 2002]
+		Seja $ABCD$ um quadrilátero inscrito em uma circunferência $\Gamma_1$, $P$ o ponto de interseção das diagonais $AC$ e $BD$ e $M$ é o ponto médio de $CD$. A circunferência $\Gamma_2$ que passa por $P$ e tangencia $CD$ em $M$ corta $BD$ e $AC$ nos pontos $Q$ e $R$, respectivamente. Seja $S$ o ponto do segmento $BD$ tal que $BS=DQ$. A paralela a $AB$ por $S$ corta $AC$ em $T$. Prove que $AT = CR$.
+	\end{prob}
+	\problem{math/imo/2000/1}
+	\begin{prob}[Banco CS 2002]
+		Seja $ABCD$ um quadrilátero inscritível e $E$ interseção das diagonais $AC$ e $BD$. Se $F$ é um ponto qualquer e as circunferências $\Gamma_1$ e $\Gamma_2$ circunscritas aos triângulos $FAC$ e $FBD$ se intersectam novamente no ponto $G$, mostre que $E$, $F$ e $G$ são colineares.
+	\end{prob}
+	\begin{prob}[USAMO 1997]
+		Seja $ABC$ um triângulo. Construa triângulos isósceles $BCD$, $CAE$ e $ABF$ externamente a $ABC$ de bases $BC$, $CA$ e $AB$, respectivamente. Prove que as retas que passam por $A$, $B$ e $C$ e são perpendiculares a $EF$, $FD$ e $DE$, respectivamente, são concorrentes.
+	\end{prob}
+	\problem{math/imo/1995/1}
+	\problem{math/ibero/1999/5}
+	\problem{math/apmo/2012/4}
+	\problem{math/imo/2009/2}
+	\begin{prob}[USAMO 1998]
+		Sejam $C_1$ e $C_2$ duas circunferências concêntricas, com $C_2$ no interior de $C_1$. Sejam $A$ um ponto de $C_1$ e $B$ um ponto sobre $C_2$ tal que $AB$ é tangente a $C_2$. Seja $C$ a segunda interseção da reta $AB$ com $C_1$ e seja $D$ o ponto médio de $AB$. Uma reta passando por $A$ intesecta $C_2$ nos pontos $E$ e $F$ de tal modo que as mediatrizes de $DE$ e $CF$ se intersectam em um ponto $M$ sobre $AB$. Ache, com prova, a razão $AM/MC$.
+	\end{prob}
+
+	\problem{math/apmo/2015/1}
+	\begin{prob}[Turquia TST 2013]
+		Seja $E$ o encontro das diagonais do quadrilátero convexo $ABCD$. É dado que $\angle EDC = \angle DEC = \angle BAD$. Seja $F$ um ponto sobre o lado $BC$ tal que $\angle BAF + \angle EBF = \angle BFE$. Mostre que $A$, $B$, $F$ e $D$ são concíclicos.
+	\end{prob}
+	\problem{math/imo/2017/4}
+	\begin{prob}[Irã TST 2013]
+		No triângulo $ABC$, $AD$ e $AH$ são a bissetriz interna e altura do vértice $A$, respectivamente. A mediatriz do segmento $AD$ intersecta os semicírculos de diâmetros $AB$ e $AC$ que são construídos no exterior do triângulo $ABC$ nos pontos $X$ e $Y$, respectivamente. Prove que o quadrilátero $XYDH$ é cíclico.
+	\end{prob}
+	\problem{math/imo/2015/4}
+	\problem{math/imo/2013/4}
+	\begin{prob}[Balcânica 1996]
+		Uma reta passando pelo incentro $I$ do triângulo $ABC$ intersecta o circuncírculo de $ABC$ nos pontos $F$ e $G$ e o incírculo nos pontos $D$ e $E$, com $D$ entre $I$ e $F$. Prove que $DF \cdot EG \ge r^2$, em que $r$ é o raio do incírculo.
+	\end{prob}
+	\problem{math/imosl/2012/G2}
+	\problem{math/imosl/2013/G4}
+	\begin{prob}[França TST 2012]
+		Seja $ABC$ um triângulo acutângulo com $AB \neq AC$. Seja $\Gamma$ seu circuncírculo, $H$ o ortocentro e $O$ o centro de $\Gamma$. Seja $M$ o ponto médio do lado $BC$. A reta $AM$ encontra $\Gamma$ novamente no ponto $N$ e a circunferência com diâmetro $AM$ corta $\Gamma$ novamente em $P$. Prove que as retas $AP$, $BC$ e $OH$ concorrem se, e somente se, $AH = HN$.	
+	\end{prob}	
+	
+	
+\end{document}

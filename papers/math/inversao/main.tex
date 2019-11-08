@@ -1,20 +1,23 @@
-\documentclass[10pt, a4paper]{article}
+\documentclass[final, 10pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel}
 \usepackage{lmodern}
 \usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
 
-\usepackage{../../../commands/problems}
-\renewcommand{\mypath}{../../../}
+\usepackage[mm]{zeuscolor}
+\usepackage{zeusall}
 
 \title{Inversão}
-\author{Guilherme Zeus Moura}
-\mail{zeusdanmou@gmail.com}
+\author{}
+%\mail{zeusdanmou@gmail.com}
+\nomail
 \titlel{}
 \titler{}
 
 \begin{document}	
 	\zeustitle
+
+	\section{Definição e Propriedades}
 	\begin{defn}[Inversão]
 		Seja $O$ um ponto e $r > 0$ um real. A inversão $I$ com centro $O$ e raio $r$ é uma transformação que leva o ponto $P \neq O$ em um ponto $P'$ tal que:
 		\begin{enumerate}[label = (\roman*)]
@@ -23,8 +26,13 @@
 		\end{enumerate}
 	\end{defn}
 
-	\begin{prop}[Preservação de ângulos]
-		\[ \angle OAB = \angle OB'A'. \]
+
+	\begin{prop}
+		$ A = A''.$
+	\end{prop}
+
+	\begin{prop}[Troca de ângulos]
+		$ \angle OAB = \angle OB'A'. $
 	\end{prop}
 
 	\begin{prop}
@@ -43,10 +51,66 @@
 		Uma inversão leva um círculo que não passa por $O$ em um círculo que não passa por $O$.
 	\end{prop}
 
-	\section*{Problemas}
+	\begin{prop}
+		Dados quaisquer dois pontos $A$ e $B$, vale $A'B' = \frac{AB \cdot r^2}{OA \cdot OB}$.
+	\end{prop}
+
+	\begin{prop}
+		Inversão preserva ângulos entre curvas. Em partircular, se $\alpha$ e $\beta$ são curvas tangentes, então $\alpha'$ e $\beta'$ também são tangentes.
+	\end{prop}
+
+	\subsection{Ideias importantes}
+
+	\begin{enumerate}[label = {--}]
+		\item Ponto de tangência de circunferências como centro de inversão acaba com elas! Pode ser uma boa ideia para diminuir a quantidade de circunferências numa figura. Em geral, se temos muitas circunferências e muitas retas passando por um mesmo ponto $A$, inverta em $A$!
+
+		\item Dados um ponto $P$ e uma circunferência $\Gamma$, a inversão de centro $P$ e raio $r = \sqrt{\mathrm{Pot}_\Gamma(P)}$ leva $\Gamma$ nela mesma. Note que, quanto temos o centro de inversão sobre eixos radicais ou como centro radical, mais circunferências ficam ``fixadas''.	 
+
+		\item Dado um triângulo $ABC$ com lados $AB = c$, $AC = b$ e $BC = a$, a inversão de centro $A$ e raio $r = \sqrt{bc}$ seguida de uma reflexão em relação a bissetriz de $\angle A$ pode ser bastante útil quando queremos encontrar simetrias.
+
+		\item Qaundo invertemos com respeito ao circuncírculo do triângulo $ABC$, como os círculos de apolônio são ortogonais ao circuncírculos, eles permanecem ``fixos'' após a inversão.
+
+		\item Condição para segmentos terem a mesma medida após a inversão: em um triângulo $ABC$, após uma inversão de centro $O$ e raio $r$, $A'B'$ e $B'C'$ possuem o mesmo tamanho se, e somente se, $O$ está no círculo de Apolônio do triângulo $ABC$ em respeito a $B$.
+
+	\end{enumerate}
+
+	\section{Problemas}
 	\begin{prob}[Teorema de Ptolomeu]
 		Em um quadrilátero inscritível, o produto das medidas das diagonais é igual à soma dos produtos das medidas dos lados opostos.
 	\end{prob}
+	
+	\problem{math/imo/1996/2}
+	\begin{prob}[Banco IMO 2003]
+		Sejam $\Gamma_1, \Gamma_2, \Gamma_3, \Gamma_4$ círculos distintos tais que $\Gamma_1, \Gamma_3$ são tangentes externamente em $P$, e $\Gamma_2, \Gamma_4$ são tangentes externamentes no mesmo ponto $P$. Suponha que $\Gamma_1$ e $\Gamma_2$; $\Gamma_2$ e $\Gamma_3$; $\Gamma_3$ e $\Gamma_4$; $\Gamma_4$ e $\Gamma_1$ se encontram em $A, B, C, D$ respectivamente, e que todos esses pontos são diferentes de $P$. Prove que \[\frac{AB \cdot BC}{AD \cdot DC} = \frac{PB^2}{PD^2}.\] 
+	\end{prob}
 	\problem{math/ibero/1998/2}
-	\problem{math/brazil/mo/2011/5}	
+	\problem{math/imo/1985/5}
+	\begin{prob}
+		Seja $ABC$ um triângulo acutângulo com circuncentro $O$. Seja $\omega$ um círculo com centro sobre a altura relativa a $A$ em $ABC$, passando pelos vértices $A$ e em pontos $P$ e $Q$ nos lados $AB$ e $AC$, respectivamente. Suponha que $BP \cdot CQ = AP \cdot AQ$. Prove que $\omega$ é tangente ao circuncírculo do triângulo $BOC$.
+	\end{prob}
+	\begin{prob}
+		O incírculo $\omega$ do triângulo $ABC$ tem centro $I$. O circuncírculo $\Gamma$ do triângulo $ABI$ intersecta $\omega$ nos pontos $X$ e $Y$. As tangentes comuns a $\omega$ e $\Gamma$ intersectam-se em $Z$. Prove que os circuncírculos dos triângulos $ABC$ e $XYZ$ são tangentes.
+	\end{prob}
+	\begin{prob}[Estrela da Morte]
+		Considere que uma circunferência $\omega_1$ tangencia internamente outra circunferência $\omega_2$ em um ponto $P$. Seja $AB$ uma corda de $\omega_2$ que tangencia $\omega_1$ em $X$. Mostre que $PX$ passa pelo ponto médio do arco $AB$ que não contém $P$, isto é, $PX$ é bissetriz de $\angle APB$.
+	\end{prob}
+	\begin{prob}
+		Seja $ABC$ um triângulo e $I$ seu incentro. Seja $\Gamma$ uma circunferência tangente a $AB$, $AC$ e ao circuncírculo do triângulo $ABC$. $\Gamma$ toca $AB$ e $AC$ em $X$ e $Y$, respectivamente. Mostre que $I$ é o ponto médio de $XY$.
+	\end{prob}
+	\problem{math/brazil/mo/2011/5}
+	\begin{prob}
+		Dados quatro pontos $A_1, A_2, A_3, A_4$ no plano, sem três colineares, tais que $A_1A_2 \cdot A_3A_4 = A_1A_3 \cdot A_2A_4 = A_1A_4 \cdot A_2A_3$. Defina $O_1$, como o centro do circuncentro do triângulo $A_2A_3A_4$ e defina $O_2$, $O_3$ e $O_4$ analogamente. Prove que as quatro retas $A_1O_1$, $A_2O_2$, $A_3O_3$ e $A_4O_4$ concorrem ou são paralelas.
+	\end{prob}
+	\begin{prob}
+		Seja $P$ um ponto no interior do triângulo $ABC$, com $AC \neq BC$. As retas $AP$, $BP$ e $CP$ encontram novamente o circuncírculo $\Gamma$ em $K$, $L$ e $M$, respectivamente. A tangente a $\Gamma$ em $C$ encontra $AB$ em $S$. Prove que $SC = SP \iff MK = ML$.
+	\end{prob}
+	\problem{math/imosl/2002/G7}
+	\problem{math/egmo/2013/5}
+	\begin{prob}
+		Sobre a reta $AC$ do triângulo $ABC$ há pontos $M$ e $N$ tais que $A$ está entre $M$ e $C$, $C$ está entre $A$ e $N$, $AM = AB$ e $CN = BC$. Prove que a corda comum aos circuncírculos de $BCM$ e $BAN$ bissecta o ângulo $\angle BAC$.
+	\end{prob}
+	\problem{math/imo/1999/5}
+	\begin{prob}
+		Seja $\Gamma$ um semicírculo com diâmetro $AB$ e centro $O$. Uma reta corta $\Gamma$ em $C$ e $D$ e corta $AB$ em $M$ tal que $MB \le MA$ e $MD \le MC$. Seja $K$ o segundo ponto de interseção do circuncírculo dos triângulos $AOC$ e $DOB$. Prove que $\angle MKO = 90^\circ$.
+	\end{prob}
 \end{document}

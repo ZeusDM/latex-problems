@@ -1,0 +1,5 @@
+In a board of $2000\times2001$ squares with integer coordinates $(x,y)$,  $0\leq{x}\leq1999$ and $0\leq{y}\leq2000$. A ship in the table moves in the following way: before a move, the ship is in position $(x,y)$ and has a velocity of $(h,v)$ where $x,y,h,v$ are integers. The ship chooses new velocity $(h^\prime,v^\prime)$ such that $h^\prime-h,v^\prime-v\in\{-1,0,1\}$. The new position of the ship will be $(x^\prime,y^\prime)$ where $x^\prime$ is the remainder of the division of $x+h^\prime$ by $2000$ and $y^\prime$ is the remainder of the division of $y+v^\prime$ by $2001$.
+
+There are two ships on the board: The Martian ship and the Human trying to capture it. Initially each ship is in a different square and has velocity $(0,0)$. The Human is the first to move; thereafter they continue moving alternatively.
+
+Is there a strategy for the Human to capture the Martian, independent of the initial positions and the Martian’s moves?Note: The Human catches the Martian ship by reaching the same position as the Martian ship after the same move.

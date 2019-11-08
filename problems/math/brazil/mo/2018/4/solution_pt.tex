@@ -1,0 +1,19 @@
+Vamos chamar de $S(x_1, x_2, \dots, x_{2n})$ a soma gerada pelos números $x_1, \dots, x_{2n}$.
+
+\begin{lem*}
+	Suponha que $(x_1, x_2, \dots, x_{2n})$ é uma sequência que maximiza a soma de \playerA{Esmeralda}. Então, uma das duas sequências $(x_1, \dots, x_{i-1}, 0, x_{i+1}, \dots, x_{2n})$ ou $(x_1, \dots, x_{i-1}, 1, x_{i+1}, \dots, x_{2n})$ também gera uma soma máxima.
+\end{lem*}
+
+\begin{dem*}
+	Fixando todos os elementos, menos $x_i$, podemos ver que a soma é linear em $x_i$. Logo
+	\begin{equation*}
+		S(x_1, x_2, \dots, x_{2n}) \text{ está entre } S(x_1, x_2, \dots, x_{i-1}, 0, x_{i+1}, \dots, x_{2n}) \text{ e } S(x_1, x_2, \dots, x_{i-1}, 1, x_{i+1}, \dots, x_{2n}),
+	\end{equation*}
+	que implica que uma das duas sequências gera uma soma máxima.
+\end{dem*}
+
+\begin{cor*}
+	Existe uma sequênia $(x_1, \dots, x_{2n})$, tal que $x_i = 0$ ou $x_i = 1$ para todo $i$ que maximiza a soma.
+\end{cor*}
+
+\textcolor{red}{SOLUÇÃO INCOMPLETA}

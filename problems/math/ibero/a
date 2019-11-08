@@ -1,15 +1,12 @@
 for i in {1985..2019};
 do
-	mkdir $i
-	rm $i/source_pt.tex
-	rm $i/source_en.tex
-	rm $i/source.tex
-	echo "Ibero $i" >> $i/source_pt.tex
-	echo "IberoAmerican $i" >> $i/source_en.tex	
-		for j in {1..6}
-		do
-			rm $i/$j/number.tex
-			mkdir $i/$j
-			echo "$j" >> $i/$j/number.tex
-		done
+	mv $i/i/1/problem_en.tex $i/1/problem_en.tex
+	mv $i/i/2/problem_en.tex $i/2/problem_en.tex
+	mv $i/i/3/problem_en.tex $i/3/problem_en.tex
+	mv $i/i/4/problem_en.tex $i/4/problem_en.tex
+	mv $i/i/5/problem_en.tex $i/5/problem_en.tex
+	mv $i/i/6/problem_en.tex $i/6/problem_en.tex
+	mv $i/ii/1/problem_en.tex $i/4/problem_en.tex
+	mv $i/ii/2/problem_en.tex $i/5/problem_en.tex
+	mv $i/ii/3/problem_en.tex $i/6/problem_en.tex
 done
