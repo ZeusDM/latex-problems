@@ -1,0 +1,11 @@
+Let $ A_0 = (a_1,\dots,a_n)$ be a finite sequence of real numbers. For each $ k\geq 0$,  from the sequence $ A_k = (x_1,\dots,x_k)$ we construct a new sequence $ A_{k + 1}$ in the following way.
+
+\begin{enumerate}[label = (\roman*)]
+	\item We choose a partition $ \{1,\dots,n\} = I\cup J$,  where $ I$ and $ J$ are two disjoint sets, such that the expression\[ \left|\sum_{i\in I}x_i - \sum_{j\in J}x_j\right|
+\]
+attains the smallest value. (We allow $ I$ or $ J$ to be empty; in this case the corresponding sum is 0.) If there are several such partitions, one is chosen arbitrarily.
+
+	\item We set $ A_{k + 1} = (y_1,\dots,y_n)$ where $ y_i = x_i + 1$ if $ i\in I$,  and $ y_i = x_i - 1$ if $ i\in J$.
+\end{enumerate}
+
+Prove that for some $ k$,  the sequence $ A_k$ contains an element $ x$ such that $ |x|\geq\frac n2$.
