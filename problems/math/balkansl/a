@@ -1,0 +1,7 @@
+for i in {2014..2018};
+do
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "Balkan Shortlist $i" >> $i/source_pt.tex
+    echo "Banco Balcãs $i" >> $i/source_en.tex
+done
