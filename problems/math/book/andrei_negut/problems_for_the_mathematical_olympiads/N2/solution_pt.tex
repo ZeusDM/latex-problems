@@ -1,0 +1,32 @@
+Como estamos trabalhando com $x, y \ge 0$, temos que $y + 4y^2 = x + 3x^2 \le x + 4x^2 \implies y \le x \implies x - y \ge$
+
+Seja $d = \mdc(x, y)$. Defina $v$ e $u$ tal que $x = dv$ e $y = du$. Então
+\begin{gather*}
+	x(3x + 1) = y(4y + 1)\\
+	v(3dv + 1) = u(4du + 1)
+\end{gather*}
+
+Sabemos que $\mdc(v, u) = 1$, então $v | 4du + 1$ e $u | 3dv + 1$. Em especial, se $4du + 1 = kv$ e $3dv + 1 = ju$, temos que $v(ju) = u(kv) \implies k = j$. Logo, \[
+\begin{cases}
+	4du + 1 = kv\\
+	3dv + 1 = ku
+\end{cases}\]
+
+Resolvendo o sistema, temos $v = \frac{4d + k}{k^2 - 12d^2}$ e $u = \frac{3d + k}{k^2 - 12d^2}$.
+
+Em especial, descobrimos que \[
+\begin{cases}
+	k^2 - 12d^2 | (4d + k) - (3d + k) = d\\
+	k^2 - 12d^2 | 4(3d + k) - 3(4d + k) = k
+\end{cases}\]
+
+Seja $e = \mdc(k, d)$. Defina $k'$ e $d'$ tal que $k = ek'$ e $d = ed'$. Pelo teorema de Bezout, sabemos que existem $a$ e $b$ tais que $ak + bd = e$, que implica \[k^2 - 12d^2 | e.\]
+
+Porém, $e^2 | k^2 - 12d^2 | e \implies e = 1 \implies k^2 - 12d^2 = \pm1$. Como $u > 0$ e $3d + k > 0$, então $k^2 - 12d^2 > 0$ e, portanto, \[k^2 - 12d^2 = 1.\]
+
+Para finalizar,
+\begin{align*}
+	x - y &= d(v - u) \\
+	      &= d(\frac{4d + k}{k^2 - 12d^2} - \frac{3d - k}{k^2 - 12d^2}) \\
+		  &= d^2.
+\end{align*}

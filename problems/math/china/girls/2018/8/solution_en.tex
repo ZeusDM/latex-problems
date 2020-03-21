@@ -1,0 +1,47 @@
+I claim that both $BC=2MN$ and $IQ=2IP$ are equivalent to $\angle{BAC}=\frac{\pi}{3}$.
+
+First, note that by the Iran Incenter Lemma, $M$ and $N$ are the feet of the $B$ and $C$ altitudes of $\triangle{BHC}$, where $H$ is the orthocenter of $\triangle{BIC}$. Thus
+\begin{align*}
+	MN&=BC\left|\cos\angle{BHC}\right|\\
+	&=BC\left|\cos\left(\pi-\angle{BIC}\right)\right|\\
+	&=BC\left|\cos\left(\pi-\left(\frac{\pi}{2}+\angle{BAC}\right)\right)\right|\\
+	&=BC\sin\frac{\angle{BAC}}{2}
+\end{align*}
+so $BC=2MN$ is equivalent to $\sin\frac{\angle{BAC}}{2}=\frac{1}{2}$, which in turn is equivalent to $\angle{BAC}=\frac{\pi}{3}$.
+
+Now, we apply barycentric coordinates on $\triangle{ABC}$ to prove that $IQ=2IP$ is equivalent to $\angle{BAC}=\frac{\pi}{3}$. Let $A=\left(1,0,0\right)$, $B=\left(0,1,0\right)$, $C=\left(0,0,1\right)$ such that $D=\left(s-b:s-a:0\right)$, $E=\left(s-c:0:s-a\right)$, $F=\left(a:0:c\right)$, $G=\left(a:b:0\right)$, and $I=\left(\frac{a}{2s},\frac{b}{2s},\frac{c}{2s}\right)$ with $I$ in homogenized form. Let $P'=\left(\frac{a\left(s-a\right)}{bc},\frac{\left(a-c\right)\left(s-b\right)}{c\left(b-c\right)},\frac{\left(b-a\right)\left(s-c\right)}{b\left(b-c\right)}\right)$ in homogenized form, alternatively $P'=\left(a\left(b-c\right)\left(s-a\right):b\left(a-c\right)\left(s-b\right):c\left(b-a\right)\left(s-c\right)\right)$ in unhomogenized form. I claim that $P=P'$. It suffices to show that $D,E,P'$ collinear and $F,G,P'$ collinear.
+
+To show that $D,E,P'$ collinear, we compute the determinant \[
+\begin{vmatrix}
+	s-b & s-a & 0 \\
+	s-c & 0 & s-a \\
+	a\left(b-c\right)\left(s-a\right) & b\left(a-c\right)\left(s-b\right) & c\left(b-a\right)\left(s-c\right)
+\end{vmatrix}
+\] as
+\begin{align*}
+	\text{det}&=-b\left(a-c\right)\left(s-a\right)\left(s-b\right)^2-\left(s-a\right)\left[c\left(b-a\right)\left(s-c\right)^2-a\left(b-c\right)\left(s-a\right)^2\right]\\
+	&=-\left(s-a\right)\left[b\left(a-c\right)\left(s-b\right)^2+c\left(b-a\right)\left(s-c\right)^2-a\left(b-c\right)\left(s-a\right)^2\right]\\
+	&=-\left(s-a\right)\big[s^2\left(b\left(a-c\right)+c\left(b-a\right)-a\left(b-c\right)\right)\\&-\left(2s-b\right)b^2\left(a-c\right)-\left(2s-c\right)c^2\left(b-a\right)+\left(2s-a\right)a^2\left(b-c\right)\big]\\
+	&=-\left(s-a\right)\left[-b^2\left(a^2-c^2\right)-c^2\left(b^2-a^2\right)+a^2\left(b^2-c^2\right)\right]\\
+	&=0
+\end{align*}
+so $D,E,P'$ are collinear.
+
+To show that $F,G,P'$ collinear, we compute the determinant \[
+\begin{vmatrix}
+	a & 0 & c \\
+	a & b & 0 \\
+	a\left(b-c\right)\left(s-a\right) & b\left(a-c\right)\left(s-b\right) & c\left(b-a\right)\left(s-c\right)
+\end{vmatrix}
+\] as
+\begin{align*}
+	\text{det}&=abc\left(b-a\right)\left(s-c\right)+abc\left(a-c\right)\left(s-b\right)-abc\left(b-c\right)\left(s-a\right)\\
+	&=\frac{abc}{2}\left[\left(b-a\right)\left(b+a-c\right)+\left(a-c\right)\left(c+a-b\right)-\left(b-c\right)\left(b+c-a\right)\right]\\
+	&=\frac{abc}{2}\left[b^2-a^2-c\left(b-a\right)+a^2-c^2-b\left(a-c\right)-b^2+c^2+a\left(b-c\right)\right]\\
+	&=0
+\end{align*}
+so $F,G,P'$ are collinear.
+
+Thus $P=P'$ so we have the coordinates of $P$. Now let $Q=\left(0,y_Q,z_Q\right)$ in homogenized form. Then $\overrightarrow{IP}=\left(\frac{a\left(s-a\right)}{bc}-\frac{a}{2s},\ldots\right)$ and $\overrightarrow{IQ}=\left(-\frac{a}{2s},\ldots\right)$ in homogenized coordinate difference. Then $\frac{IP}{IQ}$ is the absolute value of the ratio between the $x$ components of these coordinate differences, so \[\frac{IP}{IQ}=\left|\frac{\frac{a\left(s-a\right)}{bc}-\frac{a}{2s}}{-\frac{a}{2s}}\right|=\left|\frac{2s\left(s-a\right)}{bc}-1\right|=\left|\frac{b^2+c^2-a^2}{2bc}\right|=\left|\cos\angle{BAC}\right|\] so $IQ=2IP$ is equivalent to $\cos\angle{BAC}=\frac{1}{2}$, which in turn is equivalent to $\angle{BAC}=\frac{\pi}{3}$.
+
+Thus, both conditions are equivalent to $\angle{BAC}=\frac{\pi}{3}$, so $BC=2MN$ if and only if $IP=2IQ$.

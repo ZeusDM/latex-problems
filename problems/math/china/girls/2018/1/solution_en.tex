@@ -1,0 +1,3 @@
+If $a\leq0$ then $x_n=1-a\cdot e^{x_{n-1}}\geq1$ for $n\geq1$ so the problem is clearly true. So assume $a\in\left(0,1\right]$.
+
+We prove the problem by strong induction on $n$. If $n=0$ this is true by definition; if $n=1$ then $x_1=1-a\cdot e^{x_0}=1-a\geq0$. Now assume $x_n\geq0$ for $n=0,1,\ldots,k$ for a positive integer $k$. Then $x_{k-1}\geq0$, so \[x_k=1-a\cdot e^{x_{k-1}}\leq1-a\cdot e^0=1-a,\] so \[x_{k+1}=1-a\cdot e^{x_k}\geq1-a\cdot e^{1-a}=e^{1-a}\left(e^{a-1}-a\right)\geq0\] using the fact that $e^x\geq1+x$ for all $x\in\mathbb{R}$. So $x_{k+1}\geq0$ and thus by strong induction, $x_n\geq0$ for all nonnegative integers $n$.

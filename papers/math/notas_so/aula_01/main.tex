@@ -1,0 +1,98 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{fullpage}
+
+\usepackage[stylish, persection]{zeusproblems}
+\usepackage{zeuscolor}
+\usepackage{zeusall}
+
+\colorlet{main}{DarkCyan}
+\pagestyle{empty}
+
+%\titleformat{\section}[hang]{\vspace{-0.5em}}{}{1em}{\large\bfseries\sffamily}[]
+
+\title{Equação de Pell Generalizada}
+\author{Guilherme Zeus; Lecturer: Rafael Filipe}
+\nomail
+\titler{27 de janeiro de 2020}
+\titlel{Semana Olímpica 2020}
+
+\renewcommand\playerA[1]{Guilherme}
+\renewcommand\playerB[1]{Zeus}
+
+\newcommand\sD{\sqrt{D}}
+
+\begin{document}
+	\zeustitle
+
+	\section{Equação de Pell}
+
+	Uma equação de Pell é uma equação do tipo $$x^2 - D \cdot y^2 = 1,$$ com D não quadrado perfeito, para variáveis $x$ e $y$ inteiros positivos.
+
+	\begin{thm}
+		Existe solução para toda equaçãoo de Pell.
+	\end{thm}
+
+	\begin{thm}
+		Existe uma solução minimal $(x_0, y_0)$, que vamos representar como $x_0 + y_0 \sqrt{D}$.
+		Todas as soluções são da forma $$x_n + y_n \sqrt{D} = (x_1 + y_1 \sqrt{D})^n$$
+	\end{thm}
+	
+	\subsection{Como achar soluções para a equação de Pell}
+
+	\begin{itemize}
+		\item Usar frações contínuas.
+	\end{itemize}
+
+	\subsection{Olhar as soluções da Equação de Pell como uma recorrência}
+
+	\begin{gather*}
+	x_n + y_n \sD = (x_1 + y_1 \sD)^n \\ 
+	x_n - y_n \sD = (x_1 - y_1 \sD)^n \\
+	\end{gather*}
+
+	Logo:
+
+	\begin{gather*}
+		x_n = \frac{(x_1 + y_1 \sD)^n + (x_1 + y_1 \sD)^n}{2} \\
+		y_n = \frac{(x_1 + y_1 \sD)^n - (x_1 + y_1 \sD)^n}{2\sD}
+	\end{gather*}
+
+	Portanto, ambas as seqências $(x_n)$ e $(y_n)$ seguem a recorrência:
+
+	\begin{equation*}
+		u_{n+2} - 2x_1 u_{n+1} + u_n = 0
+	\end{equation*}
+
+	\section{Equação de Pell Generalizada}
+
+	Agora, vamos resolver equações do tipo \[x^2 - D y^2 = C.\]
+
+	Nesse caso, nem sempre tem solução (e.g., $x^2 - 3y^2 = 7$ não possui solução\footnote{Basta ver módulo 4.}). Além disso, mesmo quando existe uma solução, não existe necessariamente uma única solução minimal, mas na verdade várias soluções minimais e uma família de soluções para cada uma delas.
+
+	\begin{thm}
+		Seja $(x_0, y_0)$ a solução da equação de Pell $x^2 - D y^2 = 1$.
+
+		Se $(x, y)$ é solução de $x^2 - D y^2 = C$, então \[x + y \sD = (u + v \sD) (x_1 + y_1 \sD)^k,\] com $k$ inteiro e $u^2 - D v^2 = C$, \[u + v \sD < (x_1 + y_1 \sD) \sqrt{|C|}\]
+	\end{thm}
+
+	Usando o teorema acima, podemos achar todas as soluções dessa generalização da equação de Pell.
+
+	\section{Um Truque Especial}
+
+	\begin{thm}
+		Em uma recorrência de segunda ordem $a_{n+2} + ba_{n+1} + ca_n = 0$, seja $p$ um primo e $T_p$ o período dessa sequência módulo $p$. Podemos achar $T_p$ usando que:
+		\begin{itemize}
+			\item Se $\left(\frac{b^2 - 4c}{p}\right) = 1$, então $T_p | p-1$.
+			\item Se $\left(\frac{b^2 - 4c}{p}\right) = 1$, então $T_p | p^2-1$.
+			\item Se $b^2 - 4c \equiv 0 \pmod{p}$, então $p | T_p$ e $T_p | p(p-1)$.
+		\end{itemize}
+	\end{thm}
+\end{document}

@@ -1,0 +1,9 @@
+For a positive integer $n$, we say an \emph{$n$-shuffling} is a bijection $\sigma: \{1,2, \dots , n\} \rightarrow \{1,2, \dots , n\}$ such that there exist exactly two elements $i$ of $\{1,2, \dots , n\}$ such that $\sigma(i) \neq i$.
+
+Fix some three pairwise distinct $n$-shufflings $\sigma_1,\sigma_2,\sigma_3$. Let $q$ be any prime, and let $\mathbb{F}_q$ be the integers modulo $q$. Consider all functions $f:(\mathbb{F}_q^n)^n\to\mathbb{F}_q$ that satisfy, for all integers $i$ with $1 \leq i \leq n$ and all $x_1,\ldots x_{i-1},x_{i+1}, \dots ,x_n, y, z\in\mathbb{F}_q^n$, \[f(x_1, \ldots ,x_{i-1}, y, x_{i+1}, \ldots , x_n) +f(x_1, \ldots ,x_{i-1}, z, x_{i+1}, \ldots , x_n) = f(x_1, \ldots ,x_{i-1}, y+z, x_{i+1}, \ldots , x_n), \] and that satisfy, for all $x_1,\ldots,x_n\in\mathbb{F}_q^n$ and all $\sigma\in\{\sigma_1,\sigma_2,\sigma_3\}$, \[f(x_1,\ldots,x_n)=-f(x_{\sigma(1)},\ldots,x_{\sigma(n)}).\]
+	
+	For a given tuple $(x_1,\ldots,x_n)\in(\mathbb{F}_q^n)^n$, let $g(x_1,\ldots,x_n)$ be the number of different values of $f(x_1,\ldots,x_n)$ over all possible functions $f$ satisfying the above conditions.
+	
+	Pick $(x_1,\ldots,x_n)\in(\mathbb{F}_q^n)^n$ uniformly at random, and let $\varepsilon(q,\sigma_1,\sigma_2,\sigma_3)$ be the expected value of $g(x_1,\ldots,x_n)$. Finally, let \[\kappa(\sigma_1,\sigma_2,\sigma_3)=-\lim_{q \to \infty}\log_q\left(-\ln\left(\frac{\varepsilon(q,\sigma_1,\sigma_2,\sigma_3)-1}{q-1}\right)\right).\]
+
+	Pick three pairwise distinct $n$-shufflings $\sigma_1,\sigma_2,\sigma_3$ uniformly at random from the set of all $n$-shufflings. Let $\pi(n)$ denote the expected value of $\kappa(\sigma_1,\sigma_4,\sigma_3)$. Suppose that $p(x)$ and $q(x)$ are polynomials with real coefficients such that $q(-3) \neq 0$ and such that $\pi(n)=\frac{p(n)}{q(n)}$ for infinitely many positive integers $n$. Compute $\frac{p\left(-3\right)}{q\left(-3\right)}$.

@@ -1,0 +1,80 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage[obm]{zeusproblems}
+\usepackage{zeustitle}
+
+\contestname{Soluções do $\text{1}^\text{o}$ Simulado Geral de Velocidade}
+\contestextra{05 de março de 2020}
+\nocontestinstructions{
+	%\textbf{Instruções}
+	%\begin{enumerate}[label = --]
+	%	\item Não escreva a solução de dois problemas numa mesma folha.
+	%\end{enumerate}
+}
+\newcommand{\rulesep}{
+	\vspace{4mm}
+
+}
+
+\newtcbtheorem{probB}{\problemname}{fonttitle=\bfseries\upshape\color{sec1!50!black}, fontupper=\upshape, arc=0mm, colback=sec1!5!white,colframe=sec1!50!white}{prob}
+
+\renewcommand{\playerA}[1]{Zeus}
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\contesttitle
+	
+	\rulesep
+	
+	\problem*{math/usa/jmo/2012/1}
+	\solution{math/usa/jmo/2012/1}
+
+	\newpage
+
+	\begin{prob}
+		Existem $n$ casas numa rua. Onde devemos colocar um ponto de ônibus, de modo a minimizar a soma das distâncias entre cada casa e o ponto de ônibus?
+	\end{prob}
+	\begin{sol}
+		Sejam $X_1, X_2, \dots, X_n$ as posições das casas (numeradas de acordo com a rua, isto é, $X_i$ está entre $X_j$ e $X_k$ sempre que $i$ está entre $j$ e $k$). Seja $P$ a posição do ponto de ônibus. Usando desigualdade triangular, temos que
+		\begin{align*}
+			X_1P + X_nP     &\ge X_1X_n     & \text{com igualdade} &\iff& \text{$P$ está entre $X_1$ e $X_n$}  \\
+			X_2P + X_{n-1}P &\ge X_2X_{n-1} & \text{com igualdade} &\iff& \text{$P$ está entre $X_2$ e $X_{n-1}$} \\
+							&\vdots         &                      &    & \\
+			X_nP + X_1P     &\ge X_nX_1     & \text{com igualdade} &\iff& \text{$P$ está entre $X_n$ e $X_1$}
+		\end{align*}
+		
+		Somando todas as inequações, obtemos \[ \sum_{i=1}^n X_iP \ge \frac{X_1X_n + X_2X_{n-1} + \cdots + X_nX_1}{2}.\]
+
+		Ou seja, mostramos que $\sum_{i=1}^n X_iP \ge c$, com igualdade quando todas as inequações também valem igualdade. Por sorte, a interseção acontece, e é exatamente todos os pontos no entre $X_{\floor{\frac{n+1}{2}}}$ e $X_{\ceil{\frac{n+1}{2}}}$, exatamente onde devemos construir o ponto de ônibus.
+
+		\begin{rem}
+			Se $n$ é par, o resultado se resume a qualquer ponto entre as duas casas do meio. Se $n$ é impar, o ponto de ônibus deve ser colocado na casa do meio.
+		\end{rem}
+
+		\begin{rem}
+			$A$ está entre $A$ e $B$. $A$ está entre $A$ e $A$.
+		\end{rem}
+	\end{sol}
+
+	\newpage
+
+	\problem*{math/jbmo/2010/1}
+	\solution{math/jbmo/2010/1}
+
+	\newpage
+
+	\problem*{math/book/andrei_negut/problems_for_the_mathematical_olympiads/N2}
+	\solution{math/book/andrei_negut/problems_for_the_mathematical_olympiads/N2}
+
+	%\vfill
+
+	%{\hfill \slshape Cada problema vale 7 pontos.}
+
+	%{\hfill \slshape Tempo: 1 hora e 40 minutos.}
+\end{document}

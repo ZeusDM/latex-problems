@@ -1,0 +1,128 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage[pensi]{zeuscolor}
+\usepackage{zeusall}
+
+\title{Quem é $\NN$? -- Indução}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 12 de Março de 2020}
+
+\begin{document}	
+	\zeustitle
+
+	\section[Definindo os naturais]{Definindo $\NN$}
+
+	\begin{defn}[Axiomas de Peano] Seja $\NN$ o conjunto dos números naturais. Então:
+		\begin{enumerate}[label = \textbf{\roman*.}]
+			\item $1$ é um número natural;
+			\item Todo natural possui um sucessor;
+			\item $1$ é o único natural que não é sucessor de nenhum outro natural;
+			\item Se o sucessor de um natural $x$ é igual ao sucessor de um natural $y$, então $x$ é igual a $y$;
+			\item \emph{(Axioma da Indução)\footnote{O axioma da boa ordem é, por vezes, apresentado no lugar do axioma da indução. Não há difereça, pois eles são equivalentes.}}	
+				Seja $A \subset \NN$. Se
+				\begin{enumerate}[label = --]
+					\item $1 \in A$;
+					\item para todo $n \in A$, $n+1 \in A$,
+				\end{enumerate}
+				então $A = \NN$. 
+		\end{enumerate}
+	\end{defn}
+
+	\section{``Diferentes formas'' de indução}
+
+	\subsection{Princípio da Boa Ordem}
+
+	Todo subconjunto não vazio $A \in \NN$ possui um menor elemento.
+
+	\subsection{Indução}
+
+	Seja $P(x)$ um predicado, isto é, uma proposição que é verdadeira ou falsa, para cada valor de $x$. Se:
+	\begin{enumerate}[label = --]
+		\item $P(1)$ é verdade,
+		\item para todo $k > 1$, $P(k-1)$ implica $P(k)$;
+	\end{enumerate}
+	então $P(n)$ é verdade, para todo $n$ natural.
+
+	\subsection{Indução Forte}
+
+	Seja $P(x)$ um predicado. Se:
+	\begin{enumerate}[label = --]
+		\item $P(1)$ é verdade,
+		\item para todo $k$, $\Big( P(1) \text{ e } P(2)$ \text{ e } $\cdots$ \text{ e } $P(k-1) \Big)$ implica $P(k)$;
+	\end{enumerate}
+	então $P(n)$ é verdade, para todo $n$ natural.
+
+	\newpage
+
+	\section{Problemas}
+
+	\begin{prob}
+		Demonstre que, para todo $n \ge 1$ natural, valem as seguintes proposições.
+		\begin{enumerate}[label = (\alph*)]
+			\item $1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}{2}.$
+			\item $1^2 + 2^2 + 3^2 + \cdots + n^2 = \dfrac{n(n + 1)(2n + 1)}{6}.$
+			\item $1^3 + 2^3 + 3^3 + \cdots + n^3 = (1+2+3+\cdots+n)^2.$
+		\end{enumerate}
+	\end{prob}
+
+	\begin{prob}
+		Prove que, para todo $n > 4$ natural, $2^n > n^2$.
+	\end{prob}
+
+	\begin{prob}
+		Prove que uma soma arbitrária de $n \ge 8$ centavos pode ser paga com moedas de 3 e 5 centavos (tendo essas moedas em quantidade suficiente).
+	\end{prob}
+
+	\begin{prob}
+		A sequência $(a_i)$ é definida por $a_1 = 0, a_2 = 1, a_{n+2} = 3a_{n+1} - 2a_n$. Encontre uma fórmula explícita para o $n$-ésimo termo dessa sequência.
+	\end{prob}
+
+	\begin{prob}
+		Em um grafo, cada vértice tem grau menor ou igual a $\Delta$. Prove que é possível pintar os vértices do grafo com $\Delta + 1$ cores de modo que dois vértices conectados têm cores diferentes.
+	\end{prob}
+
+	\begin{prob}
+		Determine o número máximo de regiões no qual o plano pode ser particionado com $n$ retas.
+	\end{prob}
+
+	\begin{prob}
+		Determine, com prova, se é possível arranjar os números $1, 2, 3, \dots, 2020$ em uma fila de tal forma que a média de qualquer par de números distintos não esteja localizada entre esses dois números.
+	\end{prob}
+
+	\begin{prob}
+		Prove que, para todo inteiro positivo $n$, existem inteiros positivos $a_{11}$, $a_{21}$, $a_{22}$, $a_{31}$, $a_{32}$, $a_{33}$, $a_{41}$, $\dots$, $a_{nn}$, tal que \[a_{11}^2 = a_{21}^2 + a_{22}^2 = a_{31}^2 + a_{32}^2 + a_{33}^2 = \cdots = a_{n1}^2 + \cdots + a_{nn}^2.\]
+	\end{prob}
+
+	\begin{prob}[MA $\ge$ MG]
+		Sejam $n$ um natural e $a_1, a_2, \dots, a_n$ reais não-negativos. Prove que \[\frac{a_1 + a_2 + \cdots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \cdots a_n}.\]
+	\end{prob}
+
+	\problem{math/others/1}
+
+	\begin{prob}
+		Dados $k \ge 0$ e $n \ge k$, calcule \[\binom{k}{k} + \binom{k+1}{k} + \cdots + \binom{n}{k}.\]
+	\end{prob}
+
+	\begin{prob}
+		Dados $k \ge 2$ e $n \ge k$, calcule \[\frac{1}{\binom{k}{k}} + \frac{1}{\binom{k+1}{k}} + \cdots + \frac{1}{\binom{n}{k}}.\]
+	\end{prob}
+
+	\problem{math/netherlands/tst/2018/2/4}
+
+	\section{Referências}
+
+	\begin{itemize}
+		\item Polos Olímpicos de Treinamento. Curso de Álgebra - Nível 2. Marcelo Mendes.
+		\item Algoritmos. Treinamento Cone Sul, 2019. Carlos Shine
+		\item Duke Putnam Preparation (old, Fall 2012). \url{https://www.imomath.com/index.php?options=525}.
+		\item Harvard Freshman Seminar 24i. Mathematical Problem Solving. Some induction problems. Noam D. Elkies. \url{http://abel.math.harvard.edu/~elkies/FS24i.10/induction.pdf}.
+	\end{itemize}
+\end{document}

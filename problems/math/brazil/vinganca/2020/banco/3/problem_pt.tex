@@ -1,0 +1,9 @@
+Para um inteiro positivo $n$, dizemos que um \emph{$n$-embaralhamento} é uma bijeção $\sigma: \{1,2, \dots , n\} \rightarrow \{1,2, \dots , n\}$ tal que existem exatamente dois elementos $i$ em $\{1,2, \dots , n\}$ tal que $\sigma(i) \neq i$.
+
+Fixe três $n$-embaralhamentos distintos dois a dois $\sigma_1,\sigma_2,\sigma_3$. Seja $q$ um primo e seja $\mathbb{F}_q$ o conjunto dos inteiros módulo $q$. Considere todas as funções $f:(\mathbb{F}_q^n)^n\to\mathbb{F}_q$ que satisfazem, para todo inteiro $i$ com $1 \leq i \leq n$ e todo $x_1,\ldots x_{i-1},x_{i+1}, \dots ,x_n, y, z\in\mathbb{F}_q^n$, \[f(x_1, \ldots ,x_{i-1}, y, x_{i+1}, \ldots , x_n) +f(x_1, \ldots ,x_{i-1}, z, x_{i+1}, \ldots , x_n) = f(x_1, \ldots ,x_{i-1}, y+z, x_{i+1}, \ldots , x_n), \] e que satisfazem, para todo $x_1,\ldots,x_n\in\mathbb{F}_q^n$ e todo $\sigma\in\{\sigma_1,\sigma_2,\sigma_3\}$, \[f(x_1,\ldots,x_n)=-f(x_{\sigma(1)},\ldots,x_{\sigma(n)}).\]
+
+Dada uma $n$-upla $(x_1,\ldots,x_n)\in(\mathbb{F}_q^n)^n$, seja $g(x_1,\ldots,x_n)$ o número de diferentes valores que $f(x_1,\ldots,x_n)$ pode assumir sobre todas as possíveis funções $f$ nas condições acima.
+	
+Pegue $(x_1,\ldots,x_n)\in(\mathbb{F}_q^n)^n$ de forma uniformemente aleatória, e seja $\varepsilon(q,\sigma_1,\sigma_2,\sigma_3)$ o valor esperado de $g(x_1,\ldots,x_n)$. Finalmente, seja \[\kappa(\sigma_1,\sigma_2,\sigma_3)=-\lim_{q \to \infty}\log_q\left(-\ln\left(\frac{\varepsilon(q,\sigma_1,\sigma_2,\sigma_3)-1}{q-1}\right)\right).\]
+
+Pegue três $n$-embaralhamentos distintos dois a dois $\sigma_1,\sigma_2,\sigma_3$ de forma uniformemente aleatória do conjunto de todos os $n$-embaralhamentos. Seja $\pi(n)$ o valor esperado de $\kappa(\sigma_1,\sigma_2,\sigma_3)$. Suponha que $p(x)$ e $q(x)$ são polinômios com coeficientes reais tais que $q(-3) \neq 0$ e $\pi(n)=\frac{p(n)}{q(n)}$ para infinitos valores de $n$ inteiros positivos. Calcule $\frac{p\left(-3\right)}{q\left(-3\right)}$.

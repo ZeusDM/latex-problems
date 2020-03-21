@@ -1,0 +1,14 @@
+for i in {2007..2019};
+do
+    #mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "MEMO $i" >> $i/source_pt.tex
+    echo "MEMO $i" >> $i/source_en.tex
+	for j in {1..12}
+	do
+		#mkdir $i/$j
+		rm $i/$j/number.tex
+		echo "$j" >> $i/$j/number.tex
+	done
+done

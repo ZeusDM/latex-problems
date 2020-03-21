@@ -1,0 +1,19 @@
+Here, we are using oriented segments.
+
+Let $M$ be the intersection of the diagonals. Let $B_i$ be the other intersection of $A_{i+2}M$ with the circumference $(A_{i+1}A_{i+2}A_{i+3})$. Thus, by Power of Point, \[MB_i \cdot MA_{i+2} = MA_{i+1} \cdot MA_{i+3}.\]
+
+We have
+\begin{align*}
+	\frac{1}{O_iA_i^2 - r_i^2} & = \frac{1}{A_iB_i \cdot A_iA_{i+2}} \\
+	                         & = \frac{1}{(A_iM + MB_i) \cdot A_iA_{i+2}} \\
+							 & = \frac{MA_{i+2}}{(-MA_i \cdot MA_{i+2} + MB_i \cdot MA_{i+2}) A_iA_{i+2}} \\
+							 & = \frac{MA_{i+2}}{A_iA_{i+2} (MA_{i+1}MA_{i+3} - MA_iMA_{i+2})}.
+\end{align*}
+
+Therefore
+\begin{align*}
+	\sum_{i=1}^4 \left( \frac{1}{O_iA_i^2 - r_i^2} \right) &= \left(\frac{1}{O_1A_1^2 - r_1^2} + \frac{1}{O_3A_3^2 - r_3^2}\right) + \left( \frac{1}{O_2A_2^2 - r_2^2} + \frac{1}{O_4A_4^2 - r_4^2} \right) \\
+														   &= \frac{A_1M + MA_3}{A_1A_3 \cdot (MA_2 \cdot MA_4 - MA_1 \cdot MA_3)} + \frac{A_2M + MA_4}{A_2A_4 \cdot (MA_1 \cdot MA_3 - MA_2 \cdot MA_4)} \\
+														   &= \frac{1}{MA_2 \cdot MA_4 - MA_1 \cdot MA_3} + \frac{1}{MA_1 \cdot MA_3 - MA_2 \cdot MA_4} \\
+														   &= 0.
+\end{align*}

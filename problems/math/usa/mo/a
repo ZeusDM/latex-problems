@@ -1,15 +1,17 @@
-for i in {2002..2019};
+for i in {1990..2001};
 do
     #mkdir $i
-    #rm $i/source_pt.tex
-    #rm $i/source_en.tex
-    #echo "USAMO $i" >> $i/source_pt.tex
-    #echo "USAMO $i" >> $i/source_en.tex
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    #rm $i/source.tex
+    echo "USAMO $i" >> $i/source_pt.tex
+    echo "USAMO $i" >> $i/source_en.tex
 	for j in {1..6}
 	do
 		#mkdir $i/$j
-		#rm $i/$j/number.tex
-		#echo "$j" >> $i/$j/number.tex
-		mv USAMO-$i-$j.tex $i/$j/solution_en.tex
+		rm $i/$j/source_pt.tex
+		rm $i/$j/source_en.tex
+		rm $i/$j/number.tex
+		echo "$j" >> $i/$j/number.tex
 	done
 done

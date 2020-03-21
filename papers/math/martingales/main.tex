@@ -1,0 +1,49 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{fullpage}
+
+\usepackage{zeusall}
+
+\title{Martingales}
+\author{MIT Lecture}
+\mail{}
+\titler{}
+\titlel{}
+
+
+\begin{document}
+	\zeustitle
+
+	\section{Motivation Problem}
+
+	\begin{prob}
+		23 candidates are running for a political office. There is an efficient betting market and $p_i$ is the ``market percent probability'' that the $i$th candidate wins. Assume each $p_i$ is an integer greater than $1$ and that $\sum p_i = 100$.
+
+		The $p_i$ evolve in time. Write $p_i(t)$ for the value at time $t$.
+
+		Assume that if $p_i$ is a number $k \in \{1, 2, \dots, 99\}$ at some given time, then the next integer value that $p_i$ attains is $k+1$ with probability $1/2$ and $k-1$ with probability $1/2$.
+
+		The $i$th candidate makes an epic comeback if $p_i$ gets all the way down $1$ before getting to $100$.
+
+		What is the probability that somebody will make an epic comeback?
+	\end{prob}
+
+	\section{Martingale definition}
+
+		Let $S$ be a probability space.
+
+		Let $X_0, X_1, \dots$ be a sequence of random quantities (a.k.a. random variables).
+
+		\begin{defn}[The Martingale Property]
+			$$\EE[X_{n+1}| \mathcal{F}_n] = X_n$$
+		\end{defn}
+
+
+\end{document}
