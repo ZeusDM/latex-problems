@@ -1,0 +1,8 @@
+for i in {1990..2019};
+do
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    rm $i/source.tex
+    echo "Baltic Way $i" >> $i/source_pt.tex
+    echo "Baltic Way $i" >> $i/source_en.tex
+done

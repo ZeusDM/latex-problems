@@ -1,0 +1,7 @@
+A squiggle is composed of six equilateral triangles with side length $1$ as shown in the figure below. Determine all possible integers $n$ such that an equilateral triangle with side length $n$ can be fully covered with squiggles (rotations and reflections of squiggles are allowed, overlappings are not).[asy]
+
+import graph; size(100); real lsf = 0.5; pen dp = linewidth(0.7) + fontsize(10); defaultpen(dp); pen ds = black; 
+
+draw((0,0)--(0.5,1),linewidth(2pt)); draw((0.5,1)--(1,0),linewidth(2pt)); draw((0,0)--(3,0),linewidth(2pt)); draw((1.5,1)--(2,0),linewidth(2pt)); draw((2,0)--(2.5,1),linewidth(2pt)); draw((0.5,1)--(2.5,1),linewidth(2pt)); draw((1,0)--(2,2),linewidth(2pt)); draw((2,2)--(3,0),linewidth(2pt));
+
+dot((0,0),ds); dot((1,0),ds); dot((0.5,1),ds); dot((2,0),ds); dot((1.5,1),ds); dot((3,0),ds); dot((2.5,1),ds); dot((2,2),ds); clip((-4.28,-10.96)--(-4.28,6.28)--(16.2,6.28)--(16.2,-10.96)--cycle);[/asy]
