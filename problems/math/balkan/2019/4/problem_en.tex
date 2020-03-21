@@ -1,0 +1,13 @@
+A grid consists of all points of the form $(m, n)$ where $m$ and $n$ are integers with $|m|\le 2019,|n| \le 2019$ and $|m| +|n| < 4038$. We call the points $(m,n)$ of the grid with either $|m| = 2019$ or $|n| = 2019$ the boundary points. The four lines $x = \pm 2019$ and $y= \pm 2019$ are called boundary lines. Two points in the grid are called neighbours  if the distance between them is equal to $1$.
+
+Anna and Bob play a game on this grid.
+
+Anna starts with a token at the point $(0,0)$. They take turns, with Bob playing first.
+
+1) On each of his turns. Bob deletes  at most two boundary points on each boundary line.
+
+2) On each of her turns. Anna makes exactly three steps , where a step  consists of moving her token from its current point to any neighbouring point, which has not been deleted.
+
+As soon as Anna places her token on some boundary point which has not been deleted, the game is over and Anna wins.
+
+Does Anna have a winning strategy?
