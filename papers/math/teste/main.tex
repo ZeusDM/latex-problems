@@ -8,35 +8,40 @@
 \usepackage[draft, obm]{zeusproblems}
 \usepackage{zeustitle}
 
-\contestname{Simulado para o $1^\mathrm{o}$ Teste de Seleção}
-\contestextra{Cone Sul e OMCPLP}
-\contestinstructions{
-	\begin{center}
-		\bfseries Instruções:
-	\end{center}
-	\begin{itemize}
-		\item Separe o tempo necessário para essa prova: $4$ horas e $30$ minutos.
-		\item Escreva todas as soluções completas e envie para mim por email, \texttt{zeusdanmou@gmail.com}, ou por WhatsApp.
-	\end{itemize}
-}
-\newcommand{\rulesep}{
-	\vspace{4mm}
-
-}
-
-\newtcbtheorem{probB}{\problemname}{fonttitle=\bfseries\upshape\color{sec1!50!black}, fontupper=\upshape, arc=0mm, colback=sec1!5!white,colframe=sec1!50!white}{prob}
-
-%\colorlet{sec2}{black}
-
-\newcommand{\ps}[2]{
-	\problem*{#1}
-}
-
-\renewcommand{\playerA}[1]{Zeus}
-
 \begin{document}
 	\pagestyle{empty}
 
-	\problem{math/imosl/2011/G2}
-	\solution{math/imosl/2011/G2}
+	Multiplicando ambos os lados por $\left( {a}^{x}bc+1 \right)  \left( a{b}^{x}c+1 \right)  \left( ab{
+c}^{x}+1 \right)$, temos que a inequação que queremos provar que é verdadeira é
+\begin{gather*}
+({a}^{x+2}+1) (a{b}^{x}c+1) (ab{c}^{x}+1) +
+({b}^{x+2}+1) ({a}^{x}bc+1) (ab{c}^{x}+1) + 
+({c}^{x+2}+1) ({a}^{x}bc+1) (a{b}^{x}c+1)\\
+\ge\\
+3 ({a}^{x}bc+1) (a{b}^{x}c+1) (ab{c}^{x}+1) 
+\end{gather*}
+
+Expandindo o Lado Esquerdo (LE), temos:
+
+\begin{align*}
+	LE =\ & 	{a}^{x+4}{b}^{x+1}{c}^{x+1} +
+\\	   &	    {a}^{x+3}{b}^{x}c +
+\\	   &		{a}^{x+3}b{c}^{x} +
+\\	   &		{a}^{x+2} +
+\\	   &		{a}^{2}{b}^{x+1}{c}^{x+1} +
+\\	   &		2\,a{b}^{x}c+
+\\	   &		2\,ab{c}^{x}+
+\\	   &		3+
+\\	   &		{a}^{x+1}{b}^{x+4}{c}^{x+1}+
+\\	   &		a{b}^{x+3}{c}^{x}+
+\\	   &		{a}^{x+1}{c}^{x+1}{b}^{2}+
+\\	   &		{b}^{x+3}{a}^{x}c+{b}^{x+2}+
+\\	   &		2\,{a}^{x}bc+
+\\	   &		{a}^{x+1}{b}^{x+1}{c}^{x+4}+
+\\	   &		{c}^{x+3}a{b}^{x}+
+\\	   &		{a}^{x+1}{b}^{x+1}{c}^{2}+
+\\	   &		{c}^{x+3}{a}^{x}b+
+\\	   &		{c}^{x+2}
+\end{align*}
+
 \end{document}
