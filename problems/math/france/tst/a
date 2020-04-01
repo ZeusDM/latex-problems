@@ -1,0 +1,13 @@
+for i in {2002..2014};
+do
+	# mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "França TST $i" >> $i/source_pt.tex
+    echo "France TST $i" >> $i/source_en.tex
+	for j in {1..6};
+	do
+		rm $i/$j/number.tex
+		echo $j >> $i/$j/number.tex
+	done
+done

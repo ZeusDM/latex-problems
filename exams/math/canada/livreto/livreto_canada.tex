@@ -1,0 +1,84 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+
+\usepackage[obmtwo]{zeusproblems}
+\usepackage{zeusall}
+
+\usepackage[inline]{asymptote}
+
+\usepackage{fancyhdr}
+ 
+\newcommand{\ano}{2018}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \textcolor{black}{\ano}}
+\chead{\bfseries \textcolor{black}{Olimpíada de Matemática do Canadá}}
+\lhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\textwidth}{-0.5cm}
+
+\newcommand{\contest}[1]{
+	\def\ano{#1}
+	\setcounter{prob}{0}
+
+	\problem*{math/canada/#1/1}
+	\problem*{math/canada/#1/2}
+	\problem*{math/canada/#1/3}
+	\problem*{math/canada/#1/4}
+	\problem*{math/canada/#1/5}
+		
+	\newpage
+}
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+\begin{document}
+
+%\thispagestyle{empty}
+%\input{titlepage.tex}\newpage
+
+%------OBM's-------%
+
+\contest{2020}
+\contest{2019}
+\contest{2018}
+\contest{2017}
+\contest{2016}
+\contest{2015}
+\contest{2014}
+\contest{2013}
+\contest{2012}
+\contest{2011}
+\contest{2010}
+\contest{2009}
+\contest{2008}
+\contest{2007}
+\contest{2006}
+\contest{2005}
+\contest{2004}
+\contest{2003}
+\contest{2002}
+\contest{2001}
+\contest{2000}
+\contest{1999}
+\contest{1998}
+\contest{1997}
+\contest{1996}
+\contest{1995}
+\contest{1994}
+\contest{1993}
+\contest{1992}
+\contest{1991}
+
+\end{document}
