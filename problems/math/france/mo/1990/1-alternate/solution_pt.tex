@@ -1,0 +1,37 @@
+Primeiro, note que $u_n = 0$ ou $u_n = 1$, para todo $n \in \NN$.
+
+Podemos provar que $u_n$ tem a mesma paridade que soma dos dígitos de $n$ em sua representação binária. Este exercício fica para o leitor, mas este fato só será usado no item (c).
+
+\begin{enumerate}[label = (\alph*)]
+	\item
+		\begin{gather*}
+			u_{2020} = u_{1010}
+					 = u_{505}
+					 = 1 - u_{252}
+					 = 1 - u_{126}
+					 = 1 - u_{63}
+					 = u_{31}
+					 = 1 - u_{15}
+					 = u_{7}
+					 = 1 - u_{3}
+					 = u_{1}
+					 = 1 - u_0\\
+			u_{2020} = 1
+		\end{gather*}
+	\item
+		Observe que existe exatamente um $0$ entre $u_{2n}$ e $u_{2n+1}$, pois $u_{2n+1} = 1 - u_{2n}$.
+
+		Logo, olhando para os 1010 pares $(u_0, u_1), (u_2, u_3), \dots, (u_{2018}, u_{2019})$, exitem exatamente $1010$ $0$'s.
+
+		Portanto, sabendo que $u_{2020} = 1$, temos que existem $1010$ índices $n \le 2020$ tal que $u_n = 0$.
+
+	\item
+		Se $m = 0$, $N = 0$ e $u_N = 0$. Se $m \geq 0$, vamos usar que $u_N \equiv \text{soma dos dígitos de $N$ na base $2$} \pmod{2}$.
+		\[N = (2^m - 1)^2 = 2^{2m} - 2^{m+1} + 1 = \underbrace{11\cdots1}_{\text{$m-1$}}\underbrace{000\cdots0}_{\text{$m$}}1\quad\text{na base $2$.}\]
+		Logo, \[u_N \equiv \text{soma dos dígitos de $N$ na base $2$} = m \pmod{2}.\]
+		Ou seja, \[ u_N = 
+			\begin{cases}
+				1, \text{se $m$ é ímpar}\\
+				0, \text{se $m$ é par}
+			\end{cases}.\]
+\end{enumerate}

@@ -1,0 +1,52 @@
+Vamos dividir em casos.
+\begin{enumerate}[label = \bfseries \Alph*.]
+	\item \textbf{Se todas as faces do tetraedro têm cores diferentes.}
+
+		Vamos primeiro escolher as quatro cores, ${a, b, c, d}$. Existem $\binom{n}{4}$ formas de fazer isso.
+
+		Depois de escolhidas as cores, existem duas formas de pintar tetraetros indistinguíveis.
+
+		\hfill \textbf{Total desse caso: $2\binom{n}{4}$}
+
+	\item \textbf{Se há exatamente um par de faces com a mesma cor.}
+
+		Vamos primeiro escolher a cor que aparece duas vezes. Existem $n$ formas de fazer isso.
+
+		Depois, vamos escolher as duas cores restantes. Existem $\binom{n-1}{2}$ formas de fazer isso.
+
+		Depois de escolhidas as cores, só existe uma forma de pintar o tetraedro.
+
+		\hfill \textbf{Total desse caso: $n\binom{n-1}{2}$}
+
+	\item \textbf{Se existem dois pares de faces com cor igual, com cores distintas entre si.}
+
+		Vamos escolher as duas cores que aparecem. Existem $\binom{n}{2}$ formas de fazer isso.
+
+		Depois de escolhidas as cores, só existe uma forma de pintar o tetraedro.
+
+		\hfill \textbf{Total desse caso: $\binom{n}{2}$}
+
+	\item \textbf{Se existem um trio de faces com cores iguais e uma quarta face com cor distinta.}
+
+		Vamos escolher primeiro a cor que aparece três vezes. Existem $n$ formas de fazer isso.
+		
+		Depois, vamos escolher a cor que aparece uma vez. Existem $n-1$ formas de fazer isso.
+
+		Depois de escolhidas as cores, só existe uma forma de pintar o tetraedro.
+
+		\hfill \textbf{Total desse caso: $n(n-1)$}
+
+	\item \textbf{Se todas as faces têm a mesma cor.}
+
+		Vamos escolher a única cor. Existem $n$ formas de fazer isso.
+
+		Depois de escolhida a cor, só existe uma forma de pintar o tetraedro.
+		
+		\hfill \textbf{Total desse caso: $n$}
+\end{enumerate}
+
+Por fim, temos que
+\begin{align*}
+	\#(\text{peças}) &= 2\binom{n}{4} + n\binom{n-1}{2} + \binom{n}{2} + n(n-1) + n\\
+					 &= \frac{n^4 + 11n^2}{12}. 
+\end{align*}

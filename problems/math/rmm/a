@@ -1,15 +1,14 @@
-for i in {2008..2019};
+for i in {2008..2020};
 do
-    mkdir $i
+    # mkdir $i
     rm $i/source_pt.tex
 	rm $i/source_en.tex
 	echo "RMM $i" >> $i/source_pt.tex
     echo "RMM $i" >> $i/source_en.tex	
 	for j in {1..6}
 	do
-		mkdir $i/$j
+		# mkdir $i/$j
 		rm $i/$j/number.tex
 		echo "$j" >> $i/$j/number.tex
-		mv RMM-$i-$j.tex $i/$j/problem_en.tex
 	done
 done
