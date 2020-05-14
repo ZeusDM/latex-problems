@@ -1,0 +1,8 @@
+for i in {2016..2019};
+do
+	mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "Metrópoles $i" >> $i/source_pt.tex
+    echo "Metropolises $i" >> $i/source_en.tex
+done

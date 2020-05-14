@@ -1,0 +1,5 @@
+- Add links to the sources, specially AoPS.
+- Expand the catalogue.
+- Develop a way to more organize problems with unknown source.
+- Develop a way to crossreference problems (e.g. make IMOSL problems "reference" IMO problems, if selected to the contest).
+-- Idea: Symbolic links. (Do they work outside my computer? Do they work outside Linux?)

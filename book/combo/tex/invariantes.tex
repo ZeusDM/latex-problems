@@ -1,0 +1,27 @@
+\chapter{Invariantes, Monovariantes e Colorações}
+
+Quando estudamos Física e Química, nos deparamos com conceitos de \emph{Energia}, \emph{Quantidade de Movimento}, \emph{Entropia}, além de várias outras propriedade de um sistema que são muito úteis para descobrir coisas novas. O que essas propriedades tem de especial? Elas são propriedades bem comportadas! Energia e Quantidade de Movimento são constantes, Entropia nunca decresce, $\dots$. E essas características de invariância e monovariância são cruciais para a utilidade desses conceitos, também na Matemática!
+
+Uma propriedade $\phi$ é \emph{invariante} quando ela se mantém constante, i.e., não varia, e é \emph{monovariante} quando ela varia de uma forma ``ordenada'', e.g., sempre cresce ou sempre decresce.
+
+Explorar propriedades invariantes e monovariantes são uma forma útil de analisar eventos com uma aparentemente muitos graus de liberdade (e.g., formas de preencher um tabuleiro, jogos). Elas são úteis por conta da seguinte ideia:
+
+\begin{idea}
+	If you are studying something complex, don’t try to understand everything at once. Is there one specific piece that you can focus on that is easier to understand? If so, focus on that one thing and see what you learn!
+\end{idea}
+
+\begin{exmp}[Mutilated Chessboard Problem]
+	Considere um tabuleiro $8 \times 8$, com suas casas superior esquerda e inferior direita removidas. É possível cobrir esse tabuleiro com dominós $2 \times 1$, colocados horizontalmente ou verticalmente, de forma que todos os dominós estejam totalmente dentro do tabuleiro e não exista sobreposição de dominós?
+	\begin{ans}
+		Não.
+	\end{ans}
+	\begin{sol}
+		Considere a coloração usual de um tabuleiro de xadrez, com a casa superior esquerda preta. No total, existem $8\cdot8 = 64$ casas, entre elas, $32$ pretas e $32$ brancas. Ao remover a casa superior esquerda e inferior direita, temos um tabuleiro com $30$ casas pretas e $32$ casas brancas. Note que, ao colocar um dominó sobre o tabuleiro, cobrimos exatamente $1$ casa preta e $1$ casa branca. Desde modo, a propriedade \[\#(\text{casas brancas descobertas}) - \#(\text{casas pretas descobertas}),\] que inicialmente é igual a $2$, nunca varia.
+
+		Por outro lado, suponha que é possível preencher o tabuleiro completamente com dominós. O valor da propriedade $\#(B) - \#(P)$ é $0$.
+
+		Como $2 \neq 0$, não podemos começar com o tabuleiro sem dominós (onde a propriedade tem valor $2$), colocar dominós nesse tabuleiro (operação que não muda o valor da propriedade) e chegar no tabuleiro completamente cheio (onde a propriedade tem valor $0$).
+	\end{sol}
+\end{exmp}
+
+Don’t think about it just as a colouring that magically solves everything. Think about it instead as an interesting quantity (the number of black squares covered by dominoes) that changes in a simple way as you place each domino.
