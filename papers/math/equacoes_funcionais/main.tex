@@ -4,27 +4,33 @@
 \usepackage{lmodern}
 \usepackage[left=1.5cm, right=1.5cm, top=1.5cm, bottom=2.5cm]{geometry}
 
-\usepackage{../../../commands/problems}
-\renewcommand{\mypath}{../../../}
+\usepackage{enumitem}
+\usepackage[problem-list]{zeus}
 
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 \title{Equações Funcionais}
 \author{Guilherme Zeus Moura}
 \mail{zeusdanmou@gmail.com}
-\titlel{Turma Olímpica}
-\titler{\today}
+\titlel{}
+\titler{}
+
+\setlength{\columnsep}{1cm}
 
 \begin{document}	
-	\zeustitle
-	\section{Ideias úteis}
-	\begin{enumerate}[label = \textcolor{sec2-}{(\alph*)}]
+	\sloppy
+
+	\twocolumn[\zeustitle]
+	%\zeustitle
+
+	\section*{Ideias úteis}
+	\begin{enumerate}[label = {(\alph*)}]
 		\item Procurar algumas soluções para saber o que tentar provar.
 		\item Injetividade, sobretetividade, paridade, $\dots$
 		\item Explorar expressões quase simétricas.
 		\item Resolver para $\mathbb{Z}$, extender para $\mathbb{Q}$ e extender para $\mathbb{R}$.
 	\end{enumerate}
-	\section{Problemas}
+	\section*{Problemas}
 	\begin{prob}
 		Encontre todas as funções $f: \RR \to \RR$ tais que
 		$$ 2f(x) + f(1-x) = 1 + x$$
@@ -48,6 +54,7 @@
 	\problem{math/imo/2002/5}
 	\problem{math/brazil/rio/2012/N3/5}
 	\problem{math/ukraine/2018/3}
+	\problem{math/brazil/rio/2017/N3/6}
 	\problem{math/brazil/mo/2010/1}
 	\problem{math/brazil/mo/1998/5}
 	\problem{math/imo/2004/2}
@@ -57,5 +64,6 @@
 	\problem{math/brazil/mo/2013/3}	
 	\problem{math/brazil/mo/2012/6}
 	\problem{math/brazil/mo/2006/3}
-	\problem{math/brazil/rio/2017/N3/6}
+	\problem{math/brazil/mo/2019/3}
+	\problem{math/rmm/2019/5}
 \end{document}

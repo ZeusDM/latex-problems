@@ -1,47 +1,16 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[brazilian]{babel}
-\usepackage[most]{tcolorbox}
-\usepackage{lmodern}
-\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 
-\usepackage[draft, obm]{zeusproblems}
-\usepackage{zeustitle}
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\declaretheorem[name = Theorem]{thm}
 
 \begin{document}
-	\pagestyle{empty}
-
-	Multiplicando ambos os lados por $\left( {a}^{x}bc+1 \right)  \left( a{b}^{x}c+1 \right)  \left( ab{
-c}^{x}+1 \right)$, temos que a inequação que queremos provar que é verdadeira é
-\begin{gather*}
-({a}^{x+2}+1) (a{b}^{x}c+1) (ab{c}^{x}+1) +
-({b}^{x+2}+1) ({a}^{x}bc+1) (ab{c}^{x}+1) + 
-({c}^{x+2}+1) ({a}^{x}bc+1) (a{b}^{x}c+1)\\
-\ge\\
-3 ({a}^{x}bc+1) (a{b}^{x}c+1) (ab{c}^{x}+1) 
-\end{gather*}
-
-Expandindo o Lado Esquerdo (LE), temos:
-
-\begin{align*}
-	LE =\ & 	{a}^{x+4}{b}^{x+1}{c}^{x+1} +
-\\	   &	    {a}^{x+3}{b}^{x}c +
-\\	   &		{a}^{x+3}b{c}^{x} +
-\\	   &		{a}^{x+2} +
-\\	   &		{a}^{2}{b}^{x+1}{c}^{x+1} +
-\\	   &		2\,a{b}^{x}c+
-\\	   &		2\,ab{c}^{x}+
-\\	   &		3+
-\\	   &		{a}^{x+1}{b}^{x+4}{c}^{x+1}+
-\\	   &		a{b}^{x+3}{c}^{x}+
-\\	   &		{a}^{x+1}{c}^{x+1}{b}^{2}+
-\\	   &		{b}^{x+3}{a}^{x}c+{b}^{x+2}+
-\\	   &		2\,{a}^{x}bc+
-\\	   &		{a}^{x+1}{b}^{x+1}{c}^{x+4}+
-\\	   &		{c}^{x+3}a{b}^{x}+
-\\	   &		{a}^{x+1}{b}^{x+1}{c}^{2}+
-\\	   &		{c}^{x+3}{a}^{x}b+
-\\	   &		{c}^{x+2}
-\end{align*}
-
+	\begin{thm}
+		This is a small theorem.
+	\end{thm}
+	\begin{thm}
+		This is a theorem which is a little bit larger and that ends withareallybigword.
+	\end{thm}
 \end{document}
