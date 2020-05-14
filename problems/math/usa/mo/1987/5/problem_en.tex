@@ -1,0 +1,5 @@
+Given a sequence $(x_1,x_2,\ldots, x_n)$ of 0's and 1's, let $A$ be the number of triples $(x_i,x_j,x_k)$ with $i<j<k$ such that $(x_i,x_j,x_k)$ equals $(0,1,0)$ or $(1,0,1)$.  For $1\leq i \leq n$,  let $d_i$ denote the number of $j$ for which either $j < i$ and $x_j = x_i$ or else $j > i$ and $x_j\neq x_i$.
+
+(a) Prove that \[A = \binom n3 - \sum_{i=1}^n\binom{d_i}2.\](Of course, $\textstyle\binom ab = \tfrac{a!}{b!(a-b)!}$.) [5 points]
+
+(b) Given an odd number $n$,  what is the maximum possible value of $A$? [15 points]

@@ -1,14 +1,11 @@
-for i in {1990..2001};
+for i in {1972..2019};
 do
-    #mkdir $i
-    rm $i/source_pt.tex
+	rm $i/source_pt.tex
     rm $i/source_en.tex
-    #rm $i/source.tex
     echo "USAMO $i" >> $i/source_pt.tex
     echo "USAMO $i" >> $i/source_en.tex
 	for j in {1..6}
 	do
-		#mkdir $i/$j
 		rm $i/$j/source_pt.tex
 		rm $i/$j/source_en.tex
 		rm $i/$j/number.tex
