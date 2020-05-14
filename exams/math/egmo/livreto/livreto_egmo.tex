@@ -1,0 +1,97 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\usepackage{enumitem}
+
+\usepackage[contest]{zeus}
+
+\usepackage{fancyhdr}
+ 
+\newcommand{\ano}{2020}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \textcolor{black}{\ano}}
+\chead{\bfseries \textcolor{black}{European Girls' Mathematical Olympiad}}
+\lhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\textwidth}{-0.5cm}
+
+\newcommand{\contest}[1]{
+	\def\ano{#1}%
+	\setcounter{prob}{0}%
+	\begin{center}
+		\textbf{Dia 1}
+	\end{center}
+
+	\problem*{math/egmo/#1/1}
+	\problem*{math/egmo/#1/2}
+	\problem*{math/egmo/#1/3}
+	
+	\begin{center}
+		\textbf{Dia 2}
+	\end{center}
+	
+	\problem*{math/egmo/#1/4}
+	\problem*{math/egmo/#1/5}
+	\problem*{math/egmo/#1/6}
+
+	\newpage%
+}
+
+\newcommand{\contesttwo}[1]{
+	\def\ano{#1}
+	\setcounter{prob}{0}
+
+	\begin{center}
+		\textbf{Dia 1}
+	\end{center}
+
+	\problem*{math/egmo/#1/1}
+	\problem*{math/egmo/#1/2}
+	\problem*{math/egmo/#1/3}
+	\problem*{math/egmo/#1/4}
+
+	\begin{center}
+		\textbf{Dia 2}
+	\end{center}
+
+	\problem*{math/egmo/#1/5}
+	\problem*{math/egmo/#1/6}
+	\problem*{math/egmo/#1/7}
+	\problem*{math/egmo/#1/8}
+
+	\newpage
+}
+
+
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+\begin{document}
+
+%\thispagestyle{empty}
+%\input{titlepage.tex}\newpage
+
+%------OBM's-------%
+
+\contest{2020}
+\contest{2019}
+\contest{2018}
+\contest{2017}
+\contest{2016}
+\contest{2015}
+\contest{2014}
+\contest{2013}
+\contesttwo{2012}
+
+\end{document}
