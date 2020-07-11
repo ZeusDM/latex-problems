@@ -1,50 +1,67 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[brazilian]{babel}
+\usepackage[english]{babel}
 \usepackage{lmodern}
-\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
-\usepackage{zeusproblems}
+\usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{tikz}
+
+\usepackage[contest]{zeus}
 
 \usepackage{fancyhdr}
  
 \newcommand{\ano}{2018}
+\newcommand{\examtype}{I}
 
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\bfseries \textcolor{black}{\ano}}
-\chead{\bfseries \textcolor{black}{AIME}}
+\chead{\bfseries \textcolor{black}{AIME \examtype}}
 \lhead{}
 \rfoot{}
-\cfoot{}
+\cfoot{These problems are copyright $\copyright$ Mathematical Association of America}
 \lfoot{}
  
 \renewcommand{\headrulewidth}{0.3pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.3pt}
 
-\addtolength{\textwidth}{-0.5cm}
+%\addtolength{\textwidth}{-0.5cm}
 
 \newcommand{\contest}[1]{
 	\def\ano{#1}
+	\def\examtype{I}
 	\setcounter{prob}{0}
-
-	\begin{center}
-		\bfseries Nível I
-	\end{center}
 
 	\foreach \n in {1,...,15}{\problem*{math/aime/#1/i/\n}}
 
+	\newpage
+
+	\def\examtype{II}
 	\setcounter{prob}{0}
 
-	\begin{center}
-		\bfseries Nível II
-	\end{center}
-
-	\foreach \n in {1,...,15}{\problem*{math/aime/#1/ii/\n}}
-	
+	\foreach \n in {1,...,15}{\problem*{math/aime/#1/ii/\n}}	
 
 	\newpage
 }
 
+\newcommand{\contestA}[1]{
+	\def\ano{#1}
+	\def\examtype{I}
+	\setcounter{prob}{0}
+
+	\foreach \n in {1,...,15}{\problem*{math/aime/#1/i/\n}}
+
+	\newpage
+}
+
+\newcommand{\contestB}[1]{
+	\def\ano{#1}
+	\def\examtype{}
+	\setcounter{prob}{0}
+
+	\foreach \n in {1,...,15}{\problem*{math/aime/#1/\n}}
+
+	\newpage
+}
 
 %\renewcommand{\playerA}[1]{Guilherme}
 %\renewcommand{\playerB}[1]{Zeus}
@@ -54,13 +71,45 @@
 %\thispagestyle{empty}
 %\input{titlepage.tex}\newpage
 
-%------OBM's-------%
+\sloppy
 
+\contestA{2020}
 \contest{2019}
 \contest{2018}
 \contest{2017}
 \contest{2016}
 \contest{2015}
 \contest{2014}
+\contest{2013}
+\contest{2012}
+\contest{2011}
+\contest{2010}
+\contest{2009}
+\contest{2008}
+\contest{2007}
+\contest{2006}
+\contest{2005}
+\contest{2004}
+\contest{2003}
+\contest{2002}
+\contest{2001}
+\contest{2000}
+\contestB{1999}
+\contestB{1998}
+\contestB{1997}
+\contestB{1996}
+\contestB{1995}
+\contestB{1994}
+\contestB{1993}
+\contestB{1992}
+\contestB{1991}
+\contestB{1990}
+\contestB{1989}
+\contestB{1988}
+\contestB{1987}
+\contestB{1986}
+\contestB{1985}
+\contestB{1984}
+\contestB{1983}
 
 \end{document}
