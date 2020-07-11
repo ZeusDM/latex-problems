@@ -1,0 +1,49 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage[stylish, pensi]{zeus}
+
+\title{Aquecimento}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 22 de Junho de 2020}
+
+\renewcommand{\playerA}[1]{Guilherme}
+\renewcommand{\playerB}[1]{Zeus}
+
+\newcommand{\eps}{\varepsilon}
+
+\begin{document}	
+	\zeustitle
+
+	\problem{math/brazil/mo/1999/2}
+
+	Suponha que todos os algarismos são zero. Então, \[\sqrt{2} = 1,414\dots a_{999999}\underbrace{00000\cdots00000}_{20000001\ \text{algarismos}} a_{3000001}\dots.\]
+
+\[\sqrt{2} = \frac{N}{10^{10^6-1}} + \varepsilon,\ \text{com}\ \varepsilon < \frac{1}{10^{3\cdot10^6}}\ \text{e}\ N \in \ZZ \]
+
+\begin{align*}
+	2 &= \left( \frac{N}{10^{10^6-1}} + \varepsilon \right)^2\\
+	  &= \frac{N^2}{10^{2(10^6 - 1)}} + \frac{2N\varepsilon}{10^{10^6 - 1}} + \varepsilon^2
+\end{align*}
+
+\[ 2\cdot(10^{2(10^6 - 1)}) - N^2 = 2N\varepsilon (10^{10^6-1}) + \varepsilon^2 (10^{2(10^6 - 1)})\]
+
+\begin{itemize}
+	\item $2\cdot(10^{2(10^6-1)}) = 2\underbrace{00\cdots00}_{2(10^6-1)}$.
+	\item $N^2$ é inteiro, aproximadamente, na ordem de $10^{2(10^6-1)}$.
+	\item $2N\varepsilon(10^{10^6 - 1}) < \frac{2N}{10^{2(10^6-1)}}$, na ordem de $\frac{1}{10^{10^6}}$
+	\item $\varepsilon^2 (10^{2(10^6 - 1)}) < \frac{1}{10^{4(10^6 - 1)}}$
+\end{itemize}
+
+$LE$ é inteiro. $LD$ é muito pequeno. Logo, como $LD = LE$, $LD = LE = 0$.
+
+\[LD = 0 \implies 2 = \left(\frac{N}{10^{10^6-1}}\right)^2 \implies \sqrt{2} \text{\ racional. Absurdo!}\]
+
+\end{document}

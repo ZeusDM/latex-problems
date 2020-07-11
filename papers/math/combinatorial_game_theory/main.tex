@@ -1,0 +1,106 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage[classic, hide]{zeus}
+
+\title{A vida é um jogo que perdi...}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{}
+\titler{}
+
+\newcommand\s[2]{\left\{#1\ |\ #2\right\}}
+\newcommand\sse{se, e somente se, }
+
+\begin{document}	
+	\zeustitle
+
+	\begin{itemize}
+		\item Esse artigo é uma adaptação para o português da \emph{PUMaC 2018 Power Round}. Acesse o arquivo original em \url{pumac.princeton.edu}.
+		\item When a problem asks you to “find with proof,” “show,” “prove,” “demonstrate,” or “ascertain” a result, a formal proof is expected, in which you justify each step you take, either by using a method from earlier or by proving that everything you do is correct. When a problem instead uses the word “explain,” an informal explanation suffices. When a problem asks you to “find” or “list” something, no justification is required.
+	\end{itemize}
+
+	\newpage
+	\section*{Introdução}
+
+	The topic of this power round is \textbf{Combinatorial Game Theory}. A combinatorial game is a special type of game that is not commonly discussed in a typical Game Theory setting. Despite this, combinatorial games show up quite often; examples of complex combinatorial games include chess, go, and even tic-tac-toe. There are lots of unsolved questions in combinatorial game theory, and games such as chess still do not have a (discovered) optimal strategy.
+	
+	Section 1 introduces you to a seemingly separate topic: surreal numbers. Although this is just Section 1, a lot of the definitions are difficult to grasp at first because of their recursive or inductive nature; do not worry. We gave a fairly lengthy dedication to this section, so you will be quite comfortable with surreal numbers by the end of the section.
+
+	Section 2 is an introduction to combinatorial games. Despite a few differences, you will notice many similarities between combinatorial games and surreal numbers. This section is fairly definition heavy, and we spend some time introducing games such as Toads and Frogs and Hackenbush.
+	
+	Section 3 begins with a useful combinatorial game known as Nim. Next, you will learn about the Sprague-Grundy Theorem, a very important theorem in combinatorial game theory that links many games to Nim.
+
+	Section 4 provides some challenge problems on several combinatorial games. These problems will require you to use the material of previous sections in addition to lots of your own creativity.
+
+	This is not intended to be a complete course in Combinatorial Game Theory; in any event, a contest is far from the best way to provide a complete undertaking. After the Power Round is over, we advise you to read about topics from the round that interested you. We can give you recommended books to read as well (see the solutions)!
+	
+	Here is some further advice with regard to the Power Round:
+
+	\begin{itemize}
+		\item Read the text of every problem! Many important ideas are included in problems and may be referenced later on. In addition, some of the theorems you are asked to prove are useful or even necessary for later problems.
+		
+		\item Make sure you understand the definitions. As we stated above, a lot of the definitions are not easy to grasp (especially in the Surreal Numbers section); don’t worry if it takes you a while to understand them. If you don’t, then you will not be able to do the problems. Feel free to ask clarifying questions about the definitions on Piazza (or email us).
+
+		\item Don’t make stuff up: on problems that ask for proofs, you will receive more points if you demonstrate legitimate and correct intuition than if you fabricate something that looks rigorous just for the sake of having “rigor.”
+	\end{itemize}
+
+	\newpage
+	\tableofcontents
+
+	\newpage
+	\section{Números Surreais}
+
+	Os números surreais são uma forma recursiva de construir um sistema numérico.
+	Eles tem muitas propriedades que serão úteis na análise de jogos combinatórios, por isso vamos investigar sobre eles abaixo.
+	Nosso objetivo é modelar os números surreais para emular propriedades dos números reais.
+
+	\subsection{Definindo os Números Surreais}
+
+	Nós definimos os \emph{números surreais} em estágios chamados \emph{dias}, junto com uma ordem total estrita $<$ entre eles em cada estágio.
+	A ideia é que cada número surreal $x$ será da forma $x = \s{L}{R}$, onde $L$ e $R$ são quaisquer subconjuntos dos números surreais que já apareceram em dias anteriores, tal que todo elemento de $L$ é menor que todo elemento de $R$, de acordo com a relação de ordem definida abaixo.
+	Nós chamamos de $L_x$ e $R_x$ os conjuntos $L$ e $R$ de $x = \s{L}{R}$, respectivamente.
+	Note que $L_x$ e $R_x$ depende da forma de $x = \s{L}{R}$.
+	Nós também chamamos de $x^L$ e $x^R$ elementos arbitrários de $L_x$ e $R_x$, respectivamente.
+	Definimos uma relação de ordem usando as definições recursivas abaixo:
+
+	\begin{defn}
+		Para dois números surreais $x$ e $y$, dizemos que $x \ge y$ \sse não existe elemento $a \in R_x$ tal que $a \le y$ e não existe elemento $b \in L_y$ tal que $b \ge x$. Dizemos também que $x \ge y$ \sse $y \ge x$.
+	\end{defn}
+
+	\begin{defn}
+		Dizemos que $x = y$ \sse $x \ge y$ e $y \ge x$. Dizemos que $x > y$ \sse $x \ge y$ e $y \not\ge x$. Dizemos que $x < y$ \sse $y > x$.
+	\end{defn}
+
+	\begin{defn}[A condição crítica]
+		Para todo $a \in L_x$ e para todo $b \in R_x$, $a < x < b$.
+	\end{defn}
+
+	Faremos duas observações sobre as definições acima. Primeiro, é importante notar que alguns números surreais possuem mais de uma forma, dependendo em quais elementos estão em $L$ e $R$ (mais sobre isso depois). Segundo, as definições acima são recursivas, pois para mostrar que algo é verdadeiro para $x$ e $y$, temos que assumir as afirmações para $x^L$, $x^R$, $y^L$ e $y^R$. Dessa forma, os números surreais são inventados indutivamente.
+
+	\begin{defn}
+		Dizemos que um número \emph{nasce no dia $n$} se a sua primeira construção ocorre no dia $n$.
+	\end{defn}
+
+	No dia $0$, começamos com um único número surreal $\s{}{}$, que nomearemos de $0$. Então, no $n^\circ$ dia, serão introduzidos os números surreais da forma $x = \s{L}{R}$, onde $L$ e $R$ são qualquer conjunto de números surreais que apareceram em qualquer dia anterior e para todo $a \in L_x$ e para todo $b \in R_x$, nós temos $a < b$.
+
+	$0$ satisfaz as condições dos números surreais escrita acima. $0 = \s{}{}$, então $L_0 = R_0 = {}$. Portanto, todo elemento de $L_0$ é menor que todo elemento de $R_0$.
+
+	Vamos ilustrar algumas de nossas definições. Por exemplo, $0 \ge 0$, pois não há nenhum elemento $a \in R_0$ tal que $a \le 0$ e nenhum elemento $b \in L_0$ tal que $b \ge 0$.
+	$0$ é o único número nascido no dia $0$. Agora que definimos $0$, para qualquer número surreal $x = \s{L}{R}$ nascido no dia $1$, temmos que $L$ e $R$ podem ser o conjunto vazio ou o conjunto contendo só o 0. Isso faz com que a gente possa criar quadro potenciais novos surreais: $\s{}{}, \s{0}{}, \s{}{0}, \s{0}{0}$. Note que $\s{}{}$ não é um número surreal novo, pois já definimos $0 = \s{}{}$. Defina $*$ como $\s{0}{0}$. $*$ contradiz a definição de número surreal, pois $0 \in L_*$ e $0 \in R_*$, mas $0 \not< 0$. Portanto, $*$ não é um número surreal. Então, no dia $1$, nós temos dois surreais novos, os quais nós chamaremos de $1 = \s{0}{}$ e $-1 = \s{}{0}$. Você provará depois que $1$ e $-1$ satisfazem as propriedades dos números surreais depois. Nós vamos mostrar agora que esses três números surreais satisfazem a ordem desejada dos números reais: $-1 < 0 < 1$. Primeiro, note que $0 \not\ge 1$, pois existe $a \in L_1$ tal que $a \ge 0$, especificamente $a = 0$. Por um método similar, podemos mostrar que $1 \ge 0$ e juntando essas duas afirmações, concluimos que $1 > 0$. Você irá provar que $-1 < 0$ e $-1 < 1$ depois.
+
+	No dia $2$, temos agora um total de $8$ conjuntos para usar em $L$ e $R$: $\{\}, \{-1\}, \{0\}, \{1\}, \{-1, 0\}, \{0, 1\}, \{-1, 1\}, \{-1, 0, 1\}$. Porém, nem todas as combinações geram novos números surreais. Não podemos ter um elemento $a \in R_x$ que é menor ou igual a um elemento $b \in L_x$ e também temos repetições de números surreais nascidos nos dias $0$ e $1$. Também terminamos com algumas formas equivalentes para o mesmo número surreal (mais sobre isso depois). Por exemplo, no dia $2$, todas as seguintes formas representam o número surreal $0$: \[0 = \s{}{} = \s{-1}{} = \s{}{1} = \s{-1}{1}\]
+
+	Todas as seguintes formas representam o número surreal que vamos chamar de $-2$, nascido no dia $2$:
+	\[2 = \s{}{-1} = \s{}{-1, 0} = \s{}{-1, 1} = \\]
+
+
+
+
+
+\end{document}

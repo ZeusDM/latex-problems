@@ -1,0 +1,167 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage[pensi,
+			problem-list
+			]{zeus}
+
+\title{Problemas Sortidos de Combinatória - Live 2}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 8 de Julho de 2020}
+
+\newcommand{\sep}{
+	
+	\begin{center}
+		\vspace{-.6em}
+		\rule{10cm}{.5pt}
+		\vspace{-.3em}
+	\end{center}
+
+}
+
+\begin{document}	
+
+	\zeustitle
+
+	\setcounter{prob}{2}
+	\problem{math/egmo/2014/5}
+	\sep
+
+	\begin{rem}
+		Só pra deixar algumas coisas claras (tenha em mente que esse comentário não é necessário). A quantidade de pedras em uma caixa é um inteiro não-negativo. Outra clarificação tamb
+	\end{rem}
+
+	\begin{hnt}
+		Como em muitos problemas de matemática, especialmente de combinatória, faça casos pequenos.
+
+		(Inclusive, uma boa ideia é fazer casos pequenos para entender o enunciado.)
+	\end{hnt}
+
+	\sep
+
+	Quando eu digo caso pequeno, eu quero dizer caso pequeno mesmo!
+
+	\begin{itemize}
+		\item $n=1$:
+
+			$(0)$ não é solucionável.
+			$(1)$, $(2)$, $(3)$, $\dots$ são solucionáveis. (Usando $0$ movimentos.)
+
+			Se adicionarmos uma pedra em qualquer caixa da configuração $(0)$, ela se torna uma configuração solucionável.
+
+			Logo, a resposta, para $n = 1$, é somente $(0)$.
+
+		\item $n=2$:
+
+			$(0, 0), (0, 1), (0, 2)$ e suas permutações são todas as configurações não-solucionáveis.
+
+			Dentre essas, somente $(0, 2)$ satisfaz as condições do enunciado.
+
+		\item $n=3$:
+
+			$(0,0,0), (0,0,1), (0,0,2), (0,0,3), (0,0,4), (0,1,1), (0, 1, 2), (0, 2, 2)$ são todas as configurações não-solucionáveis.
+
+			Dentre essas, somente $(0, 0, 4)$ e $(0, 2, 2)$ são boas.
+
+		\item $n=4$:
+
+			$(0, 0, 0, 0), (0, 0, 0, 1), \dots$ (vou deixar pra vocês, porém, se não souberem o que fazer, recomendo que façam).
+
+			Até agora, encontramos essas configurações boas: $(0, 0, 0, 6), (0, 0, 2, 4), (0, 2, 2, 2)$.
+
+		\item $n=5$:
+
+			Encontramos essas configurações boas: $(0, 2, 2, 2, 2), (0, 0, 2, 2, 4), (0, 0, 0, 2, 6), (0, 0, 0, 4, 4), (0, 0, 0, 0, 8)$.
+	\end{itemize}
+
+	\textbf{Conjectura.} $(a_1, a_2, \dots, a_n)$ é boa se, e somente se, $a_i$ é par e $\sum a_i = 2n - 2$.
+
+	\sep
+
+	\textbf{Definição.} (Poder) Vamos definir o poder $P_i$ caixa $i$ com $a_i$ pedras como
+	\[P_i =
+		\begin{cases}
+			k, \text{ se } a_i = 2k + 1\\
+			k, \text{ se } a_i = 2k + 2
+		\end{cases}
+	\]
+
+	Vamos dizer que o poder $P$ da configuração é a soma dos poderes de todas as casas. O que acontece com $P$ quando você faz um movimento?
+
+	\begin{itemize}
+		\item No movimento: "tira duas pedras de uma caixa $i$ e coloca numa caixa $j$, com $a_j$ ímpar":
+			$P_i$ diminiu em uma unidade, enquanto $P_j$ fica constante.
+
+			Ou seja, o $P$ dimiui em 1.
+		\item No movimento: "tira duas pedras de uma caixa $i$ e coloca numa caixa $j$, com $a_j$ par":
+			$P_i$ diminui em uma unidade, enquanto $P_j$ aumenta em uma unidade.
+
+			Ou seja, o $P$ fica constante.
+	\end{itemize}
+
+	\sep
+
+	Suponha que uma configuração inicial possui $P < 0$. Como qualquer configuração sem caixas vazias só posui poderes pelo menos $0$, essa configuração não é solucionável.
+
+	Suponha que uma configuração inicial possui $P \ge 0$. Se essa configuração possui $k$ caixas vazias, então existe alguma caixa com poder $>0$. Fazendo um movimento dessa casa com poder positivo, para uma casa vazia, caímos numa configuração com $P \ge 0$ e $k-1$ caixas vazias. Repetimos esse processo até termos $0$ caixas vazias. Logo, essa configuração inicial é solucionável. 
+
+	Vamos voltar a olhar para as configurações boas (isto é, as configurações não-solucionáveis, que, ao adicionar uma pedra em qualquer uma das caixas, vira solucionável).
+
+	Note que, se aumentarmos em um o número de pedras da caixa $i$ com $a_i$ pedras, $P_i$ mantém constante (se $a_i$ era ímpar) ou aumenta em $1$ (se $a_i$ era par).
+
+	Desse modo, as configurações boas (ou seja, as configurações com $P < 0$ que, ao adicionar uma pedra em qualquer caixa, o $P$ fica $\ge 0$) são as configurações com $P = -1$ e $a_i$ par, para todo $i$.
+
+	Mas, como $a_i$ é par, temos agora que $-2 = 2P = \sum 2P_i = (\sum a_i - 2) = (\sum a_i) - 2n \iff (\sum a_i) = 2n - 2$.
+
+	\newpage
+	\problem{math/balkan/2015/3}
+	\sep
+
+	\textbf{Reformulação.} Um comitê de 3366 críticos está votando para os Oscars com 100 atores (independentemente de gênero). Cada crítico vota em, no máximo, um ator e vota em, no máximo, uma atriz. Após a votação, foi descoberto que, para cada inteiro $n \in \{1, 2, \dots, 100\}$, existe algum ator ou alguma atriz que recebeu exatamente $n$ votos. Prove que existem dois críticos que votaram no mesmo ator e na mesma atriz.
+
+	\sep
+
+	Suponha que não existem dois críticos que votaram no mesmo ator e na mesma atriz.
+
+	%Vamos construir um grafo $G$, com os vértices sendo o conjunto dos 3366 críticos. Vamos ligar dois críticos $u$ e $v$ se, e somente se, eles votaram no mesmo ator ou na mesma atriz.
+
+	Vamos construir um grafo $G$ bipartido, com os conjuntos de vértices sendo os conjuntos de atores e o conjunto de atrizes. Vamos ligar um ator $u$ com a atriz $v$ se, e somente se, existe um crítico que votou em ambos $u$ e $v$. 
+
+	Seja $a_n$ ator ou atriz que recebeu exatamente $n$ votos.
+
+	%Seja $A_n$ o conjunto dos $n$ críticos que votaram em $a_n$, para $n \in \{1, 2, \dots, 100\}$. Sabemos que:
+
+	\begin{itemize}
+		%\item Se $u, v \in A_n$ e $u \neq v$, então $u \sim v$.
+		%\item Se $i \neq j$, então $|A_i \cap A_j| \le 1$.
+		%\item Se $i, j, k$ são distintos, então $A_i \cap A_j \cap A_k = \varnothing$.
+		%\item Vamos olhar para os $\binom{100}{2} = 4950$ pares $(A_i, A_j)$, com $1 \le i < j \le 100$. Para no máximo $3366$ desses pares vale $|A_i \cap A_j| = 1$. Ou seja, para no mínimo $1584$ desses pares, $A_i \cap A_j = \varnothing$.
+		%\item \textbf{(Inclusão-Exclusão)}
+		%\begin{align*}
+		%	\left| \bigcup_{i=1}^{100} A_i \right| &= \sum_{i=1}^{100}\left|A_i\right| - \#(|A_i \cap A_j| = 1) \\
+		%		& = 5050 - \#(|A_i \cap A_j| = 1) \\
+		%		& \ge 1684
+		%\end{align*}
+		%\item A quantidade de arestas em $G$ é $\sum_{i=1}^{100} \binom{i}{2} = \binom{101}{3} = 166650$.
+
+		\item O grau de $a_i$ em $G$ é, no máximo, $i$.
+
+		\item Entre os 100 atores e atrizes, existem $1 + 2 + \cdots + 100 = 5050$ votos. Portanto, pelo menos $5050 - 3366 = 1684$ críticos votaram para em algum desses atores e em alguma dessas atrizes.
+
+			Logo, o grafo $G$ possui pelo menos $1684$ arestas.
+
+		\item Considere o grafo $G'$ que é uma cópia de $G$ removendo os vértices $a_1, a_2, \dots, a_{33}$. O grafo $G'$ é bipartido e possui $67$ vértices, portanto possui no máximo $33 \cdot 34$ arestas. Como $a_1, a_2, \dots, a_{33}$ tem grau no máximo $1, 2, \dots, 33$, respectivamente, então existem no máximo $1 + 2 + \cdots 33 = \frac{33\cdot34}{2}$ arestas que ligam em algum dos vértices $a_1, a_2, \cdots$ ou $a_{33}$. Portanto, o número total de vértices é, no máximo, $33 \cdot 34 + \frac{33 \cdot 34}{2} = 1683$.
+	\end{itemize}
+
+	Chegamos num absurdo!
+
+	Logo, existe um par de críticos que votou no mesmo ator e na mesma atriz.
+
+\end{document}
