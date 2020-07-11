@@ -1,0 +1,7 @@
+For an even positive integer $n$ Kevin has a tape of length $4n$ with marks at   He then randomly picks $n$ points in the set $-n,-n+1,-n+2,\ldots,n-1,n$ and places a stone on each of these points.  We call a stone 'stuck' if it is on $2n$ or  or either all the points to the right, or all the points to the left, all contain stones.  Then, every minute, Kevin shifts the unstruck stones in the following manner:
+\begin{itemize}
+	\item He picks an unstuck stone uniformly at random and then flips a fair coin.
+	\item If the coin came up heads, he then moves that stone and every stone in the largest contiguous set containing that stone one point to the left. If the coin came up tails, he moves every stone in that set one point right instead.
+	\item He repeats until all the stones are stuck.
+\end{itemize}
+Let $p_n$ be the probability that at the end of the process there are exactly $k$ stones in the right half.  Evaluate \[\dfrac{p_{n-1}-p_{n-2}+p_{n-3}+\ldots+p_3-p_2+p_1}{p_{n-1}+p_{n-2}+p_{n-3}+\ldots+p_3+p_2+p_1}\] in terms of 

@@ -1,0 +1,7 @@
+for i in {1995..2019};
+do
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "Grécia TST $i" >> $i/source_pt.tex
+    echo "Greece TST $i" >> $i/source_en.tex
+done

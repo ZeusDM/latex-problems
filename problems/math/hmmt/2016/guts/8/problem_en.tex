@@ -1,0 +1,8 @@
+For each positive integer $n$ and non-negative integer  define $W(n,k)$ recursively by
+\[
+W(n,k) = 
+\begin{cases}
+	n^n & k = 0 \\
+	W(W(n,k-1), k-1) & k > 0.
+\end{cases}
+\]Find the last three digits in the decimal representation of 

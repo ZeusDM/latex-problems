@@ -1,0 +1,4 @@
+We define $\mathbb F_{101}[x]$ as the set of all polynomials in $x$ with coefficients in $\mathbb F_{101}$ (the integers modulo $101$ with usual addition and subtraction), so that two polynomials are equal if and only if the coefficients of $x^k$ are equal in $\mathbb F_{101}$ for each nonnegative integer $k$. For example, $(x+3)(100x+5)=100x^2+2x+15$ in $\mathbb F_{101}[x]$ because the corresponding coefficients are equal modulo $101$.
+
+We say that $f(x)\in\mathbb F_{101}[x]$ is \emph{lucky} if it has degree at most $1000$ and there exist $g(x),h(x)\in\mathbb F_{101}[x]$ such that \[f(x)=g(x)(x^{1001}-1)+h(x)^{101}-h(x)\]in $\mathbb F_{101}[x]$. Find the number of lucky polynomials.
+

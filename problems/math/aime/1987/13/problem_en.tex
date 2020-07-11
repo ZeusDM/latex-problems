@@ -1,0 +1,7 @@
+A given sequence $r_1, r_2, \dots, r_n$ of distinct real numbers can be put in ascending order by means of one or more ``bubble passes''.  A bubble pass through a given sequence consists of comparing the second term with the first term, and exchanging them if and only if the second term is smaller, then comparing the third term with the second term and exchanging them if and only if the third term is smaller, and so on in order, through comparing the last term, $r_n$, with its current predecessor and exchanging them if and only if the last term is smaller.
+
+The example below shows how the sequence 1, 9, 8, 7 is transformed into the sequence 1, 8, 7, 9 by one bubble pass.  The numbers compared at each step are underlined.
+
+\[ \begin{array}{c} \underline{1 \quad 9} \quad 8 \quad 7 \\ 1 \quad \underline{9 \quad 8} \quad 7 \\ 1 \quad 8 \quad \underline{9 \quad 7} \\ 1 \quad 8 \quad 7 \quad 9 \end{array}  \]
+
+Suppose that $n = 40$, and that the terms of the initial sequence $r_1, r_2, \dots, r_{40}$ are distinct from one another and are in random order.  Let $p/q$, in lowest terms, be the probability that the number that begins as $r_{20}$ will end up, after one bubble pass, in the $30^{\text{th}}$ place.  Find $p + q$.

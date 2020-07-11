@@ -1,0 +1,38 @@
+\begin{center}
+\begin{asy}
+size(5cm); defaultpen(fontsize(10pt));
+pair A = (0, 0);
+pair B = dir(60);
+pair O = dir(0);
+pair C = B+O;
+pair D = 2*O;
+pair E = 2*O-B;
+pair F = O-B;
+pair G = 2*B;
+pair H = 2*(B-O);
+pair I = -2*O;
+pair J = -2*B;
+pair K = 2*(O-B);
+
+pen[] colors = {red, orange, yellow, green, blue, purple};
+for(int i=0; i<6; ++i){
+fill(B*dir(60*i)--C*dir(60*i)--D*dir(60*i)--E*dir(60*i)--cycle, colors[i]);
+}
+fill(circle(A, 3/2), white);
+dot("$A$", A, dir(180));
+dot("$B$", B, dir(120));
+dot("$C$", C, dir(60));
+dot("$D$", D, dir(0));
+dot("$E$", E, dir(-60));
+dot("$F$", F, dir(-120));
+dot(G);
+dot(H);
+dot(I);
+dot(J);
+dot(K);
+draw(A--B--C--D--E--F--cycle);
+draw(D--G--H--I--J--K--cycle);
+draw(circle(A, 3/2));
+draw(B--E);
+\end{asy}
+\end{center}
