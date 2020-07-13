@@ -2,8 +2,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel}
 \usepackage{lmodern}
-\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
-\usepackage{zeus}
+\usepackage[left=1.5cm,
+			right=1.5cm,
+			top=2cm,
+			bottom=1.5cm,
+			headheight=3ex,
+			headsep=2ex]{geometry}
+
+\usepackage[contest]{zeus}
 
 \usepackage{fancyhdr}
  
@@ -20,8 +26,6 @@
  
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0pt}
-
-\addtolength{\textwidth}{-0.5cm}
 
 \newcommand{\obm}[1]{
 	\def\ano{#1}

@@ -23,8 +23,6 @@
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\addtolength{\textwidth}{-0.5cm}
-
 \newcommand{\contest}[1]{
 	\def\ano{#1}
 	\setcounter{prob}{0}
@@ -44,11 +42,12 @@
 
 \begin{document}
 
-%\thispagestyle{empty}
-%\input{titlepage.tex}\newpage
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
 
 %------OBM's-------%
 
+\contest{2020}
 \contest{2019}
 \contest{2018}
 \contest{2017}
