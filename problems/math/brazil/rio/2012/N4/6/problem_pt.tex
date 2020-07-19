@@ -1,0 +1,14 @@
+Arnaldo e Bernaldo jogam um jogo matemático.
+Numa primeira etapa, Arnaldo começa escolhendo um número inteiro não negativo e, em seguida, após ver o número que Arnaldo escolheu, Bernaldo escolhe outro número inteiro não negativo.
+O processo se repete uma vez, com Arnaldo escolhendo um novo número não negativo e, em seguida, Bernaldo escolhendo um último número não negativo.
+
+Após esse processo, Arnaldo escolhe um subconjunto de $3$ números $a$, $b$ e $c$ dentre os $4$ números originais e monta a equação $ax^2 + bx + c = 0$.
+
+Seja $d$ o número não escolhido por Arnaldo. Bernaldo ganha caso consiga encontrar $d$ números inteiros (possivelmente negativos) distintos $t_i$ $(i = 1, 2, ..., d)$ tais que a equação $(a + t_i)x^2 + (b + t_i)x + (c + t_i) = 0$
+tenha raiz real. Caso contrário, Arnaldo ganha. Qual jogador possui estratégia vencedora?
+
+\rem{Se $d = 0$ Bernaldo ganha. E uma equação da forma $0x^2 + 0x + 0 = 0$ tem raiz real.}
+
+\noindent\textit{Exemplo.} Arnaldo começa escolhendo o número $1$, então Bernaldo escolhe $4$, depois Arnaldo escolhe $4$ e, por fim, Bernaldo escolhe $2$.
+Então, Arnaldo monta a equação $4x^2 + x + 4 = 0$.
+E Bernaldo ganha porque consegue $2$ (o número que sobrou) inteiros, $-3$ e $-4$, tais que as equações $(4 - 3)x^2 + (1 - 3)x + (4 - 3) = 0$ e $(4 - 4)x^2 + (1 - 4)x + (4 - 4) = 0$ têm raiz real.

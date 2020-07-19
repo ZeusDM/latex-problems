@@ -1,0 +1,16 @@
+Considere os polinômios: \[ \binom{x}{0} = 1,\
+							\binom{x}{1} = x,\ 
+							\binom{x}{2} = \frac{x(x-1)}{2!},\ 
+							\binom{x}{3} = \frac{x(x-1)(x-2)}{3!}\]
+
+Em geral, \[\binom{x}{j} = \frac{x(x-1)(x-2)\cdots(x-j+1)}{j!}\text{, para $j = 1, 2, 3, \dots$.}\]
+
+É sabido que para qualquer natural $n$, existem $a_0, a_1, \dots, a_n$ satisfazendo \[x^n = a_0 \binom{x}{0} + a_1 \binom{x}{1} + \cdots + a_n\binom{x}{n}.\]
+
+Além disso, esses $a_0, a_1, \dots, a_n$ dependem apenas de $n$ (não dependem de $x$) e são únicos para cada $n$. Por exemplo:
+\begin{align*}
+	x^2 & = \binom{x}{1} + 2\binom{x}{2}\\
+	x^3 & = \binom{x}{1} + 6\binom{x}{2} + 6\binom{x}{3} 
+\end{align*}
+
+Para $n = 2012$, determine os valores de $a_0$, $a_1$, $a_2$, $a_3$ e $a_{2012}$.

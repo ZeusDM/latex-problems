@@ -1,0 +1,40 @@
+Dado um número $n$ natural, fazemos uma diamante com os números $1, 2, \dots, 2n - 1$ do seguinte modo,
+na primeira linha aparece um número $1$, na segunda aparecem dois números $2$, e assim por diante até que na $n$-ésima linha aparecem $n$ números $n$, já na $(n+1)$-ésima linha aparecem $n - 1$ números $n + 1$, até que na $(2n - 1)$-ésima linha aparece um número $2n - 1$.
+Abaixo temos exemplos de diamantes para $n = 1, 2, 3, 4$.
+
+\[
+\left|
+\begin{tabular}{c}
+	1
+\end{tabular}
+\right|\ 
+\left|
+\begin{tabular}{ccc}
+	 &1&  \\
+	2& &2 \\
+	 &3&  
+\end{tabular}
+\right|\ 
+\left|
+\begin{tabular}{ccccc}
+	 & &1& &  \\
+	 &2& &2&  \\
+	3& &3& &3 \\
+	 &4& &4&  \\
+	 & &5& &  
+\end{tabular}
+\right|\ 
+\left|
+\begin{tabular}{ccccccc}
+	 & & &1& & &  \\
+	 & &2& &2& &  \\
+	 &3& &3& &3&  \\
+	4& &4& &4& &4 \\
+	 &5& &5& &5&  \\
+	 & &6& &6& &  \\
+	 & & &7& & &  \\
+\end{tabular}
+\right|
+\]
+
+Qual a soma de todos os elementos no $n$-ésimo diamante?

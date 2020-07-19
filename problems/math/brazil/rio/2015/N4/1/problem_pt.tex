@@ -1,0 +1,36 @@
+Deseja-se colocar os números de 1 a 6 nos pontos $A, B, C, D, E, F$, dispostos como na figura abaixo. Defina $S_{XYZ}$ como a soma dos números escritos nos vértices do triângulo $XYZ$.
+
+\noindent
+\begin{minipage}{0.6\textwidth}
+\begin{enumerate}[label = (\alph*)]
+	\item Determine o valor máximo de $S_{ABC} + S_{BDF} + S_{CDE} + S_{DEF}$.
+	\item De quantas maneiras podemos colocar os números de forma a obter o valor máximo do item anterior?
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.38\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.1cm,y=1.1cm]
+\clip(-2.,-1.3) rectangle (2.,2.3);
+\draw [line width=.4pt] (0.,2.)-- (-1.7320508075688774,-1.);
+\draw [line width=.4pt] (-1.7320508075688774,-1.)-- (1.7320508075688767,-1.);
+\draw [line width=.4pt] (1.7320508075688767,-1.)-- (0.,2.);
+\draw [line width=.4pt] (-0.8660254037844384,0.5)-- (0.8660254037844387,0.5);
+\draw [line width=.4pt] (0.8660254037844387,0.5)-- (0.,-1.);
+\draw [line width=.4pt] (0.,-1.)-- (-0.8660254037844384,0.5);
+\begin{scriptsize}
+\draw [fill=black] (0.,-1.) circle (.6pt);
+\draw[color=black] (0, -1.15) node {$D$};
+\draw [fill=black] (0.8660254037844387,0.5) circle (.6pt);
+\draw[color=black] (1, 0.6) node {$E$};
+\draw [fill=black] (-0.8660254037844384,0.5) circle (.6pt);
+\draw[color=black] (-1,0.6) node {$F$};
+\draw [fill=black] (0.,2.) circle (.6pt);
+\draw[color=black] (0 ,2.15) node {$A$};
+\draw [fill=black] (-1.7320508075688774,-1.) circle (.6pt);
+\draw[color=black] (-1.9, -1.15) node {$B$};
+\draw [fill=black] (1.732050807568876,-1.) circle (.6pt);
+\draw[color=black] (1.87, -1.15) node {$C$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\end{minipage}
