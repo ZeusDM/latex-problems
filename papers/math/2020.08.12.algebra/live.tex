@@ -1,0 +1,250 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\usepackage[pensi,
+			problem-list
+			]{zeus}
+
+\title{Problemas Sortidos de Álgebra -- Live}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 12 de Agosto de 2020}
+
+\renewcommand{\playerA}[1]{Chen}
+\renewcommand{\playerB}[1]{Rodrigo}
+
+\begin{document}	
+	\zeustitle
+
+	\begin{prob}[XXII Semana Olímpica, George Lucas]
+		Sejam $a$, $b$ e $c$ números reais positivos. Prove a desigualdade \[ \sqrt{a^2 - ab + b^2} +  \sqrt{b^2 - bc + c^2} \ge \sqrt{a^2 + ac + c^2}, \]
+		e ache os casos de igualdade.
+	\end{prob}
+
+	\noindent \textit{Rascunho.} Use Lei dos Cossenos e Desigaldade Triangular no diagrama abaixo.
+
+\begin{center}
+
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.5cm,y=2.5cm]
+\clip(-1,-0.2) rectangle (3.2,2);
+\draw [shift={(0.,0.)},line width=1.1pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (0.:0.09178469014217888) arc (0.:60.:0.09178469014217888) -- cycle;
+\draw [shift={(0.,0.)},line width=1.1pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (60.:0.09178469014217888) arc (60.:120.:0.09178469014217888) -- cycle;
+\fill[line width=1.1pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (3.,0.) -- (-0.774882152358493,1.3421352577632382) -- (0.9451439008098205,1.637037256666448) -- cycle;
+\draw [line width=1.1pt,color=qqwuqq] (0.,0.)-- (3.,0.);
+\draw [line width=1.1pt,color=qqwuqq] (0.,0.)-- (0.9451439008098205,1.637037256666448);
+\draw [line width=1.1pt,color=qqwuqq] (0.,0.)-- (-0.774882152358493,1.3421352577632382);
+\draw [line width=1.1pt,color=zzttqq] (3.,0.)-- (-0.774882152358493,1.3421352577632382);
+\draw [line width=1.1pt,color=zzttqq] (-0.774882152358493,1.3421352577632382)-- (0.9451439008098205,1.637037256666448);
+\draw [line width=1.1pt,color=zzttqq] (0.9451439008098205,1.637037256666448)-- (3.,0.);
+\begin{scriptsize}
+\draw [fill=ududff] (0,0) circle (1pt);
+\draw[color=ududff] (-0.1,0) node {$O$};
+\draw [fill=ududff] (3.,0.) circle (1pt);
+\draw[color=ududff] (3.1,0.1) node {$A$};
+\draw[color=qqwuqq] (0.2, 0.1) node {$60\textrm{\degre}$};
+\draw[color=qqwuqq] (0.01, 0.2) node {$60\textrm{\degre}$};
+\draw [fill=xdxdff] (0.9451439008098205,1.637037256666448) circle (1pt);
+\draw[color=xdxdff] (0.9658298910391706,1.75) node {$B$};
+\draw [fill=xdxdff] (-0.774882152358493,1.3421352577632382) circle (1pt);
+\draw[color=xdxdff] (-0.8,1.42) node {$C$};
+\draw[color=qqwuqq] (1.48900262484959,0.05628595025682095) node {$a$};
+\draw[color=qqwuqq] (0.5,0.7538495953373793) node {$b$};
+\draw[color=qqwuqq] (-0.3375127089797695,0.7232546986233197) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\newpage
+
+\end{center}
+
+	\begin{prob}[Harvard Math Review, Zachary Abel]
+		\playerA{Bert} is thinking of an ordered quadruple of integers $(a, b, c, d)$. \playerB{Ernie}, hoping to determine these integers, hands \playerA{Bert} a $4$-variable polynomial $P(w, x, y, z)$ with integer coefficients, and \playerA{Bert} returns the value of $P(a, b, c, d)$. From this value alone, \playerB{Ernie} can always determine \playerA{Bert}’s original ordered quadruple. Construct, with proof, one polynomial that \playerB{Ernie} could have used.
+	\end{prob}
+
+	\setcounter{prob}{1}
+
+	\begin{prob}[Problema 2, com menos \playerA{Bert} e \playerB{Ernie}]
+		Ache, com prova, um polinômio $P \in \ZZ[x, y, z, w]$ tal que $P: \ZZ^4 \to \ZZ$ é uma injetiva.
+	\end{prob}
+
+	\noindent{\textit{Rascunho.}}
+
+	\begin{defn}
+		$\NN$ é o conjunto dos inteiros positivos. $\NN_0$ é o conjunto dos inteiros não negativos.
+	\end{defn}
+
+	\begin{defn}
+		Um conjunto $S$ é enumerável sse existe uma função injetora $f: S \to \NN$.
+	\end{defn}
+
+	\begin{cor}
+		Um conjunto $S$ é enumerável sse existe uma função sobrejetora $f: \NN \to S$.
+		
+		Em outras palavras, um conjunto $S$ é enumerável sse existe uma sequência $(a_n)_{n\in\NN}$ em que todos os elementos de $S$ aparecem pelo menos uma vez.
+	\end{cor}
+
+	\begin{lem}
+		Seja $2\NN$ o conjunto dos inteiros positivos pares. $2 \NN$ é enumerável.
+	\end{lem}
+
+	\begin{dem}
+		A função $f: \NN \to 2\NN$, definida por $f(n) = 2n$, é sobrejetora.
+	\end{dem}
+
+	\begin{lem}
+		$\ZZ$ é enumerável.
+	\end{lem}
+
+	\begin{dem}
+		Vamos contruir uma função injetora $f: \ZZ \to \NN$,  $f(0) = 1$, $f(1) = 2$, $f(-1) = 3$, $f(n) = n^2$ para $n > 1$ e $f(n) = n^2 + 1$ para $n < -1$. 
+	\end{dem}
+
+	\begin{dem}
+		Podemos pegar a sequência $0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, \dots$.
+		Em outras palavras, podemos pegar a função
+		\[f(n) = \begin{cases} n/2\text{, se $n$ é par} \\ -(n-1)/2\text{, se $n$ é ímpar}\end{cases}\]
+
+	\end{dem}
+
+	\begin{lem}
+		$\NN^2$ é enumerável. $\QQ$ também é enumerável.
+	\end{lem}
+
+	\begin{dem}
+		Vamos construir uma função injetora $f: \NN^2 \to \NN$. Defina $f(x, y) = 2^x3^y$.
+	\end{dem}
+
+	\begin{dem}
+		Vamos construir uma sequência de elementos de $\NN^2$ tal que, todo elemento de $\NN^2$ aparece pelo menos uma vez.
+
+		\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1.}
+			\clip(0.5,0.5) rectangle (5.5,5.5);
+\draw [line width=.5pt] (0.2,1.8)-- (2.2,-0.2);
+\draw [line width=.5pt] (1.281376922063458,0.718623077936543) -- (1.191862307793654,0.7104853857301976);
+\draw [line width=.5pt] (1.281376922063458,0.718623077936543) -- (1.2895146142698035,0.808137692206347);
+\draw [line width=.5pt] (1.2,0.8) -- (1.1104853857301964,0.7918623077936553);
+\draw [line width=.5pt] (1.2,0.8) -- (1.2081376922063458,0.8895146142698046);
+\draw [line width=.5pt] (0.3,2.7)-- (3.3,-0.3);
+\draw [line width=.5pt] (1.8813769220634575,1.1186230779365425) -- (1.7918623077936535,1.110485385730197);
+\draw [line width=.5pt] (1.8813769220634575,1.1186230779365425) -- (1.889514614269803,1.2081376922063465);
+\draw [line width=.5pt] (1.8,1.2) -- (1.7104853857301958,1.1918623077936548);
+\draw [line width=.5pt] (1.8,1.2) -- (1.8081376922063452,1.2895146142698042);
+\draw [line width=.5pt] (0.4,3.6)-- (4.4,-0.4);
+\draw [line width=.5pt] (2.4813769220634576,1.518623077936542) -- (2.391862307793654,1.5104853857301965);
+\draw [line width=.5pt] (2.4813769220634576,1.518623077936542) -- (2.4895146142698032,1.608137692206346);
+\draw [line width=.5pt] (2.4,1.6) -- (2.310485385730196,1.5918623077936542);
+\draw [line width=.5pt] (2.4,1.6) -- (2.4081376922063455,1.6895146142698036);
+\draw [line width=.5pt, color = gray] (0.5,4.5)-- (5.5,-0.5);
+\draw [line width=.5pt, color = gray] (3.0813769220634577,1.9186230779365423) -- (2.991862307793654,1.9104853857301969);
+\draw [line width=.5pt, color = gray] (3.0813769220634577,1.9186230779365423) -- (3.0895146142698033,2.008137692206346);
+\draw [line width=.5pt, color = gray] (3.,2.) -- (2.910485385730196,1.9918623077936546);
+\draw [line width=.5pt, color = gray] (3.,2.) -- (3.0081376922063456,2.089514614269804);
+\draw [line width=.5pt, color = gray] (0.6,5.4)-- (6.6,-0.6);
+\draw [line width=.5pt, color = gray] (3.6813769220634573,2.3186230779365427) -- (3.591862307793653,2.3104853857301975);
+\draw [line width=.5pt, color = gray] (3.6813769220634573,2.3186230779365427) -- (3.6895146142698025,2.4081376922063464);
+\draw [line width=.5pt, color = gray] (3.6,2.4) -- (3.5104853857301954,2.3918623077936547);
+\draw [line width=.5pt, color = gray] (3.6,2.4) -- (3.608137692206345,2.4895146142698037);
+\begin{scriptsize}
+\draw [fill=ududff] (1.,1.) circle (2pt);
+\draw [fill=ududff] (2.,1.) circle (2pt);
+\draw [fill=ududff] (3.,1.) circle (2pt);
+\draw [fill=ududff] (4.,1.) circle (2pt);
+\draw [fill=ududff] (5.,1.) circle (2pt);
+\draw [fill=ududff] (1.,2.) circle (2pt);
+\draw [fill=ududff] (2.,2.) circle (2pt);
+\draw [fill=ududff] (3.,2.) circle (2pt);
+\draw [fill=ududff] (4.,2.) circle (2pt);
+\draw [fill=ududff] (1.,3.) circle (2pt);
+\draw [fill=ududff] (2.,3.) circle (2pt);
+\draw [fill=ududff] (3.,3.) circle (2pt);
+\draw [fill=ududff] (1.,4.) circle (2pt);
+\draw [fill=ududff] (2.,4.) circle (2pt);
+\draw [fill=ududff] (1.,5.) circle (2pt);
+\draw [fill=ududff] (2.,5.) circle (2pt);
+\draw [fill=ududff] (3.,4.) circle (2pt);
+\draw [fill=ududff] (4.,3.) circle (2pt);
+\draw [fill=ududff] (5.,2.) circle (2pt);
+\draw [fill=ududff] (5.,3.) circle (2pt);
+\draw [fill=ududff] (4.,4.) circle (2pt);
+\draw [fill=ududff] (3.,5.) circle (2pt);
+\draw [fill=ududff] (4.,5.) circle (2pt);
+\draw [fill=ududff] (5.,5.) circle (2pt);
+\draw [fill=ududff] (5.,4.) circle (2pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+	Seja $\ell(x, y)$ a função que faz a correspondência correta. 
+
+	\begin{itemize}
+		\item $\ell(x, x) = 2x^2 - 2x + 1$
+		\item $\ell(x, 1) = \frac{x^2 + x}{2}$
+		\item $\ell(1, y) = \frac{y^2 - y}{2} + 1$.
+	\end{itemize}
+
+	Como num passe de mágica, a enumeração acima corresponde à função $\ell: \NN^2 \to \NN$ definida por \[ \ell(x, y) = \frac{(x+y-2)(x+y-1)}{2} + x \]
+
+	\end{dem}
+
+	\begin{lem}
+		$\NN^3$ é enumerável.	
+	\end{lem}
+
+		\begin{dem}
+			Existe uma função injetora $f: \NN^2 \to \NN$. Vamos construir a função $g: \NN^3 \to \NN$ da seguinte maneira: $g(a, b, c) = f( f(a, b), c)$. 
+		\end{dem}
+
+	\begin{lem}[Extra]
+		$\RR$ não é enumerável.
+	\end{lem}
+
+\newpage
+	\noindent \textbf{Problema.}
+		Ache, com prova, um polinômio $P \in \ZZ[x, y, z, w]$ tal que $P: \ZZ^4 \to \ZZ$ é uma função injetiva.
+
+		\noindent \textit{Rascunho.}
+		Vamos definir 4 polinômios, todos injetivos.
+
+		Definimos o polinômio $A: \NN_0^2 \to \NN$ como \[A(x, y) = (x+y-1)(x+y) + 2(x+1).\]
+
+		\begin{rem}
+			Note que $A(x, y) = 2\ell(x+1, y+1)$, com o polinômio $\ell$ do Lema 3.
+		\end{rem}
+
+		Definimos a função $B: \NN_0^4 \to \NN$ como \[B(x, y, z, w) = A(A(x, y), A(z, w))\].
+
+		Definimos a função $C: \ZZ^2 \to \NN$ como \[C(x, y) = B(x^2, (x+1)^2, y^2, (y+1)^2)\].
+
+		Definimos a função $P: \ZZ^4 \to \NN$ como \[P(x, y, z, w) = C(C(x, y), C(z, w))\]
+
+		\newpage
+
+	\begin{prob}[The Mandelbrot Problem Book, Sam Vandervelde]
+		Resolva os seguintes itens:
+		\begin{enumerate}[label = \textbf{\color{main} (\alph*)}]
+			\item Se $P(x)$ é um polinômio de grau $n$ tal que $P(0) = 1, P (1) = -1, P (2) = 1, P (3) = -1, \dots, P (n) = (-1)^n$. Determine $P(n + 1)$.
+			\item Se $P(x)$ é um polinômio de grau $n$ tal que $P(1) = 1, P (2) = 3, P(4) = 9, \dots, P (2^n) = 3^n$. Determine $P (2^{n+1} )$.
+		\end{enumerate}
+	\end{prob}
+
+
+\end{document}

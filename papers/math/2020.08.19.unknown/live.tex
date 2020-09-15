@@ -1,0 +1,126 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\usepackage[pensi,
+			problem-list]{zeus}
+
+\title{Problemas Sortidos -- Live}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 19 de Agosto de 2020}
+
+%\renewcommand{\playerA}[1]{Chen}
+%\renewcommand{\playerB}[1]{Rodrigo}
+
+\newcommand\seprule{
+	
+	\vspace{-1.5em}
+	\begin{center}
+		\rule{.97\textwidth}{.5pt}
+	\end{center}
+	\vspace{-.5em}
+
+}
+
+\begin{document}	
+	\zeustitle
+
+	\problem{math/romania/district/2018/9/1}
+
+	\seprule
+
+	\noindent \textbf{Rascunho.} Algumas funções que funcionam são:	
+	\begin{itemize}
+		\item $f(x) = cx + 1$, para todo $x \in \NN$, funciona para todo $c$ inteiro positivo.
+	\end{itemize}
+
+	\seprule
+
+	\noindent \textbf{Início de Solução.}
+
+	Usando a proposição original e a condição de $f$ estritamente crescente, temos que
+	\begin{align*}
+	f(x) + f(y) & \ge 1+f(x+y) \\
+				& \ge 2 + f(x + y - 1) \\
+				& \ \vdots \\
+				& \ge (1 + x) + f(y),
+	\end{align*}
+	e, portanto, descobrimos que 
+	\begin{equation}\label{eq:1} f(x) \ge x + 1. \end{equation}
+
+	Jogando $x = y = 0$ na proposição do enunciado, temos que
+	\begin{align*}
+		1 + f(0)~|~2f(0) & \implies 1 + f(0)~|~2 \\
+						 & \implies f(0) = 1 \text{ (não pode ser $0$ usando \ref{eq:1})}
+	\end{align*}
+
+	Jogando $x = t$ e $y = 1$ na proposição original, temos que $1 + f(t+1)~|~f(t) + f(1)$ e portanto \[f(x+1) - f(x) \le f(1) - 1.\]
+	
+	Somando a equação anterior de $t = 0$ até $t = x-1$, temos $f(x) - f(0) \le (f(1)-1) \cdot x$, isto é \[f(x) \le (f(1) - 1) \cdot x + 1\text{ para todo $x$ inteiro positivo.}\]
+
+	Vamos definir $c = f(1) - 1$. Provamos que 
+	\begin{equation}
+		f(x) \le cx + 1.
+	\end{equation}
+
+	\noindent \textbf{Pergunta.} Sabemos que $f(0) = 1$ e $f(1) = c + 1$. Quanto é $f(2)$?
+
+	Pela condição de ser crescente, $f(2) > f(1) = c + 1$.
+
+	Jogando $x = y = 1$, temos que $1 + f(2)~|~2f(1) = 2(c+1)$.
+
+	Os divisores de $2(c+1)$ são, em ordem decrescente, $2(c+1), c+1, \dots, 1$. Como $1 + f(2)$ é um divisor de $2(c+1)$ e é maior que $c+1$, então \[f(2) = 2c + 1.\]
+
+	Pela condição de ser crescente, $f(3) > f(2) = 2c + 1$.
+
+	Jogando $x = 1$ e $y=2$, temos que $1 + f(3)~|~f(1)+f(2) = 3c + 2$.
+
+	O segundo maior divisor de $3c+2$ é, no máximo, $\frac{3c+2}{2} < 2c+2 < f(3) + 1$. Portanto, $f(3) + 1$ precisa ser o maior divisor de $3c+2$, i.e., \[f(3) = 3c + 1.\]
+
+	\seprule
+
+	\noindent \textbf{Solução.}
+
+	Sabemos que $f(0) = 1$. Vamos definir $c = f(1) - 1$. Portanto, $f(1) = c + 1$. Vamos provar, usando indução, que $f(n) = cn + 1$.
+
+	\textit{Base.} $n = 0, 1, 2, 3$, ok!
+
+	\textit{Hipótese de indução.} Seja $n \ge 2$. Suponha que $f(n-1) = c(n-1) + 1$.
+
+	Como $f$ é crescente, sabemos que $f(n) > f(n-1) = c(n-1) + 1$.
+
+	Jogando $x = 1$ e $y = t-1$ na equação original, temos que \[1 + f(n)~|~f(1) + f(n-1) = cn + 2.\]
+
+	Se $f(n) + 1 \neq cn + 2$ (o maior divisor de $cn + 2$), então $f(n) + 1 \le \frac{cn+2}{2} < c(n-1) + 2 < f(n) + 1$, um absurdo! Logo, \[f(n) = cn + 1.\]
+
+	\newpage
+	\problem{math/romania/district/2018/9/3}
+
+	\noindent \textbf{Solução.}
+	Sabemos que $KF \perp AC \perp EB$ e, portanto, $KF~//~EB$. Podemos repetir isso para os outros segmentos e descobrir que $HEKF$, $HDME$, $HFLD$ são paralelogramos. Usando vetores, esses paralelogramos implicam que 
+	\begin{align*}
+		\vec{HK} & = \vec{HE} + \vec{HF} \\
+		\vec{HL} & = \vec{HD} + \vec{HF} \\
+		\vec{HM} & = \vec{HD} + \vec{HE} \\
+	\end{align*}
+	Somando as três equações acima e dividindo por 3, temos que
+	\begin{align*}
+		\frac{\vec{HK} + \vec{HL} + \vec{HM}}{3} & = 2 \frac{\vec{HD} + \vec{HE} + \vec{HF}}{3}\\
+		\vec{HG_2} & = 2 \vec{HG_1},
+	\end{align*}
+	que implica que $G_1$ é ponto médio de $HG_2$.
+	
+\end{document}

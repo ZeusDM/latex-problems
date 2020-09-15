@@ -1,0 +1,165 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+\usepackage{tcolorbox}
+
+\usepackage[pensi,
+			problem-list
+			]{zeus}
+
+\title{Problemas Sortidos de Teoria dos Números -- Edição II -- Live 2 \\\vspace{.25ex}(alguns disponíveis no sabor Combinatória)}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{{\footnotesize v. 1} -- 29 de Julho de 2020}
+
+\renewcommand{\playerA}[1]{António}
+\renewcommand{\playerB}[1]{Maria Clara}
+
+\begin{document}	
+	\zeustitle	
+
+	\setcounter{prob}{1}
+	\problem{math/brazil/mo/2018/3}
+	\setcounter{thm}{0}
+
+	\begin{center} \rule{.95\textwidth}{.5pt} \end{center}
+
+	\noindent \textit{Rascunho/Solução.}
+
+	Podemos renomear os pinos para $0, 1, 2, \dots, n-1$, com o pino dourado sendo o pino $0$. (Somente por motivos psicológicos.)
+
+	Podemos entender o jogo como uma sequência $a_0, a_1, a_2, \dots$ de inteiros (observe que não estamos olhando para os resíduos módulo $n$). As regras atuam como o esperado (trocando \emph{sentidos horário} e \emph{anti-horário} por sinais de $+$ ou $-$). Antônio ganha se, e somente se, conseguir garantir que algum $a_i \equiv 0 \pmod{n}$.
+
+	Vamos definir $P(n, k)$ como a proposição ``António garante ganhar o jogo com os números fixos $n$ e $k$''. Lembrando que proposições admitem os valores de \emph{verdadeiro} ou \emph{falso}.
+
+	\begin{lem}
+		$P(n, k) \iff P(n, n + k)$
+	\end{lem}
+
+	\begin{lem}
+		$P(n, 1)$ é verdadeiro.
+	\end{lem}
+
+	\begin{dem}
+		Suponha que $k = 1$. A estratégia de António é usar a Regra 1 com $d = 1$ e depois usar a Regra 2, sempre escolhendo o mesmo sentido. Assim, nas iterações da Regra 2, a única opção de Maria Clara é movimentar a argola $kd = d = 1$ pinos no sentido escolhido, forçando a passar no pino dourado. 
+	\end{dem}
+
+	\begin{lem}
+		$P(2n, k) \iff P(n, k)$.	
+	\end{lem}
+
+	\begin{dem}
+		Vamos dividir em ida e volta.
+		\begin{align*}
+			P(2n, k) & \implies \text{ António garante algum $a_i \equiv 0 \pmod{2n}$}
+			\\&\implies \text{ António garante algum $a_i \equiv 0 \pmod{n}$}
+			\\&\implies P(n, k)
+		\end{align*}
+
+		\begin{align*}
+			P(n, k) & \implies \text{ António garante algum $a_i \equiv 0 \pmod{n}$}
+		\end{align*}
+
+		Se $a_i \equiv 0 \pmod{2n}$, conseguimos $P(2n, k)$. Se $a_i \equiv n \pmod{2n}$, então António pode usar a Regra 1 e escolher $d = n$, fazendo com que $a_{i+1} \equiv n \pm n \equiv 0 \pmod{2n}$. Portanto, $P(2n, k).$
+	\end{dem}
+
+	\begin{lem}
+		$P(n, k)\text{ e } P(m, k) \iff P(nm, k)$
+	\end{lem}
+
+	\begin{dem}
+		Vamos dividir em ida e volta.
+
+		$P(nm, k) \implies $ António garante $a_i \equiv 0 \pmod{nm} \implies P(n, k)\text{ e }P(m, k)$.
+		
+		$P(n, k) \implies $ António garante $a_i \equiv 0 \pmod{n}$. Agora, António escolhe a Regra 1, com $d = n$ (somente pra garantir que o ``último deslocamento'' é múltiplo de $n$). Nesse momento, $a_{i+1} \equiv nx \pmod{nm}$, para algum inteiro $x$.
+
+		Vamos imaginar outro jogo $b_0, b_1, \cdots$ (isto é, outra sequência), usando o mesmo valor de $k$, e com $b_0 = x$. Como $P(m, k)$, António consegue garantir $b_j \equiv 0 \pmod{m}$.
+
+		Agora, podemos imaginar o jogo $b$ multiplicado por $n$, ou seja, os pinos $t$ viram pinos $nt$, os deslocamentos $d$ viram deslocamentos $nd$, e o pino inicial $x$ vira $nx$. (Note que as regras e o $k$ continuam os mesmos do jogo original.) Consequentemente, António garante $b_j \equiv 0 \pmod{nm}$.
+
+		Ao chegar em $a_{i+1} = nx$, António começa a jogar o jogo $b$ aumentado e consegue garantir $a_{i+1+j} = 0  \pmod{mn}$. Portanto, $P(nm, k)$.
+	\end{dem}
+
+	\begin{lem}
+		Se $p$ é um primo ímpar, então $P(p, k) \iff p\ |\ k-1$.
+	\end{lem}
+
+	\begin{dem}
+		A volta é direta dos Lemas $1$ e $2$. Vamos provar a ida.
+		Supondo que $P(p, k)$ é verdadeiro, temos que António garante $a_i \equiv 0 \pmod{p}$. Suponha que $a_i$ é o primeiro elemento da sequência que é $0 \pmod{p}$.
+
+		Se o último movimento de António antes de ganhar usou a Regra 1, então independentemente da escolha de Maria Clara, António deve ganhar (em outras palavras, ambas as escolhas da Maria Clara devem levar à vitória de António). Portanto,
+		\begin{align*}
+			a_{i-1} + d \equiv 0 & \pmod p\\
+			a_{i-1} - d \equiv 0 & \pmod p
+		\end{align*}
+		Logo, $2a_{i-1}\equiv 0\pmod p $, que implica $a_{i-1} \equiv 0\pmod p$, que é um absurdo, pois António já teria ganhado anteriormente.
+
+		Já se o último movimento antes de António ganhar usou a Regra 2, então independentemente da escolha de Maria Clara, António deve ganhar. Portanto,
+		\begin{align*}
+			a_{i-1} + d  \equiv 0 & \pmod p\\
+			a_{i-1} + kd \equiv 0 & \pmod p
+		\end{align*}
+		Logo, $d(k-1)\equiv0 \pmod n$. Se $k \not\equiv 1 \pmod p$, então $d \equiv 0 \pmod p$ e, consquentmente, $a_{i-1} \equiv 0 \pmod p$, que é um absurdo, pois António já teria ganhado anteriormente. Portanto, $p\ |\ k - 1$.
+	\end{dem}
+
+	Voltando pro início do problema, vamos escrever $n = 2^\alpha \cdot \prod p_i^{\alpha_i}$, com $\alpha$ inteiro não negativo e $\alpha_i$ positivo.
+	\begin{align*}
+		P(n, k) &\iff P\left(2^\alpha \cdot \prod p_i^{\alpha_i}, k\right)\\
+				&\iff P(2^\alpha, k)\text{ e } P(p_i^{\alpha_i}, k),\text{ para todo $i$}\\
+				&\iff P(2, k)\text{ e } P(p_i, k)\text{, para todo $i$}\\
+				&\iff p_i\ |\ k - 1 \text{, para todo $i$}
+	\end{align*}
+
+	Ou seja, António ganha se, e somente se, para todo primo $p$ que divide $n$, $p$ também divide $k - 1$.
+	
+	\newpage
+	\problem{math/imo/2014/5}
+
+	\noindent\textbf{Reformulação.} Dada uma coleção finita de tais moedas (de valores não necessariamente distintos) com valor de no máximo $t - \frac{1}{2}$, prove que é possível particionar essa coleção em $t$ grupos, cada um com valor total de no máximo $1$.
+
+	Seja $a_n$ a quantidade de moedas de valor $\frac{1}{n}$. Como a coleção é finita, existe algum $N$ tal que $a_n = 0$ para $n > N$. Além disso, sabemos que \[\frac{a_1}{1} + \frac{a_2}{2} + \cdots + \frac{a_N}{N} \le t - \frac{1}{2}.\]
+
+	%\begin{tcolorbox}[colback=white,colframe=black]
+	%\begin{alg}[Guloso]
+	%	Vamos criar um algoritmo que coloca as moedas nos grupos. (E talvez deixe algumas de fora.)
+
+	%	Criamos uma coleção $M$ das moedas fora de grupos (inicialmente, todas as moedas). 	Vamos numerar os grupos, $G_1, G_2, G_3, \dots, G_t$ (inicialmente, todos vazios).
+		
+	%	\begin{itemize}
+	%		\item Dentre as moedas de $M$, algumas delas (possívelmente nenhuma) podem ser colocadas no $G_t$ sem tornar a soma maior que $1$. Se a quantidade dessas moedas não for nula, transfira a maior delas de $M$ para $G_t$ e repita este passo. Caso contrário, siga para o próximo passo.
+	%		\item Se $t=1$, termine o Algoritmo. Caso contrário, utilize o Algoritmo 1 para colocar as moedas de $M$ nos grupos $G_1, G_2, \dots, G_{t-1}$.
+	%	\end{itemize}
+
+	%	Esse algoritmo termina com grupos $G_1, G_2, \dots, G_t$ e com um conjunto de moedas $M$ fora dos grupos.
+	%\end{alg}
+	%\end{tcolorbox}
+
+	Vamos usar indução forte no número de moedas.
+	
+	{\bfseries\boldmath Se existe algum $i$ tal que $a_i \ge i$,} então podemos formar um grupo com $i$ moedas de valor $\frac{1}{i}$, cuja soma total é $1$. Todas as outras moedas, que tem soma no máximo $t - 1 - \frac{1}{2}$, podem ser particionadas (pela hipótese de indução, pois o número de moedas diminuiu) em $t - 1$ grupos, cada um com valor total de no máximo $1$. Portanto, podemos particionar a coleção inicial de moedas em $t$ grupos, com valor total de no máximo $1$.
+
+	{\bfseries\boldmath Se existe algum $i$ tal que $a_{2i} \ge 2$,} então podemos enrolar duas moedas de tamanho $\frac{1}{2i}$ com uma fita adesiva e tratá-las como uma única moeda de tamanho $\frac{1}{i}$. Podemos agora particionar as moedas (todas as outras moedas, junto com a nova moeda de valor $\frac{1}{i}$), cuja soma total é no máximo $t - \frac{1}{2}$, em $t$ grupos, cada um com valor total de no máximo $1$. Portanto, podemos desenrolar a fita adesiva (mas deixar as duas moedas de tamanho $\frac{1}{2i}$ no grupo em que elas estão) e obter um jeito de particionar a coleção inicial de moedas em $t$ grupos, cada um com valor total de no máximo $1$.
+
+	%Podemos generalizar a ideia acima. \textbf{Se existe algum $i$ tal que $a_{pi} \ge p$,} então podemos enrolar $p$ moedas de tamanho $\frac{1}{pi}$ com uma fita adesiva e tratá-las como uma única moeda de tamanho $\frac{1}{i}$. Podemos agora particionar as moedas (todas as outras moedas, junto com a nova moeda de valor $\frac{1}{p}$), cuja soma total é no máximo $t - \frac{1}{2}$, em $t$ grupos, cada um com valor total de no máximo $1$. Portanto, podemos desenrolar a fita adesiva (mas deixar as $p$ moedas de tamanho $\frac{1}{2i}$ no grupo em que elas estão) e obter um jeito de particionar a coleção inicial de moedas em $t$ grupos, cara um com valor total de no máximo $1$.
+
+	{\bfseries Caso as duas condições anteriores forem falsas,} vale $a_{2i} \le 1$ e $a_{2i-1} \le 2i - 2$. Observe que \[\frac{a_{2i-1}}{2i-i} + \frac{a_{2i}}{2i} \le \frac{2i-2}{2i-1} + \frac{1}{2i} < 1.\]
+	Vamos colocar todas as moedas de valores $\frac{1}{2i - 1}$ e $\frac{1}{2i}$ no $i$-ésimo grupo, para $i = 1, 2, \dots, t$. (Que é possível pela desigualdade acima.)
+	Já com as moedas restantes, vamos colocar uma a uma, em qualquer grupo em que ela puder entrar (sem que a soma do grupo passe de $1$).
+	
+	Suponha que não é possível colocar uma dessas moedas em nenhum grupo. Vamos chamar essa moeda de especial. Como todas as moedas com valor maior que $\frac{1}{2t}$ já foram inicialmente colocadas em grupos, a moeda especial tem valor $\frac{1}{x} \le \frac{1}{2t}$. Como a moeda especial não cabe em nenhum grupo, cada um dos $t$ grupos possui soma maior que $1 - \frac{1}{x}$. Isso implica que
+	\begin{align*}
+		(\text{Soma das moedas}) & \ge (\text{Soma das moedas em grupos}) + \frac{1}{x}\\
+										 & \ge t\left(1 - \frac1x\right) + \frac{1}{x}\\
+										 & \ge t - \frac{t-1}{x}\\
+										 & > t - \frac{1}{2},
+	\end{align*}
+	que é um absurdo. Portanto, não existe moeda que não cabe dentro da caixa. Em outras palavras, é possível colocar todas as moedas em $t$ grupos, cada um um com valor total de no máximo $1$.
+	
+\end{document}
