@@ -3,8 +3,8 @@ do
     mkdir $i
     rm $i/source_pt.tex
     rm $i/source_en.tex
-    echo "EGMO $i" >> $i/source_pt.tex
-    echo "EGMO $i" >> $i/source_en.tex
+    echo "IMC $i" >> $i/source_pt.tex
+    echo "IMC $i" >> $i/source_en.tex
 	for j in {1..6}
 	do
 		mkdir $i/$j
