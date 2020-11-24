@@ -1,0 +1,9 @@
+Let $r$ and $b$ be positive integers. The game of \textit{Monis}, a variant of Tetris, consists of a single column of red and blue blocks.  If two blocks of the same color ever touch each other, they both vanish immediately.  A red block falls onto the top of the column exactly once every $r$ years, while a blue block falls exactly once every $b$ years.
+
+(a) Suppose that $r$ and $b$ are odd, and moreover the cycles are offset in such a way that no two blocks ever fall at exactly the same time.  Consider a period of $rb$ years in which the column is initially empty.  Determine, in terms of $r$ and $b$, the number of blocks in the column at the end.
+
+(b) Now suppose $r$ and $b$ are relatively prime and $r+b$ is odd.  At time $t=0$, the column is initially empty.  Suppose a red block falls at times $t = r, 2r, \dots, (b-1)r$ years, while a blue block falls at times $t = b, 2b, \dots, (r-1)b$ years.  Prove that at time $t=rb$, the number of blocks in the column is $\left\lvert 1+2(r-1)(b+r)-8S \right\rvert$, where \[ S = \left\lfloor \frac{2r}{r+b} \right\rfloor
+     + \left\lfloor \frac{4r}{r+b} \right\rfloor
+     + ...
+     + \left\lfloor \frac{(r+b-1)r}{r+b} \right\rfloor
+     . \]

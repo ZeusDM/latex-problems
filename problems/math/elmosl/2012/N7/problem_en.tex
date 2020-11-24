@@ -1,0 +1,5 @@
+A diabolical combination lock has $n$ dials (each with $c$ possible states), where $n,c>1$. The dials are initially set to states $d_1, d_2, \ldots, d_n$, where $0\le d_i\le c-1$ for each $1\le i\le n$. Unfortunately, the actual states of the dials (the $d_i$'s) are concealed, and the initial settings of the dials are also unknown. On a given turn, one may advance each dial by an integer amount $c_i$ ($0\le c_i\le c-1$), so that every dial is now in a state $d_i '\equiv d_i+c_i \pmod{c}$ with $0\le d_i ' \le c-1$. After each turn, the lock opens if and only if all of the dials are set to the zero state; otherwise, the lock selects a random integer $k$ and cyclically shifts the $d_i$'s by $k$ (so that for every $i$, $d_i$ is replaced by $d_{i-k}$, where indices are taken modulo $n$).
+
+Show that the lock can always be opened, regardless of the choices of the initial configuration and the choices of $k$ (which may vary from turn to turn), if and only if $n$ and $c$ are powers of the same prime.
+
+\textit{Bobby Shen.}
