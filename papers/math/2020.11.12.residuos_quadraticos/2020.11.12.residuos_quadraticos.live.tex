@@ -1,0 +1,203 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[boxed]{zeus}
+
+\title{Resíduos Quadráticos}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{12 de novembro de 2020}
+
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\tmod}[1]{\bmod{\ #1}}
+
+\begin{document}	
+	\zeustitle
+
+	\setcounter{section}{-1}
+	\section{Objetivo}
+	Secretamente, o objetivo da aula é confeccionar um material mais completo sobre Resíduos Quadráticos, com a ajuda de vocês.
+
+	\section{Teoria}
+	\begin{defn}[Resíduo Quadrático]
+		Dizemos que $a$ é \textit{resíduo quadrático} $\tmod{n}$ se, e somente se, $x^2 \equiv a$ possui solução $\tmod{n}$.
+	\end{defn}
+	\begin{exmp}
+		Olhando $\tmod{4}$, os resíduos quadráticos são $0$ e $1$. Olhando $\tmod{5}$, os resíduos quadráticos são $0$, $1$ e $4$. Olhando $\tmod{7}$, os resíduos quadráticos são $0$, $1$, $4$ e $2$.
+	\end{exmp}
+	\begin{prop}
+		Seja $p$ um primo ímpar. Existem exatamente $(p+1)/2$ resíduos quadráticos $\tmod{p}$. Eles são:
+		$$ 0^2,  1^2, 2^2, \dots, \left( \frac{p-1}{2} \right)^2.$$
+	\end{prop}
+	\begin{proof}
+		Estes são todos os resíduos quadráticos pois $(p-x)^2 \equiv x^2 \pmod{p}$.
+
+		Eles são distintos pois:
+		\begin{align*}
+			x^2 \equiv y^2 \pmod{p} & \iff p \mid x^2 - y^2\\
+			                        & \iff p \mid (x - y)(x + y)\\
+				           	 	    & \iff p \mid (x-y) \text{ ou } p \mid (x+y)\\
+						            & \iff y \equiv \pm x \pmod{p},
+		\end{align*}
+		que é impossível para $x, y \in \left\{ 0, 1, 2, \dots, \frac{p-1}{2} \right\}$.
+	\end{proof}
+	\begin{defn}[Símbolo de Legendre]
+		Seja $p$ um primo e $a \in \ZZ$.
+		$$\leg{a}{p} =
+		\begin{cases}
+			1,  \text{se $p \nmid a$ e $a$ é um resíduo quadrático $\tmod{p}$, }\\
+			-1, \text{se $p \nmid a$  e $a$ não é um resíduo quadrático $\tmod{p}$, }\\
+			0,  \text{se $p \mid a$.}
+		\end{cases}$$
+	\end{defn}
+	\begin{exmp}
+		$\leg{1}{5} = 1$. $\leg{2}{5} = -1$.
+	\end{exmp}
+	\begin{thm}[Critério de Euler]
+		Sejam $p$ um primo ímpar e $a \in \ZZ$. Então
+		$$\leg{a}{p} \equiv a^{(p-1)/2}\pmod{p}.$$
+	\end{thm}
+	\begin{dem}
+		Se $a$ é multiplo de $p$, então \[ a^{(p-1)/2} \equiv 0 \equiv \leg{a}{p}.\]
+	
+		Se $a$ é resíduo quadrático não nulo, então existe $y$ tal que $a \equiv y^2$. Portanto, \[a^{(p-1)/2} \equiv y^{p-1} = 1 = \leg{a}{p}.\]
+		
+		Considere o polinômio \[P(x) = x^{p-1} - 1 = \underbrace{(x^{(p-1)/2} - 1)}_{Q(x)}\underbrace{(x^{(p-1)/2} + 1)}_{R(x)}.\]
+		
+		Como $P(x)$ possui grau $p-1$, ele possui no máximo $p-1$ raízes (contando multiplicidade). Note que $1, 2, \dots, p-1$ são raízes de $P(x)$ e, consequentemente, são todas as raízes de $P(x)$.
+
+		Como $Q(x)$ possui no máximo $(p-1)/2$ raízes e todos os $(p-1)/2$ resíduos quadráticos não nulos são raízes de $Q(x)$, eles são todas as raízes de $Q(x)$.
+
+		Desse modo, os não residuos quadraticos não nulos são raízes de $P(x)$, mas não de $Q(x)$, e portanto são raízes de $R(x)$. Logo, para  $a$ não multiplo de $p$ e não resíduo quadrático, vale
+		\[a^{(p-1)/2} \equiv -1 = \leg{a}{p}.\]
+	\end{dem}
+	\begin{cor}
+		Sejam $p$ um primo ímpar e $a, b \in \ZZ$.
+		$$\leg{ab}{p} = \leg{a}{p}\leg{b}{p}.$$
+	\end{cor}
+	\begin{cor}
+		$-1$ é resíduo quadrático $\tmod{p}$ se, e somente se, $p \equiv 1 \pmod{4}$.
+	\end{cor}
+	\begin{thm}[Lei da Reciprocidade Quadrática]
+		Sejam $p$ e $q$ primos ímpares distintos. Temos:
+		\begin{align*}
+			\leg{p}{q} \leg{q}{p} & = (-1)^{\frac{p-1}{2}\frac{q-1}{2}};\\
+			\leg{2}{p} & = (-1)^\frac{p^2 - 1}{8}.
+		\end{align*}
+	\end{thm}\
+
+	Usando os dois teoremas a seguir, podemos determinar se $a$ é resíduo quadrático $\tmod{n}$ apenas olhando módulo as potências de 2 que dividem $n$ e módulo os primos ímpares que dividem $n$.
+
+	\begin{thm}
+		Sejam $p$ primo ímpar e $a, k \in \ZZ$ com $k > 0$. Se $x^2 \equiv a \pmod{p^k}$, existe $t \in \{0, 1, \dots, p-1\}$ tal que \[(x+tp)^2 \equiv a \pmod{p^{k+1}}.\]
+	\end{thm}
+	\begin{thm}
+		Sejam $a$ um inteiro ímpar e $n \ge 3$. $a$ é resíduo quadrático $\tmod{2^n}$ se, e somente se, $a \equiv 1 \pmod{8}$.
+	\end{thm}
+
+
+	\newpage
+	\section{Problemas}
+	\begin{prob}
+		Existe algum polinômio irredutível em $\ZZ[x]$, mas redutível $\tmod{p}$ para todo $p$ primo?
+	\end{prob}
+	\begin{sol}
+		Considere o polinômio $P(x) = x^4 + 1$.
+
+		$P(x)$ é irredutível em $\ZZ[x]$, pois se fosse redutível, teria que ser redutível em polínômios de segundo grau. Portanto, seria \[x^4 + 1 = (x^2 + qx \pm 1)(x^2 + rx \pm 1).\] Podemos testar que não existem valores de $q, r$ que funcionam.
+
+		Já em $\ZZ_p[x]$:
+		\begin{itemize}
+			\item Se $p = 2$, \[x^4 + 1 \equiv (x+1)^4.\]
+			\item Se $-1$ é resíduo quadrático ($i^2 \equiv -1$) então \[x^4 + 1 = x^4 - i^2 = (x^2 + i)(x^2 - i).\]
+			\item Se $2$ é resíduo quadrático ($q^2 \equiv 2$) então \[x^4 + 1 = x^4 + 2x^2 + 1 - 2x^2 = (x^2 + 1)^2 - (qx)^2 = (x^2 + 1 + qx)(x^2 + 1 - qx).\]
+			\item Se $-2$ é resíduo quadrático ($r^2 \equiv -2$) então \[x^4 + 1 = x^4 - 2x^2 + 1 - (-2)x^2 = (x^2 + 1)^2 - (rx)^2 = (x^2 - 1 + rx)(x^2 - 1 - rx).\]
+		\end{itemize}
+
+		Mas, \[\leg{-2}{p} = \leg{2}{p} \leg{-1}{p},\]
+		logo pelo menos um entre $-2$, $2$ ou $1$ é resíduo quadrático. 
+
+	\end{sol}
+	\begin{prob}[Vietnam TST]
+		Seja $n \in \NN$. Prove que $2^n + 1$ não tem fator primo da forma $8k - 1$.
+	\end{prob}
+	\begin{prob}
+		Existem inteiros $m, n$ tais que $5m^2 - 6mn + 7n^2 = 1985$?
+	\end{prob}
+	\begin{prob}
+		Seja $p$ um primo. Mostre que existem inteiros $x, y$ tais que $x^2 + y^2 + 1$ é divisível por $p$.
+	\end{prob}
+	\begin{prob}[OBM]
+		Prove que se $10^{2n} + 8 \cdot 10^n + 1$ tem fator primo da forma $60k + 7$, então $n$ e $k$ são pares.
+	\end{prob}
+	\begin{prob}[OBM]
+		Demonstre que, dado um inteiro positivo $n$ qualquer, existem inteiros positivos $a$ e $b$ primos entre si tais que $a^2 + 2017b^2$ possui ao menos $n$ fatores primos distintos.
+	\end{prob}
+	\begin{prob}
+		Prove que para todo inteiro positivo $n$, qualquer divisor primo de $n^4 - n^2 + 1$ é da forma $12k + 1$.
+	\end{prob}
+	\begin{prob}
+		Sejam $x$ e $y$ inteiros positivos. Prove que $4xy - x - y$ não é quadrado perfeito.
+	\end{prob}
+	\begin{sol}
+		$4xy - x - y$ é quadrado perfeito se, e somente se, $16xy - 4x - 4y$ é quadrado perfeito.
+		Porém, \[16xy - 4x - 4y = (4x-1)(4y-1) - 1.\]
+
+		Suponha que é um quadrado perfeito. Logo, $(4x - 1)(4y - 1) = k^2 + 1$.
+
+		Como $4x - 1 \equiv 3 \pmod{4}$, existe algum primo $p \equiv 3 \pmod{4}$ tal que $p \mid 4x-1$. Logo, \[p \mid k^2 + 1,\]
+		que é um absurdo, pois $-1$ não é resíduo quadrático $\tmod{p}$, para $p \equiv 3 \pmod{4}$.
+
+	\end{sol}
+	\begin{prob}
+		Sejam $p$ um primo ímpar e $c$ um inteiro não múltiplo de $p$. Prove que
+		$$\sum_{a = 0}^{p-1}\leg{a(a+c)}{p} = -1.$$
+	\end{prob}
+	\begin{prob}
+		Seja $p$ um primo ímpar. Prove que o menor inteiro positivo que não é resíduo quadrático $\tmod{p}$ é menor que $\sqrt{p} + 1$.
+	\end{prob}
+	\begin{prob}
+		Seja $p$ um primo. Prove que:
+		\begin{enumerate}[label = (\alph*)]
+			\item Se $p$ é da forma $4k+1$, então $p \mid k^k - 1$.
+			\item Se $p$ é da forma $4k-1$, então $p \mid k^k + (-1)^{k+1}2k$.
+		\end{enumerate}
+	\end{prob}
+	\begin{prob}[IMO]
+		Os inteiros positivos $a$ e $b$ são tais que $15a + 16b$ e $16a - 15b$ são ambos quadrados perfeitos positivos. Encontre o menor valor que pode tomar o menor desses quadrados.
+	\end{prob}
+	\begin{prob}[IMO]
+		Prove que existe um número infinito de inteiros positivos $n$ tais que $n^2 + 1$ tem um fator primo maior que $2n + \sqrt{2n}$.
+	\end{prob}
+	\begin{prob}
+		Suponha que $a_1, a_2, \dots, a_{2019}$ são inteiros positivos tais que $a_1^n + a_2^n + \cdots + a_{2019}^n$ é quadrado perfeito para todos os inteiros positivos $n$. Qual é a quantidade mínima de $a_i$'s que devem ser iguais a zero?
+	\end{prob}
+	\begin{prob}
+		Encontre todos os inteiros positivos $n$ tais que $n$ é resíduo quadrático $\tmod{x}$, para todo $x$ maior que $n$.
+	\end{prob}
+	\begin{prob}
+		Encontre todos os inteiros positivos $n$ tais que $2^n - 1 \mid 3^n - 1$.
+	\end{prob}
+	\begin{prob}[Banco IMO]
+		Suponha que, para um certo primo $p$, os valores que o polinômio de coeficientes inteiros $ax^2 + bx + x$ toma $2p-1$ inteiros consecutivos são quadrados perfeitos. Prove que $p \mid b^2 - 4ac$.
+	\end{prob}
+	\begin{prob}
+		Seja $n$ um inteiro positivo. Prove que $2^{3^n} + 1$ tem ao menos $n$ fatores primos distintos da forma $8k + 3$.
+	\end{prob}
+	\begin{prob}
+		Mostre que, para cada inteiro positivo $n$, exitem inteiros $k_0, k_1, \dots, k_n$ maiores que $1$ e primos entre si tais que $k_0k_1\cdots k_n - 1$ é o produto de dois inteiros consecutivos.
+	\end{prob}
+
+
+	\newpage
+	\section*{Referências}
+	\begin{enumerate}
+		\item \textit{Resíduos Quadráticos}, Valentino Amadeus Sichinel.
+		\item \textit{Quadratic residues}, Brilliant. \par \url{https://brilliant.org/wiki/quadratic-residues/}
+		\item \textit{Teoria dos Números - Um passeio com primos}, Fabio E. Brochero Martinez, Carlos Gustavo T. de A. Moreira, Nicolau C. Saldanha, Eduardo Tengan.
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage{euler}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+
+\usepackage{zeus}
+
+\title{Combinatória \& Divisibilidade}
+%\title{Briefing: Estudando Sistemas de Votações}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{\includegraphics[width = .2\textwidth]{mm.png}}
+\titler{09 de Novembro de 2020}
+
+\begin{document}	
+	\zeustitle
+
+	\section{Problema Motivador}
+
+	\problem{math/imo/1995/6}
+
+	\section{Pensando combinatóriamente}
+
+	O objetivo é que, no final dessa aula, vocês entendam como métodos combinatóricos podem ajudar a entender divisibilidades.
+
+	\begin{idea}
+		Para mostrar que uma quantidade de objetos é múltipla de $n$, basta dividir esses objetos em vários grupos de tamanho $n$, ou em $n$ grupos de mesmo tamanho. 
+	\end{idea}
+
+	\begin{prob}[Pequeno Teorema de Fermat]
+		Sejam $p$ um primo e $a$ um inteiro positivo. Prove, usando argumentos de combinatória, que $a^p - a$ é múltiplo de $p$. 
+	\end{prob}
+
+	\begin{prob}
+		Seja $p$ um primo ímpar. Quantos subconjuntos do conjunto $\{1, 2, \dots, p\}$ possuem soma de seus elementos múltipla de $p$.
+	\end{prob}
+	\begin{rem}
+		A soma dos elementos do conjunto vazio é zero.
+	\end{rem}
+
+	\section{De Volta ao Problema Motivador}
+
+	\setcounter{prob}{0}
+	\problem{math/imo/1995/6}
+	\setcounter{prob}{3}
+
+	\section{Desafio}
+	
+	Fica como desafio para casa, para treinar a precisão e formalização, o seguinte problema:
+
+	\begin{prob}[Generalização do IMO 1995, 6]
+		Sejam $p$ um primo ímpar e $m < n$ inteiros positivos. Quantos subconjuntos de tamanho $mp$ do conjunto $\{1, 2, \dots, np\}$ possuem soma de seus elementos múltipla de $p$?
+	\end{prob}
+
+\end{document}

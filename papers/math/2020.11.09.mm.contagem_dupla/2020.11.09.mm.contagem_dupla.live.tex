@@ -1,0 +1,96 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage{euler}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+
+\usepackage{zeus}
+
+\title{Contagem Dupla}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{\includegraphics[width = .2\textwidth]{mm.png}}
+\titler{09 de Novembro de 2020}
+
+\begin{document}	
+	\zeustitle
+
+	\section{Introdução}
+
+	Em poucas palavras, contagem dupla é algo que você já fez várias vezes: calcular algo de duas maneiras. Nos problemas a seguir, vamos contar algo de duas maneiras e igualar.
+
+	\section{Problemas}
+
+	\begin{prob} %Luciano
+		Em uma casa térrea, todos os cômodos têm um número par de portas. Prove que o número de portas que ligam a casa ao exterior é par.	
+	\end{prob}
+
+	\begin{sol}
+		Vamos contar, de duas maneiras, o número de pares (cômodo $c$, porta $p$) em que a porta $p$ está no cômodo $c$. Seja $S$ essa quantidade.
+	
+		Por um lado, \[S = \#(\text{portas no cômodo\ }1) + \#(\text{portas no cômodo\ }2) + \cdots,\] que é par.
+	
+		Por outro lado, \[S = 2 \cdot \#(\text{portas internas}) + \#(\text{portas externas}).\]
+
+		Portanto, $\#(\text{portas externas})$ é par.
+	\end{sol}
+
+	\begin{prob} %Luciano
+		Em uma escola, há $b$ professores e $c$ estudantes que satisfazem as seguintes condições:
+		
+		\begin{itemize}
+			\item Cada professor ensina a exatamente $k$ estudantes.
+			\item Para cada dois estudantes distintos, existem exatamente $h$ professores que ensinam a ambos.
+		\end{itemize}
+
+		Prove que $bk(k-1) = hc(c-1)$.
+	\end{prob}
+
+	\begin{sol}
+		Vamos contar, de duas maneiras, o número de pares (professor $p$, \{aluno $a_1$, aluno $a_2$\}) em que o professor $p$ ensina a ambos alunos $a_1$ e $a_2$. Seja $S$ essa quantidade.
+	
+			Por um lado, perguntando para cada professor, cada um deles ensina a $\binom{k}{2}$ pares ordenados de alunos distintos. Como são $b$ professores, temos \[S = b\binom{k}{2}.\]
+	
+			Por outro lado, perguntando para cada par de alunos, cada par é ensinado por $h$ professores. Como são $c$ alunos no total, o número de par ordenado de alunos é $\binom{c}{2}$. Logo, \[S = h\binom{c}{2}.\]
+	\end{sol}
+
+	\begin{prob} %Victoria Krakovna
+		Prove a seguinte identidade: \[\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \cdots + n\binom{n}{n} = n2^{n-1}.\]
+	\end{prob}
+
+	\noindent \textit{Rascunho.} Essa identidade lembra uma outra, um pouco mais famosa:
+	\[\binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n} = 2^n.\]
+
+	Provamos essa identidade contando o número de subconjuntos $A$ de $\{1, 2, \dots, n\}$.
+
+	\begin{sol}
+		Vamos contar, de duas maneiras, o número de pares (elemento $x$, subconjunto $A$) em que $x$ é um elemento de $A$ e $A$ é um subconjunto de $\{1, 2, 3, \dots, n\}$. Seja $S$ essa quantidade.
+	
+		Por um lado, perguntando para cada um dos $n$ elementos, cada um deles participa de $2^{n-1}$ subconjuntos  $A$ (basicamente temos duas escolhas entre colocar ou não colocar cada um dos outros $n-1$ elementos). Logo, \[ S = n2^{n-1}.\]
+	
+		Por outro lado, perguntando para cada subconjunto $A$, cada um deles vai responder exatamente $|A|$. Deste modo, temos
+	\begin{align*}
+		S &= \sum_{A \subset \{1, 2, \dots, n\}} |A| \\
+		  &= 0 \binom{n}{0} + 1\binom{n}{1} + 2\binom{n}{2} + \cdots + n\binom{n}{n}.
+	\end{align*}
+	\end{sol}
+
+	\problem{math/imo/1989/3}
+
+	\section{Problemas Extras}
+
+	\begin{prob}[OBM] %Luciano
+		Em um torneio de xadrez, cada participante joga com cada um dos outros exatamente uma vez. Uma vitória vale $1$ ponto, um empate vale $\frac{1}{2}$ pontos e uma derrota vale $0$ pontos. Cada jogandor ganhou a mesma quantidade de pontos contra homens e contra mulheres. Prove que a quantidade de participantes é um quadrado perfeito.
+	\end{prob}
+
+	\begin{prob}[Lema de Sperner] %Shine
+		Dividimos um triângulo grande em triângulos menores de modo que qualquer dois dentre os triângulos menores ou não têm ponto em comum, ou têm vértice em comum, ou têm um lado (completo) em comum. Os vértices do triângulos são numerados: $1$, $2$, $3$. Os vértices dos triângulos menores também são numerados: $1$, $2$ ou $3$. A numeração é arbitrária, exceto que os vértices sobre os vértices do triângulo maior oposto ao vértice $i$ não podem receber o número $i$. Mostre que entre os triângulo menores existe um com os vértices $1$, $2$ e $3$.
+	\end{prob}
+
+	\begin{prob}[MOP Practice Test 2007]
+		Em uma matriz $n \times n$, cada um dos números em $\{1, 2, \dots , n\}$ aparece exatamente $n$ vezes. Mostre que existe uma linha ou coluna com pelo menos $\sqrt{n}$ números distintos.
+	\end{prob}
+
+\end{document}
