@@ -1,0 +1,9 @@
+Consider a triangular table of positive integers
+\[
+\begin{matrix}
+ & & & a_{11} & a_{12} & a_{13} & & &  \\
+ & & a_{21} & a_{22} & a_{23} & a_{24} & a_{25} & & \\
+ & a_{31} & a_{32} & a_{33} & a_{34} & a_{35} & a_{36} & a_{37} & \\
+\iddots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+\end{matrix}
+\]The first row consists of odd numbers only. For $i>1,j\ge1$ we have \[a_{ij}=a_{i-1,j-2}+a_{i-1,j-1}+a_{i-1,j}.\]If we get out of range with the second index, we consider such $a$ to be zero (eg. $a_{22}=0+a_{11}+a_{12}$ and $a_{37}=a_{25}+0+0$). Show that for every $i>1$ there is $j\in\{1,\ldots,2i+1\}$ such that $a_{ij}$ is even.
