@@ -1,0 +1,171 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[prob-boxed]{zeus}
+
+\title{Problemas Sortidos}
+\author{Guilherme Zeus Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{10 de dezembro de 2020}
+
+\begin{document}	
+	%\twocolumn[\zeustitle]
+	\zeustitle
+
+	\section{Problemas que sobraram da última aula}
+	\setcounter{prob}4
+	\problem{math/rmm/2015/1}
+
+	\begin{sk}
+		Sejam $p_1, p_2, \dots$ primos distintos.
+
+		Vamos dividir a condição em duas partes:
+		\begin{itemize}
+			\item Se $|m - n| = 1$, então  $a_m$ e $a_n$ são coprimos.
+			\item Se $|m - n| \neq 1$, então  $a_m$ e $a_n$ não são coprimos.
+		\end{itemize}
+
+		Uma sequência ``maneira'' que satisfaz a segunda condição:
+		\[a_k = p_k \prod_{i = 0}^{k-2} p_i.\] 
+	\end{sk}
+
+	\begin{sol}
+		A resposta do problema é sim! 
+
+		Sejam $p_1, p_2, \dots$ e $q_1, q_2, \dots$ primos distintos.
+
+		A sequência proposta é:
+		\[a_k = \begin{cases} p_k \cdot q_k \cdot \prod_{i=1}^{k-2} p_i, \text{\ se $k$ é ímpar}\\
+		 					  p_k \cdot q_k \cdot \prod_{i=1}^{k-2} q_i, \text{\ se $k$ é par}\\
+		\end{cases}\]
+
+		\begin{itemize}
+			\item $a_m$ e $a_{m+1}$ são coprimos? Sim.
+
+				Se $m$ for ímpar,
+				$a_m = p_m \cdot q_m \cdot \prod_{i=1}^{m-2} p_i$
+				e $a_{m+1} = p_{m+1} \cdot q_{m+1} \cdot \prod_{i=1}^{m-1} q_i$, que não tem nenhum fator primo em comum.
+				
+				Se $m$ for par,
+				$a_m = p_m \cdot q_m \cdot \prod_{i=1}^{m-2} q_i$
+				e $a_{m+1} = p_{m+1} \cdot q_{m+1} \cdot \prod_{i=1}^{m-1} p_i$, que não tem nenhum fator primo em comum.
+
+			\item $a_{m}$ e $a_n$ são coprimos, se $m \le n - 2$? Não.  
+
+				 $a_n$ possui um dos dois fatores $p_m$ ou $q_m$, que são fatores de $a_m$ também.
+		\end{itemize}
+	\end{sol}
+
+	\newpage
+	\problem{math/apmo/2006/2}
+
+	\begin{sk}
+		Casos pequenos:
+			\[1 = \phi^0\]
+			\[2 = \phi^{-2} + \phi^{-1} + \phi^{0} = \phi^{-2} + \phi^1 \]
+			\[3 = \phi^{-2} + \phi^0 + \phi^1 = \phi^{-2} + \phi^2\]
+			\[4 = \phi^{-2} + \phi^0 + \phi^2\]
+
+		Quem é $\phi$? Ora, $\phi = \frac{1 + \sqrt{5}}{2}$. Porém, um jeito por vezes mais útil é ver $\phi$ como raiz de $x^2 - x - 1$. Ou seja:
+		\[\phi^2 = \phi + 1.\]
+	\end{sk}
+
+	\begin{sol}
+		Defina $n \equiv S$, sendo $n$ um inteiro e $S$ um suconjunto finito dos inteiros se, e somente se, \[n = \sum_{i \in S} \phi^i.\]
+
+		Os casos pequenos ficam, então:
+		\[1 \equiv \{0\}\]
+		\[2 \equiv \{-2, -1, 0\} \equiv \{-2, 1\}\]
+		\[3 \equiv \{-2, 0, 1\} \equiv \{-2, 2\}\]
+		\[4 \equiv \{-2, 0, 2\}\]
+		\[5 \equiv \{-4, -3, -2, -1, 0, 2\}\]
+
+		A equação $\phi^2 = \phi + 1$ é traduzida como uma operação:
+
+		Se $n, n+1 \in S$ e $n+2 \not\in S$, então \[S \equiv (S - \{ n, n+1\}) \cup \{n+2\},\]
+		em outras palavras, podemos trocar $n$ e $n+1$ por $n+2$, ou, em outras palavras, \[\{n, n+1\} \equiv \{n+2\}.\]
+
+		\begin{lem}
+			Se $n \equiv S$, então existe $R$ tal que $n \equiv R$ e $R$ não possui consecutivos.
+		\end{lem}
+		\begin{dem}	
+			Se $S$ não possui consecutivos, acabou! Suponha que $S$ possui consecutivos, pegue o maior par de consecutivos $(n, n+1)$.  $n+2$ não está em $S$, pois, se estivesse, $(n+1, n+2)$ seria um par de consecutivos maior.
+
+			Sabemos que $\phi^{n+2} = \phi^{n+1} + \phi^n$.
+			Logo, \[n \equiv S' = (S - \{n, n+1\}) \cup \{ n+2\}.\]
+
+			Repetimos esse algoritmo enquanto houverem consecutivos. Esse algoritmo acaba pois, em cada etapa, o número de elementos do conjunto diminui; e esse número é sempre inteiro não-negativo. (E ele começa como um inteiro finito).
+		\end{dem}
+
+		Vamos provar por indução que todo $n$ possui a propriedade desejada. (Base: OK.)
+
+		Suponha que $n - 1$ possui a propriedade. Pelo Lema, existe $S \equiv n - 1$, $S$ sem consecutivos. 
+		Seja $-2k$ o maior par não-positivo tal que $-2k \not\in S$ (como $S$ é finito, esse número existe).
+		Logo, $-2k+2, -2k+4, \dots, -2, 0$ estão em $S$. Como $S$ no possui consecutivos, isso implica que $-2k+1, -2k+3, \dots, -3, -1$ não estão em $S$. Note que:
+		\begin{align*}
+			1 &= \phi^{-1} + \phi^{-2}\\
+			  &= \phi^{-1} + \phi^{-3} + \phi^{-4}\\
+			  &= \phi^{-1} + \phi^{-3} + \phi^{-5} + \phi^{-6}\\
+			  &\vdots\\
+			  &= \phi^{-1} + \phi^{-3} + \cdots + \phi^{-2k+3} + \phi^{-2k+1} + \phi^{-2k}.
+		\end{align*}
+
+		Logo, \[n \equiv S \cup \{-2k, -2k+1, -2k+3, \dots, -3, -1\}.\]
+
+	\end{sol}
+
+	\newpage
+	\problem{math/rmm/2011/1}
+
+	\newpage
+	\section{Novos problemas}
+	\setcounter{prob}0
+	\begin{prob}[Lemmas in Euclidean Geometry]
+		Seja $ABC$ um triângulo e seja $D$ o pé da bissetriz interna relativa a $A$. Sejam $\gamma_1, \gamma_2$ os circuncírculos dos triângulos $ABD, ACD$. Sejam $P, Q$ as intersecções de $AD$ com as tangentes externas comuns a $\gamma_1$ e  $\gamma_2$. Prove que $PQ^2 = AB \cdot AC$. Ache também uma ``volta''!
+	\end{prob}
+
+		Dever de casa: Escrever a solução completa (em equipe, em \LaTeX) e mandar para mim! Provando tudo!
+
+		Dever de casa 2: Tentar resolver usando inversão $\sqrt{bc}$.
+
+	\newpage
+	\problem{math/ibero/2020/3}
+	\begin{sol}
+		Vamos definir uma relação entre as sequências:
+		\begin{defn}
+			Digamos que $\alpha \sim \beta$ se, e somente se, é possível transformar $\alpha$ em $\beta$ efetuando um número finito de operações.
+		\end{defn}
+
+		Note que $\alpha \sim \beta$ implica  $\beta \sim \alpha$ pois toda operação é possui operaçãoração inversa (que é si mesma), isto é, \[(a_k, a_\ell) \xrightarrow[\text{operação $(k, \ell)$}]{} (a_k, 2a_k - a_\ell) \xrightarrow[\text{operação $(k, \ell)$}]{} (a_k, a_\ell).\]
+
+		\begin{lem}
+			Se $\alpha$ é limenha e $\alpha \sim \beta$, então $\beta$ é limenha.
+		\end{lem}
+		\begin{dem}
+			Suponha que $\beta$ não é limenha. Logo, existe $p > 1$ tal que $p | b_i - b_j$, para todo $i, j$. Isto é, $b_i \equiv c \pmod{p}$ para algum $c$. Note que as operações mantém essa propriedade, pois $a'\ell = 2a_k - a_\ell \equiv 2c - c \equiv c \pmod{p}$. Logo, como $\beta \sim \alpha$, existem operações que levam $\beta$ em $\alpha$, e em cada uma das operações, a propriedade de que todos os elementos da sequência são congruentes a $c \pmod{p}$ é preservada.
+
+			Deste modo, todos os elementos da sequência $\alpha$ são congruentes a $c \pmod{p}$, ou seja, todas as diferenças de elementos de $\alpha$ são múltiplas de $p$. Isto implica que $\alpha$ não é limenha. 
+		\end{dem}
+
+		Defina o \emph{coração} de uma sequência $ \alpha = (a_1, a_2, \dots, a_n)$ como \[\heartsuit(\alpha) = 2\sum_{i = 1}^n \left| a_i - 1/2 \right| \in \ZZ_{\ge 0}. \]
+
+		Se exitem $1/2 < a_i < a_j$, fazemos a operação $a_j \to 2a_i - a_j$, que diminui o $\heartsuit$ da sequência.
+
+		Se exitem $1/2 > a_i > a_j$, fazemos a operação $a_j \to 2a_i - a_j$, que diminui o $\heartsuit$ da sequência.
+
+		Como o coração da sequência diminui ao fazer essas operações, não é possível fazer elas para sempre! Após um número finito de operações, não existirão $1/2 < a_i < a_j$ nem  $1/2 > a_i > a_j$.
+		
+		Logo, todos os inteiros $ > 1/2$ na nova sequência serão iguais, digamos que iguais a $x$, e todos os inteiros $< 1/2$ na nova sequência serão iguais, digamos que iguais a $y$.  
+		
+		A sequência	nova sequência, que nomearemos de $\beta$, será uma sequência tal que será uma sequência que possui somente $x$ ou $y$.
+
+		Pelo lema, $\beta$ é limenha. Logo, $\text{mdc}(\text{diferenças}) = x - y = 1$. Portanto, $x = 1$ e  $y =0$. Logo,  $\beta$ é uma sequência que somente possui zeros ou uns.
+		
+		Como existem somente $2^n - 2$ sequências com zeros ou uns (não pode ser todo mundo igual), dada a coleção de $2^n - 1$ sequências limenhas, duas delas vão ter ``o mesmo $\beta$'', o que significa que será possível transformar uma em outra usando finitas operações.
+	\end{sol}
+
+\end{document}
