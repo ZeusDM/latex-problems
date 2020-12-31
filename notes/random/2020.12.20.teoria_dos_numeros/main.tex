@@ -1,0 +1,408 @@
+\documentclass[10pt, a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\PassOptionsToPackage{brazilian}{cleveref}
+%\usepackage{fullpage}
+
+\usepackage[chapter, prob-boxed]{zeus}
+%\usetikzlibrary{patterns}
+
+\usepackage{fullpage}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+
+\begin{document}
+
+	\tableofcontents
+
+	\chapter{Divisibilidade}
+
+	\begin{defn}[Divisibilidade]
+		Dados dois inteiros $a$ e $b$, dizemos que $a$ divide $b$ (neste caso, escrevemos $a \mid b$) se, e somente se, existe um inteiro $c$ tal que $b = ac$. Neste caso, dizemos que $a$ é um divisor de $b$ e que $b$ é um múltiplo de $a$.
+	\end{defn}
+
+	\begin{thm}[Divisão Euclidiana]\label{thm:divisaoeuclidiana}
+		Dado um inteiro $n$ e um inteiro positivo $d$, existem únicos inteiros $q, r$, com $0 \le r < d$ tais que  \[
+			n = qd + r.
+		\]
+	\end{thm}
+
+	\begin{exer}
+		Demonstre o \cref{thm:divisaoeuclidiana}.
+	\end{exer}
+
+	\begin{defn}[Maior Divisor Comum e Menor Múltiplo Comum]
+		Dados inteiros (não todos nulos) $a_1, a_2, \dots, a_n$, chamamos de \emph{maior divisor comum de $a_1, a_2, \dots, a_n$} o maior inteiro positivo $d$ tal que $d \mid a_i$, para todo $i \in \{1, 2, \dots, n\}$.
+		É comum denotarmos esse número por $\mdc(a_1, a_2, \dots, a_n)$ ou $(a_1, a_2, \dots, a_n)$.
+
+		Chamamos de \emph{menor múltiplo comum de $a_1, a_2, \dots, a_n$} o menor inteiro positivo $m$ tal que $a_i \mid m$, para todo $i \in \{1, 2, \dots, n\}$. É comum denotarmos esse número por $\mmc(a_1, a_2, \dots, a_n)$.
+	\end{defn}
+
+	\begin{defn}[Coprimos]
+		Dizemos que $a$ e $b$ são \emph{coprimos} (ou \emph{primos entre si}) se, e somente se, $(a, b) = 1$.
+	\end{defn}
+
+	\begin{thm}[Teorema Útil]\label{thm:util}
+		Dados $a, b, k$ inteiros, vale \[
+			(a, b) = (a, b + ka).
+		\]
+	\end{thm}
+
+	\begin{cor}
+		Dados $a$ inteiro positivo e $b$ inteiro, seja $b = qa + r$ a divisão euclidiana de $b$ por $a$. Então, \[
+			(a, b) = (a, r).
+		\]
+	\end{cor}
+
+	\begin{exer}
+		Demonstre o \cref{thm:util}.
+	\end{exer}
+
+	\begin{thm}[Bezout]
+		Dados inteiros $a, b$, o menor inteiro positivo que pode ser escrito da forma $ra + sb$, com $r, s$ inteiros, é $(a, b)$.
+	\end{thm}
+
+	\begin{cor}
+		Dados inteiros $a, b$, o conjunto  \[
+			\{ra + sb : r, s \in \ZZ\}
+		\]
+		é o conjunto dos múltiplos de $(a, b)$.
+	\end{cor}
+
+	\begin{alg}[Algoritmo de Euclides]
+		% TODO
+	\end{alg}
+
+	\begin{defn}[Número Primo]
+		Um inteiro $p$ é \emph{primo} se, e somente se, $p$ possui exatamente dois divisores positivos distintos\footnote{Esses divisores são $1$ e $p$. Note que $1$ não é primo, pois possui somente um divisor positivo.}.
+	\end{defn}
+
+	\begin{lem}\label{lem:primodivideproduto}
+		Dados inteiros $a, b$ e um primo $p$, \[
+			p \mid ab \iff p \mid a \text{\ ou\ } p \mid b.
+		\]
+	\end{lem}
+
+	\begin{exer}
+		Demonstre o \cref{lem:primodivideproduto}.
+	\end{exer}
+
+	\begin{thm}[Teorema Fundamental da Aritmética]\label{thm:fundamentalaritmetica}
+		Dado um inteiro positivo $n > 1$, existem únicos primos $p_1,\ p_2,\ \dots,\ p_k$ e inteiros positivos $\alpha_1,\ \allowbreak \alpha_2,\ \allowbreak \dots,\ \allowbreak \alpha_k$ tais que  \[
+			n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}.
+		\]
+	\end{thm}
+	
+	\newpage
+	\section{Problemas Interessantes}
+	\problem{math/book/andrei_negut/problems_for_the_mathematical_olympiads/N2}
+
+	\chapter[\texorpdfstring{Congruência módulo $n$}{Congruência módulo n}]{Congruência módulo $n$}
+
+	\begin{defn}[Relação de Equivalência]
+		Dado um conjunto $S$ e uma relação $\sim$ sobre $S$, dizemos que a relação $\sim$ é uma \emph{relação de equivalência} se, e somente se, valem as seguintes propriedades:
+		\begin{enumerate}[label = --]
+			\item \emph{Reflexidade:} para todo $a \in S$, \[
+				a \sim a.
+			\]
+			\item \emph{Simetria:} para todos $a, b \in S$, \[
+				a \sim b \iff b \sim a.
+			\]
+			\item \emph{Transitividade:} para todos $a, b, c \in S$, \[
+				a \sim b \text{\ e\ } b \sim c \implies a \sim c.
+			\] 
+		\end{enumerate}
+	\end{defn}
+
+	\begin{defn}[Congruência módulo $n$]
+		Dado um inteiro positivo $n$, definimos a relação $\equiv \pmod{n}$ sobre $\ZZ$, definida por: para todo $a, b$, \[
+			a \equiv b \pmod{n} \iff n \mid a - b.
+		\]
+
+		Neste caso, dizemos que $a$ é congruente a $b$ módulo $n$.
+	\end{defn}
+
+	\begin{exer}
+		Demonstre que a congruência módulo $n$ é uma relação de equivalência.
+	\end{exer}
+
+	\begin{thm}[Teorema Chinês dos Restos] \label{thm:tcr}
+		Seja $r$ um inteiro positivo qualquer.
+		Sejam $m_1, m_2, m_3, \dots, m_r$ inteiros positivos coprimos dois a dois e sejam $a_1, a_2, \dots, a_r$ inteiros quaisquer. Então, o sistema de congruências
+		\begin{align*}
+			x &\equiv a_1 \pmod{m_1} \\
+			x &\equiv a_2 \pmod{m_2} \\
+			&\hspace{1ex}\vdots\\
+			x &\equiv a_r \pmod{m_r}
+		\end{align*}
+		é equivalente a \[
+			x \equiv A \pmod{M},
+		\]
+		para algum inteiro $A$ e para $M = m_1m_2 \cdots m_r$.
+	\end{thm}
+
+	\begin{exer}
+		Demonstre o \hyperref[thm:tcr]{Teorema Chinês dos Restos}.
+		\begin{enumerate}[label = (\alph*)]
+			\item Demonstre para $r = 2$. 
+			\item Demonstre para $r$ qualquer usando indução.
+		\end{enumerate}
+	\end{exer}
+
+	\begin{ques}
+		Quantos elementos dentre \[
+			\frac{0}{n}, \frac{1}{n}, \frac{2}{n}, \dots, \frac{n-1}{n}
+		\]
+		possuem denominador $d$, quando escritos de forma simplificada\footnote{escrever um racional de forma simplificada significa escrevê-lo como $p/q$, onde $p$ e $q$ são coprimos.}?
+	\end{ques}
+
+	\begin{defn}[Função $\phi$ de Euler]
+		Dado um inteiro positivo $n$, definimos \[
+			\phi(n) = |\{x \in \ZZ : (x, n) = 1 \text{\ e\ } 0 < x \le n\}|,
+		\]
+		ou seja, $\phi(n)$ é o número de inteiros positivos menores ou iguais a $n$ que são coprimos com $n$.
+	\end{defn}
+
+	\begin{exer}
+		Demonstre que \[
+			\sum_{d|n} \phi(d) = n.
+		\]
+	\end{exer}
+
+	\begin{lem}\label{lem:phimultiplicativa}
+		A função $\phi$ é multiplicativa, isto é, para quaisquer inteiros positivos $m, n$ coprimos, \[
+			\phi(mn) = \phi(m)\phi(n).
+		\]
+	\end{lem}
+
+	\begin{lem}\label{lem:phipotenciadeprimo}
+		Dados $p$ primo e $k$ inteiro positivo, \[
+			\phi(p^k) = (p-1)p^{k-1} = \left( 1 - \frac{1}{p} \right)p^k.
+		\]
+	\end{lem}
+
+	\begin{exer}
+		Demonstre os \cref{lem:phimultiplicativa,lem:phipotenciadeprimo} e caracterize $\phi(n)$ para $n$ inteiro positivo qualquer.
+	\end{exer}
+
+	\begin{thm}[Pequeno Teorema de Fermat]\label{thm:pequenofermat}
+		Dados um inteiro $a$ e um primo $p$,  \[
+			a^p \equiv a \pmod{p}.
+		\]
+		Alternativamente, dados inteiros $a$ e primo $p$, com $a$ e $p$ coprimos (isto é, $p$ não divide $a$), \[
+			a^{p-1} \equiv 1 \pmod{p}.
+		\]
+	\end{thm}
+
+	\begin{thm}[Teorema de Euler]\label{thm:euler}
+		Dado um inteiro $a$ e um inteiro positivo $n$, com $a, n$ coprimos, \[
+			a^{\phi(n)} \equiv 1 \pmod{n}.
+		\]
+	\end{thm}
+
+	O \hyperref[thm:euler]{Teorema de Euler} mostra que a sequência $a^0, a^1, a^2, a^3 \dots \pmod{n}$ é periódica, e que ela volta pro $1$ em $a^{\phi(n)}$. Talvez essa não seja a primeira vez que isso aconteça, mas com certeza existe alguma primeira vez que isso acontece!
+
+	\begin{defn}[Ordem]
+		Dados inteiros $a, n$ coprimos, o menor inteiro positivo $m$ tal que $a^m \equiv 1 \pmod{n}$ é chamado de \emph{ordem de $a$ módulo $n$}. É comum denotarmos esse número por $\mathrm{ord}_n(a)$.
+	\end{defn}
+
+	\begin{lem}
+		Sejam $a$ um inteiro e $x, y$ inteiros positivos. Então, \[
+			(a^x - 1, a^y - 1) = a^{(x, y)} - 1.
+		\]
+	\end{lem}
+
+	\begin{thm}
+		Sejam $a, m$ inteiros e $n$ um inteiro positivo, com $a, n$ coprimos. Se $a^m \equiv 1 \pmod{n}$, então \[
+			\mathrm{ord}_n(a) \mid m.
+		\]
+	\end{thm}
+
+	\begin{cor}
+		Sejam $a$ um inteiro e $n$ um inteiro positivo, com $a, n$ coprimos. Então, \[
+			\mathrm{ord}_n(a) \mid \phi(n).
+		\]
+	\end{cor}
+
+	% TODO: soma de divisores e número de divisores
+	% Ver Capítulo 10 de Elementary Number Theory por W. Edwin Clark.
+
+	\newpage
+	\section{Questões Divertidas}
+	\begin{prob}[Teorema de Wilson]
+		Calcule \[
+			1\cdot2\cdot3\cdots(p-1) \pmod{p}.
+		\]
+	\end{prob}
+
+	\begin{prob}
+		Sejam $a$ e $n$ inteiros positivos. Mostre que $n$ divide $\phi(a^n - 1)$.
+	\end{prob}
+
+	\begin{prob}
+		Seja $p$ um número primo e $q$ um fator primo de $p^p - 1$. Prove que $q \equiv 1 \pmod{p}$.
+	\end{prob}
+	\section{Problemas Interessantes}
+	\problem{math/book/andrei_negut/problems_for_the_mathematical_olympiads/N5}
+
+	\chapter{Raízes Primitivas}
+
+	\begin{defn}[Raíz primitiva]
+		Dizemos que $g$ é uma raíz primitiva módulo $n$ se, e somente se, $\mathrm{ord}_n(g) = \phi(n)$.
+	\end{defn}
+
+	\begin{lem}
+		$g$ é uma raíz primitiva módulo $n$ se, e somente se, para todo inteiro $a$ coprimo com $n$, existe inteiro não-negativo $k$ tal que $g^k \equiv a \pmod{n}$.
+	\end{lem}
+
+	\begin{thm}[Caracterização total dos $n$ que possuem raízes primitivas]\label{thm:crp}
+		Existem raíz primitiva módulo $n$ se, e somente se, $n = 2$ ou $n = 4$ ou $n = p^k$ ou $n = 2p^k$, para $p$ primo ímpar e $k$ inteiro positivo.
+	\end{thm}
+
+	\begin{exer}[Versão fraca do \cref{thm:crp}]
+		Seja $p$ um primo ímpar. Prove que existe raíz primitiva módulo $p$.
+	\end{exer}
+
+	\begin{lem}
+		Se existe raíz primitva módulo $n$, então existem exatamente $\phi(\phi(n))$ raízes primitivas módulo $n$.
+	\end{lem}
+	
+	\newpage
+	\section{Questões Divertidas}
+	\begin{prob}[Teorema de Wilson]
+		Calcule \[
+			1\cdot2\cdot3\cdots(p-1) \pmod{p}.
+		\]
+	\end{prob}
+
+	\begin{prob}
+		Seja $p$ um primo ímpar e $1 \le n < p-1$ um inteiro. Prove que \[
+			1^n + 2^n + \cdots + (p-1)^n
+		\]
+		é divisível por $p$.
+	\end{prob}
+
+	\begin{prob}
+		Seja $p$ um primo tal que $p \equiv 3 \pmod{4}$. Prove que \[
+			\prod_{j=1}^{p-1} \left(j^2 + 1\right) \equiv 4 \pmod{p}.
+		\]
+	\end{prob}
+
+	\chapter{Resíduos Quadráticos}
+
+	\begin{defn}[Resíduo Quadrático]
+		Dizemos que $a$ é \textit{resíduo quadrático módulo $n$} se, e somente se, $x^2 \equiv a \equiv 0 \pmod{n}$ possui solução.
+	\end{defn}
+	%\begin{exmp}
+	%	Olhando módulo ${4}$, os resíduos quadráticos são $0$ e $1$. Olhando módulo ${5}$, os resíduos quadráticos são $0$, $1$ e $4$. Olhando módulo ${7}$, os resíduos quadráticos são $0$, $1$, $4$ e $2$.
+	%\end{exmp}
+	\begin{prop}
+		Seja $p$ um primo ímpar. Existem exatamente $\frac{p+1}{2}$ resíduos quadráticos módulo ${p}$. Eles são:
+		\[ 0^2,  1^2, 2^2, \dots, \left( \frac{p-1}{2} \right)^2. \]
+	\end{prop}
+	%\begin{proof}
+	%	Estes são todos os resíduos quadráticos pois $(p-x)^2 \equiv x^2 \pmod{p}$.
+	%
+	%	Eles são distintos pois:
+	%	\begin{align*}
+	%		x^2 \equiv y^2 \pmod{p} & \iff p \mid x^2 - y^2\\
+	%		                        & \iff p \mid (x - y)(x + y)\\
+	%			           	 	    & \iff p \mid (x-y) \text{ ou } p \mid (x+y)\\
+	%					            & \iff y \equiv \pm x \pmod{p},
+	%	\end{align*}
+	%	que é impossível para $x, y \in \left\{ 0, 1, 2, \dots, \frac{p-1}{2} \right\}$.
+	%\end{proof}
+	\begin{defn}[Símbolo de Legendre]
+		Seja $p$ um primo e $a \in \ZZ$.
+		$$\leg{a}{p} =
+		\begin{cases}
+			1,  \text{se $p \nmid a$ e $a$ é um resíduo quadrático $\pmod{p}$, }\\
+			-1, \text{se $p \nmid a$  e $a$ não é um resíduo quadrático $\pmod{p}$, }\\
+			0,  \text{se $p \mid a$.}
+		\end{cases}$$
+	\end{defn}
+	%\begin{exmp}
+	%	$\leg{1}{5} = 1$. $\leg{2}{5} = -1$.
+	%\end{exmp}
+	\begin{thm}[Critério de Euler]
+		Sejam $p$ um primo ímpar e $a \in \ZZ$. Então
+		$$\leg{a}{p} \equiv a^{(p-1)/2}\pmod{p}.$$
+	\end{thm}
+	\begin{dem}
+		Se $a$ é multiplo de $p$, então \[ a^{(p-1)/2} \equiv 0 \equiv \leg{a}{p}.\]
+
+		Se $a$ é resíduo quadrático não nulo, então existe $y$ tal que $a \equiv y^2$. Portanto, \[a^{(p-1)/2} \equiv y^{p-1} = 1 = \leg{a}{p}.\]
+		
+		Considere o polinômio \[P(x) = x^{p-1} - 1 = \underbrace{(x^{(p-1)/2} - 1)}_{Q(x)}\underbrace{(x^{(p-1)/2} + 1)}_{R(x)}.\]
+		
+		Como $P(x)$ possui grau $p-1$, ele possui no máximo $p-1$ raízes (contando multiplicidade). Note que $1, 2, \dots, p-1$ são raízes de $P(x)$; consequentemente, são todas as raízes de $P(x)$.
+
+		Como $Q(x)$ possui no máximo $(p-1)/2$ raízes e todos os $(p-1)/2$ resíduos quadráticos não nulos são raízes de $Q(x)$, eles são todas as raízes de $Q(x)$.
+
+		Desse modo, os não residuos quadraticos não nulos são raízes de $P(x)$, mas não de $Q(x)$, e portanto são raízes de $R(x)$. Logo, para  $a$ não multiplo de $p$ e não resíduo quadrático, 
+		\[a^{(p-1)/2} \equiv -1 = \leg{a}{p}.\]
+	\end{dem}
+	\begin{cor}
+		Sejam $p$ um primo ímpar e $a, b \in \ZZ$.
+		$$\leg{ab}{p} = \leg{a}{p}\leg{b}{p}.$$
+	\end{cor}
+	\begin{cor}
+		$-1$ é resíduo quadrático módulo ${p}$ se, e somente se, $p \equiv 1 \pmod{4}$.
+	\end{cor}
+	\begin{thm}[Lei da Reciprocidade Quadrática]
+		Sejam $p$ e $q$ primos ímpares distintos. Temos:
+		\begin{align*}
+			\leg{p}{q} \leg{q}{p} & = (-1)^{\frac{p-1}{2}\frac{q-1}{2}} =
+				\begin{cases}
+					1,  \text{\ se $p \equiv 1$ ou $q \equiv 1$}\pmod{4}\\
+					-1, \text{\ se $p \equiv 3$ e  $q \equiv 3$}\pmod{4}
+				\end{cases}	\\
+			\leg{2}{p} & = (-1)^\frac{p^2 - 1}{8} =
+				\begin{cases}
+					1, \text{\ se $p \equiv 1$ ou $p \equiv 7$}\pmod{8}\\
+					-1, \text{\ se $p \equiv 3$ ou $p \equiv 5$}\pmod{8}\\
+				\end{cases}
+		\end{align*}
+	\end{thm}
+
+	Usando os dois teoremas a seguir, podemos determinar se $a$ é resíduo quadrático módulo ${n}$ apenas olhando módulo as potências de 2 que dividem $n$ e módulo os primos ímpares que dividem $n$.
+
+	\begin{thm}
+		Sejam $p$ primo ímpar e $a, k \in \ZZ$ com $k > 0$. Se $x^2 \equiv a \pmod{p^k}$, existe $t \in \{0, 1, \dots, p-1\}$ tal que \[(x+tp)^2 \equiv a \pmod{p^{k+1}}.\]
+	\end{thm}
+	\begin{thm}
+		Sejam $a$ um inteiro ímpar e $n \ge 3$. $a$ é resíduo quadrático módulo ${2^n}$ se, e somente se, $a \equiv 1 \pmod{8}$.
+	\end{thm}
+
+
+	\chapter{Descenso de Fermat}
+
+	\begin{exer}
+		\problemfoe{math/imo/1988/6}
+	\end{exer}
+
+	\newpage
+	\section{Problemas Interessantes}
+
+	\begin{prob}
+		Ache todos os pares de inteiros positivos $(a, b)$ tais que  \[
+			\frac{a^2 + b^2 + 1}{ab}
+		\]
+		é um inteiro.
+	\end{prob}
+
+	\begin{prob}
+		Ache todos os pares de inteiros positivos $(a, b)$ tais que $a$ divide $b^2 + 1$ e $b$ divide $a^2 + 1$.
+	\end{prob}
+
+	\problem{math/imo/2007/5}
+
+	% Romania 2005
+
+	% Ireland 2005
+
+\end{document}

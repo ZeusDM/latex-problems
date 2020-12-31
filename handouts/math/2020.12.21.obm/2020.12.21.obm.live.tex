@@ -1,0 +1,157 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[prob-boxed]{zeus}
+
+\title{Problemas da OBM}
+\author{Rafael Filipe: 10h--13h \quad Guilherme Zeus: 14h--19h}
+\nomail
+\titlel{Turma Olímpica}
+\titler{21 de dezembro de 2020}
+
+\begin{document}	
+	%\twocolumn[\zeustitle]
+	\zeustitle
+
+	\problem{math/brazil/mo/2016/6}
+
+	\newpage
+	\problem{math/brazil/mo/2014/2}
+
+	\newpage
+	\problem{math/brazil/mo/2015/3}
+
+	\begin{sk}
+		Note que  \[
+			f(nm) = f(n)f(m),
+		\]
+		se $m, n$ são primos entre si.
+
+		Se $m$ é livre de quadrados e é primo com $n$, então \[
+			f(nm) = f(n).
+		\]
+
+		Note que $f(13^2) + 1 = 2 \cdot 13 + 1 = 27 = 3 \cdot 3^2 = f(3^3)$.
+
+		Logo, se $x$ é primo com $3$, $y$ é primo com $13$ e $x, y$ são livres de quadradps, vale que  \[
+			f(27x) = f(169y) + 1.
+		\]
+
+		O problema resume a mostrar que existem infinitos pares de $x, y$ livres de quadrados (e primos com $3$ e $13$, respectivamente) tais que \[27x - 169y = 1.\]
+
+		As soluções desconsiderando as condições extras \[
+			\begin{cases}
+				x = 169t + 482\\
+				y = 27t + 77.
+			\end{cases}
+		\] (\emph{Escrevi deste jeito, pois $(77, 482)$ funcionam como $(x, y)$ com as condições extras.})
+
+		\begin{lem}
+			Sejam $a, b, x, y \in \ZZ$, $x, y$ livres de quadrados, com $(a, x), (b, y) = 1$. Então existem infinitos $n$ tais que $an + x$ e $bn + y$ são livres de quadrados.
+		\end{lem}
+		
+		\begin{dem}
+			Seja $P$ o produto de todos os primos menores que $c$, para $c$ suficientemente grande tal que $p | x$ ou $p|y$ implica $p | P$.
+			Vamos contar a quantidade de $n$ até $N$ tais que $aP^2n+x$ ou $bP^2n+y$ não é livre de quadrados. Seja $T$ essa quantidade.
+
+			Vamos cotar essa quantidade olhando para cada $p^2$ que pode dividir $aP^2n + x$ ou $bP^2n + y$. Isto acontece quando  $n \equiv -x/(aP^2)$ ou  $n \equiv -y/(bP^2) \pmod{p^2}$. Logo, isso acontece aproximadamente $2$ vezes a cada $p^2$ valores dentre os $N$ possíveis valores para $n$. Logo: \begin{align*}
+				T &\le \sum_{\text{primos $c < p < \sqrt{bN + y}$}}\ceil{\frac{2N}{p^2}} \\
+				  &\le \sum_{\text{primos $c < p < \sqrt{bN + y}$}} \left( \frac{2N}{p^2} + 1 \right)\\
+				  &\le \left(2N \cdot \sum_{\text{primos $p > c$}}\frac{1}{p^2}\right) + \pi(\sqrt{bN + y}).
+			\end{align*}
+
+			Portanto, a densidade é:
+			\begin{align*}
+				\lim_{n\to\infty}\frac{T}{N} &\le \lim_{n\to\infty} \frac{2N \cdot \sum_{\text{primos $p > c$}}\frac{1}{p^2}}{N} + \frac{\pi(\sqrt{bN+y})}{N}\\
+				& \le 2 \cdot \sum_{\text{primos $p > c$}} \frac{1}{p^2}\\
+				& \le 2 \cdot \sum_{n = c}^\infty \frac{1}{n(n-1)}\\
+				& \le 2 \cdot \frac{1}{c-1}\\
+				& << 1.
+			\end{align*}
+
+			Logo, como a densidade dos números que não funcionam tende a uma constante menor que $1$, a densidade dos números $n$ que funcionam é não nula! Logo existem infinitos $n$ que funcionam.
+		\end{dem}
+	\end{sk}
+
+
+
+	\newpage
+	\problem{math/brazil/mo/2010/4}
+
+	\newpage
+	\problem{math/brazil/mo/2011/6}
+
+	\begin{sk}
+		Optimizar localmente. Essência parecida com IMO 2014, 5 (Banco da Cidade do Cabo).
+		
+		De maneira mais clara, vamos fazer operações na sequência $\vec{x}$ que aumentam o produto procurado.
+
+
+		\textbf{\boldmath Se, em qualquer momento, existir $x_{i-1} \ge x_i \le x_{i+1}$, $x_i > 0$} então levamos $x_i \mapsto 0$ e $x_\text{MÁX} \mapsto x_\text{MÁX} + x_i$. Essa operação aumenta o produto.
+		
+		\begin{center}\def\svgwidth{8cm}\import{./fig/}{fig_1.pdf_tex}\end{center}
+
+		Essa optimização garante que os mínimos locais são $0$. Vamos chamar de \emph{montanha} uma subsequência $(x_i = 0, x_{i+1}, \dots, x_{j-1}, x_j = 0)$, onde só há zeros nas pontas. Dizemos que $j - i$ é o tamanho da montanha. Note que, dentro de uma montanha, não existem \emph{depressões}, isto é, não existe $x_{i-1} \ge x_i \le x_{i+1}$. Portanto, dentro de uma montanha, há uma parte de subida seguida de uma parte de descida, isto é, \[
+			x_i \le \cdots \le x_k \ge \cdots \ge x_j.
+		\]
+
+		\textbf{\boldmath Se, em qualquer momento, existir $x_{i} \le x_{i+1} \le x_{i+2} \le x_{i+3}$ ou $x_{i} \ge x_{i+1} \ge x_{i+2} \ge x_{i+3}$}, então levamos $x_{i+1} \mapsto x_{i+2}$ e $x_{i+2} \mapsto x_{i+1}$. Essa operação aumenta o produto.
+		
+		\begin{center}\def\svgwidth{8cm}\import{./fig/}{fig_2.pdf_tex}\end{center}
+
+		Essa operação ``quebra'' montanhas grandes em montanhas menores (\emph{na verdade, ela cria depressões dentro de montanhas grandes, e a operação 1 ``quebra'' a montanha em montanhas menores}). Em especial, as partes de subida e de descida não podem ter tamanho maior que $2$. Isto limita os possíveis tamanhos de montanhas:  $2, 3, 4$.
+
+		\textbf{\boldmath Se, em qualquer momento, existir uma montanha de tamanho $4$,} digamos $(0, a, b, c, 0)$, então transformamos (ou melhor, terraformamos) essa montanha na cordilheira $(0, \frac{a+b+c}{2}, 0, \frac{a+b+c}{2}, 0)$. Essa operação aumenta o produto.
+		
+		\begin{center}\def\svgwidth{8cm}\import{./fig/}{fig_3.pdf_tex}\end{center}
+
+		Note que a ordem das montanhas não importa, o produto é o mesmo independente da ordem.
+
+		\textbf{\boldmath Se, em qualquer momento, existirem duas montanhas de tamanho $2$,} digamos $(0, a, 0, b, 0)$, então terraformamos essa cordilheira na cordilheira $(0, \frac{a+b}{2}, 0, \frac{a+b}{2}, 0)$. Essa operação aumenta o produto.
+
+		\textbf{\boldmath Se, em qualquer momento, existirem duas montanhas de tamanho $3$,} digamos $(0, a, b, \allowbreak 0, c, d, 0)$, então terraformamos essa cordilheira na cordilheira $(0, \frac{a+b+c+d}{3}, 0, \frac{a+b+c+d}{3}, 0, \frac{a+b+c+d}{3}, 0)$. Essa operação aumenta o produto.
+
+		Logo, há, no máximo, uma montanha de tamanho $3$. E, como $2011$ é ímpar, há uma montanha de tamanho $3$. Além disso, todas as montanhas de tamanho $2$ tem mesmo tamanho.
+
+		\textbf{\boldmath Se, em qualquer momento, existir uma montanha de tamanho $3$ com soma $2m$}, ela será da forma $(0, m - x, m + x, 0)$; s.p.g. $x \ge 0$, o produto dessa montanha será $2m^2x - x^3$, que é máximo quando $x = \frac{m}{\sqrt{3}}$, com o produto valendo $\frac{4m^3}{3\sqrt{3}}$.
+
+		Finalmente, seja $x$ a altura das montanhas de tamanho $2$. Existem $1004$ dessas montanhas. Como a soma das alturas é $2011/2$, temos que $4m + 2008x = 2011$, e o produto total é $P = \frac{4}{3\sqrt{3}} m^3x^{2008}$.
+
+		Usando MA $\ge$ MG, temos \[
+			1 = \frac{3\left(\frac{4}{3}m\right) + 2008x}{2011} \ge \left(\frac{4}{3}m\right)^3x^{2008} = \frac{16}{3\sqrt{3}} P.
+		\]
+		\[
+			P \le \frac{3\sqrt{3}}{16}.
+		\]
+	\end{sk}
+
+	\newpage
+	\problem{math/brazil/mo/2013/3}
+
+	\begin{sk}
+		Vamos calcular $f(2)$.
+	
+		Vamos calcular $f(-1)$.
+	
+		Vamos calcular $f(1)$.
+	
+		Vamos achar \[\frac{1}{f(x + n)} = \frac{1}{f(x)} + n.\]
+	
+		Vamos achar \[ \frac{1}{f(xn)} = \frac{n}{f(x)}.  \]
+	
+		Vamos achar \[\frac{1}{f(x + q)} = \frac{1}{f(x)} + q.\]
+	
+		Vamos descobrir que $\frac{1}{f(x)} > 0$, se e somente se, $x > 0$.
+	
+		Suponha que $\frac{1}{f(\alpha)} = \beta \neq \alpha$. 
+		Existe $q$ racional entre $\alpha$ e $\beta$. Existe $0$ entre $\alpha - q$ e $\beta - q$. Absurdo.
+	\end{sk}
+
+	\newpage
+	\section*{Extra}
+	\problem{math/russia/all/2016/11.8}
+
+\end{document}

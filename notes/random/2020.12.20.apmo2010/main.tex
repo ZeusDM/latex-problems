@@ -1,0 +1,54 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{fullpage}
+
+\usepackage[prob-boxed]{zeus}
+
+\begin{document}
+
+\problem{math/apmo/2010/5}
+
+\begin{sol}
+	Seja $P(x, y, z)$ a equação  \[
+		f(f(x) + f(y) + f(z)) = f(f(x) - f(y)) + f(2xy + f(z)) + 2f(z(x-y)).
+	\]
+
+	Vamos aproveitar a quasi-simetria do enunciado. $P(x, y, z) - P(y, x, z)$ implica \begin{equation}\label{eqn1}
+		f(f(x) - f(y)) + 2f(z(x-y)) = f(f(y) - f(x)) + 2f(z(y-x)).
+	\end{equation}
+
+	Jogando $z \mapsto 0$ em \cref{eqn1}, \begin{equation}\label{eqn2}
+		f(f(x) - f(y)) = f(f(y) - f(x)).
+	\end{equation}
+
+	Jogando \cref{eqn2} em \cref{eqn1}, e $x \mapsto y + 1$,temos \[
+		f(z) = f(-z),
+	\]
+	isto é, $f$ é par.
+
+	Vamos aproveitar a nova quasi-simetria do enunciado. $P(x, x, z)$ implica \begin{equation}\label{eqn3}
+		f(2f(x) + f(z)) = f(z) + f(2x^2 + f(z)) + f(0).
+	\end{equation}
+
+	Já $P(x, -x, z)$ implica  \begin{equation}\label{eqn4}
+		f(2f(x) + f(z)) = f(z) + f(-2x^2 + f(z)) + f(2zx).
+	\end{equation}
+
+	Juntando \cref{eqn3} e \cref{eqn4}, $z \mapsto 0$ e $w = \pm 2x^2$, temos \begin{equation}\label{eqn5}
+		f(w + f(0)) = f(-w + f(0)) = f(w - f(0)).
+	\end{equation}
+
+	$w \mapsto 2f(0)$ em \cref{eqn5} implica que \[f(3f(0)) = f(f(0)).\]
+
+	$P(0, 0, 0)$ implica que \[
+		f(3f(0)) = 3f(0) + f(f(0)),
+	\]
+	ou seja, \[
+		f(0) = 0.
+	\]
+
+
+\end{sol}
+
+\end{document}

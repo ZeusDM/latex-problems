@@ -1,10 +1,10 @@
-Como estamos trabalhando com $x, y \ge 0$, temos que $y + 4y^2 = x + 3x^2 \le x + 4x^2 \implies y \le x \implies x - y \ge$
+Como estamos trabalhando com $x, y \ge 0$, temos que $y + 4y^2 = x + 3x^2 \le x + 4x^2 \implies y \le x \implies x - y \ge 0$.
 
 Seja $d = \mdc(x, y)$. Defina $v$ e $u$ tal que $x = dv$ e $y = du$. Então
-\begin{gather*}
-	x(3x + 1) = y(4y + 1)\\
-	v(3dv + 1) = u(4du + 1)
-\end{gather*}
+\begin{align*}
+	3x^2 + x = 4x^2 + y &\implies x(3x + 1) = y(4y + 1)\\
+						&\implies v(3dv + 1) = u(4du + 1)
+\end{align*}
 
 Sabemos que $\mdc(v, u) = 1$, então $v | 4du + 1$ e $u | 3dv + 1$. Em especial, se $4du + 1 = kv$ e $3dv + 1 = ju$, temos que $v(ju) = u(kv) \implies k = j$. Logo, \[
 \begin{cases}
@@ -12,7 +12,7 @@ Sabemos que $\mdc(v, u) = 1$, então $v | 4du + 1$ e $u | 3dv + 1$. Em especial,
 	3dv + 1 = ku
 \end{cases}\]
 
-Resolvendo o sistema, temos $v = \frac{4d + k}{k^2 - 12d^2}$ e $u = \frac{3d + k}{k^2 - 12d^2}$.
+Resolvendo o sistema em função de $k$, temos $v = \frac{4d + k}{k^2 - 12d^2}$ e $u = \frac{3d + k}{k^2 - 12d^2}$.
 
 Em especial, descobrimos que \[
 \begin{cases}
@@ -27,6 +27,6 @@ Porém, $e^2 | k^2 - 12d^2 | e \implies e = 1 \implies k^2 - 12d^2 = \pm1$. Como
 Para finalizar,
 \begin{align*}
 	x - y &= d(v - u) \\
-	      &= d(\frac{4d + k}{k^2 - 12d^2} - \frac{3d - k}{k^2 - 12d^2}) \\
+	      &= d\left(\frac{4d + k}{k^2 - 12d^2} - \frac{3d + k}{k^2 - 12d^2}\right) \\
 		  &= d^2.
 \end{align*}
