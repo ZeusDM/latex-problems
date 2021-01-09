@@ -1,0 +1,91 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[prob-boxed]{zeus}
+\usepackage{parskip}
+\usepackage{transparent}
+
+\usepackage[printwatermark]{xwatermark}
+\newwatermark[firstpage, angle=0,scale=3,xpos=-69,ypos=118]{{\transparent{0.3}\includegraphics[scale=0.55]{pensi_pdf}}}
+
+\title{Problemas Sortidos}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{04 de Janeiro de 2021}
+
+\begin{document}	
+	\zeustitle
+
+	\problem{math/putnam/2019/a1}
+	\begin{sol}
+		Seja $f(A, B, C) = A^3 + B^3 + C^3 - 3ABC$.
+		Usando MA-MG, temos que \[
+			\frac{A^3 + B^3 + C^3}{3} \ge \sqrt[3]{A^3B^3C^3}
+		\] que implica $f(A, B, C) \ge 0$.
+
+		Conseguimos fatorar:
+		\begin{align*}
+			f(A, B, C) &= (A + B + C)(A^2 + B^2 + C^2 - AB - BC - CA)\\
+					   &= (A + B + C)((A+B+C)^2 - 3(AB + BC + CA)).
+		\end{align*}
+
+		Note que $3 \mid A + B + C \iff 3 \mid (A+B+C)^2 - 3(AB+BC+CA)$. Logo, se $3 \mid f(A,B,C)$, então $9 \mid f(A, B, C)$.
+
+		Note que
+		\begin{align*}
+			f(n, n, n \pm 1) &= 2n^3 + (n \pm 1)^3 - 3n^2(n \pm 1) \\
+						     &= 3n \pm 1.
+		\end{align*}
+		
+		Note que
+		\begin{align*}
+			f(n-1, n, n+1) &= (n-1)^3 + n^3 + (n+1)^3 - 3(n-1)n(n+1) \\
+						   &= 9n.
+		\end{align*}
+
+		Portanto, os valores possíveis para $f(ABC)$ são todos os inteiros positivos $n$ tais que $3 \nmid n$ ou $9 \mid n$.
+	\end{sol}
+
+	\newpage
+	\problem{math/putnam/2019/a2}
+	\begin{sol}
+		Sejam $D, E$ as projeções de $I, C$ em $AB$, respectivamente.
+		
+		Sem perda de generalidade, $r = ID = 1$. Como $GI // AB$, temos que $CE = 3$. Como $\tan(\angle B / 2) = 1/3$, $BD = 3$. Como  \[
+			\tan(\angle B) = \frac{2\tan(\angle B / 2)}{1 - \tan^2(\angle B / 2)} = \frac{3}{4},
+		\] e $CE = 3$, temos que $BE = 4$.
+
+		Coincidentemente, $BD + r = 3 + 1 = 4 = BE$, que implica que $CE$ é tangente ao incírculo e, finalmente, $E \equiv A$. Portanto, $\angle A = 90^\circ$.
+	\end{sol}
+
+	\newpage
+	\problem{math/aops/c6h2391031}
+	\begin{sk}
+		Seja $f(x_1, \dots, x_n) = \sum_{k=1}^m  x_k$.
+
+		Note que  $f(1, 1, 1, \dots, 1, 1 - n) = m$.
+
+		Mostre que para toda sequência válida $(x_1, \dots, x_n)$, existem $a, b, c$ tais que $(a, b, \dots, b, c)$ é válida e  \[
+			f(x_1, \dots, x_n) \le f(a, b, \dots, b, c).
+		\]
+	\end{sk}
+
+	\newpage
+	\problem{math/putnam/2019/a5}
+	\begin{sk} A resposta é $\frac{p-1}{2}$
+
+		Prove o seguinte fato, usando raiz primitiva: \[
+			\sum_{k=1}^{p-1} k^t \equiv
+			\begin{cases}
+				-1, \text{se }p-1 \mid t\\
+				0, \text{caso contrário.}
+			\end{cases}
+		\]
+
+		Prove que $q^{(\ell)}(1) \equiv 0$, para $\ell < \frac{p-1}{2}$ e 
+		$q^{(\ell)}(1) \not\equiv 0$, para $\ell = \frac{p-1}{2}$, onde $q^{(\ell)}(x)$ é a $\ell$-ésima derivada de $q(x)$.
+	\end{sk}
+\end{document}

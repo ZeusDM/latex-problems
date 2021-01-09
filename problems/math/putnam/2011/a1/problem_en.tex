@@ -1,0 +1,42 @@
+Define a \textit{growing spiral} in the plane to be a sequence of points with integer coordinates $P_0=(0,0),P_1,\dots,P_n$ such that $n\ge 2$ and:
+
+\begin{enumerate}[label = \textbullet]
+	\item The directed line segments $P_0P_1,P_1P_2,\dots,P_{n-1}P_n$ are in successive coordinate directions east (for $P_0P_1$), north, west, south, east, etc.
+	\item The lengths of these line segments are positive and strictly increasing.
+\end{enumerate}
+
+\begin{center}\vspace{.5em}
+\setlength{\unitlength}{.14mm}	
+\begin{picture}(200,180)
+
+\put(20,100){\line(1,0){160}}
+\put(100,10){\line(0,1){170}}
+
+%\put(0,97){\footnotesize West}
+%\put(180,97){\footnotesize East}
+%\put(90,0){\footnotesize South}
+%\put(90,180){\footnotesize North}
+
+\put(100,100){\circle{1}}\put(100,100){\circle{2}}\put(100,100){\circle{3}}
+\put(115,100){\circle{1}}\put(115,100){\circle{2}}\put(115,100){\circle{3}}
+\put(115,130){\circle{1}}\put(115,130){\circle{2}}\put(115,130){\circle{3}}
+\put(40,130){\circle{1}}\put(40,130){\circle{2}}\put(40,130){\circle{3}}
+\put(40,20){\circle{1}}\put(40,20){\circle{2}}\put(40,20){\circle{3}}
+\put(170,20){\circle{1}}\put(170,20){\circle{2}}\put(170,20){\circle{3}}
+
+\multiput(100,99.5)(0,.5){3}{\line(1,0){15}}
+\multiput(114.5,100)(.5,0){3}{\line(0,1){30}}
+\multiput(40,129.5)(0,.5){3}{\line(1,0){75}}
+\multiput(39.5,20)(.5,0){3}{\line(0,1){110}}
+\multiput(40,19.5)(0,.5){3}{\line(1,0){130}}
+
+%\put(102,90){\footnotesize P0}
+%\put(117,90){\footnotesize P1}
+%\put(117,132){\footnotesize P2}
+%\put(28,132){\footnotesize P3}
+%\put(0,10){\footnotesize P4}
+%\put(172,10){\footnotesize P5}
+\end{picture}
+\end{center}
+
+How many of the points $(x,y)$ with integer coordinates $0\le x\le 2011,0\le y\le 2011$ \textit{cannot} be the last point, $P_n,$ of any growing spiral?

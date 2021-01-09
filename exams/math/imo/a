@@ -1,4 +1,0 @@
-for i in {1959..2019};
-do
-    mkdir $i
-done

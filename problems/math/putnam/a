@@ -1,4 +1,4 @@
-for i in {2009..2018}
+for i in {2012..2014}
 do
 	mkdir $i
 	rm $i/source_pt.tex
