@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Weekly Timetable Calendar
+% LaTeX Template
+% Version 1.2 (19/9/18)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Evan Sultanik with modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY\\ Nível Z-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the calendar.sty file to be in the same directory as the
+% .tex file. The calendar.sty file provides the necessary structure to create the
+% calendar.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article} % Can also use 11pt for a larger overall font size
+
+\usepackage{calendar2} % Use the calendar.sty style
+
+\usepackage[landscape, a4paper, margin=1cm]{geometry} % Page dimensions and margins
+\usepackage[brazilian]{babel}
+\usepackage{xcolor}
+
+
+\usepackage{transparent}
+%\usepackage[printwatermark]{xwatermark}
+%\newwatermark[firstpage, angle=0,scale=1,xpos=0,ypos=0]{{\transparent{0.15}\includegraphics[width = 13cm]{mm}}}
+
+%\usepackage{palatino} % Use the Palatino font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage[default, angular]{comicneue}
+%\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\pagestyle{empty} % Disable default headers and footers
+
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\StartingDayNumber=1 % Calendar starting day, default of 1 means Sunday, 2 for Monday, etc
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\hspace{0pt}\vfill
+
+%\begin{minipage}
+%\end{minipage}
+%\begin{minipage}{.7\textwidth}
+\begin{center}
+	\textsc{\LARGE Semana Matematicamente Olímpica}\\ % Title text
+	\textsc{\large 24--29 de Janeiro de 2021}\\ % Subtitle text
+	\textsc{Grade Provisória --- Atualizado em: \today} % Subtitle text
+\end{center}
+%\end{minipage}
+
+%----------------------------------------------------------------------------------------
+
+\begin{calendar}{\textwidth} % Calendar to be the entire width of the page
+	\setcounter{calendardate}{24}
+
+%----------------------------------------------------------------------------------------
+%	FIRST DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{
+	\textbf{20:00--22:00} \daysep \textsl{Palestra ``Você quer ser ouro na IMO?''}\\ Prof. Luciano
+}
+
+%----------------------------------------------------------------------------------------
+%	SECOND DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{
+	\textbf{08:00--10:00} \daysep \textsl{Círculo dos Nove Pontos}\\ Cícero Thiago\\ Nível 2 \timesep
+	\textbf{10:00--12:00} \daysep \textsl{Indução sem Fronteiras} \\ Rafael Filipe dos Santos\\ Nível 3 \timesep
+	\textbf{14:00--16:00} \daysep \textsl{Dominós e Tabuleiros} \\ Emiliano Augusto Chagas\\ Níveis P e 1 \timesep
+	\textbf{16:00--18:00} \daysep \textsl{Miscelânea de Álgebra}\\Guilherme Zeus\\ Nível 3
+} 
+
+%----------------------------------------------------------------------------------------
+%	THIRD DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{ % Tuesday
+	\textbf{08:00--10:00} \daysep \textsl{Princípio da Casa dos Pombos} \\ Samuel Barbosa Feitosa\\ Nível 2\timesep
+	\textbf{10:00--12:00} \daysep \textsl{Inversão} \\ Régis Prado \\ Níveis 2 e 3 \timesep
+	\textbf{13:00--15:00} \daysep \textsl{Problemas do Canguru} \\ Luiz Felipe Lins \\ Níveis P e 1 \timesep
+	\textbf{16:00--18:00} \daysep \textsl{Sequências e Padrões} \\ Marcio Watanabe \\ Nível 1
+} 
+
+%----------------------------------------------------------------------------------------
+%	FOURTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{ % Wednesday
+	\textbf{08:00--10:00} \daysep \textsl{Jogos: usando a matemática para vencer} \\ Marcelo Xavier \\ Níveis 1 e 2 \timesep
+	\textbf{10:00--12:00} \daysep \textsl{Você resolve!} \\ Prof. Luciano \\ Todos os níveis \timesep
+	\textbf{14:00--16:00} \daysep \textsl{Transformações Geométricas} \\ Davi Lopes \\ Níveis 2 e 3 \timesep
+	\textbf{16:00--18:00} \daysep \textsl{Polinômios e Raízes da Unidade} \\ Ana Paula Chaves\\ Nível 3
+} 
+
+%----------------------------------------------------------------------------------------
+%	FIFTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{ % Thursday
+	\textbf{08:00--10:00} \daysep \textsl{Quem consegue resolver um problema tão difícil como este?} \\ Prof. Luciano \\ Nível 3 \timesep
+	\textbf{10:00--12:00} \daysep \textsl{A Matemática por trás do seu dinheiro} \\ Pablo Ganassim\\ Todos os níveis \timesep
+	\textbf{14:00--16:00} \daysep \textsl{Combinatória} \\ Diego Eloi \\ Nível P \timesep
+	\textbf{16:00--18:00} \daysep \textsl{Descobrindo Critérios de Divisibilidade} \\ Kellem Corrêa Santos\\ Níveis P e 1
+} 
+
+%----------------------------------------------------------------------------------------
+%	SIXTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{}{ % Friday
+	\textbf{08:00--10:00} \daysep \textsl{Exposição a Martingales} \\ Guilherme Zeus \\ Níveis 2 e 3 \timesep
+	\textbf{10:00--12:00} \daysep \textsl{Método Probabilístico} \\ Matheus Secco \\ Nível 3 \timesep
+	\textbf{14:00--16:00} \daysep \textsl{Apresentando Pontos Notáveis do Triângulo}\\ Karol Borges \\ Nível 1  \timesep
+	\textbf{16:00--18:00} \daysep \textsl{Combinatória} \\ Gabriel Oliveira \\ Nível 2 \timesep
+	\textbf{19:00--20:15} \daysep \textsl{Bate-papo de Encerramento} \timesep
+	\textbf{20:15--21:00} \daysep \textsl{Círculo dos Nove Pontos (Cont.)}\\ Cícero Thiago\\ Nível 2 \timesep
+} 
+
+%----------------------------------------------------------------------------------------
+ 
+\finishCalendar
+\end{calendar}
+
+\hspace{0pt}\vfill
+
+\end{document}

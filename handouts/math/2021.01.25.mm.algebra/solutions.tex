@@ -1,0 +1,97 @@
+
+	\newpage
+	\section*{Algumas Soluções.}
+	\begin{sk}[para \nameref{prob:achar-raizes}]
+		Ache $\cos(3\theta) = 4\cos^3\theta - 3\cos\theta$. Portanto, $2\cos(3\theta) = 1$ se, e somente se, $2\cos(\theta)$ é raiz de $x^3 - 3x + 1$. Achamos, portanto, $2\cos(20^\circ), 2\cos(40^\circ), 2\cos(80^\circ)$ como raízes.
+	\end{sk}
+
+	\begin{sk}[para \nameref{math/imc/2020/6}]
+		Note que se $\alpha$ é raíz de $P(x)$, então $\alpha^2 - 2$ também é raíz --- podemos ver que isso acontece no problema \nameref{prob:achar-raizes} e provar algebricamente. Logo, como $a \pmod{p}$ é a única raíz, é necessário $a \equiv a^2 - 2 \pmod{p} \iff a \equiv 2$ or $a \equiv -1$. Para $a \equiv 2$, $P(2) \equiv 2^3 - 3\cdot2 + 1 \equiv 3 \equiv 0 \pmod{p} \implies p = 3$; para $a \equiv -1$,  $P(-1) \equiv (-1)^3 - 3\cdot(-1) + 1 \equiv -3 \equiv 0 \pmod{p} \implies p = 3$.
+
+		É necessário verificar que $p = 3$ funciona.
+	\end{sk}
+
+	\begin{sol}[para \nameref{math/apmo/2006/2}]
+		Casos pequenos:
+		\[1 = \phi^0\]
+		\[2 = \phi^{-2} + \phi^{-1} + \phi^{0} = \phi^{-2} + \phi^1 \]
+		\[3 = \phi^{-2} + \phi^0 + \phi^1 = \phi^{-2} + \phi^2\]
+		\[4 = \phi^{-2} + \phi^0 + \phi^2\]
+
+		Quem é $\phi$? Ora, $\phi = \frac{1 + \sqrt{5}}{2}$. Porém, um jeito por vezes mais útil é ver $\phi$ como raiz de $x^2 - x - 1$. Ou seja:
+		\[\phi^2 = \phi + 1.\]
+
+		Defina $n \equiv S$, sendo $n$ um inteiro e $S$ um suconjunto finito dos inteiros se, e somente se, \[n = \sum_{i \in S} \phi^i.\]
+
+		Os casos pequenos ficam, então:
+		\[1 \equiv \{0\}\]
+		\[2 \equiv \{-2, -1, 0\} \equiv \{-2, 1\}\]
+		\[3 \equiv \{-2, 0, 1\} \equiv \{-2, 2\}\]
+		\[4 \equiv \{-2, 0, 2\}\]
+		\[5 \equiv \{-4, -3, -2, -1, 0, 2\}\]
+
+		A equação $\phi^2 = \phi + 1$ é traduzida como uma operação:
+
+		Se $n, n+1 \in S$ e $n+2 \not\in S$, então \[S \equiv (S - \{ n, n+1\}) \cup \{n+2\},\]
+		em outras palavras, podemos trocar $n$ e $n+1$ por $n+2$, ou, em outras palavras, \[\{n, n+1\} \equiv \{n+2\}.\]
+
+		\begin{lem}
+		Se $n \equiv S$, então existe $R$ tal que $n \equiv R$ e $R$ não possui consecutivos.
+		\end{lem}
+		\begin{dem} 
+		Se $S$ não possui consecutivos, acabou! Suponha que $S$ possui consecutivos, pegue o maior par de consecutivos $(n, n+1)$.  $n+2$ não está em $S$, pois, se estivesse, $(n+1, n+2)$ seria um par de consecutivos maior.
+
+		Sabemos que $\phi^{n+2} = \phi^{n+1} + \phi^n$.
+		Logo, \[n \equiv S' = (S - \{n, n+1\}) \cup \{ n+2\}.\]
+
+		Repetimos esse algoritmo enquanto houverem consecutivos. Esse algoritmo acaba pois, em cada etapa, o número de elementos do conjunto diminui; e esse número é sempre inteiro não-negativo. (E ele começa como um inteiro finito).
+		\end{dem}
+
+		Vamos provar por indução que todo $n$ possui a propriedade desejada. (Base: OK.)
+
+		Suponha que $n - 1$ possui a propriedade. Pelo Lema, existe $S \equiv n - 1$, $S$ sem consecutivos. 
+		Seja $-2k$ o maior par não-positivo tal que $-2k \not\in S$ (como $S$ é finito, esse número existe).
+		Logo, $-2k+2, -2k+4, \dots, -2, 0$ estão em $S$. Como $S$ no possui consecutivos, isso implica que $-2k+1, -2k+3, \dots, -3, -1$ não estão em $S$. Note que:
+		\begin{align*}
+		1 &= \phi^{-1} + \phi^{-2}\\
+		 &= \phi^{-1} + \phi^{-3} + \phi^{-4}\\
+		 &= \phi^{-1} + \phi^{-3} + \phi^{-5} + \phi^{-6}\\
+		 &\vdots\\
+		 &= \phi^{-1} + \phi^{-3} + \cdots + \phi^{-2k+3} + \phi^{-2k+1} + \phi^{-2k}.
+		\end{align*}
+
+		Logo, \[n \equiv S \cup \{-2k, -2k+1, -2k+3, \dots, -3, -1\}.\]
+
+	\end{sol}
+
+	\begin{sk}[para \nameref{P(k)=2^k}]
+		Basta notar que \[
+			P(k) = \binom{x}{0} + \binom{x}{1} + \cdots + \binom{x}{n}.
+		\]
+
+		Logo, $P(n+1) = 2^{n+1} - 1$.
+	\end{sk}
+	
+	\begin{sk}[para \nameref{P(k)=F_k}]Definimos $\Delta Q(x) = Q(x+1) - Q(x)$.
+		\begin{gather*}
+			P(k) = F_k, \text{\ para\ } k \in \{n + 2, n+3, \dots, 2n+2\} \text{\ e tem grau\ }n.\\
+			\Delta P(k) = F_{k-1}, \text{\ para\ } k \in \{n + 2, n+3, \dots, 2n+1\} \text{\ e tem grau\ }n - 1.\\
+			\Delta^2 P(k) = F_{k-2}, \text{\ para\ } k \in \{n + 2, n+3, \dots, 2n\} \text{\ e tem grau\ }n - 2.\\
+			\vdots\\
+			\Delta^{n-1}P(k) = F_{k-n+1}, \text{\ para\ } k \in \{n + 2, n + 3\} \text{\ e tem grau\ }1.\\
+			\Delta^{n}P(k) = F_{k-n}, \text{\ para\ } k \in \{n + 2\} \text{\ e tem grau\ }0.
+		\end{gather*}
+
+		Logo, $\Delta^n P(k) = F_{2}$, para todo $k$. Em especial, isso é válido para $k = n+3$.
+		\begin{align*}
+			\Delta^n P(n+3) = F_{2}	&\implies \Delta^{n-1} P(n+4) - \Delta^{n-1} P(n+3) = F_2\\
+									&\implies \Delta^{n-1} P(n+4) = F_2 + F_4\\
+									&\implies \Delta^{n-2} P(n+5) = F_2 + F_4 + F_6\\
+									&\ \ \ \vdots\\
+									&\implies \Delta^1 P(2n+2) = F_2 + F_4 + \cdots + F_{2n}\\
+									&\implies P(2n+3) = F_2 + F_4 + \cdots + F_{2n} + F_{2n+2}\\
+									&\implies P(2n+3) = F_{2n+3} - 1.
+		\end{align*}
+	\end{sk}
+
+

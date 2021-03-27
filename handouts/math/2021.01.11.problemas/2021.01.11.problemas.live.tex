@@ -1,0 +1,62 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[prob-boxed]{zeus}
+\usepackage{parskip}
+\usepackage{transparent}
+
+\usepackage[printwatermark]{xwatermark}
+\newwatermark[firstpage, angle=0,scale=3,xpos=-69,ypos=118]{{\transparent{0.3}\includegraphics[scale=0.55]{pensi_pdf}}}
+
+\title{Problemas Sortidos II}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{zeusdanmou@gmail.com}
+\titlel{Turma Olímpica}
+\titler{11 de Janeiro de 2021}
+
+\begin{document}	
+	\zeustitle
+	
+	\problem{math/metropolises/2018/4}
+
+	\begin{sol}
+		Vamos definir a seguinte sequência: $a_0 = 1$,  \[
+			a_{n+1} = 2a_{n} + (-1)^n.
+		\]
+
+		É fácil demonstrar que essa sequência é crescente.
+
+		Seja $m$ o menor inteiro positivo tal que $a_m$ não divide $4k$.
+
+		Vamos provar que $a_m - 1, a_m + 1$ dividem $4k$, usando que os termos anteriores da sequência dividem $4k$.
+
+		\begin{enumerate}[label = \textbullet]
+			\item $m = 0$ nunca acontece.
+			\item Se $m = 1$, então $3 \nmid 4k$, mas $2, 4\mid 4k$.
+			\item Se $m > 1$, então 
+				\[
+					2a_{m-1} \mid 4k \implies a_m + (-1)^m \mid 4k.
+				\]
+				\[
+					4a_{m-2} \mid 4k \implies 2a_{m-1} + 2(-1)^{m-1} \mid 4k \implies a_m - (-1)^m \mid 4k.
+				\]
+		\end{enumerate}
+	\end{sol}
+
+	\problem{math/putnam/2018/b1}
+	\begin{sk}
+		Trocar 100 por $4k$. A resposta são os vetores $
+			\begin{pmatrix}
+				1 \\\text{par}
+			\end{pmatrix}
+		$.
+		Provar por indução em $k$.
+	\end{sk}
+	\problem{math/putnam/2019/b1}
+	\begin{ans}
+		$5n + 1$.
+	\end{ans}
+
+\end{document}

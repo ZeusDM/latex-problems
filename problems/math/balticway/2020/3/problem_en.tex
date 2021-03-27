@@ -1,0 +1,18 @@
+A real sequence $(a_n)_{n=0}^\infty$ is defined recursively by $a_0 = 2$ and the recursion formula
+$$
+a_{n} = 
+\begin{dcases}
+a_{n-1}^2 & \text{if $a_{n-1}<\sqrt3$} \\
+\frac{a_{n-1}^2}{3} & \text{if $a_{n-1}\geq\sqrt 3$.}
+\end{dcases} 
+$$Another real sequence $(b_n)_{n=1}^\infty$ is defined in terms of the first by the formula
+$$
+b_{n} =
+\begin{dcases}
+0 & \text{if $a_{n-1}<\sqrt3$} \\
+\frac{1}{2^{n}} & \text{if $a_{n-1}\geq\sqrt 3$,}
+\end{dcases}
+$$valid for each $n\geq 1$. Prove that
+$$
+b_1 + b_2 + \cdots + b_{2020} < \frac23.
+$$
