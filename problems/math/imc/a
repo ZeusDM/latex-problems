@@ -1,11 +1,11 @@
-for i in {1998..2019};
+for i in {2018..2021};
 do
     mkdir $i
     rm $i/source_pt.tex
     rm $i/source_en.tex
     echo "IMC $i" >> $i/source_pt.tex
     echo "IMC $i" >> $i/source_en.tex
-	for j in {1..6}
+	for j in {1..8}
 	do
 		mkdir $i/$j
 	done

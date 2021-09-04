@@ -1,0 +1,51 @@
+Let's consider indices $\pmod{n}$ in the sequence $a$, i.e., $a_i = a_j$ if $i \equiv j \pmod{n}$.
+Note that $a_j \equiv a_i \equiv i \equiv j \pmod{n}$, so the property that $n \mid a_i - i$ still holds for the ``new'' values of $i$.
+
+Note that 
+\begin{align*}
+	\left| \sum_{k=1}^t \frac{b_k}{n^k} \right|
+	& \leq \sum_{k=1}^t \frac{\left|b_k\right|}{n^k} \\ 
+	& \leq \sum_{k=1}^t \frac{\max\{\left| a_i \right|\}}{n^k} \\
+	& \leq \frac{\max\{\left| a_i \right|\}}{n - 1}.
+\end{align*}
+
+Let $L$ be an integer greater than $\frac{\max\{\left| a_i \right|\}}{n - 1}$. Any partial sum $\sum_{k=1}^t\frac{b_k}{n^k}$ is between $-L$ and $L$.
+
+Let's construct a sequence of integers of the form $\sum_{k=1}^t \frac{b_k}{n^k}$.
+
+Let $S_1 = \dfrac{a_n}{n}$, which is an integer since $n \mid a_n - n$.
+
+Let $S_2 = \dfrac{a_{-S_1}}{n} + \dfrac{S_1}{n} = \dfrac{a_{-S_1}}{n} + \dfrac{a_n}{n^2}$, which is an integer since $a_{-S_1} + S_1 \equiv 0 \pmod{n}$.
+
+Let $S_3 = \dfrac{a_{-S_2}}{n} + \dfrac{S_2}{n} = \dfrac{a_{-S_2}}{n} + \dfrac{a_{-S_1}}{n^2} + \dfrac{a_n}{n^3}$, which is an integer since $a_{-S_2} + S_2 \equiv 0 \pmod{n}$.
+
+In general, $S_{i+1} = \dfrac{a_{-S_{i}}}{n} + \dfrac{S_{i}}{n} =
+\dfrac{a_{-S_i}}{n} + \dfrac{a_{-S_{i-1}}}{n^2} + \cdots + \dfrac{a_{-S_{1}}}{n^{i}} + \dfrac{a_n}{n^{i+1}}$, which is an integer since $a_{-S_i} + S_i \equiv 0 \pmod{n}$.
+
+Note that $S_{i+1}$ only depends on $S_i$ and they all are integers between $-L$ and $L$. So, the sequence $S_1, S_2, \dots$ is eventually periodic. (One term has to appear at least twice; then all the following terms will also repeat.)
+Let $p$ be the period, and $t$ be the index in which ``the periodicity starts'', i.e., $S_{i+p} = S_i$, for all  $i \geq t$.
+
+Therefore, the following numbers are the same:
+\begin{align*}
+	S_t &= \frac{a_{-S_{t-1}}}{n} + \frac{a_{-S_{t-2}}}{n^2} + \cdots + \frac{a_{-S_1}}{n^{t-1}} + \frac{a_n}{n^t} \\ 
+	S_{t+p} &= \underbrace{\frac{a_{-S_{{t+p}-1}}}{n} + \frac{a_{-S_{{t+p}-2}}}{n^2} + \cdots + \frac{a_{-S_{t}}}{n^{p}}}_{R} + \frac{S_t}{n^p}\\ 
+	S_{t+2p} &= R + \frac{R}{n^p} + \frac{S_t}{n^{2p}}\\
+	S_{t+3p} &= R + \frac{R}{n^p} + \frac{R}{n^{2p}}+ \frac{S_t}{n^{3p}}\\
+	&\vdots\\
+	S_{t+mp} &= R + \frac{R}{n^p} + \cdots + \frac{R}{n^{(m-1)p}}+ \frac{S_t}{n^{mp}}\\
+	&\vdots
+\end{align*}
+
+Finally, the limit of $S_{t+mp}$, as $m \to \infty$, is clearly  $S_t$, since all the numbers are the same, on the other hand, it is \[
+	R + \frac{R}{n^p} + \frac{R}{n^{2p}} + \cdots,
+\]
+which can be rewritten as \[
+	\frac{a_{-S_{{t+p}-1}}}{n} + \frac{a_{-S_{{t+p}-2}}}{n^2} + \cdots + \frac{a_{-S_{t}}}{n^{p}} + 
+	\frac{a_{-S_{{t+p}-1}}}{n^{p+1}} + \frac{a_{-S_{{t+p}-2}}}{n^{p+2}} + \cdots + \frac{a_{-S_{t}}}{n^{2p}} + 
+	\cdots.
+\]
+
+Therefore, the sequence \[
+	(b_1, b_2, \dots) = (a_{-S_{{t+p}-1}}, a_{-S_{{t+p}-2}}, \dots, a_{-S_t}, a_{-S_{{t+p}-1}}, \dots)
+\]
+satisfies the conditions.

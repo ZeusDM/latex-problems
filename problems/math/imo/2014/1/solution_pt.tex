@@ -1,0 +1,11 @@
+Defina $S_n = na_n - (a_0 + a_1 + \cdots + a_n)$.
+Note que
+\begin{align*}
+	& a_n < \frac{a_0 + a_1 + \cdots + a_n}{n} \le a_{n+1} \\
+	\iff\quad & na_n < a_0 + a_1 + \cdots + a_n \le na_{n+1} \\
+	\iff\quad & na_n - (a_0 + \cdots + a_n) < 0 \text{ e } (n+1)a_{n+1} - (a_0 + \cdots + a_{n+1}) \ge 0 \\
+	\iff\quad & S_n < 0 \text{ e } S_{n+1} \ge 0.
+\end{align*}
+
+Por fim, o primeiro elemento da sequência, $S_1 = - a_0$, é negativo e $S_{n+1} - S_n = n(a_{n+1} - a_n) > 0$, ou seja, $S$ é uma sequência estritamente crescente de inteiros.
+Portanto, há um único índice, digamos $k$, tal que $S_k$ é negativo e $S_{k+1}$ é positivo. Esse índice $k$ é o único valor para o qual a condição do enunciado é verdadeira.
