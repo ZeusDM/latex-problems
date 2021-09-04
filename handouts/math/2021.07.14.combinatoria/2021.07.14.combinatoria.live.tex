@@ -1,0 +1,134 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[]{zeus}
+
+\title{Problemas do Curso de Combinatória do IMPA \\[1mm] Anotações de Aula}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{\texttt{zeusdanmou@gmail.com}}
+\titlel{Aula Particular}
+\titler{14 de julho de 2021}
+
+\DeclareMathOperator\ex{ex}
+
+\begin{document}	
+	%\twocolumn[\zeustitle]
+	\zeustitle
+
+	\section*{\textsf{Definições}}
+
+	\begin{itemize}
+		\item $[n] = \{1, 2, \dots, n\}$;
+		\item $\mathcal{P}(S)$ é o conjunto de todos os subconjuntos de $S$.
+		\item $\binom{S}{k}$ é o conjunto de todos os subconjuntos de $S$ que possuem exatamente $k$ elementos.
+		\item $\mathcal{S} \subset \mathcal{P}([n])$ é uma \emph{cadeia} se $A \subset B$ ou $B \subset A$, para quaisquer $A, B \in \mathcal{S}$, $A \neq B$.
+		\item $\mathcal{S} \subset \mathcal{P}([n])$ é uma \emph{anti-cadeia} se $A \not\subset B$, para quaisquer $A, B \in \mathcal{S}$, $A \neq B$.
+		\item $\mathcal{S} \subset \mathcal{P}([n])$ é \emph{intersectante} se $A \cap B \neq \varnothing$, para quaisquer  $A, B \in \mathcal{S}$.
+		\item Seja $\ex(n, H)$ o número máximo de arestas que um grafo $G$ com $n$ vértices pode ter de modo que não existam cópias de $H$ em $G$.
+	\end{itemize}
+
+	\section*{\textsf{Problemas}}
+
+
+\begin{prob}[Sperner, 1910's] \label{thm:sperner}
+	Se $\mathcal{S} \subset \mathcal P([n])$ é uma anti-cadeia, então $|\mathcal{S}| \le \binom{n}{n/2}$.
+\end{prob}
+
+
+\begin{sol}[of \nameref{thm:sperner}]
+	The example is $\binom{[n]}{n/2}$.
+
+	\begin{lem}[LYMB, 1960's]\label{lem:lymb}
+		If $\mathcal{S} \subset \mathcal P([n])$ is an anti-chain, then $\sum_{A \in \mathcal{S}} \frac{1}{\binom{n}{|A|}} \leq 1$.
+	\end{lem}
+
+	\begin{dem}[of \nameref{lem:lymb}]
+		Let's count the pairs $(\pi, A)$ such that $\pi$ is a permutation of $[n]$, $A \in \mathcal{S}$, and  $\{\pi(1), \pi(2), \dots, \pi(|A|)\} = A$.
+
+		For each $A \in \mathcal{S}$, the number of $\pi$ such that $\{\pi(1), \pi(2), \dots, \pi(|A|)\}$ is equal to $|A|!(n - |A|)!$.
+
+		For each $\pi$, the number of $A \in \mathcal{S}$ such that $\{\pi(1), \dots, \pi(|A|)\}$ is at most $1$, since $\mathcal{S}$ is an anti-chain.
+
+		Therefore, \[
+			\sum_{A \in \mathcal{S}} |A|!(n-|A|)! \le n!
+			\implies
+			\sum_{A \in \mathcal{S}} \frac{1}{\binom{n}{|A|}} \le 1.
+		\]
+	\end{dem}
+	We know that $\binom{n}{k} \le \binom{n}{n/2}$. Thus, by \nameref{lem:lymb}, \[
+		1 \ge \sum_{A\in \mathcal{S}} \frac{1}{\binom{n}{|A|}} \ge \sum_{A\in \mathcal{S}} \frac{1}{\binom{n}{n/2}} = \frac{|\mathcal{S}|}{\binom{n}{n/2}}
+	\]
+\end{sol}
+
+\begin{prob}
+	Suponha que $\mathcal{S} \subset \mathcal{P}([n])$ é intersectante. Prove que $|\mathcal{S}| \le 2^{n-1}$.
+\end{prob}
+
+\begin{sk}
+	The example is $\{A \in \mathcal{P}([n]) : 1 \in A\}$.
+	At most one of $(A, \overline{A})$ can be on $\mathcal{S}$. Therefore, $|\mathcal{S}| \le 2^{n-1}$.
+\end{sk}
+
+\begin{prob}[Erd\H{o}s-Ko-Rado, 1961]
+	Sejam $k$ e $n$ inteiros positivos tais que $k < \frac{n+1}{2}$.
+	Suponha que $\mathcal{S} \subset \binom{[n]}{k}$ é intersectante. Prove que $|\mathcal{S}| \le \binom{n-1}{k-1}$.
+\end{prob}
+
+\begin{sk}
+	O exemplo é $\{A \in \binom{[n]}{k} : 1 \in A\}$.
+
+	A ideia é contar os pares $(\pi, A)$ tais que $\pi$ é uma permutação cíclica, $A \in \mathcal{S}$, e $A = \{\pi(t+1), \pi(t+2), \dots, \pi(t+k)\}$, for some $t$.
+	Contando por $\pi$, a quantidade é no máximo $k (n-1)!$. Contando por $A$, a quantidade é exatamente $\left|S\right| k!(n-k)!$. Portanto, $|S| \leq \binom{k-1}{n-1}$.
+
+	Mais detalhes em \href{http://tcs.nju.edu.cn/wiki/index.php/Combinatorics_(Fall_2010)/Extremal_set_theory#Katona.27s_proof}{Department of Computer Science and Technology at Nanjing University}.
+\end{sk}
+
+\begin{prob}
+	Sejam $k$ e $r$ inteiros positivos. Todo inteiro positivo é pintado com uma de $r$ cores. Prove que existe uma progressão aritmética monocromática com $k$ termos.
+\end{prob}
+
+\begin{sol}
+	We will use induction on $k$. Note that $W(r, 1) = 1$.
+
+	We shall find $r$ color-focused $(k-1)$-arithmetic progressions.
+	\begin{lem}
+		There exists $n = n(s, r)$ such that, for every coloring $c\colon [n] \to [r]$, there exists a monochromatic $k$-arithmetic progression or $s$ color-focused $(k-1)$-arithmetic progressions.
+	\end{lem}
+	\begin{dem}
+		Induction on $s$. If $s = 1$, then $n(1, r) = W(r, k-1) < \infty$.
+
+		Suppose $s > 1$. Let $N = 2n(s-1, r)$. Consider $W(r^N, k-1) < \infty$ blocks of size $N$. There is an arithmetic progression of equally-colored blocks of size $k-1$, let $D$ be the distance of consecutive blocks in the arithmetic progression of blocks. Since the first half of the block has $n(s-1, r)$ elements, there exists a monochromatic $k$-arithmetic progression (which means we're done), or $s-1$ color-focused $(k-1)$-arithmetic progressions -- their focus $f$ surely lies inside the block of size $N$.
+
+		Let the $s-1$ color-focused $(k-1)$-arithmetic progressions in the first block be $PA_{k-1}(a_1, d_1)$, $\dots$, $PA_{k-1}(a_{s-1}, d_{s-1})$, with focus $f_1$. The proposed $s$ color-focused $(k-1)$-arithmetic progressions are $PA_{k-1}(a_1, d_1 + d), \dots, PA_{k-1}(a_{s-1}, d_{s-1} + d), PA_{k-1}(f_1, d)$.
+
+		Therefore,  \[
+			n(s, r) \le 2 \cdot W(r^{2n(s-1, r)}, k-1) \cdot 2n(s-1, r).
+		\]
+	\end{dem}
+
+	Therefore, for suitable large $n$, there must exist a large $k$-arithmetic progression.
+\end{sol}
+
+
+%\begin{prob}
+%	Em contrapartida ao problema anterior, prove que existe uma coloração com $2$ cores para a qual não existe uma progressão aritmética monocromática com infinitos termos.
+%\end{prob}
+
+%\begin{prob}
+%	Determine $\ex(n, K_3)$.
+%\end{prob}
+
+%\begin{prob}
+%	Mostre que $\ex(n, C_4) \leq \frac{n^{3/2}}{2}$.
+%\end{prob}
+
+%\begin{prob}
+%	Seja $T$ uma árvore com $k$ vértices. Mostre que $\frac{k-2}{2}n \leq \ex(n, T) \leq (k-1)n$.
+%
+%	\rem{Se for ajudar, você pode supor que $n$ é múltiplo de $d$, para um $d$ da sua escolha.}
+%\end{prob}
+
+\end{document}
