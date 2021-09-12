@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[problem-list]{zeus}
+
+\title{Treinamento de Velocidade}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{\href{mailto:zeusdanmou@gmail.com}{\texttt{zeusdanmou@gmail.com}}}
+\titlel{\includegraphics[width=3cm]{MM_logo_c}}
+\titler{10 de Setembro de 2021}
+
+\begin{document}	
+	%\twocolumn[\zeustitle]
+	\zeustitle
+
+	\problem{math/putnam/2013/b1}
+	\begin{sol}
+		\begin{align*}
+			\sum_{n=1}^{2013} c(n)c(n+2) &= \sum_{k=1}^{1006}c(2k)c(2k+2) + \sum_{k=0}^{1006}c(2k+1)c(2k+3) \\
+										 &= \sum_{k=1}^{1006}c(k)c(k+1) + \left( c(1)c(3) + \sum_{k=1}^{1006}(-1)^{k}c(k)(-1)^{k+1}c(k+1)\right) \\ 
+										 &= \sum_{k=1}^{1006}c(k)c(k+1) + c(1)c(3) - \sum_{k=1}^{1006}c(k)c(k+1) \\ 
+										 &= c(1)c(3)\\
+										 &= -1.
+		\end{align*}
+	\end{sol}
+
+	\newpage
+	\problem{math/putnam/2018/b3}
+	\begin{sol}
+		Let's enumerate the conditions:
+		\begin{enumerate}
+			\item[(1)] \(n \mid 2^n\).
+			\item[(2)] \(n - 1 \mid 2^n - 1\).
+			\item[(3)] \(n - 2 \mid 2^n - 2\).
+		\end{enumerate}
+
+		Condition (1) is equivalent to \(n\) being a power of \(2\). Let's write \(n = 2^k\). Then, conditions (2) and (3) are equivalent to:
+		\begin{enumerate}
+			\item[(2)] \(2^k - 1 \mid 2^{2^k} - 1\).
+			\item[(3)] \(2^{k-1} - 1 \mid 2^{2^k - 1} - 1\).
+		\end{enumerate}
+
+		\begin{lem}[Order]
+			Let \(m, i\) be positive integers. Then, \[m \mid i \iff 2^m - 1 \mid 2^i - 1.\]
+		\end{lem}
+		\begin{proof}
+		Since \(2^m \equiv 1 \pmod{2^m - 1}\), we conclude that if \(i \equiv j \pmod{m}\), then \(2^i - 1 \equiv 2^j - 1 \pmod{2^m - 1}\).
+		Futhermore, the integers \(2^0 - 1, 2^1 - 1, \dots, 2^{m-1} - 1\) are distinct integers between \(0\) and \(2^m - 2\), so they are in distict residue classes modulo  \(2^m - 1\). Therefore, \[
+			i \equiv j \pmod{m} \iff 2^i - 1 \equiv 2^j - 1 \pmod{2^m - 1},
+		\]
+		and in particular, the result follows from applying \(j = 0\).
+		\end{proof}
+
+		Applying the Lemma, conditions (2) and (3) are equivalent to:
+		\begin{enumerate}
+			\item[(2)] \(k \mid 2^k\).
+			\item[(3)] \(k - 1 \mid 2^k - 1\).
+		\end{enumerate}
+
+		These are the same conditions as (1) and (2) for \(n\)! (2) implies that \(k = 2^p\), and (3) implies that
+		\begin{enumerate}
+			\item[(3)] \(p \mid 2^p\),
+		\end{enumerate} 
+		thus \(p\) is a power of \(2\).
+		
+		Now, we just need to use the ``size'' condition.  \(2^{2^p} = 2^k = n < 10^{100} < 2^{334} < 2^{2^{9}}\), thus \(p < 9\), i.e.,  \(p = 1, 2, 4, 8\) are the possible values of \(p\). The  possible values of \(n\) are \(2^2, 2^{2^2}, 2^{2^4}, 2^{2^8}\).
+	\end{sol}
+
+	\newpage
+	\problem{math/hmmt/2021/team/6}
+	\begin{ans}
+		O número \(n\) funciona se, e somente se, \(n \equiv 1 \pmod{3}\), e \(n = 1\) ou \(n = p\) ou \(n = p^2\) para algum \(p\) primo.
+	\end{ans}
+	\begin{sol}
+		\begin{lem}
+			\(n \equiv 1 \pmod{3}\) é uma condição necessária.
+		\end{lem}
+		\begin{dem}
+			\(1\) é sempre um divisor positivo de \(n\), portanto \(3 = f(1) \mid f(n) = n^2 + n + 1\) é uma condição necessária. Porém, \(0^2 + 0 + 1 \not\equiv 0 \pmod{3}\) e \(2^2 + 2 + 1 \not\equiv 0 \pmod{3}\), portanto, \(n \equiv 1 \pmod{3}\) é uma condição necessária.
+		\end{dem}
+		\begin{lem}
+			\(n \equiv 1 \pmod{3}\), e
+			\(n = 1\) ou \(n = p\) ou \(n = p^2\) 
+			para algum \(p\) primo é uma condição suficiente.
+		\end{lem}
+		\begin{dem} Vamos dividir nos casos:
+			\begin{enumerate}[label = \textit{\roman*}.]
+				\item \(n = 1\).
+					
+					Basta checar que, para \(k = 1\), \(f(1) \mid f(1)\).
+
+				\item \(n = p \equiv {1} \pmod{3}\), com \(p\) primo.
+
+					Para \(k = 1\), como \(f(1) = 3\), \(p^2 + p + 1 \equiv 0 \pmod{3}\).
+					Para \(k = p\), com certeza \(f(p) \mid f(p)\). 
+
+				\item \(n = p^2\), com \(p\) primo \( \neq 3\).
+
+					Para \(k = 1\), como \(f(1) = 3\), \(p^4 + p^2 + 1 \equiv 0 \pmod{3}\).
+					Para \(k = p\), note que \(f(p) = p^2 + p + 1 \mid (p^2 + p + 1)(p^2 - p + 1) = p^4 + p + 1 = f(p^2)\).
+					Para \(k = p^2\), com certeza \(f(p^2) \mid f(p^2)\).
+			\end{enumerate}
+		\end{dem}
+
+		\begin{lem}
+			Se \(n = ab\), para inteiros positivos \(a > b > 1\), então \(n\) não funciona.
+			Equivalentemente, \(n = 1\) ou \(n = p\) ou \(n = p^2\) para algum \(p\) primo é uma condição necessária.
+		\end{lem}
+		\begin{dem}
+			Suponha que \(n = ab\), com \(a > b > 1\), funciona. Logo,
+			\(f(a) = a^2 + a + 1\) divide \(a^2b^2 + ab + 1 = f(b)\). Portanto, \(a^2 + a + 1\) divide
+			\begin{equation*}
+				\frac{(a^2b^2 + ab + 1) - (a^2 + a + 1)}{a} - b^2(a^2 + a + 1) + (a^2b^2 + ab + 1) = (a-b)(b-1).
+			\end{equation*}
+
+			Finalmente, \(0 < (a-b)(b-1) < a^2 < a^2 + a + 1\), uma contradição.
+		\end{dem}
+
+	\end{sol}
+
+\end{document}
