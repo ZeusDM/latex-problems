@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage{euler}
+\usepackage[left=2.5cm, right=2.5cm, top=2cm, bottom=2.5cm]{geometry}
+
+\usepackage{zeus}
+\usepackage{xcolor}
+
+\setlength{\columnsep}{1em}
+
+\title{Problemas da KöMaL (Setembro, 2019)}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{\href{https://guilhermezeus.com}{\texttt{guilhermezeus.com}}}
+\titlel{\includegraphics[width=3cm]{MM_logo_c}}
+\titler{08 de Novembro de 2021}
+
+\declaretheoremstyle[
+	spaceabove = \topsep, spacebelow=\topsep,
+	headfont = \sffamily\bfseries\normalsize\color{green!50!blue},
+	notefont = \bfseries\normalsize, notebraces={(}{) },
+	bodyfont = \normalfont,
+	postheadspace = 0pt,
+	headindent=0pt,
+	headpunct = ,
+	headformat = {\NAME\NUMBER.\ \NOTE} % Optional theorem note
+	]{wonamestylealt}
+\theoremstyle{wonamestylealt}
+\newtheorem{probc}{C}
+\newtheorem{probb}{B}
+\newtheorem{proba}{A}
+
+\begin{document}	
+	\twocolumn[
+	\zeustitle
+
+	\begin{quote}
+		\textbf{Instruções.}
+		A aula de hoje será focada em apresentações individuais (ou em pequenos grupos).
+		Ao resolver ou ter avanços em um problema que você considerou desafiador, você deve anunciar que resolveu o problema (ou que avançou no problema), e eu indicarei um tempo (entre 2 e 10 minutos) para que você e outros alunos preparem-se para a sua apresentação.
+		Depois desse tempo, você apresentará sua solução (ou avanços), e a discussão acontecerá como de costume.
+	\end{quote}
+	\hrule\vspace{1ex}
+	]
+
+	\sloppy
+	\setcounter{probc}{1552}
+	\begin{probc}
+		Determine o termo constante da expressão \[
+			\left(x^{12} + \frac{1}{x^{18}}\right)^{25}.
+		\]
+	\end{probc}
+
+	\begin{probc}
+		Um lado de um retângulo é \(\frac{1+\sqrt{5}}{2}\) vezes maior que o outro lado. O retângulo é recortado e rearranjado para formar um quadrado de mesma área. Qual é a razão entre a diagonal do retângulo e a diagonal do quadrado? 
+	\end{probc}
+
+	\begin{probc}
+		Ache todas as triplas primos \(p, q, r\) para os quais \[
+			p + q^2 = 4r^2.
+		\]
+	\end{probc}
+
+	\begin{probc}
+		A bissetriz interior relativa ao vértice \(C\) do triângulo \(ABC\) intersecta o lado oposto no lado \(P\). A distância de \(P\) aos outros lados é \(\frac{24}{11}\), e \(AC = 6\), \(BC = 5\). Ache o tamanho do segmento \(AB\).
+	\end{probc}
+
+	\begin{probc}
+		Dois números são selecionados aleatoriamente (e de maneira uniforme) do conjunto de inteiros com dois dígitos. Qual é a probabilidade que eles tenham um dígito em comum?
+	\end{probc}
+
+	\begin{probc}
+		Dependendo do valor do parâmetro \(a\), quantos pontos a circunferência \(x^2 + y^2 = 1\) e a parábola \(y = ax^2 - 1\) vão ter em comum?
+	\end{probc}
+
+	\begin{probc}
+		A base de um tetraedro é um triângulo regular, e suas três faces laterais são desacopladas da base, e então desdobradas e planificadas para formar um trapézio com lados \(10\), \(10\), \(10\) e \(14\). Ache a soma das medidas de todos os lados do tetraedro, e ache também a área de sua superfície.
+	\end{probc}
+
+	\setcounter{probb}{5037}
+	\begin{probb}
+		Seja \(P\) um ponto no interior de um octógono regular \(ABCDEFGH\). Mostre que a soma das áreas dos triângulos \(ABP\), \(CDP\), \(EFP\) e \(GHP\) é igual à soma das áreas dos triângulos \(BCP\), \(DEP\), \(FGP\) e \(HAP\).
+	\end{probb}
+
+	\begin{probb}
+		Em cada casa de um tabuleiro \(2019 \times 2019\), está escrito \((+1)\) ou \((-1)\). Se a soma de cada linha e cada coluna for calculada, qual é o máximo de números distintos que podem ser obtidos?
+	\end{probb}
+
+	\begin{probb}
+		Em um quadrado \(ABCD\), seja \(F\) um ponto no segmento \(AB\), e seja \(E\) um ponto no segmento \(AD\). Trace a perpendicular à reta \(CE\) no ponto \(E\), e a perpendicular à reta \(CF\) no ponto \(F\). Seja \(M\) a intersecção dessas perpendiculares. Sabendo que a área do triângulo \(CEF\) é metade da área do pentágono \(BCDEF\), prove que \(M\) pertence a diagonal \(AC\) do quadrado.
+	\end{probb}
+
+	\begin{probb}
+		Um número real está escrito em cada casa de um tabuleiro \(n \times n\). Um tabuleiro é \emph{nulo} se a soma dos números em todo subtabuleiro \(2 \times 2\) é zero. Por exemplo, para \(n = 3\), o seguinte tabuleiro é nulo.
+		\begin{center}
+			\begin{tabular}{rrr}
+				\(2\) & \(-3\) & \(4\) \\
+				\(-4\) & \(5\) & \(-6 \) \\
+				\(1\) & \(-2\) & \(3\) 
+			\end{tabular}
+		\end{center}
+
+		Qual é o maior \(n\) para o qual existe um tabuleiro nulo \(n \times n\) tal que nem todas as entradas sejam zero?
+	\end{probb}
+
+	\begin{probb}
+		O quadrilátero convexo \(ABCD\) não é um trapézio, e as diagonais \(AC\) e \(BD\) possuem mesma medida. Seja \(M\) a intersecção das diagonais. Mostre que a outra intersecção (diferente de \(M\)) das circunferências \(ABM\) e \(CDM\) pertence à bissetriz de \(\angle BMC\).
+	\end{probb}
+
+	\begin{probb}
+		Prove que o conjunto \(\{1,\allowbreak 2,\allowbreak 3,\allowbreak 4,\allowbreak 5,\allowbreak 6,\allowbreak 7,\allowbreak 8,\allowbreak 9,\allowbreak 10,\allowbreak 11,\allowbreak 12,\allowbreak 13\}\) possui uma quantidade ímpar de subconjuntos não vazios tais que a média aritimética dos elementos é um número inteiro.
+	\end{probb}
+
+	\begin{probb}
+		Seja \(ABC\) um triângulo, e sejam \(D\), \(E\) pontos nos segmentos \(AB\), \(AC\), respectivamente. A intersecção dos segmentos \(BE\) e \(CD\) é \(M\). Seja \(x\) a área do triângulo \(BCM\), e seja \(y\) a área do triângulo \(EDM\). Prove que a área do triângulo \(ABC\) é maior ou igual a \[
+			x \frac{\sqrt{x} + \sqrt{y}}{\sqrt{x} - \sqrt{y}}.
+		\]
+	\end{probb}
+
+	\begin{probb}
+		Para quais inteiros positivos \(n\) existe uma permutação \(a_1, a_2, \dots, a_n\) dos primeiros  \(n\) inteiros positivos de modo que \(a_1 + 1, a_2 + 2, \dots, a_n + n\) sejam todos potências perfeitas? (Um número é uma potência perfeita se pode ser representado da forma \(a^b\), com \(a, b \geq 2\) inteiros.)
+	\end{probb}
+
+	\setcounter{proba}{754}
+
+	\begin{proba}
+		Prove that every polygon that has a center of symmetry can be dissected into a square such that it is divided into finitely many polygonal pieces, and all the pieces can only be translated. (In other words, the original polygon can be divided into polygons $A_{1}, A_{2}, \ldots, A_{n}$, a square can be divided into polygons a $B_{1}, B_{2}, \ldots, B_{n}$ such that for $1 \leq i \leq n$ polygon $B_{i}$ is a translated copy of polygon $A_{i}$.)
+	\end{proba}
+
+	\newpage
+	\begin{proba}
+		Determine todas as funções $f: \mathbb{R} \rightarrow \mathbb{R}$ tais que
+		\[f(x+1)=f(x)+1\] para todo \(x \in \mathbb{R}\); e
+		\[f\left(x^{2}\right)=(f(x))^{2}\] para todo \(x \in \mathbb{R}\).
+	\end{proba}
+
+	\begin{proba}
+		For every $n$ non-negative integer let $S(n)$ denote a subset of the positive integers, for which $i$ is an element of $S(n)$ if and only if the $i$-th digit (from the right) in the base two representation of $n$ is a digit $1 .$
+
+		Two players, $A$ and $B$ play the following game: first, $A$ chooses a positive integer $k$, then $B$ chooses a positive integer $n$ for which $2^{n} \geq k$. Let $X$ denote the set of integers $\left\{0,1, \ldots, 2^{n}-1\right\}$, let $Y$ denote the set of integers $\left\{0,1, \ldots, 2^{n+1}-1\right\} .$ The game consists of $k$ rounds, and in each round player $A$ chooses an element of set $X$ or $Y$ then player $B$ chooses an element from the other set. For $1 \leq i \leq k$ let $x_{i}$ denote the element chosen from set $X$, let $y_{i}$ denote the element chosen from set $Y$.
+
+		Player $B$ wins the game, if for every $1 \leq i \leq k$ and $1 \leq j \leq k x_{i}<x_{j}$ if and only if $y_{i}<y_{j}$ and $S\left(x_{i}\right) \subset S\left(x_{j}\right)$ if and only if $S\left(y_{i}\right) \subset S\left(y_{j}\right)$.
+
+		Which player has a winning strategy?
+	\end{proba}
+
+
+\end{document}

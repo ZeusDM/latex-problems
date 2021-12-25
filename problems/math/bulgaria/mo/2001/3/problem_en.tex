@@ -1,0 +1,6 @@
+Given a permutation $(a_{1}, a_{1}, \dots, a_{n})$ of the numbers $1, 2, \dots, n$ one may interchange any two consecutive ``blocks''' -- that is, one may transform
+\[(a_{1}, a_{2},\dots,a_{i}, \underbrace {a_{i+1},\dots a_{i+p},}_{A} \underbrace{a_{i+p+1},\dots,a_{i+q},}_{B}\dots,a_{n})\]
+into
+\[(a_{1}, a_{2},\dots,a_{i}, \underbrace {a_{i+p+1},\dots,a_{i+q},}_{B} \underbrace {a_{i+1},\dots a_{i+p}}_{A}, \dots,a_{n}) \]
+by interchanging the ``blocks'' $A$ and $B$.
+Find the least number of such changes which are needed to transform $(n, n-1,\dots,1)$ into $(1,2,\dots,n)$.

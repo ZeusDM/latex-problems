@@ -1,0 +1,132 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm,
+			right=1.5cm,
+			top=2cm,
+			bottom=1.5cm,
+			headheight=3ex,
+			headsep=2ex]{geometry}
+
+\usepackage[contest]{zeus}
+
+\usepackage{fancyhdr}
+ 
+\newcommand{\ano}{2021}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \ano}
+\chead{\bfseries Olimpíada Búlgara de Matemática}
+\lhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\contest}[1]{
+	\def\ano{#1}
+	\setcounter{prob}{0}
+	\begin{center}
+		\textcolor{black}{\textbf{Primeiro Dia}}
+	\end{center}
+
+	\problem*{math/bulgaria/mo/#1/1}
+	\problem*{math/bulgaria/mo/#1/2}
+	\problem*{math/bulgaria/mo/#1/3}
+
+	\begin{center}
+		\rule{\textwidth}{.3pt}
+
+		\vspace{1ex}\textcolor{black}{\textbf{Segundo Dia}}
+	\end{center}
+
+	\problem*{math/bulgaria/mo/#1/4}
+	\problem*{math/bulgaria/mo/#1/5}
+	\problem*{math/bulgaria/mo/#1/6}
+		
+	\newpage
+}
+
+\newcommand{\oldcontest}[1]{
+	\def\ano{#1}
+	\setcounter{prob}{0}
+
+	\problem*{math/bulgaria/mo/#1/1}
+	\problem*{math/bulgaria/mo/#1/2}
+	\problem*{math/bulgaria/mo/#1/3}
+	\problem*{math/bulgaria/mo/#1/4}
+	\newpage
+}
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+\begin{document}
+
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
+
+%------OBM's-------%
+
+\contest{2021}
+\contest{2020}
+\contest{2019}
+\contest{2018}
+\contest{2017}
+\contest{2016}
+\contest{2015}
+\contest{2014}
+\contest{2013}
+\contest{2012}
+\contest{2011}
+\contest{2010}
+\contest{2009}
+\contest{2008}
+\contest{2007}
+\contest{2006}
+\contest{2005}
+\contest{2004}
+\contest{2003}
+\contest{2002}
+\contest{2001}
+\contest{2000}
+\contest{1999}
+\contest{1998}
+\contest{1997}
+\contest{1996}
+\contest{1992}
+\contest{1991}
+\contest{1990}
+\contest{1989}
+\contest{1988}
+\contest{1987}
+\contest{1986}
+\contest{1985}
+\contest{1984}
+\contest{1983}
+\contest{1982}
+\contest{1981}
+\contest{1980}
+\contest{1979}
+\contest{1978}
+\contest{1977}
+\contest{1976}
+\contest{1975}
+\contest{1974}
+\contest{1973}
+\contest{1972}
+\contest{1971}
+\contest{1970}
+\contest{1969}
+\contest{1968}
+\oldcontest{1967}
+\oldcontest{1966}
+\oldcontest{1965}
+\oldcontest{1964}
+
+
+\end{document}

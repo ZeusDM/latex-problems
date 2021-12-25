@@ -1,0 +1,72 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[hide, problem-list]{zeus}
+
+\setlength{\columnsep}{4em}
+
+\title{Problemas Sortidos}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{\href{mailto:zeusdanmou@gmail.com}{\texttt{zeusdanmou@gmail.com}}}
+\titlel{\includegraphics[width=3cm]{MM_logo_c}}
+\titler{10 de Setembro de 2021}
+
+\begin{document}	
+	\twocolumn[\zeustitle]
+	%\zeustitle
+
+	\sloppy
+
+	\begin{prob}%[MODS 2019-10, P1]
+	A positive integer is called \emph{square-free} if it is not a multiple of any square other than 1. George and his \(n\) friends sit around a table. George thinks of a positive integer \(k>1\) and writes it on the blackboard. The person to his left then divides the number on the blackboard by a square-free number to obtain another positive integer \(k_1 < k\), and replaces \(k\) with \(k_1\) on the blackboard. The process repeats with each person in succession, going clockwise around the table, generating positive integers \(k_1 > k_2 > k_3 > \cdots\) and so on. The first person to write 1 on the blackboard wins.  Prove that for any value of \(n\), George can always think of a positive integer \(k\) such that he is guaranteed to win. 
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-10, P2]
+	Let \(\mathbb{Q}\) denote the set of rational numbers. Find all functions \(f : \mathbb{Q} \rightarrow \mathbb{Q}\) such that for all rational \(a\) and \(b\), \[f(a)f(b) = f(a+b).\]
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-05, P1]
+	Find all positive integers \(a\) and \(b\) such that \(a^2  + 2b^2\) is a power of 2.
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-10, P3]
+	Do there exist points \(A\), \(B\), \(C\), \(D\), \(E\), \(F\), \(G\), \(H\), \(I\), \(J\), \(K\), \(L\), \(M\), \(N\), \(O\), \(P\), \(Q\), \(R\), \(S\), \(T\), \(U\), \(V\), \(W\), \(X\), \(Y\), and \(Z\) in the Euclidean plane, not all the same, such that \(ABCD\), \(EFGH\), \(IJKL\), \(MNOP\), \(QRST\), \(UVWX\), \(YZAB\), \(CDEF\), \(GHIJ\), \(KLMN\), \(OPQR\), \(STUV\), and \(WXYZ\) are all squares?  (Note that the vertices of a square do not necessarily have to be in order, so that if \(ABCD\) is a square then so is \(ACBD\).)
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-05, P2]
+	Let \(\mathbb{R}\) denote the set of real numbers. Find all functions \(f:\mathbb{R} \to \mathbb{R}\) such that for all real numbers \(x\) and \(y\), \[f(x f(x) + f(y)) = x f(x + y).\]
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-06, P1]
+		Let \(n\) be a given positive integer. Find the minimum \(m\) such that for all real sequences \(x_1\), \(x_2, \dots, x_n\) there exists a real number \(y\) such that \[\langle y - x_1 \rangle + \langle y - x_2 \rangle + \dots + \langle y - x_n \rangle \leq m,\] where \(\langle x \rangle = x - \lfloor x \rfloor\) is the difference between \(x\) and the greatest integer less than or equal to \(x\).
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-10, P4]
+	Let \(ABC\) be a triangle and denote by \(M\) the midpoint of \(BC\). Suppose \(X\) is the point on the perimeter of \(ABC\) such that \(MX\) bisects the perimeter of \(ABC\). Show that \(MX\) is parallel to the internal angle bisector of \(\angle BAC\).
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-05, P3]
+	Let \(n\) and \(k\) be given positive integers.  Find the number of \(k\)-tuples \((S_1, S_2, \dots, S_k)\) of sets \(S_i\) such that \(S_i \subseteq \{1, 2, \dots, n\}\) and \(S_1 \subseteq S_2 \supseteq S_3 \subseteq S_4 \supseteq S_5 \subseteq \cdots S_k\).
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-06, P2]
+	Sharky has a collection of \(2^n\) strips of \(n \times 1\) strips of paper, with each strip divided into \(n\) unit squares. Each square on a strip is coloured black or white such that every strip is unique. Find the smallest \(m\) such that for any \(m\) strips, Sharky can choose \(n\) of these strips and arrange them (without flipping any of the strips) into a \(n \times n\) square grid with the property that a main diagonal is monochromatic.
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-05, P4]
+	Let $\Gamma$ be the circumcircle of $\triangle ABC$. \(O\) lies on the internal angle bisector of \(\angle BAC\) such that a circle centred at $O$ is tangent to the segment $BC$ at $P$ and the arc $BC$ of $\Gamma$ without $A$ at $Q$. Prove that $\angle PAO = \angle QAO$.
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-06, P3]
+	Let \(ABC\) be a triangle with circumcentre \(O\), and let \(P\) be a point on \(BC\) distinct from \(B\) and \(C\). Construct \(X\) and \(Y\) on \(AB\) and \(AC\) respectively such that \(XB = XP\) and \(YP = YC\). Prove that \(AXOY\) is cyclic.
+	\end{prob}
+
+	\begin{prob}%[MODS 2019-06, P4]
+	Prove that for all Pythagorean triples \(A\) and \(B\) there exists a finite sequence of Pythagorean triples starting with \(A\) and ending with \(B\) such that any two consecutive triples share at least one number.
+
+ (A \emph{Pythagorean triple} is a triple of positive integers \((a, b, c)\) such that \(a\), \(b\), and \(c\) are the side lengths of a right-angled triangle.)
+	\end{prob}
+\end{document}

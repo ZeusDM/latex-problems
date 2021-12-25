@@ -1,0 +1,201 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage{euler}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{parskip}
+
+\usepackage[problem-list]{zeus}
+
+\setlength{\columnsep}{4em}
+
+\title{Treinamento de Velocidade --- Live}
+\author{Guilherme Zeus Dantas e Moura}
+\mail{\href{https://guilhermezeus.com}{\texttt{guilhermezeus.com}}}
+\titlel{\includegraphics[width=3cm]{MM_logo_c}}
+\titler{24 de Novembro de 2021}
+
+\begin{document}	
+	%\twocolumn[\zeustitle]
+	\zeustitle
+
+	\problem{math/korea/junior/2021/2}
+	\begin{sk}
+		A resposta é \(0\). Defina \[
+			S_k = a_1 - a_2 + a_3 - a_4 + \dots + (-1)^{k_1} a_k,
+		\]
+		e \(b_k = \frac{S_k}{k}\).
+
+		Note que \(a_{k+1}\) é o único número tal que \(0 \leq a_{k+1} \leq k\) e \(S_k + (-1)^{k}a_{k+1} \equiv 0 \pmod{k+1}\).
+		Isso é equivalente a \(a_{k+1} = (-1)^{k}b_k \pmod{k+1}\).
+
+		Para \(k \geq 2021^{2021}\), dá pra cotar  \(-k < b_l < k\).
+
+		\begin{itemize}
+			\item \underline{Se \(k\) é par,} concluímos que
+				\[
+					a_{k+1} =
+					\begin{cases}
+						(b_k) & b_k \geq 0 \\
+						(b_k + k + 1) & b_k < 0.
+					\end{cases}
+				\]
+				Logo, \[
+					(k+1)b_{k+1} = S_{k+1} = S_{k} + (-1)^{k} a_{k+1} =
+					\begin{cases}
+						(k+1)b_k & b_k \geq 0 \\
+						(k+1)(b_k+1) & b_k < 0,
+					\end{cases}
+				\]
+				ou seja, \[
+					b_{k+1} =
+					\begin{cases}
+						b_k & b_k \geq 0 \\
+						b_k + 1 & b_k < 0.
+					\end{cases}
+				\]
+
+			\item \underline{Se \(k\) é ímpar,} concluímos que
+				\[
+					a_{k+1} =
+					\begin{cases}
+						-b_k + k + 1 & b_k > 0 \\
+						-b_k & b_k \leq 0.
+					\end{cases}
+				\]
+				Logo, \[
+					(k+1)b_{k+1} = S_{k+1} = S_{k} + (-1)^{k} a_{k+1} =
+					\begin{cases}
+						(k+1)(b_k-1) & b_k > 0 \\
+						(k+1)(b_k) & b_k \leq 0,
+					\end{cases}
+				\]
+				ou seja, \[
+					b_{k+1} =
+					\begin{cases}
+						b_k - 1 & b_k > 0 \\
+						b_k & b_k \leq 0.
+					\end{cases}
+				\]
+		\end{itemize}
+
+		Seja \(N = 2021^{2021}\).
+		Seja \(k \geq N\) qualquer.
+		Portanto, concluímos que, se \(b_k \neq 0\), então \(|b_{k + 2}| = |b_{k}| - 1\); e, se \(b_k = 0\), então \(b_{k+1} = 0\).
+		Como \(b_{N} < N\), isso implica que \(b_{3N} = 0\), que finalmente implicará que \(S_k = b_{k} = a_{k} = 0\) para todo \(k > 3N\). 
+	\end{sk}
+	\problem{math/korea/junior/2021/4}
+	\begin{sol}
+		Seja \(E\) a intersecção de \(BC\) e \(AD\).
+		\begin{align*}
+			\text{\(K\), \(B\), \(D\) são colineares}
+			&\iff \angle ABK = 180^\circ - \angle DBA \\
+			&\iff \angle APK = \angle ACD \\
+			&\iff \angle APK = \angle ACB + \angle BCD \\
+			&\iff \angle APK = \angle ACE + \angle BAD \\
+			&\iff \angle APK = \angle ACE + \angle DAC \\
+			&\iff \angle APK = \angle ACE + \angle EAC \\
+			&\iff \angle APK = \angle AEB \\
+			&\iff \angle APC = \angle AEC \\
+			&\iff \text{\(APEC\) é cíclico.}
+		\end{align*}
+	\end{sol}
+	\problem{math/korea/junior/2021/5}
+	\begin{sol}
+		Jogando \((x, y) \mapsto (x, 0)\) na equação original, temos que \(f(0) = 0\).
+
+		Observe que, se \(f\) é solução, então \(-f\) também é solução, pois a equação original com \((x, y) \mapsto (x, -y)\) implica \[
+			(-f)((-f)(x+y) - (-f)(x - y)) = y^2 (-f)(x).
+		\]
+
+		A função identicamente nula funciona. Suponha que \(f\) não é a função identicamente nula. Portanto, existe \(c\) tal que \(f(c) \neq 0\). Temos que \(c \neq 0\), pois \(f(0) = 0\). Pela observação do parágrafo anterior, podemos supor, sem perda de generalidade, que \(f(c) > 0\).
+
+		Seja \(y \geq 0\) qualquer real não-negativo. Defina \(z_y = \sqrt{\frac{y}{f(c)}}\). Jogando \((x, y) \mapsto (c, z_y)\) na equação original, temos que \[
+			f(f(c+z_y) - f(c-z_y)) = y,
+		\] portanto, \(y\) está na imagem de \(f\).
+
+		Defina por \(w_y\) o número tal que \(f(2w_y) = y\), que existe, como vimos acima. Jogando \((x, y) \mapsto (w_y, w_y)\) e \((x, y) \mapsto (w_y, -w_y)\) na equação original, temos que
+		\begin{align*}
+			f(y) = f(f(2w_y)) &= w_y^2f(w_y) \\
+							  &= (-w_y)^2f(w_y) = f(-f(2w_y)) = f(-y),
+		\end{align*}
+		para todo \(y \geq 0\).
+
+		Portanto, trocando \(y \mapsto -y\) caso \(y\) seja negativo, concluímos que \[
+			f(y) = f(-y)
+		\] para todo \(y\) real; ou seja, \(f\) é uma função par.
+
+		Finalmente, jogando \((x, y) \mapsto (x, c)\) e \((x, y) \mapsto (c, x)\) na equação original, concluímos que 
+		\begin{align*}
+			c^2f(x) &= f(f(x+c) - f(x-c)) \\
+					&= f(f(c+x) - f(c-x)) = x^2f(c),
+		\end{align*}
+		para todo \(x\) real, e portanto, \[
+			f(x) = \frac{f(c)}{c^2}x^2.
+		\]
+
+		Basta testarmos a função \(f(x) = kx^2\), para uma constante \(k\). Concluímos que \(k = 0\), \(k = 1/4\) ou \(k = -1/4\), e portanto, as funções que satisfazem o enunciado são \[
+			f(x) = \frac{-x^2}{4}, \quad f(x) = 0, \quad f(x) = \frac{x^2}{4}.
+		\]
+	\end{sol}
+	\problem{math/hmic/2021/1}
+	\begin{sol}
+		Seja \(n = 2021\) e \(k = 1000\). A resposta é \(k(n-k)\).
+
+		Cada pessoa possui um contador de passos orientados.
+		Cada vez em que uma pessoa é movimentada no sentido anti-horário, seu contador de passos aumenta em \(1\).
+		Cada vez em que uma pessoa é movimentada no sentido horário, seu contador de passos diminui em \(1\).
+		Seja \(p_i\) o valor do contador de passos da pessoa \(i\).
+
+		Em cada operação, uma pessoa é movimentada no sentido anti-horário; e outra é movimentada no sentido horário.
+		Portanto, \(\sum p_i\) é constante em qualquer momento; isto é \(\sum p_i = 0\).
+		Note também que, em cada operação, \(\sum |p_i|\) aumenta em no máximo  \(2\) unidades.
+
+		Suponha que, após \(M\) movimentos, cada pessoa se encontra \(k\) posições no sentido horário de onde começou.
+		Isso implica que, para cada pessoa \(i\), \[
+			p_i \equiv k \pmod{n},
+		\] ou seja, \[
+			p_i \in \{\dots, k-2n, k-n, k, k+n, \dots \}.
+		\]
+
+		Como \(M\) movimentos foram feitos, concluímos que \(\sum |p_i| \leq 2M\).
+		Sejam \[ \mathcal P = \{i : f(i) \geq 0\} \qquad \text{and} \qquad \mathcal N = \{i : f(i) < 0\}.  \]
+		Portanto,
+		\begin{align*}
+			0 &= \sum_{i \in \{1, \dots, n\}} p_i \\
+			  &= \sum_{i \in \mathcal P} p_i   + \sum_{i \in \mathcal N} p_i   \\
+			  &= \sum_{i \in \mathcal P} |p_i| - \sum_{i \in \mathcal N} |p_i|.
+		\end{align*}
+
+		Seja \(X = \sum_{i \in \mathcal P} |p_i| = \sum_{i \in \mathcal N} |p_i|\).
+		Note que \(X = \sum_{i \in \mathcal P} |p_i| \geq |\mathcal P| \cdot k\) e \(X = \sum_{i \in \mathcal N} |p_i| \geq |\mathcal N| (n-k)\).
+		Portanto,
+		\begin{align*}
+		2M \geq	\sum_{i \in \{1, \dots, n\}} |p_i|
+			&= \sum_{i \in \mathcal P} |p_i| + \sum_{i \in \mathcal N} |p_i| \\
+			&= 2X \\
+			&= 2\left(\frac{kX + (n-k)X}{n}\right) \\
+			&\geq 2\left(\frac{k(n-k)|\mathcal N| + (n-k)k|\mathcal P|}{n}\right) \\
+			&= 2k(n-k)\frac{|\mathcal P| + |\mathcal N|}{n} = 2k(n-k),
+		\end{align*}
+		ou seja, o número de movimentos é maior ou igual a \(k(n-k)\).
+
+		Tal número é atingível com a seguinte sequências de movimentos:
+		\begin{itemize}
+			\item[\(0\).] No início, estão todos em fila: \[
+					1, 2, 3, \dots, k, k+1, k+2, k+3, \dots, n
+			\]
+		\item[\(1\).] Faça \(k\) movimentos, trocando o \(k+1\) com \(k\), então trocando \(k+1\) com \(k-1\), e assim por diante, até trocar \(k+1\) com \(1\). Teremos, então, a seguinte sequência: \[
+			k+1, 1, 2, \dots, k-1, k, k+2, k + 3, \dots, n
+		\]
+		\item[\(2\).] Faça outros \(k\) movimentos, trocando o \(k+2\) com \(k\), então trocando \(k+2\) com \(k-1\), e assim por diante, até trocar \(k+2\) com \(1\). Teremos, então, a seguinte sequência: \[
+			k+1, k+2, 1, \dots, k-2, k-1, k, k+3, \dots, n
+		\]
+		\item[\(\vdots\)]
+		\item[\(n-k\).] Por fim, faça outros \(k\) movimentos, trocando o \(n\) com \(k\), então trocando \(n\) com \(k-1\), e assim por diante, até trocar \(n\) com \(1\). Teremos, então, a seguinte sequência: \[
+			k+1, k+2, \dots, n-1, n, 1, 2, \dots, k
+		\]
+		\end{itemize}
+	\end{sol}
+\end{document}

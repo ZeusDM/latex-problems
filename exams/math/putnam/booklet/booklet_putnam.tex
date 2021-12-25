@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[brazilian]{babel}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+
+\usepackage[obmtwo]{zeus}
+
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{multirow}
+ 
+\newcommand{\ano}{2018}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\bfseries \textcolor{black}{\ano}}
+\chead{\bfseries \textcolor{black}{Putnam}}
+\lhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+ 
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\contest}[1]{
+	\setcounter{prob}{0}
+	\def\ano{#1}
+	\begin{center}
+		\bfseries Session A 
+	\end{center}
+	\problem*{math/putnam/#1/a1}
+	\problem*{math/putnam/#1/a2}
+	\problem*{math/putnam/#1/a3}
+	\problem*{math/putnam/#1/a4}
+	\problem*{math/putnam/#1/a5}
+	\problem*{math/putnam/#1/a6}
+
+	\newpage
+	\setcounter{prob}{0}
+	\begin{center}
+		\bfseries Session B
+	\end{center}
+	\problem*{math/putnam/#1/b1}
+	\problem*{math/putnam/#1/b2}
+	\problem*{math/putnam/#1/b3}
+	\problem*{math/putnam/#1/b4}
+	\problem*{math/putnam/#1/b5}
+	\problem*{math/putnam/#1/b6}
+		
+	\newpage
+}
+
+
+%\renewcommand{\playerA}[1]{Guilherme}
+%\renewcommand{\playerB}[1]{Zeus}
+
+%\def\primaryLanguage{en}
+
+\begin{document}
+
+\thispagestyle{empty}
+\input{titlepage.tex}\newpage
+
+\contest{2021}
+\contest{2020}
+\contest{2019}
+\contest{2018}
+\contest{2017}
+\contest{2016}
+\contest{2015}
+\contest{2014}
+\contest{2013}
+\contest{2012}
+\contest{2011}
+\contest{2010}
+\contest{2009}
+\contest{2008}
+\contest{2007}
+\contest{2006}
+\contest{2005}
+\contest{2004}
+\contest{2003}
+\contest{2002}
+\contest{2001}
+\contest{2000}
+\contest{1999}
+\contest{1998}
+\contest{1997}
+\contest{1996}
+\contest{1995}
+\contest{1994}
+\contest{1993}
+\contest{1992}
+\contest{1991}
+\contest{1990}
+\contest{1989}
+\contest{1988}
+\contest{1987}
+\contest{1986}
+\contest{1985}
+
+\end{document}
