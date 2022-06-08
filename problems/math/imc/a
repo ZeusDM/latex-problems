@@ -1,4 +1,28 @@
-for i in {2018..2021};
+for i in {1994..2008};
+do
+    mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "IMC $i" >> $i/source_pt.tex
+    echo "IMC $i" >> $i/source_en.tex
+	for j in {1..12}
+	do
+		mkdir $i/$j
+	done
+done
+for i in {2009..2019};
+do
+    mkdir $i
+    rm $i/source_pt.tex
+    rm $i/source_en.tex
+    echo "IMC $i" >> $i/source_pt.tex
+    echo "IMC $i" >> $i/source_en.tex
+	for j in {1..10}
+	do
+		mkdir $i/$j
+	done
+done
+for i in {2020..2021};
 do
     mkdir $i
     rm $i/source_pt.tex
